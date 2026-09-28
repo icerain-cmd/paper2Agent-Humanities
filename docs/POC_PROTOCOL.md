@@ -84,7 +84,7 @@ citations is still required.
 Prefer Candidate B as the reproducible primary-text control. Keep Candidate A as a Korean comparison
 text only after translation/rights status is confirmed. No Benjamin paper was ingested in Phase 1.
 
-`BENJAMIN_AGENT=PENDING_SOURCE_APPROVAL`.
+`BENJAMIN_AGENT=PENDING_SOURCE_APPROVAL` (historical Phase-1/1.5 status; superseded by explicit approval and separate V2/V3 agents on 2026-09-28).
 
 Cross-paper Issue Detection and Research Question Novelty remain unscored until source approval. Phase 1.5 adds a separate `BLIND_ADVERSARIAL_PANEL`; its behavioral metrics must never be conflated with these curated-fixture checks.
 
