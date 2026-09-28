@@ -83,7 +83,7 @@ def main() -> int:
         slice_sha = sha256(out)
 
     result = {
-        "source_approval": "PENDING_SOURCE_APPROVAL",
+        "source_approval": "NOT_EVALUATED_BY_SOURCE_VERIFIER",
         "v2": {
             "container_sha256": v2_sha,
             "container_pages": len(v2.pages),
