@@ -37,6 +37,7 @@ REQUIRED_TURN = {"text", "statement_type", "evidence_voice", "support_ids", "pag
                  "semantic_support", "evidence_span"}
 STATEMENT_TYPES = {"SOURCE_QUOTE", "AUTHOR_CLAIM", "INTERPRETATION", "AI_SYNTHESIS", "CRITIQUE", "UNRESOLVED"}
 RELATIONS = {"CONTRADICTS", "TENSIONS_WITH", "QUALIFIES", "EXTENDS", "REFRAMES", "NOT_ADDRESSED", "UNRESOLVED"}
+ACTIONS = {"SOURCE_RETRIEVAL", "CRITIQUE", "RESPONSE", "ISSUE", "RESEARCH_GAP", "RESEARCH_QUESTION", "SYNTHESIS"}
 
 def validate_typed_turn(value: Any) -> dict[str, Any]:
     if not isinstance(value, dict) or REQUIRED_TURN - value.keys():
@@ -54,17 +55,24 @@ def validate_typed_turn(value: Any) -> dict[str, Any]:
     for key in ("actor_paper", "action"):
         if not isinstance(value[key], str) or not value[key]:
             raise GenerationFormatFailure(f"{key} required")
+    if value["action"] not in ACTIONS:
+        raise GenerationFormatFailure("invalid action")
     if value["actor_edition_id"] is not None and not isinstance(value["actor_edition_id"], str):
         raise GenerationFormatFailure("actor_edition_id must be string or null")
     if value["evidence_span"] is not None and not isinstance(value["evidence_span"], str):
         raise GenerationFormatFailure("evidence_span must be string or null")
     if value["semantic_support"] not in {"SEMANTICALLY_SUPPORTED", "PARTIALLY_SUPPORTED", "OVERSTATED", "UNSUPPORTED"}:
         raise GenerationFormatFailure("invalid semantic_support")
-    if value["statement_type"] in {"AUTHOR_CLAIM", "SOURCE_QUOTE"}:
+    if value["statement_type"] == "UNRESOLVED":
+        if (value["support_ids"] or value["pages"] or value["evidence_span"] is not None
+                or value["evidence_voice"] != "UNKNOWN" or value["semantic_support"] != "UNSUPPORTED"
+                or value["relation_type"] != "UNRESOLVED"):
+            raise GenerationFormatFailure("UNRESOLVED abstention shape required")
+    else:
         if not value["support_ids"] or not value["pages"] or not value["evidence_span"]:
             raise GenerationFormatFailure("grounded turn requires support, page, and span")
-        if value["statement_type"] == "AUTHOR_CLAIM" and value["evidence_voice"] != "AUTHOR":
-            raise GenerationFormatFailure("author claim requires author voice")
+    if value["statement_type"] == "AUTHOR_CLAIM" and value["evidence_voice"] != "AUTHOR":
+        raise GenerationFormatFailure("author claim requires author voice")
     return value
 
 class CodexExecAdapter(ModelAdapter):
@@ -157,12 +165,19 @@ class OpenAICompatibleAdapter(ModelAdapter):
                                      headers={"Content-Type": "application/json"})
         if self.api_key_env:
             req.add_header("Authorization", "Bearer " + os.environ[self.api_key_env])
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            data = json.loads(resp.read())
-        text = data["choices"][0]["message"]["content"]
-        return ModelResult(text, self.provider, self.model,
-                           {"temperature": self.temperature, "top_p": self.top_p},
-                           hashlib.sha256(prompt.encode()).hexdigest())
+        error = ""
+        for attempt in range(2):
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                data = json.loads(resp.read())
+            try:
+                value = validate_typed_turn(json.loads(data["choices"][0]["message"]["content"]))
+            except (ValueError, TypeError, KeyError, IndexError) as exc:
+                error = str(exc)
+                continue
+            return ModelResult(json.dumps(value, ensure_ascii=False), self.provider, self.model,
+                               {"temperature": self.temperature, "top_p": self.top_p, "attempts": attempt + 1},
+                               hashlib.sha256(prompt.encode()).hexdigest())
+        raise GenerationFormatFailure(f"GENERATION_FORMAT_FAILURE after two attempts: {error}", 2)
 
 def require_live_adapter(adapter: ModelAdapter) -> None:
     if not adapter.available():
