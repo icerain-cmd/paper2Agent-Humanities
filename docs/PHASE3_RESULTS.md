@@ -6,7 +6,7 @@
 
 The host independently verified `PC2_RUNTIME=PASS`, `REAL_MODEL_SMOKE=PASS`, and `ISOLATED_RUNTIME_SMOKE=PASS` with Codex `0.155.1`. Schema-constrained ephemeral read-only calls passed for generator `gpt-6-sol` and verifier `gpt-5.6-sol`. The verifier is an independent model invocation with fresh context containing the candidate turn and supplied evidence only. These are host runtime facts; this workspace did not run `codex exec`.
 
-`IMPLEMENTATION_FREEZE_SHA_V2=PENDING` until the host creates a commit. `HOLDOUT30_V2=NOT_CREATED_PRE_FREEZE`. Live D/E/F, multiturn, DEV50 generation and HOLDOUT30_V2 scoring remain `NOT_RUN`. No Phase-3 hard-gate success is claimed.
+`IMPLEMENTATION_FREEZE_SHA_V2=f9c07b44f798b6529262e45b7b3bc0efe2115bdd` (frozen implementation commit). `HOLDOUT30_V2=NOT_CREATED_PRE_FREEZE`. Live D/E/F, multiturn, DEV50 generation and HOLDOUT30_V2 scoring remain `NOT_RUN`. No Phase-3 hard-gate success is claimed.
 
 ## Baseline and development evidence
 
