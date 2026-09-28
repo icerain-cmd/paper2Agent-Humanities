@@ -39,7 +39,11 @@ Question: 그 판단의 원문 근거와 페이지를 제시하라.
 
 Gate: every `SOURCE_QUOTE` and `AUTHOR_CLAIM` resolves to the declared PDF page.
 
-Live result:
+### CURATED_FIXTURE validation
+
+The following metrics validate the committed 11-statement fixture only. They do **not** measure open-ended attribution performance across the full 31-page paper. The fixture contains 10 grounded statements (`AUTHOR_CLAIM` or `SOURCE_QUOTE`) and one `INTERPRETATION`.
+
+Live fixture-validation result:
 - Source Attribution Accuracy = 1.0
 - Author/AI Separation = 1.0
 - Page-level Traceability = 1.0
@@ -82,4 +86,4 @@ text only after translation/rights status is confirmed. No Benjamin paper was in
 
 `BENJAMIN_AGENT=PENDING_SOURCE_APPROVAL`.
 
-Cross-paper Issue Detection and Research Question Novelty remain unscored until source approval.
+Cross-paper Issue Detection and Research Question Novelty remain unscored until source approval. Phase 1.5 adds a separate `BLIND_ADVERSARIAL_PANEL`; its behavioral metrics must never be conflated with these curated-fixture checks.
