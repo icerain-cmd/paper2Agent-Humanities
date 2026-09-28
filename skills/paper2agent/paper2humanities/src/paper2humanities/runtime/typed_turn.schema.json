@@ -10,7 +10,7 @@
     "relation_type": {"type": "string", "enum": ["CONTRADICTS", "TENSIONS_WITH", "QUALIFIES", "EXTENDS", "REFRAMES", "NOT_ADDRESSED", "UNRESOLVED"]},
     "actor_paper": {"type": "string"},
     "actor_edition_id": {"type": ["string", "null"]},
-    "action": {"type": "string"},
+    "action": {"type": "string", "enum": ["SOURCE_RETRIEVAL", "CRITIQUE", "RESPONSE", "ISSUE", "RESEARCH_GAP", "RESEARCH_QUESTION", "SYNTHESIS"]},
     "semantic_support": {"type": "string", "enum": ["SEMANTICALLY_SUPPORTED", "PARTIALLY_SUPPORTED", "OVERSTATED", "UNSUPPORTED"]},
     "evidence_span": {"type": ["string", "null"]}
   },

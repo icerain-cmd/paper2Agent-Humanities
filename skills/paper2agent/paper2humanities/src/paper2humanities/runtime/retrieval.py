@@ -59,7 +59,7 @@ def retrieve(agent: PaperAgent, query: str, limit: int=6) -> tuple[list[Retrieva
         "candidate_statement_ids":[x.statement_id for x in rows],
         "candidate_scores":{x.statement_id:round(x.score,6) for x in rows},
         "selected_statement_ids":[x.statement_id for x in chosen],
-        "selected_evidence":[{"statement_id":x.statement_id,"page":x.page,"evidence_span":x.evidence_span,"edition_id":x.edition_id} for x in chosen],
+        "selected_evidence":[{"statement_id":x.statement_id,"paper_id":x.paper_id,"page":x.page,"evidence_span":x.evidence_span,"edition_id":x.edition_id} for x in chosen],
         "rejected_candidates":[x.statement_id for x in rows[limit:]],
     }
     return chosen,trace

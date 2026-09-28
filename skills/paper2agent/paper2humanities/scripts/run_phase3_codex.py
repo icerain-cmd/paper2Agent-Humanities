@@ -48,13 +48,16 @@ def agent_for(query: str, default: str = "lee-aura-2019", paper_id: str | None =
     return AGENTS[default]
 
 
-def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str) -> list[str]:
+def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str,
+                supporting_agents=()) -> list[str]:
     errors = []
     try:
         validate_typed_turn(turn)
     except GenerationFormatFailure as exc:
         return [f"FORMAT: {exc}"]
-    evidence = {s.statement_id: s for s in agent.store.values()}
+    agents = (agent, *supporting_agents)
+    evidence = {s.statement_id: s for a in agents for s in a.store.values()}
+    allowed = {(a.paper_id, a.edition_id) for a in agents}
     supports = turn["support_ids"]
     abstained = turn["statement_type"] == "UNRESOLVED"
     if turn["actor_paper"] != agent.paper_id or turn["actor_edition_id"] != agent.edition_id:
@@ -78,8 +81,11 @@ def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str) 
         for sid in supports:
             source = evidence.get(sid)
             if source is None:
-                errors.append("UNKNOWN_SUPPORT_ID")
-            elif source.paper_id != agent.paper_id or source.edition_id != agent.edition_id:
+                if any(s.statement_id == sid for other in AGENTS.values() for s in other.store.values()):
+                    errors.append("CROSS_EDITION_CONTAMINATION")
+                else:
+                    errors.append("UNKNOWN_SUPPORT_ID")
+            elif (source.paper_id, source.edition_id) not in allowed or (turn["statement_type"] == "AUTHOR_CLAIM" and (source.paper_id, source.edition_id) != (agent.paper_id, agent.edition_id)):
                 errors.append("CROSS_EDITION_CONTAMINATION")
         known = [evidence[sid] for sid in supports if sid in evidence]
         if set(turn["pages"]) != {s.page for s in known}:
@@ -102,24 +108,25 @@ def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str) 
 
 def run_one(adapter: CodexExecAdapter, agent: PaperAgent, query: str, action: str,
             target: dict | None = None, history: list[dict] | None = None,
-            verifier_model: str = VERIFIER_MODEL) -> dict:
+            verifier_model: str = VERIFIER_MODEL, supporting_agents=()) -> dict:
     if adapter.model == verifier_model:
         raise ValueError("verifier model must differ from generator model")
     try:
-        turn, trace, result = live_turn(adapter, agent, query, action, target or {}, history)
+        turn, trace, result = live_turn(adapter, agent, query, action, target or {}, history,
+                                        supporting_agents=supporting_agents)
     except (GenerationFormatFailure, ModelRuntimeUnavailable) as exc:
         return {"outcome": getattr(exc, "outcome", "MODEL_RUNTIME_UNAVAILABLE"),
                 "error": str(exc), "generator_subprocess_attempts": exc.attempts,
                 "verifier_subprocess_attempts": 0}
     selected = set(trace["selected_statement_ids"])
-    errors = turn_errors(turn, agent, selected, action)
-    evidence = {s.statement_id: s for s in agent.store.values()}
+    errors = turn_errors(turn, agent, selected, action, supporting_agents)
+    evidence = {s.statement_id: s for a in (agent, *supporting_agents) for s in a.store.values()}
     verifier_packet = {"candidate_turn": turn,
                        "evidence": [evidence[sid].to_dict() for sid in sorted(selected)]}
     verifier_attempts = 0
     try:
         verifier_result = CodexExecAdapter(verifier_model).generate_typed_turn(
-            system_contract="Independently check the candidate against only the supplied evidence. Return every candidate field unchanged if valid. Otherwise return an UNRESOLVED turn with empty support_ids and pages, UNKNOWN voice, null evidence_span, UNSUPPORTED semantic_support, and UNRESOLVED relation_type. No external knowledge or dialogue history.",
+            system_contract="Independently check the candidate against only the supplied evidence. Return every candidate field unchanged if valid. Otherwise return an UNRESOLVED turn, preserving the candidate action, with empty support_ids and pages, UNKNOWN voice, null evidence_span, UNSUPPORTED semantic_support, and UNRESOLVED relation_type. No external knowledge or dialogue history.",
             payload=verifier_packet)
         verifier_attempts = verifier_result.parameters["attempts"]
         verified = json.loads(verifier_result.text)
@@ -186,10 +193,11 @@ def generate_dialogue(output: Path, model: str = GENERATOR_MODEL,
 
     def seek(test: str, agent: PaperAgent, action: str, topic: str, goal: str,
              target: dict | None = None, context: list[dict] | None = None,
-             limit: int = 6, **labels) -> dict | None:
+             limit: int = 6, supporting_agents=(), **labels) -> dict | None:
         for attempt in range(1, limit + 1):
             query = phrasings[(attempt - 1) % len(phrasings)].format(topic=topic, goal=goal)
-            result = run_one(adapter, agent, query, action, target, context, verifier_model)
+            result = run_one(adapter, agent, query, action, target, context, verifier_model,
+                             supporting_agents=supporting_agents)
             result.update({"test": test, "subtype": action if test == "F" else None,
                            "step": labels.get("step"), "edition": agent.edition_id,
                            "attempt": attempt, "topic": topic, **{k: v for k, v in labels.items() if k != "step"}})
@@ -203,13 +211,13 @@ def generate_dialogue(output: Path, model: str = GENERATOR_MODEL,
         agent = AGENTS[edition]
         for index, topic in enumerate(("technology and nature", "aura and reproducibility", "film reception and distraction"), 1):
             critique = seek("D", agent, "CRITIQUE", topic, "critique Lee 2019", {"paper_id": "lee-aura-2019"},
-                            limit=6, pair_id=f"{edition}-{index}")
+                            limit=6, supporting_agents=(AGENTS["lee-aura-2019"],), pair_id=f"{edition}-{index}")
             if critique is None:
                 continue
             history.append(critique["turn"])
             response = seek("E", AGENTS["lee-aura-2019"], "RESPONSE", topic,
                             "respond to the supplied Benjamin critique", {"paper_id": edition},
-                            [critique["turn"]], limit=6, pair_id=f"{edition}-{index}")
+                            [critique["turn"]], limit=6, supporting_agents=(agent,), pair_id=f"{edition}-{index}")
             if response:
                 history.append(response["turn"])
 
@@ -236,9 +244,13 @@ def generate_dialogue(output: Path, model: str = GENERATOR_MODEL,
                 ("lee-aura-2019", "SYNTHESIS"))
     for step, (name, action) in enumerate(sequence, 1):
         prior = multi_history[-4:]
+        counterparts = (("lee-aura-2019",), ("benjamin-artwork-v2",),
+                        ("lee-aura-2019",), ("benjamin-artwork-v3",),
+                        ("benjamin-artwork-v2", "benjamin-artwork-v3"))[step - 1]
         result = seek("MULTITURN", AGENTS[name], action, "technology art and aura",
                       "continue the evidence-bounded dialogue" if step < 5 else "synthesize and state unresolved questions",
-                      context=prior, limit=6, step=step)
+                      context=prior, limit=6,
+                      supporting_agents=tuple(AGENTS[key] for key in counterparts), step=step)
         if result is None:
             break
         multi_history.append(result["turn"])

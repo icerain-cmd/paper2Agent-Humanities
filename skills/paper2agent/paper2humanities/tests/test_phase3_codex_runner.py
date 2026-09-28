@@ -6,6 +6,8 @@ from unittest.mock import patch
 import pytest
 
 from paper2humanities.runtime.model_adapter import ModelResult
+from paper2humanities.runtime.model_adapter import validate_typed_turn, GenerationFormatFailure
+from paper2humanities.runtime.orchestration import live_turn
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "run_phase3_codex.py"
 spec = importlib.util.spec_from_file_location("phase3_codex_runner", SCRIPT)
@@ -32,6 +34,65 @@ def test_turn_gate_checks_selected_support_page_span_voice_actor_and_action():
     assert "ACTOR_EDITION_MISMATCH" in runner.turn_errors({**turn, "actor_edition_id": "wrong"}, agent, {source.statement_id}, "SOURCE_RETRIEVAL")
     assert "ACTION_MISMATCH" in runner.turn_errors({**turn, "action": "CRITIQUE"}, agent, {source.statement_id}, "SOURCE_RETRIEVAL")
     assert "ACTION_STATEMENT_TYPE_MISMATCH" in runner.turn_errors({**turn, "action": "SYNTHESIS"}, agent, {source.statement_id}, "SYNTHESIS")
+
+
+def test_cross_paper_critique_and_v2_v3_contamination():
+    actor = runner.AGENTS["benjamin-artwork-v2"]
+    lee = runner.AGENTS["lee-aura-2019"]
+    benjamin = next(s for s in actor.store.values() if s.evidence_span and s.page)
+    target = next(s for s in lee.store.values() if s.evidence_span and s.page)
+    turn = {**source_turn(actor, benjamin, "CRITIQUE"), "statement_type": "CRITIQUE",
+            "support_ids": [benjamin.statement_id, target.statement_id],
+            "pages": sorted({benjamin.page, target.page})}
+    selected = set(turn["support_ids"])
+    assert runner.turn_errors(turn, actor, selected, "CRITIQUE", (lee,)) == []
+    v3 = next(s for s in runner.AGENTS["benjamin-artwork-v3"].store.values() if s.evidence_span and s.page)
+    contaminated = {**turn, "support_ids": [benjamin.statement_id, v3.statement_id]}
+    assert "CROSS_EDITION_CONTAMINATION" in runner.turn_errors(
+        contaminated, actor, set(contaminated["support_ids"]), "CRITIQUE", (lee,))
+    claim = {**turn, "statement_type": "AUTHOR_CLAIM"}
+    assert "CROSS_EDITION_CONTAMINATION" in runner.turn_errors(claim, actor, selected, "SOURCE_RETRIEVAL", (lee,))
+
+
+def test_unresolved_shape_and_action_rules():
+    actor = runner.AGENTS["benjamin-artwork-v2"]
+    source = next(s for s in actor.store.values() if s.evidence_span and s.page)
+    abstention = {**source_turn(actor, source, "CRITIQUE"), "statement_type": "UNRESOLVED",
+                  "support_ids": [], "pages": [], "evidence_voice": "UNKNOWN",
+                  "evidence_span": None, "semantic_support": "UNSUPPORTED",
+                  "relation_type": "UNRESOLVED"}
+    assert validate_typed_turn(abstention) == abstention
+    assert runner.turn_errors(abstention, actor, set(), "CRITIQUE") == []
+    with pytest.raises(GenerationFormatFailure):
+        validate_typed_turn({**abstention, "pages": [source.page]})
+    with pytest.raises(GenerationFormatFailure):
+        validate_typed_turn({**abstention, "action": "INSUFFICIENT_EVIDENCE"})
+    assert "ACTION_MISMATCH" in runner.turn_errors({**abstention, "action": "RESPONSE"}, actor, set(), "CRITIQUE")
+
+
+def test_live_turn_supplies_only_explicit_agent_editions():
+    actor = runner.AGENTS["benjamin-artwork-v2"]
+    lee = runner.AGENTS["lee-aura-2019"]
+    packets = []
+
+    class CaptureAdapter:
+        def available(self):
+            return True
+        def generate_typed_turn(self, *, system_contract, payload):
+            packets.append(payload)
+            turn = {**source_turn(actor, next(iter(actor.store.values())), "CRITIQUE"),
+                    "statement_type": "UNRESOLVED", "support_ids": [], "pages": [],
+                    "evidence_voice": "UNKNOWN", "evidence_span": None,
+                    "semantic_support": "UNSUPPORTED", "relation_type": "UNRESOLVED"}
+            return ModelResult(json.dumps(turn), "test", "test", {"attempts": 1}, "digest")
+
+    _, trace, _ = live_turn(CaptureAdapter(), actor, "aura", "CRITIQUE",
+                             {"paper_id": lee.paper_id}, supporting_agents=(lee,))
+    identities = {(e["paper_id"], e["edition_id"]) for e in packets[0]["evidence"]}
+    assert identities == {(actor.paper_id, actor.edition_id), (lee.paper_id, lee.edition_id)}
+    assert {(e["paper_id"], e["edition_id"]) for e in trace["selected_evidence"]} == identities
+    assert packets[0]["actor_paper"] == actor.paper_id
+    assert packets[0]["actor_edition_id"] == actor.edition_id
 
 
 def test_fresh_verifier_gets_candidate_and_evidence_only():
@@ -61,7 +122,7 @@ def test_fresh_verifier_gets_candidate_and_evidence_only():
 
 def test_dialogue_targets_and_labels_survive_rejected_attempt(tmp_path):
     calls = 0
-    def fake_run(adapter, agent, query, action, target=None, history=None, verifier_model=runner.VERIFIER_MODEL):
+    def fake_run(adapter, agent, query, action, target=None, history=None, verifier_model=runner.VERIFIER_MODEL, supporting_agents=()):
         nonlocal calls
         calls += 1
         if calls == 1:
