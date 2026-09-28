@@ -221,6 +221,16 @@ Use Scanpy MCP to preprocess and cluster the single-cell dataset pbmc_all.h5ad.
 * Scanpy: https://Paper2Agent-scanpy-mcp.hf.space
 * TISSUE: https://Paper2Agent-tissue-mcp.hf.space
 
+## Paper2Agent-Humanities (experimental)
+
+Paper2Agent-Humanities is an attribution-aware extension for humanities research. It keeps Paper2Skill as the verified source layer, then adds typed scholarly statements and evidence-bounded Paper Agents so SOURCE_QUOTE, AUTHOR_CLAIM, INTERPRETATION, AI_SYNTHESIS, CRITIQUE, and UNRESOLVED remain distinct.
+
+Humanities work often depends on distinguishing an author's own proposition from quoted scholarship and later interpretation. The extension therefore requires source spans for author claims and prevents AI interpretation from being silently promoted to author attribution.
+
+Quick start: first build and strictly verify a Paper2Skill work directory, then use `skills/paper2agent/paper2humanities/` to create reviewed statements and dialogue turns. See `docs/HUMANITIES_ARCHITECTURE.md` and `docs/POC_PROTOCOL.md`.
+
+Current status: experimental Phase-1 provenance/dialogue layer with a Lee Yong-wook paper PoC. It does not claim autonomous scholarly judgment, and the Benjamin comparison agent remains pending source approval.
+
 ## 📚 Citation
 ```
 @article{miao2026paper2agent,
