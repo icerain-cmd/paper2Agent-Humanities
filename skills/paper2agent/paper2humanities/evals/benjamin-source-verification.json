@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "approval_status": "PENDING_SOURCE_APPROVAL",
+  "approval_status": "APPROVED_AND_VERIFIED",
   "verified_at": "2026-09-28",
   "sources": [
     {
@@ -41,7 +41,8 @@
         "note": "The source uses inflected forms (die zweite / der zweiten Technik); do not invent an exact nominative 'Zweite Technik' string where it is absent."
       },
       "source_verified": true,
-      "user_approved": false
+      "user_approved": true,
+      "approval_status": "APPROVED_AND_VERIFIED"
     },
     {
       "work_id": "benjamin-artwork",
@@ -150,7 +151,10 @@
       },
       "transcription_status": "German Wikisource: complete and twice proofread against linked source facsimile",
       "source_verified": true,
-      "user_approved": false
+      "user_approved": true,
+      "approval_status": "APPROVED_AND_VERIFIED"
     }
-  ]
+  ],
+  "approved_at": "2026-09-28",
+  "approval_basis": "Explicit user approval of Benjamin V2 and V3 as separate Paper Agent sources."
 }

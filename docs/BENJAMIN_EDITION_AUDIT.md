@@ -117,4 +117,4 @@ Actual source files were downloaded and checked. The Commons four-version contai
 
 The separate V3 facsimile is 38 pages, SHA-256 `bdb9107b41e05fd6919592d6ba786b501f160a1618b1d9e1f4d21108d0745568`, mapping PDF pp.1–38 to GS I.2 pp.471–508. Aura/Echtheit/Kultwert/Ausstellungswert/Film/Zerstreuung/Rezeption were positively located. A full-page scan found no V2-specific first/second-technology passage strings.
 
-Both candidates remain `PENDING_SOURCE_APPROVAL`. Verification does not imply user approval or Agent creation.
+Both candidates were later explicitly approved by the user on 2026-09-28. Verification and approval remain separate events; V2 and V3 were subsequently ingested as distinct Paper Agents.
