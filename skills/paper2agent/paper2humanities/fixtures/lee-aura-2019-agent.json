@@ -202,5 +202,18 @@
       "confidence": 0.86,
       "review_status": "NEEDS_REVIEW"
     }
-  ]
+  ],
+  "corpus_policy": {
+    "source_time_boundary": "2019 paper only",
+    "forbidden_terms": [
+      "아투라",
+      "기계세",
+      "Mechanocene",
+      "기술생성시대",
+      "공진주체 WE",
+      "마찰의 투명성",
+      "생성 아우라"
+    ],
+    "policy": "Later Lee concepts or current-theory vocabulary absent from the 2019 source cannot be emitted as Lee-2019 Paper Agent claims/responses."
+  }
 }
