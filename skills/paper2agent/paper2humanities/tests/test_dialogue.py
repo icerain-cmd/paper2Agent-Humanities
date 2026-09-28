@@ -3,6 +3,7 @@ import pytest
 from paper2humanities import (
     DialogueAction,
     EpistemicStatement,
+    EvidenceVoice,
     PaperAgent,
     ProvenanceError,
     ReviewStatus,
@@ -22,6 +23,7 @@ def agent(paper_id, statement_id):
         page=1,
         evidence_span=f"Evidence from {paper_id}",
         citation="PDF p.1",
+        evidence_voice=EvidenceVoice.AUTHOR,
         review_status=ReviewStatus.REVIEWED,
     )
     return PaperAgent(

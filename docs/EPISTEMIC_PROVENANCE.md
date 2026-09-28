@@ -11,12 +11,12 @@
 | `CRITIQUE` | criticism of a statement/paper | explicit target + `derived_from` evidence |
 | `UNRESOLVED` | insufficient evidence, conflict, open question | explicit unresolved reason |
 
-`SOURCE_QUOTE` additionally requires statement text to equal the evidence span after whitespace normalization.
+`SOURCE_QUOTE` additionally requires statement text to equal the evidence span after whitespace normalization. Grounded statements also carry a reviewed `evidence_voice`: `AUTHOR_CLAIM` requires `AUTHOR`, while quoted prior scholarship is marked `EXTERNAL` and cannot support an author-claim attribution.
 
 ## Minimal schema
 
 Implemented fields: `statement_id`, `statement_type`, `text`, `paper_id`, `source_id`, `author`, `page`,
-`section`, `evidence_span`, `citation`, `derived_from`, `target_statement`, `target_paper`, `confidence`,
+`section`, `evidence_span`, `citation`, `evidence_voice`, `derived_from`, `target_statement`, `target_paper`, `confidence`,
 `review_status`, `unresolved_reason`. Fields are required only where their type invariant needs them.
 
 ## Invariants

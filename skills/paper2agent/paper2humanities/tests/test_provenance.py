@@ -3,6 +3,7 @@ import pytest
 from paper2humanities import (
     AttributionFirewall,
     EpistemicStatement,
+    EvidenceVoice,
     PaperEvidenceIndex,
     ProvenanceError,
     ReviewStatus,
@@ -30,6 +31,7 @@ def grounded_claim(**overrides):
         section="Introduction",
         evidence_span="Visible source statement with evidence.",
         citation="PDF p.1",
+        evidence_voice=EvidenceVoice.AUTHOR,
         review_status=ReviewStatus.REVIEWED,
     )
     data.update(overrides)
@@ -62,6 +64,11 @@ def test_author_claim_without_evidence_fails():
 def test_valid_author_claim_with_evidence_passes():
     claim = grounded_claim()
     validate_against_source(claim, source_index())
+
+
+def test_external_voice_cannot_support_author_claim():
+    with pytest.raises(ProvenanceError):
+        grounded_claim(evidence_voice=EvidenceVoice.EXTERNAL)
 
 
 def test_missing_page_metadata_fails():
