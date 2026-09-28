@@ -54,6 +54,10 @@ class ScholarlyDialogue:
     ) -> DialogueTurn:
         if actor_paper not in self.agents:
             raise ProvenanceError(f"unknown actor paper: {actor_paper}")
+        if target_paper and target_paper not in self.agents:
+            raise ProvenanceError(f"unknown target paper: {target_paper}")
+        if target_statement:
+            self._lookup(target_statement)
         supports = [self._lookup(sid) for sid in support_ids]
         support_papers = {item.paper_id for item in supports if item.paper_id}
 
