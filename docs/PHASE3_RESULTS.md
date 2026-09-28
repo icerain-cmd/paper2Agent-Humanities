@@ -50,3 +50,14 @@ Not executed. A real ModelAdapter is required. There are no Phase-3 critique, re
 - unsupported/partial-support publication tests
 
 The next step is to connect an already authorized callable model runtime without changing the evidence contracts.
+
+## Implementation freeze and holdout
+
+- implementation freeze SHA: `2f10c6ebe8a821c7e6635128b99acc84c7941c08`
+- HOLDOUT30 created after freeze: TRUE
+- holdout size: 30
+- exact query overlap with DEV50: 0
+- holdout model result: NOT RUN because no live model runtime is available
+- holdout gold hidden during generation: NOT RUN / no generation occurred
+
+The holdout is therefore a valid post-freeze query/gold artifact but remains unevaluated. It is not converted into a DEV set and no deterministic/manual answer artifact is substituted.
