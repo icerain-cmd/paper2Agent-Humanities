@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "test": "D",
+  "method": "Evidence-bounded critique; no Benjamin roleplay.",
+  "critique_count": 6,
+  "v2_count": 3,
+  "v3_count": 3,
+  "turns": [
+    {
+      "turn_id": "D1-v2-human-use-vs-third-tech",
+      "action": "CRITIQUE",
+      "actor_paper": "benjamin-artwork-v2",
+      "actor_edition_id": "benjamin-artwork-v2",
+      "target_paper": "lee-aura-2019",
+      "target_statement_id": "lee-c-transparent",
+      "support_ids": [
+        "b-v2-c-technique-human-use"
+      ],
+      "text": "Benjamin V2 distinguishes first and second technology by the degree to which the human is deployed, whereas Lee 2019's third-technology proposition organizes the difference around artificial mediation and transparency. The two propositions therefore use different axes of technological distinction.",
+      "statement_type": "CRITIQUE",
+      "relation_type": "REFRAMES",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "semantic_review_note": "Both propositions are directly grounded. The critique identifies a difference in classificatory axis without attributing Lee's digital vocabulary to Benjamin."
+    },
+    {
+      "turn_id": "D2-v2-play-vs-tech-editing-start",
+      "action": "CRITIQUE",
+      "actor_paper": "benjamin-artwork-v2",
+      "actor_edition_id": "benjamin-artwork-v2",
+      "target_paper": "lee-aura-2019",
+      "target_statement_id": "lee-c-tech-start",
+      "support_ids": [
+        "b-v2-c-play-origin"
+      ],
+      "text": "Benjamin V2 locates the origin of second technology in taking distance from nature and in play, while Lee 2019 marks the beginning of the technology-editing era with the computer and Internet. These are different criteria for locating a technological threshold.",
+      "statement_type": "CRITIQUE",
+      "relation_type": "QUALIFIES",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "semantic_review_note": "The source texts support both historical criteria. The relation is qualification/reframing, not contradiction."
+    },
+    {
+      "turn_id": "D3-v2-interplay-vs-transparency",
+      "action": "CRITIQUE",
+      "actor_paper": "benjamin-artwork-v2",
+      "actor_edition_id": "benjamin-artwork-v2",
+      "target_paper": "lee-aura-2019",
+      "target_statement_id": "lee-c-transparent",
+      "support_ids": [
+        "b-v2-c-interplay"
+      ],
+      "text": "Benjamin V2 describes second technology in terms of interplay between nature and humanity; Lee 2019's third-technology claim places nature and humans on an artificial plane and describes their difference as becoming transparent. This produces a tension between maintaining an interplay of terms and rendering their difference transparent.",
+      "statement_type": "CRITIQUE",
+      "relation_type": "TENSIONS_WITH",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "semantic_review_note": "The tension is inferential but follows directly from the two grounded propositions; it is not presented as Benjamin discussing digital transparency."
+    },
+    {
+      "turn_id": "D4-v3-aura-withering-vs-digital-aura",
+      "action": "CRITIQUE",
+      "actor_paper": "benjamin-artwork-v3",
+      "actor_edition_id": "benjamin-artwork-v3",
+      "target_paper": "lee-aura-2019",
+      "target_statement_id": "lee-q-digital-aura",
+      "support_ids": [
+        "b-v3-c-aura-withers"
+      ],
+      "text": "Benjamin V3 states that the artwork's aura withers under technical reproducibility, while Lee 2019 projects the possible emergence of a new 'digital aura'. The propositions form a tension between a diagnosis of withering and a prospective post-reproduction transformation of aura.",
+      "statement_type": "CRITIQUE",
+      "relation_type": "TENSIONS_WITH",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "semantic_review_note": "The source-supported contrast is real. The critique does not claim that Benjamin addressed digital media."
+    },
+    {
+      "turn_id": "D5-v3-authenticity-vs-trust",
+      "action": "CRITIQUE",
+      "actor_paper": "benjamin-artwork-v3",
+      "actor_edition_id": "benjamin-artwork-v3",
+      "target_paper": "lee-aura-2019",
+      "target_statement_id": "lee-c-trust-definition",
+      "support_ids": [
+        "b-v3-c-authenticity"
+      ],
+      "text": "Benjamin V3 anchors authenticity in the original's Here and Now and treats authenticity as outside technical reproducibility; Lee 2019's 'trust' discussion instead shifts attention to contextual placement and the subject's desire. Lee's criterion therefore reframes rather than directly answers Benjamin's authenticity problem.",
+      "statement_type": "CRITIQUE",
+      "relation_type": "REFRAMES",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "semantic_review_note": "The relation compares two grounded criteria and explicitly avoids claiming equivalence."
+    },
+    {
+      "turn_id": "D6-v3-distraction-vs-immersion",
+      "action": "CRITIQUE",
+      "actor_paper": "benjamin-artwork-v3",
+      "actor_edition_id": "benjamin-artwork-v3",
+      "target_paper": "lee-aura-2019",
+      "target_statement_id": "lee-c-immersion",
+      "support_ids": [
+        "b-v3-c-distraction"
+      ],
+      "text": "Benjamin V3 describes mass reception in distraction, while Lee 2019's comparison table assigns immersion to reception in the technology-editing era. This creates a reception-theoretical tension that the two source propositions do not themselves resolve.",
+      "statement_type": "CRITIQUE",
+      "relation_type": "TENSIONS_WITH",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "semantic_review_note": "Both reception claims are directly grounded; the unresolved compatibility is kept as a tension, not a winner/loser judgment."
+    }
+  ]
+}
