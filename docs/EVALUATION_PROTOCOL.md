@@ -8,9 +8,14 @@ Paper2Agent-Humanities reports two deliberately separate scopes.
 
 The Phase-1 Lee PoC contains 11 selected statements: 6 `AUTHOR_CLAIM`, 4 `SOURCE_QUOTE`, and 1 `INTERPRETATION`. Its deterministic checks measure whether those registered statements preserve source/page provenance and epistemic typing. They are `FIXTURE_VALIDATION`, not full-paper behavioral accuracy.
 
-### BLIND_ADVERSARIAL_PANEL
+### COMMITTED_BLIND_RESPONSE_SET
 
-Phase 1.5 uses a separate query panel that does not reuse the 11 fixture statements as answer keys. Queries probe new attribution decisions, misleading premises, embedded quotations, interpretation promotion, neighboring concepts, wrong pages, and mixed voices.
+Phase 1.5 currently contains a separate query panel that does not reuse the 11 fixture statements as answer keys. Queries probe new attribution decisions, misleading premises, embedded quotations, interpretation promotion, neighboring concepts, wrong pages, and mixed voices.
+
+
+### LIVE_BLIND_RUN
+
+A live run is a different scope. It requires response generation after receiving only a query-only panel, a frozen Paper Agent artifact, and reviewed source evidence. The response artifact must be frozen before the gold panel is opened for scoring. The existing committed 50-response artifact is **not** a live run and must not be reported as one.
 
 ## Panel construction provenance
 
@@ -43,7 +48,7 @@ An unsupported or absent premise may legitimately have no page/span; its gold re
 
 ## Metrics
 
-Behavioral evaluation reports the metrics separately rather than collapsing them into one score:
+Artifact-level scoring reports the metrics separately rather than collapsing them into one score:
 
 - Attribution Type Accuracy
 - Evidence Voice Accuracy
@@ -70,4 +75,4 @@ Phase 1.5 does not execute Lee ↔ Benjamin critique, Lee response, or cross-pap
 
 ## Current Phase 1.5 run
 
-Committed panel size: 50. Gold review: PASS. The current deterministic scoring report records type, voice, page, span, unsupported-premise rejection, and adversarial robustness at 1.0, with zero false author claims, zero external-as-author errors, and zero interpretation promotions. Because the roles were only temporally separated in one execution environment, these numbers are a reproducible finite-panel result, not a claim of general open-ended model accuracy.
+Committed panel size: 50. Gold review: PASS. The committed-response scoring report records type, voice, page, span, unsupported-premise rejection, and adversarial robustness at 1.0, with zero false author claims, zero external-as-author errors, and zero interpretation promotions. Because the roles were only temporally separated in one execution environment, these numbers are a reproducible finite-panel result, not a claim of general open-ended model accuracy.

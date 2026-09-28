@@ -29,7 +29,7 @@ def main() -> int:
         raise SystemExit("source SHA-256 does not match gold panel")
 
     gold_report = validate_gold_panel(gold, index)
-    report = score_panel(gold, responses)
+    report = score_panel(gold, responses, evaluation_scope="COMMITTED_BLIND_RESPONSE_SET")
     report["gold_review"] = gold_report
     Path(args.report).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
