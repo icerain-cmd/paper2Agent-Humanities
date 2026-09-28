@@ -1,0 +1,673 @@
+{
+  "schema_version": 1,
+  "panel_id": "lee-aura-2019-blind-v1",
+  "generation_method": "DETERMINISTIC_RETRIEVAL_CLASSIFICATION_V1",
+  "responses": [
+    {
+      "query_id": "LEE-BLIND-001",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "UNRESOLVED",
+      "reason": "no source evidence retrieved",
+      "absent_terms": [],
+      "retrieval_score": 0
+    },
+    {
+      "query_id": "LEE-BLIND-002",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 11,
+      "item_id": "p0011-b002",
+      "evidence_span": "기술편집의 핵심은 새로운 걸 만드는 것(make a new one)이 아니라 새롭게 만드는 것 (renewal)이다.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 6
+    },
+    {
+      "query_id": "LEE-BLIND-003",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 7,
+      "item_id": "p0007-b001",
+      "evidence_span": "이것은 예술 발전과정에서 새로운 기술의 등장과 예술 텍스트의 관계가 언제나 보여준 균열이고 경향이기 때문이다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-004",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 15,
+      "item_id": "p0015-b003",
+      "evidence_span": "기술편집시대의 예술가는 행위자이며 동시에 중개자이다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-005",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 15,
+      "item_id": "p0015-b003",
+      "evidence_span": "그리고 바로 이 중개에서 기술복제시대의 ‘아우라의 상실’과는 다른 새로운 양상이 나타난 다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 7
+    },
+    {
+      "query_id": "LEE-BLIND-006",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 21,
+      "item_id": "p0021-b002",
+      "evidence_span": "제3기술은 자연과 인간의 다름을 ‘인공’을 통해 해결하려 한다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 7
+    },
+    {
+      "query_id": "LEE-BLIND-007",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 22,
+      "item_id": "p0022-b001",
+      "evidence_span": "원근법, 회화, 사진, 가상현실 등은 미디어 의 존재를 무시하거나 부정함으로써 투명성의 비매개성을 획득하고자 한 다.38) 볼터와 그루신이 말하는 ‘투명성’은 미디어의 작동방식을 의식하지 못 하는 몰입의 상태를 말하는데, 제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 7
+    },
+    {
+      "query_id": "LEE-BLIND-008",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 24,
+      "item_id": "p0024-b001",
+      "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 5
+    },
+    {
+      "query_id": "LEE-BLIND-009",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 15,
+      "item_id": "p0015-b003",
+      "evidence_span": "기술편집시대의 예술가는 행위자이며 동시에 중개자이다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-010",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 17,
+      "item_id": "p0017-b003",
+      "evidence_span": "||기술복제시대의 예술|기술편집시대의 예술| |---|---|---| |도구|사진기,영사기|컴퓨터,인터넷| |수용 태도|정신분산|정신몰입| |향유 주체|대중|유저(기술과 도구의 사용자)| |생산 주체|전문가|| |편집 방식|아날로그 편집|디지털 편집| |아우라의 특징|아우라의 상실|아우라의 중계성| |대표 예술|영화|컴퓨터게임| |저작권|권리가 분명함|권리가 불분명함| |향유 공간|현실-공간|네트워크-공간| |수용 방식|소비|재생산| |비즈니스모델|유료|선택적 과금|",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-011",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 17,
+      "item_id": "p0017-b001",
+      "evidence_span": "어쩌면 지금 현 단계에서는 ‘아우라의 중계성’이 테 크노아트의 전략적 선택일지 모르나 궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 4
+    },
+    {
+      "query_id": "LEE-BLIND-012",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 29,
+      "item_id": "p0029-b002",
+      "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 5
+    },
+    {
+      "query_id": "LEE-BLIND-013",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "20세기는 예술대량소비, 21세기는 예술대량생산의 시대"
+      ],
+      "retrieval_score": 4
+    },
+    {
+      "query_id": "LEE-BLIND-014",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 6,
+      "item_id": "p0006-b003",
+      "evidence_span": "우리는 엄청난 혁신들이 예술의 테크닉 전체를 변모시키고, 그로 써 예술의 창작 과정 자체에 영향을 끼치며, 결국에는 예술의 개념 자체를 가장 마법적인 방식으로 변화시키는 데까지 이를지 모른다는 점을 각오하지 않으면 안 된다.9)",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-015",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "대상을 껍질에서 떼어내는 일, 즉 아우라를 파괴하는 일"
+      ],
+      "retrieval_score": 3
+    },
+    {
+      "query_id": "LEE-BLIND-016",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "작품 속으로 빠져든다/작품이 대중 속으로 들어온다"
+      ],
+      "retrieval_score": 3
+    },
+    {
+      "query_id": "LEE-BLIND-017",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "AUTHOR_CLAIM"
+      ],
+      "retrieval_score": 7
+    },
+    {
+      "query_id": "LEE-BLIND-018",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "재매개는 아우라를 파괴하지 않고 다른 미디어 형식 속에서 바꾼다"
+      ],
+      "retrieval_score": 7
+    },
+    {
+      "query_id": "LEE-BLIND-019",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 14,
+      "item_id": "p0014-b002",
+      "evidence_span": "따라서 위기의 시기, 특히 이른바 퇴폐 기에 생겨나는 예술의 괴상하고 조야한 형식들은 실제로는 그 시기의 가장 풍 부한 역사적 에너지의 중심부에서 나온다.24)",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 7
+    },
+    {
+      "query_id": "LEE-BLIND-020",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 12,
+      "item_id": "p0012-b004",
+      "evidence_span": "칙센트미하이는 몰입했을 때의 느낌을 '물 흐르는 것처럼 편안한 느낌', '하늘을 날아가는 자유로운 느낌'이라고 하였다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 8
+    },
+    {
+      "query_id": "LEE-BLIND-021",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "방에서 가장 똑똑한 것은 방 그 자체, 즉 네트워크다"
+      ],
+      "retrieval_score": 6
+    },
+    {
+      "query_id": "LEE-BLIND-022",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "흔적은 멀리 있어도 가까운 것의 현상이고 아우라는 가까워도 먼 것의 현상"
+      ],
+      "retrieval_score": 4
+    },
+    {
+      "query_id": "LEE-BLIND-023",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 2,
+      "item_id": "p0002-b002",
+      "evidence_span": "핵심어 기술편집시대, 아우라, 투명화, 신뢰화",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 4
+    },
+    {
+      "query_id": "LEE-BLIND-024",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 17,
+      "item_id": "p0017-b001",
+      "evidence_span": "어쩌면 지금 현 단계에서는 ‘아우라의 중계성’이 테 크노아트의 전략적 선택일지 모르나 궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 6
+    },
+    {
+      "query_id": "LEE-BLIND-025",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 31,
+      "item_id": "p0031-b006",
+      "evidence_span": "본 논문은 2019년 8월 11일에 투고 완료되어, 2019년 8월 23일 심사 완료하고, 2019년 8월 28일 게재를 확정하였음.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-026",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 2,
+      "item_id": "p0002-b002",
+      "evidence_span": "핵심어 기술편집시대, 아우라, 투명화, 신뢰화",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 4
+    },
+    {
+      "query_id": "LEE-BLIND-027",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 27,
+      "item_id": "p0027-b004",
+      "evidence_span": "인간이 문자를 발명하고 나서야 비로소 지나간 구술문화에 대한 분명한 개념을 갖게 되었고, 디지털 문화를 접하고서야 아날로그 시대를 이해하는 새로운 준거점을 갖게 되었듯이, 벤야민의 ‘아우라’와 ‘정신분산’, ‘촉각적 수 용’, ‘흔적’의 개념 역시 영상매체 시대에서 발아했지만 디지털매체 시대에 더욱 선명해졌다.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 3
+    },
+    {
+      "query_id": "LEE-BLIND-028",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 30,
+      "item_id": "p0030-b011",
+      "evidence_span": "- 제이 데이비드 볼터 저, 이재현 역, �재매개 뉴미디어의 계보학�, 커뮤니케이션북스, 2006.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 5
+    },
+    {
+      "query_id": "LEE-BLIND-029",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 20,
+      "item_id": "p0020-b004",
+      "evidence_span": "제1기술은 자연과 인간 간의 거리를 인정하지 않으려는 태도에서 사용되 는 기술일 수 있다.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-030",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 27,
+      "item_id": "p0027-b002",
+      "evidence_span": "기술편집시대, 이제 모든 것은 새로운 것이 아니라.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-031",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 30,
+      "item_id": "p0030-b007",
+      "evidence_span": "데이비드 와인버거 저, 이진원 역, �지식의 미래�, 리더스북, 2014.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-032",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 30,
+      "item_id": "p0030-b011",
+      "evidence_span": "- 제이 데이비드 볼터 저, 이재현 역, �재매개 뉴미디어의 계보학�, 커뮤니케이션북스, 2006.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-033",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 10,
+      "item_id": "p0010-b002",
+      "evidence_span": "벤야민이 영화를 특히 주목하는 이유는 “영화에서 기계 장치가 완전히 배 제된 채로 재현되고 있는 현실의 모습이 사실은 정반대의 사태, 즉 기계 장 치가 현실에 고도로 깊숙이 파고든 상태에 근거”17) 하고 있기 때문이다.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-034",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "NFT"
+      ],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-035",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 21,
+      "item_id": "p0021-b005",
+      "evidence_span": "디지털 기술로 전송되거나 저장된 데이터는 0과 1이 연속되는 하나의 스트링으 로 표현된다.",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-036",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "Mechanocene"
+      ],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-037",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "ChatGPT"
+      ],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-038",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 17,
+      "item_id": "p0017-b003",
+      "evidence_span": "||기술복제시대의 예술|기술편집시대의 예술| |---|---|---| |도구|사진기,영사기|컴퓨터,인터넷| |수용 태도|정신분산|정신몰입| |향유 주체|대중|유저(기술과 도구의 사용자)| |생산 주체|전문가|| |편집 방식|아날로그 편집|디지털 편집| |아우라의 특징|아우라의 상실|아우라의 중계성| |대표 예술|영화|컴퓨터게임| |저작권|권리가 분명함|권리가 불분명함| |향유 공간|현실-공간|네트워크-공간| |수용 방식|소비|재생산| |비즈니스모델|유료|선택적 과금|",
+      "decision": "INTERPRETIVE",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-039",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 31,
+      "item_id": "p0031-b006",
+      "evidence_span": "본 논문은 2019년 8월 11일에 투고 완료되어, 2019년 8월 23일 심사 완료하고, 2019년 8월 28일 게재를 확정하였음.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-040",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 14,
+      "item_id": "p0014-b001",
+      "evidence_span": "뭉크의 그림을 흉내 내거나 렘브란트의 화풍을 흉내 내거나 모두 반예술적이며, 예술텍스트를 감싸는 아우라가 부재하기 때문에 미학적 가치가 전혀 없다고 주장할 수도 있다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 4
+    },
+    {
+      "query_id": "LEE-BLIND-041",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 2,
+      "item_id": "p0002-b002",
+      "evidence_span": "핵심어 기술편집시대, 아우라, 투명화, 신뢰화",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 4
+    },
+    {
+      "query_id": "LEE-BLIND-042",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 15,
+      "item_id": "p0015-b003",
+      "evidence_span": "바로 ‘아우라의 중계성’이다.25) 기술편집시대의 매체미학에 관한 훌륭한",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 5
+    },
+    {
+      "query_id": "LEE-BLIND-043",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "제3기술의 핵심가치는 투명화"
+      ],
+      "retrieval_score": 2
+    },
+    {
+      "query_id": "LEE-BLIND-044",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "기술편집의 핵심은 renewal"
+      ],
+      "retrieval_score": 3
+    },
+    {
+      "query_id": "LEE-BLIND-045",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 18,
+      "item_id": "p0018-b002",
+      "evidence_span": "달리 말해 제2의 기술의 기원은 유희에 있다.28)",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 7
+    },
+    {
+      "query_id": "LEE-BLIND-046",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "재매개는 아우라를 파괴하지 않고 바꾼다"
+      ],
+      "retrieval_score": 3
+    },
+    {
+      "query_id": "LEE-BLIND-047",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 1,
+      "item_id": "p0001-b005",
+      "evidence_span": "아우라와 제3기술",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 1
+    },
+    {
+      "query_id": "LEE-BLIND-048",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "방이 가장 똑똑하다"
+      ],
+      "retrieval_score": 5
+    },
+    {
+      "query_id": "LEE-BLIND-049",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 14,
+      "item_id": "p0014-b001",
+      "evidence_span": "하게 화풍을 모사해내는 AI의 출현은 예술 행위가 인간의 고유영역이라는 믿음에 균열을 내었다.",
+      "decision": "SUPPORTED",
+      "reason": "deterministic lexical retrieval and conservative attribution classification",
+      "absent_terms": [],
+      "retrieval_score": 5
+    },
+    {
+      "query_id": "LEE-BLIND-050",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE",
+      "reason": "distinctive query term absent from reviewed source",
+      "absent_terms": [
+        "기술편집시대는 재매개시대다"
+      ],
+      "retrieval_score": 1
+    }
+  ],
+  "paper_id": "lee-aura-2019",
+  "agent_source_sha256": "864e341de1fa049fd3c5285c882125967671aebde4ef37f5d9156613d061adae"
+}
