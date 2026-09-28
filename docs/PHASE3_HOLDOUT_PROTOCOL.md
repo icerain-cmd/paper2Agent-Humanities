@@ -1,13 +1,9 @@
 # Phase 3 Holdout Protocol
 
-The existing 50-query panel is `DEV50 / FROZEN_REGRESSION50`; it is known development data and is never called a holdout.
+DEV50 / FROZEN_REGRESSION50 is known development data. The original HOLDOUT30 is `DEV30_COMPAT`: its freeze SHA (`2f10c6ebe8a821c7e6635128b99acc84c7941c08`) predates the Codex Exec implementation. Its existing query and gold contents remain unchanged and are not a fresh Phase-3 holdout.
 
-A valid HOLDOUT30 may only be created after the Phase-3 implementation is frozen in Git. Its manifest must record `IMPLEMENTATION_FREEZE_SHA` and prove creation chronology. Query-only and gold artifacts remain separate.
+`IMPLEMENTATION_FREEZE_SHA_V2=PENDING`. `HOLDOUT30_V2=NOT_CREATED_PRE_FREEZE`. The host must first commit the Phase-3 implementation and record its SHA. Only then may it create the new query-only panel and separate gold artifact, recording creation chronology and the implementation freeze SHA.
 
-During live generation the runtime receives only the query-only HOLDOUT30 plus source agents/evidence. Gold is not provided to the generator path. If no live model runtime is available, HOLDOUT30 may be constructed but cannot produce a holdout model result; that absence must be reported rather than filled with deterministic/manual answers.
+Generation reads only a query-only panel and source agents. It does not open gold. After generation, the response manifest records the query SHA, response SHA, generator and verifier models, subprocess-attempt counts, `response_frozen=true`, and `gold_available_during_generation=false`. Scoring is a separate command; it verifies the frozen response hash before opening gold. A failed runtime leaves the holdout unscored.
 
-Suggested categories: author/external attribution, unsupported premise, page trap, paraphrase retrieval, concept neighbor, mixed voice, cross-paper retrieval, and edition trap.
-
-## Current HOLDOUT30
-
-`evals/phase3/holdout30-query-panel.json` and `holdout30-gold.json` were created only after implementation freeze commit `2f10c6ebe8a821c7e6635128b99acc84c7941c08`. They contain 30 unique queries with zero exact query-string overlap with DEV50. Because the generative runtime is unavailable, no holdout response generation has occurred; `HOLDOUT_GOLD_HIDDEN_DURING_GENERATION` is recorded as `NOT_RUN_NO_LIVE_MODEL_RUNTIME` rather than incorrectly asserted TRUE.
+Suggested categories are author/external attribution, unsupported premise, page trap, paraphrase retrieval, concept neighbor, mixed voice, cross-paper retrieval, and edition trap. Do not use `DEV30_COMPAT` results as `HOLDOUT30_V2` results.
