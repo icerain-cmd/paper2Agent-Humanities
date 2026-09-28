@@ -17,7 +17,7 @@ Paper2Agent coordinates parallel specialist agents to turn scientific papers int
 
 **Quick start.** Run Paper2Skill and finish its page review first, then use `skills/paper2agent/paper2humanities/`. See `docs/POC_PROTOCOL.md` for the first Lee Yongwook PoC and `docs/EPISTEMIC_PROVENANCE.md` for the schema.
 
-**Current experimental status.** Phase 1 validates one Lee Yongwook paper agent. The reported 1.0/0.0 PoC metrics are `CURATED_FIXTURE` validation over 11 selected statements, not a claim of 100% attribution accuracy across the 31-page paper. Phase 1.5 uses a separate `BLIND_ADVERSARIAL_PANEL`. Cross-paper Benjamin dialogue remains pending source/edition approval.
+**Current experimental status.** Phase 1 validates one Lee Yongwook paper agent. The reported 1.0/0.0 PoC metrics are `CURATED_FIXTURE` validation over 11 selected statements, not a claim of 100% attribution accuracy across the 31-page paper. Phase 1.5 adds a separate 50-query `BLIND_ADVERSARIAL_PANEL`; the current reproducible run passes both hard attribution gates, but its query/gold/response roles were temporally separated in one execution environment and are not an independently blinded external benchmark. See `docs/EVALUATION_PROTOCOL.md`. Benjamin V2/V3 remain edition-separated and Agent B remains pending source approval; see `docs/BENJAMIN_EDITION_AUDIT.md`.
 
 ## 🚀 Quick Start
 

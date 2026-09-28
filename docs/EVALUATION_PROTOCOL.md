@@ -67,3 +67,7 @@ A high score is not interpreted as general paper-level accuracy. The panel is fi
 ## Phase boundary
 
 Phase 1.5 does not execute Lee ↔ Benjamin critique, Lee response, or cross-paper gap generation. Those are Phase 2 tasks after separate Benjamin V2/V3 source approval.
+
+## Current Phase 1.5 run
+
+Committed panel size: 50. Gold review: PASS. The current deterministic scoring report records type, voice, page, span, unsupported-premise rejection, and adversarial robustness at 1.0, with zero false author claims, zero external-as-author errors, and zero interpretation promotions. Because the roles were only temporally separated in one execution environment, these numbers are a reproducible finite-panel result, not a claim of general open-ended model accuracy.
