@@ -148,3 +148,17 @@ def test_source_map_keeps_v2_mapping_separate_from_v3():
     assert len(v2) == 1 and v2[0]["benjamin_gs_page"] == 359
     assert len(v3) == 4
     assert all(m["mapping_status"] == "STRONG_MATCH" for m in data["mappings"])
+
+
+def test_benjamin_verified_sources_remain_unapproved():
+    data = json.loads((ROOT / "evals" / "benjamin-source-verification.json").read_text())
+    assert data["approval_status"] == "PENDING_SOURCE_APPROVAL"
+    assert len(data["sources"]) == 2
+    assert all(item["source_verified"] is True for item in data["sources"])
+    assert all(item["user_approved"] is False for item in data["sources"])
+    by_id = {item["edition_id"]: item for item in data["sources"]}
+    assert by_id["benjamin-artwork-v2"]["container_pdf_page_range"] == [196, 230]
+    assert by_id["benjamin-artwork-v2"]["gs_page_range"] == [350, 384]
+    assert by_id["benjamin-artwork-v3"]["pdf_page_range"] == [1, 38]
+    assert by_id["benjamin-artwork-v3"]["gs_page_range"] == [471, 508]
+    assert not any(by_id["benjamin-artwork-v3"]["v2_only_term_hits"].values())
