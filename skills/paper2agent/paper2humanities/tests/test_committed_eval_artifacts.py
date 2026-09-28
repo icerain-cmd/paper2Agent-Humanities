@@ -43,12 +43,12 @@ def test_behavioral_response_ids_exactly_match_blind_panel():
     }
 
 
-def test_benjamin_candidates_keep_v2_and_v3_separate_and_unapproved():
+def test_benjamin_candidates_keep_v2_and_v3_separate_after_approval():
     data = load("benjamin-source-candidates.json")
     items = data["candidates"]
     assert {item["edition_id"] for item in items} == {
         "benjamin-artwork-v2", "benjamin-artwork-v3"
     }
     assert len({item["canonical_source"] for item in items}) == 2
-    assert all(item["approval_status"] == "PENDING_SOURCE_APPROVAL" for item in items)
-    assert data["agent_status"] == "PENDING_SOURCE_APPROVAL"
+    assert all(item["approval_status"] == "APPROVED_AND_VERIFIED" for item in items)
+    assert data["agent_status"] == "BUILT"
