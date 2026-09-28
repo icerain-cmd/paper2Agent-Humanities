@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from paper2humanities import (
+    EvidenceVoice,
     PaperAgent,
     PaperEvidenceIndex,
     StatementType,
@@ -65,6 +66,7 @@ def test_attribution_question_b_keeps_lee_benjamin_and_ai_separate():
     assert lee.statement_type == StatementType.AUTHOR_CLAIM and lee.author == "이용욱"
     assert benjamin.statement_type == StatementType.SOURCE_QUOTE
     assert benjamin.author.startswith("Walter Benjamin")
+    assert benjamin.evidence_voice == EvidenceVoice.EXTERNAL
     assert interpretation.statement_type == StatementType.INTERPRETATION
     assert interpretation.author is None
 
