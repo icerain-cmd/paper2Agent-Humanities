@@ -15,6 +15,12 @@ class StatementType(str, Enum):
     UNRESOLVED = "UNRESOLVED"
 
 
+class EvidenceVoice(str, Enum):
+    AUTHOR = "AUTHOR"
+    EXTERNAL = "EXTERNAL"
+    UNKNOWN = "UNKNOWN"
+
+
 class ReviewStatus(str, Enum):
     UNREVIEWED = "UNREVIEWED"
     REVIEWED = "REVIEWED"
@@ -41,6 +47,7 @@ class EpistemicStatement:
     section: str | None = None
     evidence_span: str | None = None
     citation: str | None = None
+    evidence_voice: EvidenceVoice | None = None
     derived_from: tuple[str, ...] = field(default_factory=tuple)
     target_statement: str | None = None
     target_paper: str | None = None
@@ -75,6 +82,11 @@ class EpistemicStatement:
                     f"{self.statement_type.value} requires source evidence: {', '.join(missing)}"
                 )
 
+        if self.statement_type in grounded and self.evidence_voice is None:
+            raise ProvenanceError(f"{self.statement_type.value} requires evidence_voice")
+        if self.statement_type == StatementType.AUTHOR_CLAIM and self.evidence_voice != EvidenceVoice.AUTHOR:
+            raise ProvenanceError("AUTHOR_CLAIM requires AUTHOR evidence_voice")
+
         if self.statement_type == StatementType.SOURCE_QUOTE:
             if " ".join(self.text.split()) != " ".join(_clean(self.evidence_span).split()):
                 raise ProvenanceError("SOURCE_QUOTE text must equal its evidence_span")
@@ -104,6 +116,7 @@ class EpistemicStatement:
             "section": self.section,
             "evidence_span": self.evidence_span,
             "citation": self.citation,
+            "evidence_voice": self.evidence_voice.value if self.evidence_voice else None,
             "derived_from": list(self.derived_from),
             "target_statement": self.target_statement,
             "target_paper": self.target_paper,
@@ -118,6 +131,8 @@ class EpistemicStatement:
         values = dict(data)
         values["statement_type"] = StatementType(values["statement_type"])
         values["review_status"] = ReviewStatus(values.get("review_status", "UNREVIEWED"))
+        if values.get("evidence_voice") is not None:
+            values["evidence_voice"] = EvidenceVoice(values["evidence_voice"])
         values["derived_from"] = tuple(values.get("derived_from", ()))
         return cls(**values)
 
