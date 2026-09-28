@@ -9,7 +9,8 @@ Route by the supplied inputs and requested outcome:
 
 - For paper PDFs and associated files, follow [Paper2Skill](paper2skill/SKILL.md).
 - For a research code repository, follow [Paper2MCP](paper2mcp/SKILL.md).
-- When both outputs are requested, follow both workflows.
+- For attribution-aware humanities claims or paper-to-paper scholarly dialogue, first complete Paper2Skill review, then follow [Paper2Humanities](paper2humanities/SKILL.md).
+- When both paper and code outputs are requested, follow both existing workflows; Paper2Humanities remains an optional post-review paper layer.
 
 Resolve each component's scripts and references relative to its own directory; bind `SKILL_ROOT` to that component. Keep their work directories separate. Independent paper and code tasks may run concurrently within host limits. Every MCP tool must bind to existing repository code.
 
