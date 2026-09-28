@@ -1,0 +1,3432 @@
+{
+  "evaluation_scope": "FROZEN_REGRESSION50_RETRIEVAL",
+  "grounded_queries": 41,
+  "page_retrieval_recall_at_6": 0.3902439024390244,
+  "traces": [
+    {
+      "query_id": "LEE-BLIND-001",
+      "expected_page": 1,
+      "page_recall_hit": false,
+      "query": "이용욱은 기술편집시대를 어떻게 규정하는가?",
+      "candidate_statement_ids": [
+        "lee-c-research-program",
+        "lee-c-purpose",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-research-program": 3.329442,
+        "lee-c-purpose": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-research-program",
+        "lee-c-purpose",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-002",
+      "expected_page": 11,
+      "page_recall_hit": true,
+      "query": "기술편집의 핵심은 완전히 새로운 것을 만드는 것인가, 기존 것을 새롭게 만드는 renewal인가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-q-tech-editing",
+        "lee-c-research-program",
+        "lee-q-digital-aura",
+        "lee-c-tech-start",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 5.561585,
+        "lee-c-tension": 3.329442,
+        "lee-q-tech-editing": 3.329442,
+        "lee-c-research-program": 2.482144,
+        "lee-q-digital-aura": 2.482144,
+        "lee-c-tech-start": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-q-tech-editing",
+        "lee-c-research-program",
+        "lee-q-digital-aura",
+        "lee-c-tech-start"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-tech-editing",
+          "page": 1,
+          "evidence_span": "지금은 기술복제를 넘어 기술편집의 시대이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-digital-aura",
+          "page": 17,
+          "evidence_span": "궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-003",
+      "expected_page": 11,
+      "page_recall_hit": true,
+      "query": "논문은 기술편집시대의 시작을 어떤 기술의 등장과 연결하는가?",
+      "candidate_statement_ids": [
+        "lee-c-tech-start",
+        "lee-c-purpose",
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-tech-start": 6.408883,
+        "lee-c-purpose": 3.329442,
+        "lee-c-transparent": 2.482144,
+        "lee-q-benjamin-second-tech": 2.482144,
+        "lee-q-trust-keyword": 2.482144,
+        "lee-c-research-program": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tech-start",
+        "lee-c-purpose",
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-research-program"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-004",
+      "expected_page": 15,
+      "page_recall_hit": false,
+      "query": "이용욱은 기술편집시대의 예술가를 행위자이면서 동시에 중개자로 보는가?",
+      "candidate_statement_ids": [
+        "lee-c-tech-start",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-tech-start": 3.329442,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tech-start",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-005",
+      "expected_page": 15,
+      "page_recall_hit": false,
+      "query": "논문에서 ‘아우라의 중계성’은 기술복제시대의 아우라 상실과 어떻게 다른 양상으로 제시되는가?",
+      "candidate_statement_ids": [
+        "lee-c-research-program",
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-research-program": 5.796671,
+        "lee-c-purpose": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-research-program",
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-006",
+      "expected_page": 21,
+      "page_recall_hit": false,
+      "query": "제3기술은 자연과 인간의 ‘다름’을 어떤 방식으로 처리한다고 서술되는가?",
+      "candidate_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-tension": 3.810317,
+        "lee-c-transparent": 3.810317,
+        "lee-c-trust-definition": 3.810317,
+        "lee-q-benjamin-second-tech": 3.810317,
+        "lee-q-trust-keyword": 3.810317,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-purpose"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-007",
+      "expected_page": 22,
+      "page_recall_hit": true,
+      "query": "제3기술의 핵심가치인 ‘투명화’는 어떤 차이들을 사라지게 하는 것으로 설명되는가?",
+      "candidate_statement_ids": [
+        "lee-c-transparent",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-transparent": 13.58619,
+        "lee-c-tension": 8.274604,
+        "lee-c-trust-definition": 6.889759,
+        "lee-q-benjamin-second-tech": 6.042461,
+        "lee-q-trust-keyword": 6.042461,
+        "lee-i-distance": 4.464287,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-transparent",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-i-distance",
+          "page": null,
+          "evidence_span": null,
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-008",
+      "expected_page": 24,
+      "page_recall_hit": true,
+      "query": "‘신뢰화’는 가상텍스트와 주체의 관계에서 무엇을 가능하게 하는 편집기술인가?",
+      "candidate_statement_ids": [
+        "lee-c-trust-definition",
+        "lee-c-tension",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-trust-definition": 10.87317,
+        "lee-c-tension": 4.714287,
+        "lee-q-trust-keyword": 4.714287,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-trust-definition",
+        "lee-c-tension",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-009",
+      "expected_page": 13,
+      "page_recall_hit": false,
+      "query": "이용욱은 컴퓨터게임을 기술편집시대의 종합예술로 규정하는가?",
+      "candidate_statement_ids": [
+        "lee-c-tech-start",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-tech-start": 3.329442,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tech-start",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-010",
+      "expected_page": 17,
+      "page_recall_hit": false,
+      "query": "기술편집시대의 대표적 수용 태도는 정신분산인가 정신몰입인가?",
+      "candidate_statement_ids": [
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-i-distance": 9.238325,
+        "lee-c-tech-start": 3.329442,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-i-distance",
+          "page": null,
+          "evidence_span": null,
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-011",
+      "expected_page": 17,
+      "page_recall_hit": true,
+      "query": "‘디지털아우라’는 이미 완성된 현재의 미학 개념으로 단정되는가, 향후 등장 가능성으로 제시되는가?",
+      "candidate_statement_ids": [
+        "lee-c-research-program",
+        "lee-q-digital-aura",
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-research-program": 5.796671,
+        "lee-q-digital-aura": 5.796671,
+        "lee-c-purpose": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-research-program",
+        "lee-q-digital-aura",
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-digital-aura",
+          "page": 17,
+          "evidence_span": "궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-012",
+      "expected_page": 29,
+      "page_recall_hit": true,
+      "query": "결론에서 이용욱은 20세기 아우라 상실이 21세기 디지털예술에서 어떻게 변용되는지 연구해야 한다고 보는가?",
+      "candidate_statement_ids": [
+        "lee-c-research-program",
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-research-program": 18.114437,
+        "lee-c-purpose": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-research-program",
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-013",
+      "expected_page": 2,
+      "page_recall_hit": true,
+      "query": "‘20세기는 예술대량소비, 21세기는 예술대량생산의 시대’라는 진술은 이용욱 자신의 주장인가?",
+      "candidate_statement_ids": [
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-purpose",
+        "lee-c-tech-start",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-research-program": 3.329442,
+        "lee-c-tension": 3.329442,
+        "lee-c-purpose": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-purpose",
+        "lee-c-tech-start",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-014",
+      "expected_page": 6,
+      "page_recall_hit": false,
+      "query": "기술 혁신이 예술의 개념 자체를 변화시킬 수 있다는 서두의 문장은 이용욱의 독창적 진술인가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 3.329442,
+        "lee-c-tension": 2.030159,
+        "lee-c-transparent": 2.030159,
+        "lee-c-trust-definition": 2.030159,
+        "lee-q-benjamin-second-tech": 2.030159,
+        "lee-q-trust-keyword": 2.030159,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-015",
+      "expected_page": 7,
+      "page_recall_hit": false,
+      "query": "‘대상을 껍질에서 떼어내는 일, 즉 아우라를 파괴하는 일’이라는 진술은 누구의 목소리인가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-016",
+      "expected_page": 8,
+      "page_recall_hit": false,
+      "query": "정신집중과 정신분산을 대조하는 ‘작품 속으로 빠져든다/작품이 대중 속으로 들어온다’는 구절은 이용욱의 직접 주장인가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-017",
+      "expected_page": 18,
+      "page_recall_hit": true,
+      "query": "‘제2의 기술의 기원은 유희에 있다’는 문장을 이용욱의 AUTHOR_CLAIM으로 저장해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-q-benjamin-second-tech",
+        "lee-c-purpose",
+        "lee-c-transparent",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-q-benjamin-second-tech": 23.190937,
+        "lee-c-purpose": 2.482144,
+        "lee-c-transparent": 2.482144,
+        "lee-q-trust-keyword": 2.482144,
+        "lee-i-distance": 2.232144,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-q-benjamin-second-tech",
+        "lee-c-purpose",
+        "lee-c-transparent",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-research-program"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-i-distance",
+          "page": null,
+          "evidence_span": null,
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-018",
+      "expected_page": 16,
+      "page_recall_hit": false,
+      "query": "‘재매개는 아우라를 파괴하지 않고 다른 미디어 형식 속에서 바꾼다’는 주장은 누구에게 귀속되는가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-019",
+      "expected_page": 14,
+      "page_recall_hit": false,
+      "query": "위기의 시기에 괴상하고 조야한 예술 형식이 역사적 에너지의 중심에서 나온다는 진술은 이용욱의 독창적 명제인가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-020",
+      "expected_page": 12,
+      "page_recall_hit": false,
+      "query": "몰입을 ‘물 흐르는 것처럼 편안한 느낌’으로 설명하는 대목은 이용욱의 고유 개념인가?",
+      "candidate_statement_ids": [
+        "lee-i-distance",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-i-distance": 9.238325,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-i-distance",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-i-distance",
+          "page": null,
+          "evidence_span": null,
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-021",
+      "expected_page": 26,
+      "page_recall_hit": false,
+      "query": "‘방에서 가장 똑똑한 것은 방 그 자체, 즉 네트워크다’라는 문장은 이용욱 자신의 주장인가?",
+      "candidate_statement_ids": [
+        "lee-c-tension",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-tension": 3.329442,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tension",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-022",
+      "expected_page": 24,
+      "page_recall_hit": true,
+      "query": "‘흔적은 멀리 있어도 가까운 것의 현상이고 아우라는 가까워도 먼 것의 현상’이라는 문장은 누구의 주장으로 다뤄야 하는가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-023",
+      "expected_page": 22,
+      "page_recall_hit": true,
+      "query": "이용욱의 ‘투명화’는 윤리적 투명성이나 정보공개의 투명성과 같은 개념이라고 볼 수 있는가?",
+      "candidate_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-i-distance",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-tension": 4.714287,
+        "lee-c-transparent": 4.714287,
+        "lee-i-distance": 4.464287,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-i-distance",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-i-distance",
+          "page": null,
+          "evidence_span": null,
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-024",
+      "expected_page": 15,
+      "page_recall_hit": false,
+      "query": "‘아우라의 중계성’은 원본의 아우라가 디지털 환경에서 완전히 복원된다는 뜻이라고 단정할 수 있는가?",
+      "candidate_statement_ids": [
+        "lee-q-digital-aura",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-q-digital-aura": 5.796671,
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-q-digital-aura",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-q-digital-aura",
+          "page": 17,
+          "evidence_span": "궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-025",
+      "expected_page": 17,
+      "page_recall_hit": false,
+      "query": "논문은 디지털아우라의 등장을 윤리적으로 바람직한 현상이라고 평가한다고 볼 수 있는가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 5.796671,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-026",
+      "expected_page": 24,
+      "page_recall_hit": true,
+      "query": "‘신뢰화’ 논의를 이용욱이 진실 여부는 전혀 중요하지 않다고 규범적으로 승인한 것으로 해석해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-tension": 4.714287,
+        "lee-c-trust-definition": 4.714287,
+        "lee-q-trust-keyword": 4.714287,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-027",
+      "expected_page": 12,
+      "page_recall_hit": false,
+      "query": "이용욱은 벤야민의 정신분산 개념을 시대착오적이라고 폐기한다고 주장하는가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 6.408883,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-028",
+      "expected_page": 16,
+      "page_recall_hit": false,
+      "query": "‘아우라의 중계성’과 볼터·그루신의 ‘재매개’를 완전히 동일한 개념으로 취급해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-c-transparent",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-transparent": 5.796671,
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-transparent",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-029",
+      "expected_page": 21,
+      "page_recall_hit": false,
+      "query": "제3기술 논의는 인간/자연 이분법을 윤리적으로 완전히 해소해야 한다는 규범적 주장인가?",
+      "candidate_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-tension": 5.590476,
+        "lee-c-transparent": 5.590476,
+        "lee-c-trust-definition": 5.590476,
+        "lee-q-benjamin-second-tech": 5.590476,
+        "lee-q-trust-keyword": 5.590476,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-purpose"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-030",
+      "expected_page": 26,
+      "page_recall_hit": false,
+      "query": "구글 검색결과의 순위가 곧 새로운 형태의 아우라라고 이용욱이 명시적으로 말하는가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-q-digital-aura",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 4.949373,
+        "lee-c-research-program": 4.949373,
+        "lee-q-digital-aura": 4.949373,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-q-digital-aura",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-digital-aura",
+          "page": 17,
+          "evidence_span": "궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-031",
+      "expected_page": 28,
+      "page_recall_hit": false,
+      "query": "논문의 결론은 검색의 편리함 자체가 지식의 아우라를 필연적으로 파괴한다는 인과법칙을 제시하는가?",
+      "candidate_statement_ids": [
+        "lee-i-distance",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-i-distance": 5.546671,
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-i-distance",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-i-distance",
+          "page": null,
+          "evidence_span": null,
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-041",
+      "expected_page": 24,
+      "page_recall_hit": true,
+      "query": "‘신뢰화’의 정의는 PDF 18쪽에 제시되어 있다고 답해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-tension": 4.714287,
+        "lee-c-trust-definition": 4.714287,
+        "lee-q-trust-keyword": 4.714287,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-042",
+      "expected_page": 15,
+      "page_recall_hit": false,
+      "query": "‘아우라의 중계성’이라는 핵심 명제의 직접 근거를 PDF 10쪽이라고 인용해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-043",
+      "expected_page": 22,
+      "page_recall_hit": true,
+      "query": "‘제3기술의 핵심가치는 투명화’라는 문장의 근거 페이지를 PDF 27쪽이라고 해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-trust-definition",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-tension": 11.354046,
+        "lee-c-transparent": 10.506748,
+        "lee-q-benjamin-second-tech": 6.042461,
+        "lee-q-trust-keyword": 6.042461,
+        "lee-i-distance": 4.464287,
+        "lee-c-trust-definition": 3.810317,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-i-distance",
+          "page": null,
+          "evidence_span": null,
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-044",
+      "expected_page": 11,
+      "page_recall_hit": true,
+      "query": "‘기술편집의 핵심은 renewal’이라는 문장을 PDF 5쪽에서 인용해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-q-tech-editing",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-q-tech-editing": 3.329442,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-q-tech-editing",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-q-tech-editing",
+          "page": 1,
+          "evidence_span": "지금은 기술복제를 넘어 기술편집의 시대이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-045",
+      "expected_page": 18,
+      "page_recall_hit": true,
+      "query": "‘제2의 기술의 기원은 유희에 있다’는 문장이 Lee 논문에 있으므로 이용욱 자신의 주장이라고 봐도 되는가?",
+      "candidate_statement_ids": [
+        "lee-q-benjamin-second-tech",
+        "lee-c-purpose",
+        "lee-c-transparent",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-q-benjamin-second-tech": 23.190937,
+        "lee-c-purpose": 2.482144,
+        "lee-c-transparent": 2.482144,
+        "lee-q-trust-keyword": 2.482144,
+        "lee-i-distance": 2.232144,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-q-benjamin-second-tech",
+        "lee-c-purpose",
+        "lee-c-transparent",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-research-program"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-i-distance",
+          "page": null,
+          "evidence_span": null,
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-trust-definition",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-046",
+      "expected_page": 16,
+      "page_recall_hit": false,
+      "query": "‘재매개는 아우라를 파괴하지 않고 바꾼다’는 문장이 Lee 논문에 있으므로 이용욱의 개념으로 등록해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-c-tension": 2.71723,
+        "lee-c-transparent": 2.71723,
+        "lee-c-trust-definition": 2.71723,
+        "lee-q-benjamin-second-tech": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-q-trust-keyword": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-digital-aura",
+        "lee-q-trust-keyword",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-047",
+      "expected_page": 24,
+      "page_recall_hit": true,
+      "query": "아우라와 흔적을 대비하는 인용문을 이용욱이 새로 만든 정의로 보아도 되는가?",
+      "candidate_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-q-digital-aura",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ],
+      "candidate_scores": {
+        "lee-c-tension": 4.497388,
+        "lee-c-transparent": 4.497388,
+        "lee-c-trust-definition": 4.497388,
+        "lee-q-benjamin-second-tech": 4.497388,
+        "lee-q-trust-keyword": 4.497388,
+        "lee-c-purpose": 2.71723,
+        "lee-c-research-program": 2.71723,
+        "lee-q-digital-aura": 2.71723,
+        "lee-i-distance": 2.46723,
+        "lee-c-tech-start": 0.25,
+        "lee-q-tech-editing": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-purpose"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-benjamin-second-tech",
+          "page": 18,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-q-trust-keyword",
+          "page": 23,
+          "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-c-research-program",
+        "lee-q-digital-aura",
+        "lee-i-distance",
+        "lee-c-tech-start",
+        "lee-q-tech-editing"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-048",
+      "expected_page": 26,
+      "page_recall_hit": false,
+      "query": "‘지식이 네트워크의 소유물’이고 ‘방이 가장 똑똑하다’는 대목을 이용욱의 직접 주장으로 귀속해도 되는가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-049",
+      "expected_page": 14,
+      "page_recall_hit": false,
+      "query": "AI의 출현이 예술행위는 인간 고유영역이라는 믿음에 균열을 냈다는 문장은 이용욱의 서술인가, 외부 인용인가?",
+      "candidate_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-tech-start": 0.25,
+        "lee-c-tension": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    },
+    {
+      "query_id": "LEE-BLIND-050",
+      "expected_page": 16,
+      "page_recall_hit": false,
+      "query": "‘기술편집시대는 재매개시대다’라는 명명은 이용욱 자신의 명명인가, 볼터와 그루신에게 귀속된 서술인가?",
+      "candidate_statement_ids": [
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ],
+      "candidate_scores": {
+        "lee-c-tech-start": 3.329442,
+        "lee-c-tension": 3.329442,
+        "lee-c-purpose": 0.25,
+        "lee-c-research-program": 0.25,
+        "lee-c-transparent": 0.25,
+        "lee-c-trust-definition": 0.25,
+        "lee-q-benjamin-second-tech": 0.25,
+        "lee-q-digital-aura": 0.25,
+        "lee-q-tech-editing": 0.25,
+        "lee-q-trust-keyword": 0.25
+      },
+      "selected_statement_ids": [
+        "lee-c-tech-start",
+        "lee-c-tension",
+        "lee-c-purpose",
+        "lee-c-research-program",
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ],
+      "selected_evidence": [
+        {
+          "statement_id": "lee-c-tech-start",
+          "page": 11,
+          "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-tension",
+          "page": 27,
+          "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-purpose",
+          "page": 2,
+          "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-research-program",
+          "page": 29,
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-transparent",
+          "page": 22,
+          "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+          "edition_id": null
+        },
+        {
+          "statement_id": "lee-c-trust-definition",
+          "page": 24,
+          "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+          "edition_id": null
+        }
+      ],
+      "rejected_candidates": [
+        "lee-q-benjamin-second-tech",
+        "lee-q-digital-aura",
+        "lee-q-tech-editing",
+        "lee-q-trust-keyword"
+      ]
+    }
+  ]
+}
