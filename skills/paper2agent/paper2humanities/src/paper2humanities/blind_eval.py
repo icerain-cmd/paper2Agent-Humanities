@@ -69,7 +69,7 @@ def validate_gold_panel(panel: dict[str, Any], index: PaperEvidenceIndex) -> dic
     }
 
 
-def score_panel(gold: dict[str, Any], responses: dict[str, Any]) -> dict[str, Any]:
+def score_panel(gold: dict[str, Any], responses: dict[str, Any], *, evaluation_scope: str = "COMMITTED_BLIND_RESPONSE_SET") -> dict[str, Any]:
     records = gold["records"]
     response_list = responses.get("responses")
     if not isinstance(response_list, list):
@@ -134,7 +134,7 @@ def score_panel(gold: dict[str, Any], responses: dict[str, Any]) -> dict[str, An
 
     total = len(records)
     report = {
-        "evaluation_scope": "BLIND_ADVERSARIAL_PANEL",
+        "evaluation_scope": evaluation_scope,
         "panel_size": total,
         "attribution_type_accuracy": type_ok / total,
         "evidence_voice_accuracy": voice_ok / total,

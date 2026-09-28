@@ -1,5 +1,5 @@
 {
-  "evaluation_scope": "BLIND_ADVERSARIAL_PANEL",
+  "evaluation_scope": "COMMITTED_BLIND_RESPONSE_SET",
   "panel_size": 50,
   "attribution_type_accuracy": 1.0,
   "evidence_voice_accuracy": 1.0,
