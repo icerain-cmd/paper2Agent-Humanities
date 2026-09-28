@@ -60,14 +60,29 @@ class ScholarlyDialogue:
         self.agents = {agent.paper_id: agent for agent in agents}
         if len(self.agents) != len(agents):
             raise ProvenanceError("paper_id values must be unique")
+        self.reviewed_turns: dict[str, EpistemicStatement] = {}
 
     def _lookup(self, statement_id: str) -> EpistemicStatement:
+        if statement_id in self.reviewed_turns:
+            return self.reviewed_turns[statement_id]
         for agent in self.agents.values():
             try:
                 return agent.store.get(statement_id)
             except ProvenanceError:
                 pass
         raise ProvenanceError(f"unknown dialogue support statement: {statement_id}")
+
+    def register_reviewed_turn(self, turn: DialogueTurn) -> None:
+        validate_turn_for_publication(turn)
+        if turn.turn_id in self.reviewed_turns:
+            raise ProvenanceError(f"duplicate reviewed dialogue turn: {turn.turn_id}")
+        for agent in self.agents.values():
+            try:
+                agent.store.get(turn.turn_id)
+            except ProvenanceError:
+                continue
+            raise ProvenanceError(f"dialogue turn id collides with source statement: {turn.turn_id}")
+        self.reviewed_turns[turn.turn_id] = turn.statement
 
     def create_turn(
         self,
@@ -82,13 +97,24 @@ class ScholarlyDialogue:
         unresolved_reason: str | None = None,
         relation_type: RelationType = RelationType.UNRESOLVED,
     ) -> DialogueTurn:
-        if actor_paper not in self.agents:
-            raise ProvenanceError(f"unknown actor paper: {actor_paper}")
-        actor_agent = self.agents[actor_paper]
-        try:
-            actor_agent.validate_output_text(text)
-        except ValueError as exc:
-            raise ProvenanceError(str(exc)) from exc
+        cross_actions = {
+            DialogueAction.COMPARE,
+            DialogueAction.SYNTHESIZE,
+            DialogueAction.IDENTIFY_GAP,
+            DialogueAction.GENERATE_RESEARCH_QUESTION,
+        }
+        if actor_paper == "synthesis-agent":
+            if action not in cross_actions:
+                raise ProvenanceError("synthesis-agent may only perform cross-paper synthesis operations")
+            actor_agent = None
+        else:
+            if actor_paper not in self.agents:
+                raise ProvenanceError(f"unknown actor paper: {actor_paper}")
+            actor_agent = self.agents[actor_paper]
+            try:
+                actor_agent.validate_output_text(text)
+            except ValueError as exc:
+                raise ProvenanceError(str(exc)) from exc
         if target_paper and target_paper not in self.agents:
             raise ProvenanceError(f"unknown target paper: {target_paper}")
         if target_statement:
@@ -107,7 +133,7 @@ class ScholarlyDialogue:
                 raise ProvenanceError(
                     f"{action.value} paper agent may use only its own paper evidence: {foreign}"
                 )
-            if actor_agent.edition_id is not None:
+            if actor_agent is not None and actor_agent.edition_id is not None:
                 wrong_edition = [
                     item.statement_id for item in supports
                     if item.edition_id != actor_agent.edition_id
@@ -117,12 +143,6 @@ class ScholarlyDialogue:
                         f"{action.value} paper agent may use only its own edition evidence: {wrong_edition}"
                     )
 
-        cross_actions = {
-            DialogueAction.COMPARE,
-            DialogueAction.SYNTHESIZE,
-            DialogueAction.IDENTIFY_GAP,
-            DialogueAction.GENERATE_RESEARCH_QUESTION,
-        }
         if action in cross_actions and len(support_papers) < 2:
             raise ProvenanceError(f"{action.value} requires provenance from at least two papers")
 
@@ -145,7 +165,7 @@ class ScholarlyDialogue:
             statement_type=stype,
             text=text,
             paper_id=actor_paper if action in own_evidence_actions else None,
-            edition_id=actor_agent.edition_id if action in own_evidence_actions else None,
+            edition_id=actor_agent.edition_id if action in own_evidence_actions and actor_agent is not None else None,
             derived_from=support_ids,
             target_statement=target_statement,
             target_paper=target_paper,
@@ -156,7 +176,7 @@ class ScholarlyDialogue:
             turn_id=statement_id,
             action=action,
             actor_paper=actor_paper,
-            actor_edition_id=actor_agent.edition_id,
+            actor_edition_id=actor_agent.edition_id if actor_agent is not None else None,
             target_paper=target_paper,
             target_statement_id=target_statement,
             statement=statement,
