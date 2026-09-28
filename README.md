@@ -9,6 +9,16 @@
 
 Paper2Agent coordinates parallel specialist agents to turn scientific papers into reliable MCP servers and skills.
 
+## Paper2Agent-Humanities (experimental)
+
+**What is Paper2Agent-Humanities?** It is a minimal, attribution-aware layer on top of a reviewed Paper2Skill bundle. It represents source quotations, author claims, interpretations, AI syntheses, critiques, and unresolved points as different proposition types instead of letting them collapse into one conversational voice.
+
+**Why humanities needs attribution-aware paper agents.** Humanities arguments often depend on who is speaking, which edition or page supports a proposition, and whether a sentence is an author's claim or a later interpretation. The humanities layer therefore treats page-level provenance and `Unsupported AUTHOR_CLAIM = 0` as gates.
+
+**Quick start.** Run Paper2Skill and finish its page review first, then use `skills/paper2agent/paper2humanities/`. See `docs/POC_PROTOCOL.md` for the first Lee Yongwook PoC and `docs/EPISTEMIC_PROVENANCE.md` for the schema.
+
+**Current experimental status.** Phase 1 validates one Lee Yongwook paper agent. Cross-paper Benjamin dialogue is intentionally pending source/edition approval. No benchmark claim is made beyond the committed tests and PoC metrics.
+
 ## 🚀 Quick Start
 
 ### Basic Usage
