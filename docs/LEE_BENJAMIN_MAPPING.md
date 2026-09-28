@@ -1,6 +1,6 @@
 # Lee–Benjamin Source Mapping
 
-This artifact maps Lee Yong-wook's 2019 paper to the separately verified Benjamin V2/V3 facsimiles. It is a **pre-approval source map**, not an Agent-B dialogue result.
+This artifact maps Lee Yong-wook's 2019 paper to separately verified and user-approved Benjamin V2/V3 facsimiles. The mapping was prepared before dialogue execution and then retained as the source-alignment basis for the approved V2/V3 Paper Agents.
 
 ## Mapping rule
 
@@ -27,7 +27,8 @@ MAPPING_EXACT=0
 MAPPING_STRONG_MATCH=5
 MAPPING_PARTIAL=0
 MAPPING_UNRESOLVED=0
-BENJAMIN_AGENT=PENDING_SOURCE_APPROVAL
+BENJAMIN_V2_AGENT=BUILT
+BENJAMIN_V3_AGENT=BUILT
 ```
 
-No critique, Lee response, or cross-paper synthesis is generated from this map before source approval.
+After explicit source approval, this reviewed map was used as a source-alignment control for the separately executed Phase-2 D/E/F dialogue artifacts.

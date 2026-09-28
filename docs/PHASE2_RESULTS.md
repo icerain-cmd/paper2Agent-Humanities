@@ -1,27 +1,26 @@
-# Phase 2 Results — Pre-Approval Checkpoint
+# Phase 2 Results
 
 ## Status
 
 ```
-PHASE2_STATUS=BLOCKED_SOURCE_APPROVAL
-BENJAMIN_AGENT=PENDING_SOURCE_APPROVAL
-TEST_D=NOT_RUN_PENDING_SOURCE_APPROVAL
-TEST_E=NOT_RUN_PENDING_SOURCE_APPROVAL
-TEST_F=NOT_RUN_PENDING_SOURCE_APPROVAL
+PHASE2_STATUS=COMPLETE
+BENJAMIN_V2_SOURCE=APPROVED_AND_VERIFIED
+BENJAMIN_V3_SOURCE=APPROVED_AND_VERIFIED
+BENJAMIN_V2_AGENT=PASS
+BENJAMIN_V3_AGENT=PASS
+TEST_D=PASS
+TEST_E=PASS
+TEST_F=PASS
 ```
 
-The approval block is intentional. Source verification is complete enough to present a source choice, but user approval has not been inferred from the task instruction.
+V2 and V3 were explicitly approved by the user as **separate** Paper Agent sources. They were independently processed through Paper2Skill, visually reviewed page-by-page, adjudicated where parser-number diagnostics remained, and strict verification passed as `reviewed_with_limitations` with `mechanical_ok=true`.
 
-## Phase 1.5 live-evaluation correction
+## Live behavioral boundary
 
-The previous 50-response 1.0 result is now labelled `COMMITTED_BLIND_RESPONSE_SET`: it scores a frozen, pre-existing response artifact. It is not evidence that an agent freshly answered 50 blind queries.
+The prior committed 50-response 1.0 result remains classified as `COMMITTED_BLIND_RESPONSE_SET`, not a live inference result.
 
-A separate gold-isolated `LIVE_BLIND_RUN` was implemented. No external model runtime was available to the repository process, so the run is explicitly `DETERMINISTIC_BEHAVIORAL_EVAL`, not `LIVE_AGENT_EVAL`.
+The official gold-isolated run `lee-aura-live-20260928T041757Z` used `DETERMINISTIC_BEHAVIORAL_EVAL` because no external model runtime was available to the repository process. Gold was unavailable during response generation and `EXTERNAL_BLIND=false`.
 
-Official run: `lee-aura-live-20260928T041757Z`.
-
-- gold available during response generation: false
-- external blind: false
 - type accuracy: 0.44
 - evidence voice accuracy: 0.52
 - page accuracy: 0.3658536585
@@ -29,56 +28,126 @@ Official run: `lee-aura-live-20260928T041757Z`.
 - unsupported-claim rejection: 0.3333333333
 - false author claims: 5
 - external-as-author errors: 4
-- interpretation promotions: 0
 - adversarial robustness: 0.10
 
-All 45 failed rows remain in the run artifact.
+These failures remain committed and are not mixed with the Phase-2 source-bounded dialogue gates.
 
-## Benjamin V2 verification
+## Benjamin V2
 
-The Commons four-version container is 291 pages, SHA-256 `0f5f14abc67e1da4829b37830d2ac3f554468e7ff7470be3d6dd4db813d877c1`.
+- paper/edition ID: `benjamin-artwork-v2`
+- source: Zweite Fassung, GS VII.1 pp.350–384
+- reviewed working PDF: 35 pages
+- SHA-256: `d5c9f013689f2662a64e8235a4599ade25036fb40dcd18a388b93d683bcca0ec`
+- Paper2Skill status: `reviewed_with_limitations`
+- mechanical verification: PASS
+- reviewed pages: 35/35
+- applied adjudications: 3
+- Paper Agent propositions: 6
 
-Verified V2 boundary:
+The first/second-technology passage is at V2 working PDF p.10 / GS p.359.
 
-- container PDF 196–230
-- GS VII.1 pp.350–384
-- prepared V2-only working slice: 35 pages
-- current slice SHA-256 `d5c9f013689f2662a64e8235a4599ade25036fb40dcd18a388b93d683bcca0ec`
-- first/second technology passage: container PDF 205 / slice PDF 10 / GS 359
+## Benjamin V3
 
-The German passage contains the relevant inflected wording for first/second technology, `Ein für allemal`, `Einmal ist keinmal`, the origin of second technology, and `Spiel`.
+- paper/edition ID: `benjamin-artwork-v3`
+- source: Dritte Fassung, GS I.2 pp.471–508
+- reviewed PDF: 38 pages
+- SHA-256: `bdb9107b41e05fd6919592d6ba786b501f160a1618b1d9e1f4d21108d0745568`
+- Paper2Skill status: `reviewed_with_limitations`
+- mechanical verification: PASS
+- reviewed pages: 38/38
+- applied adjudications: 10
+- Paper Agent propositions: 7
 
-## Benjamin V3 verification
+V2-specific first/second-technology strings remain absent from the verified V3 facsimile.
 
-The separate V3 facsimile is 38 pages, SHA-256 `bdb9107b41e05fd6919592d6ba786b501f160a1618b1d9e1f4d21108d0745568`, mapping PDF 1–38 to GS I.2 pp.471–508.
+## Lee–Benjamin mapping
 
-Aura, Echtheit, Kultwert, Ausstellungswert, film, Zerstreuung, and Rezeption were positively located. The V2-specific first/second-technology strings were absent across all 38 pages.
+Five source mappings remain conservatively classified as `STRONG_MATCH`; none is promoted to `EXACT` because the Korean translation was not independently aligned word-for-word against the German critical-edition text.
 
-## Lee–Benjamin pre-approval mapping
+```
+MAPPING_EXACT=0
+MAPPING_STRONG_MATCH=5
+MAPPING_PARTIAL=0
+MAPPING_UNRESOLVED=0
+```
 
-Five reviewed source mappings are committed:
+## Test D — Benjamin-source critique
 
-- V2 first/second technology → Lee PDF 18 / printed 264
-- V3 aura destruction → Lee PDF 7 / printed 253
-- V3 concentration/distraction → Lee PDF 8 / printed 254
-- V3 distracted examiner/film → Lee PDF 10 / printed 256
-- V3 crisis/new demand/Dada → Lee PDF 14 / printed 260
+Six reviewed evidence-bounded critique turns were generated:
 
-All are `STRONG_MATCH`, not `EXACT`, because the Korean translation was not independently aligned word-for-word against the German edition.
+- V2-based: 3
+- V3-based: 3
 
-## Implemented pre-approval hardening
+No turn is phrased as "what Benjamin would say." Each turn names a Benjamin source proposition, a Lee target proposition, a relation type, edition identity, and semantic-review status.
 
-- PaperAgent edition identity
-- dialogue actor edition identity
-- actor-owned/edition-owned response support
-- cross-edition synthesis provenance
-- Lee-2019 temporal/corpus deny-list for later concepts
-- semantic-support review states
-- publishability gate separate from provenance validation
-- source-map artifact and source-verification artifact
+Topics:
 
-## Not performed
+1. V2 human-deployment criterion vs Lee third-technology transparency
+2. V2 play/origin of second technology vs Lee computer/Internet periodization
+3. V2 nature-human interplay vs Lee artificial/transparency framing
+4. V3 aura withering vs Lee prospective digital aura
+5. V3 authenticity/Here-and-Now vs Lee trust/context criterion
+6. V3 distraction vs Lee technology-editing immersion
 
-No Benjamin Paper Agent is created. No source is marked user-approved. No Test-D critique, Test-E Lee response, or Test-F cross-paper research-gap synthesis is executed.
+## Test E — Lee 2019 response
 
-The next operation requires explicit user approval of **both separately identified V2 and V3 source candidates**.
+All six responses are bounded to the 2019 paper.
+
+```
+SUPPORTED_RESPONSE=3
+PARTIAL_RESPONSE=3
+NO_SOURCE_SUPPORTED_RESPONSE=0
+```
+
+The partial responses explicitly preserve missing bridges rather than completing Lee's theory with later concepts.
+
+A temporal/corpus firewall blocks later Lee vocabulary such as `아투라`, `기계세/Mechanocene`, `기술생성시대`, `공진주체 WE`, `마찰의 투명성`, and `생성 아우라` from being emitted as Lee-2019 responses.
+
+## Test F — synthesis
+
+The synthesis actor is explicitly `synthesis-agent`, not a paper author.
+
+```
+CROSS_PAPER_ISSUES=3
+RESEARCH_GAPS=3
+RESEARCH_QUESTIONS=3
+```
+
+All issue/gap outputs are `AI_SYNTHESIS`; research questions remain `UNRESOLVED`. Each research question records `novelty_basis`, `derived_from`, `source_gap`, and human-review status.
+
+The three research-question directions are:
+
+1. criteria for relating Benjamin V2 second technology to Lee's third technology without collapsing their different axes;
+2. whether digital aura can be theorized without silently restoring V3 authenticity/Here-and-Now;
+3. what mechanism could connect V3 distracted mass reception to Lee's digitally interactive immersion.
+
+## Semantic-support review
+
+A separate post-generation source-verifier pass reviewed 21 D/E/F turns. It is explicitly **not** claimed as an independent external human review.
+
+- D critiques: 6 reviewed
+- E responses: 6 reviewed
+- F issues/gaps/questions: 9 reviewed
+- unsupported/overstated publishable turns: 0
+
+Provenance validity alone was not treated as semantic support.
+
+## Hard gates
+
+Final verifier result:
+
+```
+FALSE_AUTHOR_CLAIM=0
+EXTERNAL_AS_AUTHOR_ERROR=0
+CROSS_EDITION_CONTAMINATION=0
+UNSUPPORTED_DIALOGUE_TURN=0
+TEMPORAL_CORPUS_CONTAMINATION=0
+FAKE_PAGE_CITATION=0
+```
+
+## Limitations
+
+1. The live blind behavioral run remains weak; Phase-2 dialogue success does not erase those failures.
+2. The semantic verifier is a separate source-review pass in the same ChatGPT work session, not an external human replication.
+3. Korean/German source mappings are `STRONG_MATCH`, not exact translation alignments.
+4. The dialogue artifacts are a small evidence-controlled PoC, not a general benchmark of open-ended humanities reasoning.

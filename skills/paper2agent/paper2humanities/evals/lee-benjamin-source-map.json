@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "status": "PRE_APPROVAL_MAPPING",
+  "status": "APPROVED_MAPPING",
   "paper_id": "lee-aura-2019",
-  "benjamin_agent_status": "PENDING_SOURCE_APPROVAL",
+  "benjamin_agent_status": "BUILT",
   "mapping_count": 5,
   "counts": {
     "EXACT": 0,
@@ -94,5 +94,6 @@
       "review_status": "REVIEWED",
       "review_note": "The V3 crisis/new-demand passage strongly corresponds to the Korean block quote cited by Lee."
     }
-  ]
+  ],
+  "source_approval": "APPROVED_AND_VERIFIED"
 }
