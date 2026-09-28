@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "test": "F",
+  "method": "Synthesis Agent receives verified source propositions and reviewed D/E turns only.",
+  "issues": [
+    {
+      "turn_id": "F-issue-technology-axis",
+      "action": "SYNTHESIZE",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "D1-v2-human-use-vs-third-tech",
+        "E1-lee-third-tech-response",
+        "D3-v2-interplay-vs-transparency",
+        "E3-lee-transparency-response"
+      ],
+      "text": "Benjamin V2 and Lee 2019 distinguish technological regimes on different axes: V2 emphasizes human deployment, experiment/play, and nature-human interplay, while Lee's third technology emphasizes artificial mediation and transparency.",
+      "statement_type": "AI_SYNTHESIS",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED"
+    },
+    {
+      "turn_id": "F-issue-aura-transformation",
+      "action": "SYNTHESIZE",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "D4-v3-aura-withering-vs-digital-aura",
+        "E4-lee-digital-aura-response"
+      ],
+      "text": "Benjamin V3's account of aura withering under technical reproducibility and Lee 2019's prospective digital aura are not direct opposites: they operate at different historical/technical thresholds, leaving the mechanism of any transition from withering to transformed aura unresolved.",
+      "statement_type": "AI_SYNTHESIS",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED"
+    },
+    {
+      "turn_id": "F-issue-reception",
+      "action": "SYNTHESIZE",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "D6-v3-distraction-vs-immersion",
+        "E6-lee-immersion-response"
+      ],
+      "text": "The sources expose a reception problem: Benjamin V3 theorizes mass reception through distraction, whereas Lee 2019 assigns immersion to the technology-editing era without fully explaining how the former reception structure is transformed into the latter.",
+      "statement_type": "AI_SYNTHESIS",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED"
+    }
+  ],
+  "research_gaps": [
+    {
+      "turn_id": "F-gap-v2-v3-lee-technology",
+      "action": "IDENTIFY_GAP",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "F-issue-technology-axis",
+        "D2-v2-play-vs-tech-editing-start",
+        "E2-lee-tech-editing-threshold-response"
+      ],
+      "text": "Neither Benjamin V2 nor Lee 2019 specifies a source-grounded rule for when V2's second technology becomes, or ceases to be, an adequate category for Lee's third technology. The relation between play/interplay and transparency remains theoretically underdetermined.",
+      "statement_type": "AI_SYNTHESIS",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED"
+    },
+    {
+      "turn_id": "F-gap-authenticity-digital-aura",
+      "action": "IDENTIFY_GAP",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "D4-v3-aura-withering-vs-digital-aura",
+        "D5-v3-authenticity-vs-trust",
+        "E4-lee-digital-aura-response",
+        "E5-lee-trust-response"
+      ],
+      "text": "The sources do not explain whether a digital aura can emerge without restoring the Here-and-Now authenticity that Benjamin V3 places outside technical reproducibility.",
+      "statement_type": "AI_SYNTHESIS",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED"
+    },
+    {
+      "turn_id": "F-gap-distraction-immersion",
+      "action": "IDENTIFY_GAP",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "F-issue-reception",
+        "D6-v3-distraction-vs-immersion",
+        "E6-lee-immersion-response"
+      ],
+      "text": "The sources do not provide a mechanism connecting Benjamin V3's distracted mass reception to Lee 2019's digitally interactive immersion.",
+      "statement_type": "AI_SYNTHESIS",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED"
+    }
+  ],
+  "research_questions": [
+    {
+      "turn_id": "F-rq-1",
+      "action": "GENERATE_RESEARCH_QUESTION",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "F-gap-v2-v3-lee-technology",
+        "D1-v2-human-use-vs-third-tech",
+        "E1-lee-third-tech-response"
+      ],
+      "text": "Under what source-defensible conditions does Lee 2019's third technology extend rather than displace Benjamin V2's second technology when the former is organized around transparency/artificial mediation and the latter around human deployment, play, and nature-human interplay?",
+      "statement_type": "UNRESOLVED",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "novelty_basis": "The question arises from the documented mismatch of classificatory axes; neither source answers the transition rule.",
+      "source_gap": "No source specifies criteria relating second technology to Lee's third technology.",
+      "human_review_status": "REVIEWED"
+    },
+    {
+      "turn_id": "F-rq-2",
+      "action": "GENERATE_RESEARCH_QUESTION",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "F-gap-authenticity-digital-aura",
+        "D4-v3-aura-withering-vs-digital-aura",
+        "E4-lee-digital-aura-response"
+      ],
+      "text": "Can a digital aura be theorized without restoring the Here-and-Now authenticity that Benjamin V3 treats as outside technical reproducibility, and what mediating mechanism would be required?",
+      "statement_type": "UNRESOLVED",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "novelty_basis": "The question is generated from the documented tension between V3 authenticity/aura loss and Lee's prospective digital aura/trust shift.",
+      "source_gap": "Neither source specifies how transformed aura relates to nonreproducible authenticity.",
+      "human_review_status": "REVIEWED"
+    },
+    {
+      "turn_id": "F-rq-3",
+      "action": "GENERATE_RESEARCH_QUESTION",
+      "actor_paper": "synthesis-agent",
+      "actor_edition_id": null,
+      "target_paper": null,
+      "target_statement_id": null,
+      "support_ids": [
+        "F-gap-distraction-immersion",
+        "D6-v3-distraction-vs-immersion",
+        "E6-lee-immersion-response"
+      ],
+      "text": "What changes in medium, agency, or interaction are necessary for Benjamin V3's distracted mass reception to become Lee 2019's immersive technology-editing reception without simply treating the two as opposites?",
+      "statement_type": "UNRESOLVED",
+      "relation_type": "UNRESOLVED",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "novelty_basis": "The question emerges from two grounded reception propositions and the absence of a transition mechanism.",
+      "source_gap": "Neither source supplies a mechanism from distraction to immersion.",
+      "human_review_status": "REVIEWED"
+    }
+  ]
+}
