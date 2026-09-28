@@ -10,7 +10,7 @@ from .provenance import (
     unsupported_author_claims,
     validate_against_source,
 )
-from .schema import EpistemicStatement, EvidenceVoice, ProvenanceError, ReviewStatus, StatementType
+from .schema import EpistemicStatement, EvidenceVoice, ProvenanceError, ReviewStatus, SourceEdition, StatementType
 
 __all__ = [
     "AttributionFirewall",
@@ -22,6 +22,7 @@ __all__ = [
     "PaperEvidenceIndex",
     "ProvenanceError",
     "ReviewStatus",
+    "SourceEdition",
     "ScholarlyDialogue",
     "StatementStore",
     "StatementType",

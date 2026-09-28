@@ -43,6 +43,12 @@ The firewall rejects:
 More generally, a derived statement cannot be mutated into either strong source type. New source evidence
 requires a **new** grounded statement validated against the reviewed page.
 
+## Edition-aware provenance
+
+Edition-controlled sources use a separate `SourceEdition` identity with the minimum fields `work_id`, `edition_id`, `version_label`, `source_language`, `publication_year`, `canonical_source`, and optional `source_page`. A grounded statement may carry `edition_id`; when its evidence index is edition-aware the IDs must match exactly. This prevents a passage from Benjamin V2 from being silently validated against V3 merely because the wording is similar.
+
+Benjamin V2 and V3 therefore remain distinct source identities (`benjamin-artwork-v2`, `benjamin-artwork-v3`). Cross-edition inference must be represented as interpretation/synthesis, never as source evidence copied across editions.
+
 ## Missing metadata policy
 
 Phase 1 chooses **FAIL** for missing page/source metadata on `SOURCE_QUOTE` and `AUTHOR_CLAIM`.
