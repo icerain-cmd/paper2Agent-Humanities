@@ -1,0 +1,34 @@
+{
+  "evaluation_scope": "BLIND_ADVERSARIAL_PANEL",
+  "panel_size": 50,
+  "attribution_type_accuracy": 1.0,
+  "evidence_voice_accuracy": 1.0,
+  "page_accuracy": 1.0,
+  "evidence_span_accuracy": 1.0,
+  "unsupported_claim_rejection_rate": 1.0,
+  "false_author_claim": 0,
+  "external_as_author_error": 0,
+  "interpretation_promotion_error": 0,
+  "adversarial_robustness_rate": 1.0,
+  "failures": [],
+  "hard_gates": {
+    "FALSE_AUTHOR_CLAIM": true,
+    "EXTERNAL_AS_AUTHOR_ERROR": true
+  },
+  "gold_review": {
+    "gold_review": "PASS",
+    "panel_size": 50,
+    "category_counts": {
+      "ambiguous_attribution": 5,
+      "author_claim": 12,
+      "concept_neighbor": 4,
+      "embedded_quotation": 10,
+      "false_attribution": 2,
+      "interpretation_promotion": 5,
+      "mixed_voice": 2,
+      "page_trap": 4,
+      "unsupported_premise": 6
+    },
+    "source_sha256": "864e341de1fa049fd3c5285c882125967671aebde4ef37f5d9156613d061adae"
+  }
+}

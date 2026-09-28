@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "panel_id": "lee-aura-2019-blind-v1",
+  "response_pass": "PaperAgent behavior pass",
+  "gold_visible_during_response_pass": false,
+  "source_boundary": "reviewed Paper2Skill work directory",
+  "limitations": [
+    "Temporally separated within one execution environment; not an independently blinded human or model study.",
+    "Responses are evidence-first typed decisions, not free-form rhetorical answers."
+  ],
+  "responses": [
+    {
+      "query_id": "LEE-BLIND-001",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 1,
+      "evidence_span": "지금은 기술복제를 넘어 기술편집의 시대이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-002",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 11,
+      "evidence_span": "기술편집의 핵심은 새로운 걸 만드는 것(make a new one)이 아니라 새롭게 만드는 것 (renewal)이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-003",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 11,
+      "evidence_span": "기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-004",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 15,
+      "evidence_span": "기술편집시대의 예술가는 행위자이며 동시에 중개자이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-005",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 15,
+      "evidence_span": "바로 ‘아우라의 중계성’이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-006",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 21,
+      "evidence_span": "제3기술은 자연과 인간의 다름을 ‘인공’을 통해 해결하려 한다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-007",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 22,
+      "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-008",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 24,
+      "evidence_span": "이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-009",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 13,
+      "evidence_span": "컴퓨터게임은 현존(presence), 상호작용(interaction), 다감각 인터페 이스(multi-sensory interface)라는 서사적 특징을 통해 몰입을 극대화하는 기술편집시대의 종합예술이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-010",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 17,
+      "evidence_span": "수용 태도|정신분산|정신몰입",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-011",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 17,
+      "evidence_span": "궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-012",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 29,
+      "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-013",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 2,
+      "evidence_span": "20세기가 ‘예술대량소비(artistic mass consumption)’의 시대였다면, 21세기는 ‘예술 대량생산(artistic mass production)’의 시대라고 주장한다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-014",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 6,
+      "evidence_span": "엄청난 혁신들이 예술의 테크닉 전체를 변모시키고",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-015",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 7,
+      "evidence_span": "대상을, 그것을 감싸고 있는 껍질로부터 떼어내는 일, 다시 말해 아우 라를 파괴하는 일",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-016",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 8,
+      "evidence_span": "예술작품 앞에서 마음을 가다듬고 집중하는 사람은 그 작품 속으로 빠져들어 간다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-017",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 18,
+      "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-018",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 16,
+      "evidence_span": "재매개는 예술작품의 아우라를 파괴하는 것이 아 니다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-019",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 14,
+      "evidence_span": "예술의 괴상하고 조야한 형식들은 실제로는 그 시기의 가장 풍 부한 역사적 에너지의 중심부에서 나온다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-020",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 12,
+      "evidence_span": "물 흐르는 것처럼 편안한 느낌",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-021",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 26,
+      "evidence_span": "방에서 가장 똑똑한 것은 ‘방’ 그 자체",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-022",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 24,
+      "evidence_span": "흔적은 흔적을 남긴 것이 아무리 멀리 떨어져 있더라도 가까 이 있는 것의 현상이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-023",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 22,
+      "evidence_span": "미디어의 작동방식을 의식하지 못 하는 몰입의 상태",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-024",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 15,
+      "evidence_span": "바로 ‘아우라의 중계성’이다.",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-025",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 17,
+      "evidence_span": "궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-026",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 24,
+      "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-027",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 12,
+      "evidence_span": "정신몰입은 벤야민의 정신분산을 편집한 것으로",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-028",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 16,
+      "evidence_span": "그들은 기 술편집시대를 재매개시대라 명명한다.",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-029",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 21,
+      "evidence_span": "다름 자체를 투명화시킨 것이다.",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-030",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 26,
+      "evidence_span": "구글 검색에서 맨 아래의 숫자는 단순한 정보의 양을 표시한 것이 아니라 구글이 우리에게 강요하고 있는 신뢰화 지수이다.",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-031",
+      "predicted_type": "INTERPRETATION",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": 28,
+      "evidence_span": "글쓰기 도구와 공간의 변화가 초래한 학문적 아우라의 상실",
+      "decision": "INTERPRETIVE"
+    },
+    {
+      "query_id": "LEE-BLIND-032",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-033",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-034",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-035",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-036",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-037",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-038",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-039",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-040",
+      "predicted_type": "UNRESOLVED",
+      "predicted_voice": "UNKNOWN",
+      "source_id": "s001-lee-aura-2019",
+      "page": null,
+      "evidence_span": null,
+      "decision": "REJECTED_PREMISE"
+    },
+    {
+      "query_id": "LEE-BLIND-041",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 24,
+      "evidence_span": "이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-042",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 15,
+      "evidence_span": "바로 ‘아우라의 중계성’이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-043",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 22,
+      "evidence_span": "제3기술의 핵심가치인 ‘투명화’은",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-044",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 11,
+      "evidence_span": "기술편집의 핵심은 새로운 걸 만드는 것(make a new one)이 아니라 새롭게 만드는 것 (renewal)이다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-045",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 18,
+      "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-046",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 16,
+      "evidence_span": "재매개는 예술작품의 아우라를 파괴하는 것이 아 니다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-047",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 24,
+      "evidence_span": "아우라에서는 사물이 우리를 자기 것으로 만든다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-048",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 26,
+      "evidence_span": "방에서 가장 똑똑한 것은 ‘방’ 그 자체",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-049",
+      "predicted_type": "AUTHOR_CLAIM",
+      "predicted_voice": "AUTHOR",
+      "source_id": "s001-lee-aura-2019",
+      "page": 14,
+      "evidence_span": "AI의 출현은 예술 행위가 인간의 고유영역이라는 믿음에 균열을 내었다.",
+      "decision": "SUPPORTED"
+    },
+    {
+      "query_id": "LEE-BLIND-050",
+      "predicted_type": "SOURCE_QUOTE",
+      "predicted_voice": "EXTERNAL",
+      "source_id": "s001-lee-aura-2019",
+      "page": 16,
+      "evidence_span": "그들은 기 술편집시대를 재매개시대라 명명한다.",
+      "decision": "SUPPORTED"
+    }
+  ]
+}
