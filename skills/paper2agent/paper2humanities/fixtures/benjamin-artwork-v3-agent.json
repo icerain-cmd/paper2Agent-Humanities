@@ -1,0 +1,146 @@
+{
+  "schema_version": 2,
+  "paper_id": "benjamin-artwork-v3",
+  "title": "Das Kunstwerk im Zeitalter seiner technischen Reproduzierbarkeit (Dritte Fassung)",
+  "author": "Walter Benjamin",
+  "source": {
+    "source_id": "s001-benjamin-kunstwerk-v3",
+    "sha256": "bdb9107b41e05fd6919592d6ba786b501f160a1618b1d9e1f4d21108d0745568",
+    "edition_id": "benjamin-artwork-v3",
+    "edition": {
+      "work_id": "benjamin-artwork",
+      "edition_id": "benjamin-artwork-v3",
+      "version_label": "Dritte Fassung / autorisierte letzte Fassung (1939)",
+      "source_language": "de",
+      "publication_year": 1980,
+      "canonical_source": "Walter Benjamin, Gesammelte Schriften I.2, Suhrkamp 1980, pp.471-508"
+    },
+    "paper2skill_verification": "reviewed_with_limitations",
+    "user_approved": true
+  },
+  "concepts": [
+    "Aura",
+    "Echtheit",
+    "Kultwert",
+    "Ausstellungswert",
+    "Film",
+    "Zerstreuung",
+    "Rezeption"
+  ],
+  "corpus_policy": {
+    "forbidden_terms": [
+      "erste Technik",
+      "zweite Technik",
+      "Ein für allemal",
+      "Einmal ist keinmal",
+      "Ursprung der zweiten Technik"
+    ]
+  },
+  "statements": [
+    {
+      "statement_id": "b-v3-c-authenticity",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin grounds authenticity in the Here and Now of the original and states that the domain of authenticity eludes technical reproducibility.",
+      "paper_id": "benjamin-artwork-v3",
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "author": "Walter Benjamin",
+      "page": 6,
+      "section": "II",
+      "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+      "citation": "V3 PDF p.6; GS I.2 p.476",
+      "edition_id": "benjamin-artwork-v3",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v3-c-aura-withers",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "In the age of technical reproducibility, what withers is the artwork's aura.",
+      "paper_id": "benjamin-artwork-v3",
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "author": "Walter Benjamin",
+      "page": 7,
+      "section": "II",
+      "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+      "citation": "V3 PDF p.7; GS I.2 p.477",
+      "edition_id": "benjamin-artwork-v3",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v3-c-aura-distance",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin defines natural aura as the unique appearance of a distance, however near it may be.",
+      "paper_id": "benjamin-artwork-v3",
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "author": "Walter Benjamin",
+      "page": 9,
+      "section": "III",
+      "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+      "citation": "V3 PDF p.9; GS I.2 p.479",
+      "edition_id": "benjamin-artwork-v3",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v3-c-cult-exhibition",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin identifies cult value and exhibition value as two polar accents in the reception of artworks.",
+      "paper_id": "benjamin-artwork-v3",
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "author": "Walter Benjamin",
+      "page": 12,
+      "section": "V",
+      "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+      "citation": "V3 PDF p.12; GS I.2 p.482",
+      "edition_id": "benjamin-artwork-v3",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v3-c-distraction",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin contrasts concentration with distraction: the concentrated beholder enters the work, whereas the distracted mass absorbs the work into itself.",
+      "paper_id": "benjamin-artwork-v3",
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "author": "Walter Benjamin",
+      "page": 34,
+      "section": "XV",
+      "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich.",
+      "citation": "V3 PDF p.34; GS I.2 p.504",
+      "edition_id": "benjamin-artwork-v3",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v3-c-film-examiner",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Film trains a reception in distraction; the cinema public is an examiner, but a distracted one, whose evaluative attitude does not include attention.",
+      "paper_id": "benjamin-artwork-v3",
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "author": "Walter Benjamin",
+      "page": 35,
+      "section": "XV",
+      "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+      "citation": "V3 PDF p.35; GS I.2 p.505",
+      "edition_id": "benjamin-artwork-v3",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v3-c-dada-demand",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin describes Dada's crude and extravagant forms as emerging from a rich historical force field and as anticipating effects later sought in film.",
+      "paper_id": "benjamin-artwork-v3",
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "author": "Walter Benjamin",
+      "page": 31,
+      "section": "XIV",
+      "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+      "citation": "V3 PDF p.31; GS I.2 p.501",
+      "edition_id": "benjamin-artwork-v3",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    }
+  ]
+}

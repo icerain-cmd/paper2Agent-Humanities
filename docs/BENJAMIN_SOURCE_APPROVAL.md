@@ -1,8 +1,8 @@
 # Benjamin Source Approval Gate
 
-Status: **PENDING_SOURCE_APPROVAL**.
+Status: **APPROVED_AND_VERIFIED**.
 
-Phase 2 source verification has been completed, but neither Benjamin source is marked approved and no Benjamin Paper Agent is created until the user explicitly approves the source pair.
+Phase 2 source verification was completed first. The user then explicitly approved V2 and V3 as separate Paper Agent sources on 2026-09-28; both sources were ingested independently and separate Paper Agents were built.
 
 ## V2 — Zweite Fassung
 
@@ -50,9 +50,10 @@ The source pair is technically suitable for edition-separated Paper2Skill ingest
 ```
 BENJAMIN_V2_SOURCE_VERIFIED=TRUE
 BENJAMIN_V3_SOURCE_VERIFIED=TRUE
-BENJAMIN_V2_SOURCE_APPROVED=FALSE
-BENJAMIN_V3_SOURCE_APPROVED=FALSE
-BENJAMIN_AGENT=PENDING_SOURCE_APPROVAL
+BENJAMIN_V2_SOURCE_APPROVED=TRUE
+BENJAMIN_V3_SOURCE_APPROVED=TRUE
+BENJAMIN_V2_AGENT=BUILT
+BENJAMIN_V3_AGENT=BUILT
 ```
 
-User approval should explicitly approve V2 and V3 as separate sources. Approval does not merge editions; it merely permits ingestion of each source under its own `paper_id/source_id/edition_id`.
+Approval has been granted. The editions remain separate and were ingested under distinct `paper_id/source_id/edition_id` identities; approval does not merge them.
