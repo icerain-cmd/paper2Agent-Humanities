@@ -2,62 +2,23 @@
 
 ## Current status
 
-```
-PAPER2AGENT_HUMANITIES_PHASE3_STATUS=BLOCKED_NO_LIVE_MODEL_RUNTIME
-```
+`PHASE3_STATUS=IMPLEMENTED_AWAITING_FREEZE_AND_LIVE_EVALUATION`. Phase 3 is not complete.
 
-Phase-3 runtime architecture and safety gates are implemented, but no callable generative model endpoint is available to the repository process. Per the Phase-3 contract, no manually authored or deterministic substitute is reported as live scholarly generation.
+The host independently verified `PC2_RUNTIME=PASS`, `REAL_MODEL_SMOKE=PASS`, and `ISOLATED_RUNTIME_SMOKE=PASS` with Codex `0.155.1`. Schema-constrained ephemeral read-only calls passed for generator `gpt-6-sol` and verifier `gpt-5.6-sol`. The verifier is an independent model invocation with fresh context containing the candidate turn and supplied evidence only. These are host runtime facts; this workspace did not run `codex exec`.
 
-## Baseline audit
+`IMPLEMENTATION_FREEZE_SHA_V2=PENDING` until the host creates a commit. `HOLDOUT30_V2=NOT_CREATED_PRE_FREEZE`. Live D/E/F, multiturn, DEV50 generation and HOLDOUT30_V2 scoring remain `NOT_RUN`. No Phase-3 hard-gate success is claimed.
+
+## Baseline and development evidence
 
 - Phase-2 base HEAD: `e64f53b522d683c9a74c55cff07e9a927f7cd01e`
 - Phase-2 base tree: `0b28716aa54ab700c43d242b6eb0e26976231a88`
-- Phase-2 controlled `run_phase2_dialogue.py` contains prewritten D/E/F specifications and remains historical regression material.
-- Existing source/edition/corpus/publication gates are preserved.
+- The controlled Phase-2 dialogue script contains prewritten D/E/F specifications and remains historical regression material. The Phase-3 prompts and runtime contain no Phase-2 prewritten answer strings.
+- DEV50 / FROZEN_REGRESSION50 is known development data. Its committed deterministic baseline has type accuracy 0.44, voice accuracy 0.52, page accuracy about 0.366, span accuracy about 0.073, unsupported-premise rejection about 0.333, and robustness 0.10.
+- Phase-3 retrieval-only recall@6 on 41 grounded DEV50 rows is 0.3902439024. This is a retrieval metric, not generative accuracy.
+- The old HOLDOUT30 is `DEV30_COMPAT`. Its freeze SHA, `2f10c6ebe8a821c7e6635128b99acc84c7941c08`, predates the Codex Exec implementation. Its query and gold contents are unchanged and must not be reported as fresh holdout evidence.
 
-## Runtime availability
+## Live evaluation contract
 
-`evals/phase3/runtime-status.json` records `BLOCKED_NO_LIVE_MODEL_RUNTIME`. No credentials were discovered, scraped, generated, logged, or committed.
+The runner requires at least three accepted Test D critiques from each Benjamin edition, one accepted Test E Lee response per accepted D, three accepted Test F artifacts of each subtype (ISSUE, GAP, RESEARCH_QUESTION), and the accepted multiturn sequence Benjamin → Lee → Benjamin → Lee → synthesis. Rejected attempts are retained in the artifact. Bounded retries use alternative evidence-bounded queries. The artifact records generator and verifier subprocess-attempt totals for later `REAL_MODEL_CALLS` computation.
 
-## DEV50 / FROZEN_REGRESSION50
-
-The existing 50-query panel is treated as known development data. It is not a holdout.
-
-The previously committed deterministic behavioral baseline remains:
-- type accuracy 0.44
-- voice accuracy 0.52
-- page accuracy ~0.366
-- span accuracy ~0.073
-- unsupported-premise rejection ~0.333
-- robustness 0.10
-
-Phase-3 retrieval-only evaluation over the 41 grounded DEV50 rows currently reports page retrieval recall@6 = 0.3902439024. This is a retrieval metric, not generative accuracy.
-
-## Live D/E/F
-
-Not executed. A real ModelAdapter is required. There are no Phase-3 critique, response, synthesis, or multiturn artifacts, and no claim of Phase-3 hard-gate success for generated dialogue.
-
-## What is implemented
-
-- provider-neutral ModelAdapter
-- explicit no-model blocker
-- inspectable BM25-like/alias retrieval
-- request classifier
-- evidence-first generation packet
-- publication verifier
-- hardcoded Phase-2 text regression scan
-- gold-inaccessibility tests for generation code
-- unsupported/partial-support publication tests
-
-The next step is to connect an already authorized callable model runtime without changing the evidence contracts.
-
-## Implementation freeze and holdout
-
-- implementation freeze SHA: `2f10c6ebe8a821c7e6635128b99acc84c7941c08`
-- HOLDOUT30 created after freeze: TRUE
-- holdout size: 30
-- exact query overlap with DEV50: 0
-- holdout model result: NOT RUN because no live model runtime is available
-- holdout gold hidden during generation: NOT RUN / no generation occurred
-
-The holdout is therefore a valid post-freeze query/gold artifact but remains unevaluated. It is not converted into a DEV set and no deterministic/manual answer artifact is substituted.
+Panel generation accepts a query-only file. It freezes the response SHA and records `gold_available_during_generation=false` in the manifest. The separate scoring commands check the frozen SHA before opening gold. No `HOLDOUT30_V2` panel or gold has been created.
