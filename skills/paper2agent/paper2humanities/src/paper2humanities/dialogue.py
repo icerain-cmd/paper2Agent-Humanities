@@ -18,12 +18,41 @@ class DialogueAction(str, Enum):
     GENERATE_RESEARCH_QUESTION = "GENERATE_RESEARCH_QUESTION"
 
 
+class RelationType(str, Enum):
+    CONTRADICTS = "CONTRADICTS"
+    TENSIONS_WITH = "TENSIONS_WITH"
+    QUALIFIES = "QUALIFIES"
+    EXTENDS = "EXTENDS"
+    REFRAMES = "REFRAMES"
+    NOT_ADDRESSED = "NOT_ADDRESSED"
+    UNRESOLVED = "UNRESOLVED"
+
+
+class SemanticSupportStatus(str, Enum):
+    PROVENANCE_VALID = "PROVENANCE_VALID"
+    SEMANTICALLY_SUPPORTED = "SEMANTICALLY_SUPPORTED"
+    OVERSTATED = "OVERSTATED"
+    PARTIALLY_SUPPORTED = "PARTIALLY_SUPPORTED"
+    UNSUPPORTED = "UNSUPPORTED"
+
+
 @dataclass(frozen=True, slots=True)
 class DialogueTurn:
+    turn_id: str
     action: DialogueAction
-    actor: str
+    actor_paper: str
+    actor_edition_id: str | None
+    target_paper: str | None
+    target_statement_id: str | None
     statement: EpistemicStatement
     support_ids: tuple[str, ...]
+    relation_type: RelationType = RelationType.UNRESOLVED
+    semantic_support: SemanticSupportStatus = SemanticSupportStatus.PROVENANCE_VALID
+    review_status: ReviewStatus = ReviewStatus.NEEDS_REVIEW
+
+    @property
+    def actor(self) -> str:
+        return self.actor_paper
 
 
 class ScholarlyDialogue:
@@ -51,9 +80,15 @@ class ScholarlyDialogue:
         target_statement: str | None = None,
         target_paper: str | None = None,
         unresolved_reason: str | None = None,
+        relation_type: RelationType = RelationType.UNRESOLVED,
     ) -> DialogueTurn:
         if actor_paper not in self.agents:
             raise ProvenanceError(f"unknown actor paper: {actor_paper}")
+        actor_agent = self.agents[actor_paper]
+        try:
+            actor_agent.validate_output_text(text)
+        except ValueError as exc:
+            raise ProvenanceError(str(exc)) from exc
         if target_paper and target_paper not in self.agents:
             raise ProvenanceError(f"unknown target paper: {target_paper}")
         if target_statement:
@@ -72,6 +107,15 @@ class ScholarlyDialogue:
                 raise ProvenanceError(
                     f"{action.value} paper agent may use only its own paper evidence: {foreign}"
                 )
+            if actor_agent.edition_id is not None:
+                wrong_edition = [
+                    item.statement_id for item in supports
+                    if item.edition_id != actor_agent.edition_id
+                ]
+                if wrong_edition:
+                    raise ProvenanceError(
+                        f"{action.value} paper agent may use only its own edition evidence: {wrong_edition}"
+                    )
 
         cross_actions = {
             DialogueAction.COMPARE,
@@ -101,10 +145,33 @@ class ScholarlyDialogue:
             statement_type=stype,
             text=text,
             paper_id=actor_paper if action in own_evidence_actions else None,
+            edition_id=actor_agent.edition_id if action in own_evidence_actions else None,
             derived_from=support_ids,
             target_statement=target_statement,
             target_paper=target_paper,
             unresolved_reason=unresolved_reason,
             review_status=ReviewStatus.NEEDS_REVIEW,
         )
-        return DialogueTurn(action, actor_paper, statement, support_ids)
+        return DialogueTurn(
+            turn_id=statement_id,
+            action=action,
+            actor_paper=actor_paper,
+            actor_edition_id=actor_agent.edition_id,
+            target_paper=target_paper,
+            target_statement_id=target_statement,
+            statement=statement,
+            support_ids=support_ids,
+            relation_type=relation_type,
+        )
+
+
+def validate_turn_for_publication(turn: DialogueTurn) -> None:
+    if turn.review_status != ReviewStatus.REVIEWED:
+        raise ProvenanceError("dialogue turn requires human/reviewer REVIEWED status before publication")
+    if turn.semantic_support not in {
+        SemanticSupportStatus.SEMANTICALLY_SUPPORTED,
+        SemanticSupportStatus.PARTIALLY_SUPPORTED,
+    }:
+        raise ProvenanceError(
+            f"dialogue turn semantic support is not publishable: {turn.semantic_support.value}"
+        )
