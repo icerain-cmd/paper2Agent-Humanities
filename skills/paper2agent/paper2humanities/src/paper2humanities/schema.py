@@ -36,6 +36,42 @@ def _clean(value: str | None) -> str:
 
 
 @dataclass(frozen=True, slots=True)
+class SourceEdition:
+    work_id: str
+    edition_id: str
+    version_label: str
+    source_language: str
+    publication_year: int
+    canonical_source: str
+    source_page: int | None = None
+
+    def __post_init__(self) -> None:
+        for name in ("work_id", "edition_id", "version_label", "source_language", "canonical_source"):
+            if not _clean(getattr(self, name)):
+                raise ProvenanceError(f"{name} is required for edition identity")
+        if not isinstance(self.publication_year, int) or self.publication_year < 1:
+            raise ProvenanceError("publication_year must be a positive integer")
+        if self.source_page is not None and (not isinstance(self.source_page, int) or self.source_page < 1):
+            raise ProvenanceError("source_page must be a positive integer when present")
+
+    def to_dict(self) -> dict[str, Any]:
+        data = {
+            "work_id": self.work_id,
+            "edition_id": self.edition_id,
+            "version_label": self.version_label,
+            "source_language": self.source_language,
+            "publication_year": self.publication_year,
+            "canonical_source": self.canonical_source,
+            "source_page": self.source_page,
+        }
+        return {key: value for key, value in data.items() if value is not None}
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "SourceEdition":
+        return cls(**data)
+
+
+@dataclass(frozen=True, slots=True)
 class EpistemicStatement:
     statement_id: str
     statement_type: StatementType
@@ -47,6 +83,7 @@ class EpistemicStatement:
     section: str | None = None
     evidence_span: str | None = None
     citation: str | None = None
+    edition_id: str | None = None
     evidence_voice: EvidenceVoice | None = None
     derived_from: tuple[str, ...] = field(default_factory=tuple)
     target_statement: str | None = None
@@ -116,6 +153,7 @@ class EpistemicStatement:
             "section": self.section,
             "evidence_span": self.evidence_span,
             "citation": self.citation,
+            "edition_id": self.edition_id,
             "evidence_voice": self.evidence_voice.value if self.evidence_voice else None,
             "derived_from": list(self.derived_from),
             "target_statement": self.target_statement,

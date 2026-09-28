@@ -7,6 +7,7 @@ from paper2humanities import (
     PaperEvidenceIndex,
     ProvenanceError,
     ReviewStatus,
+    SourceEdition,
     StatementStore,
     StatementType,
     validate_against_source,
@@ -121,3 +122,36 @@ def test_store_rejects_unknown_derivation():
                 derived_from=("missing",),
             )
         )
+
+
+def test_edition_separation_requires_exact_edition_id():
+    edition_v2 = SourceEdition(
+        work_id="benjamin-artwork", edition_id="benjamin-artwork-v2",
+        version_label="Zweite Fassung", source_language="de", publication_year=1936,
+        canonical_source="Gesammelte Schriften VII.1, 350-384",
+    )
+    index_v2 = PaperEvidenceIndex("b", "s-v2", "b" * 64, {1: "same phrase"}, edition=edition_v2)
+    statement = EpistemicStatement(
+        statement_id="b-v2-q", statement_type=StatementType.SOURCE_QUOTE, text="same phrase",
+        paper_id="b", source_id="s-v2", author="Walter Benjamin", page=1,
+        evidence_span="same phrase", citation="V2 p.1", edition_id="benjamin-artwork-v2",
+        evidence_voice=EvidenceVoice.AUTHOR, review_status=ReviewStatus.REVIEWED,
+    )
+    validate_against_source(statement, index_v2)
+
+
+def test_cross_edition_contamination_rejected_even_when_text_matches():
+    edition_v3 = SourceEdition(
+        work_id="benjamin-artwork", edition_id="benjamin-artwork-v3",
+        version_label="Dritte Fassung", source_language="de", publication_year=1939,
+        canonical_source="Gesammelte Schriften I.2, 471-508",
+    )
+    index_v3 = PaperEvidenceIndex("b", "s-v3", "c" * 64, {1: "same phrase"}, edition=edition_v3)
+    statement = EpistemicStatement(
+        statement_id="b-v2-q", statement_type=StatementType.SOURCE_QUOTE, text="same phrase",
+        paper_id="b", source_id="s-v3", author="Walter Benjamin", page=1,
+        evidence_span="same phrase", citation="V2 p.1", edition_id="benjamin-artwork-v2",
+        evidence_voice=EvidenceVoice.AUTHOR, review_status=ReviewStatus.REVIEWED,
+    )
+    with pytest.raises(ProvenanceError, match="edition"):
+        validate_against_source(statement, index_v3)

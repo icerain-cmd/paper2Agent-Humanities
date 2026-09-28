@@ -2,24 +2,126 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Paper2Agent-Humanities EpistemicStatement",
   "type": "object",
-  "required": ["statement_id", "statement_type", "text", "review_status"],
+  "required": [
+    "statement_id",
+    "statement_type",
+    "text",
+    "review_status"
+  ],
   "properties": {
-    "statement_id": {"type": "string", "minLength": 1},
-    "statement_type": {"enum": ["SOURCE_QUOTE", "AUTHOR_CLAIM", "INTERPRETATION", "AI_SYNTHESIS", "CRITIQUE", "UNRESOLVED"]},
-    "text": {"type": "string", "minLength": 1},
-    "paper_id": {"type": ["string", "null"]},
-    "source_id": {"type": ["string", "null"]},
-    "author": {"type": ["string", "null"]},
-    "page": {"type": ["integer", "null"], "minimum": 1},
-    "section": {"type": ["string", "null"]},
-    "evidence_span": {"type": ["string", "null"]},
-    "citation": {"type": ["string", "null"]},
-    "evidence_voice": {"enum": ["AUTHOR", "EXTERNAL", "UNKNOWN", null]},
-    "derived_from": {"type": "array", "items": {"type": "string"}},
-    "target_statement": {"type": ["string", "null"]},
-    "target_paper": {"type": ["string", "null"]},
-    "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
-    "review_status": {"enum": ["UNREVIEWED", "REVIEWED", "NEEDS_REVIEW"]},
-    "unresolved_reason": {"type": ["string", "null"]}
+    "statement_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "statement_type": {
+      "enum": [
+        "SOURCE_QUOTE",
+        "AUTHOR_CLAIM",
+        "INTERPRETATION",
+        "AI_SYNTHESIS",
+        "CRITIQUE",
+        "UNRESOLVED"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "paper_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "author": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "page": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "section": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_span": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "citation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_voice": {
+      "enum": [
+        "AUTHOR",
+        "EXTERNAL",
+        "UNKNOWN",
+        null
+      ]
+    },
+    "derived_from": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "target_statement": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_paper": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "review_status": {
+      "enum": [
+        "UNREVIEWED",
+        "REVIEWED",
+        "NEEDS_REVIEW"
+      ]
+    },
+    "unresolved_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "edition_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
   }
 }
