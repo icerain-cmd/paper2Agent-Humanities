@@ -140,8 +140,8 @@ def test_semantic_review_required_before_dialogue_publication():
 
 def test_source_map_keeps_v2_mapping_separate_from_v3():
     data = json.loads((ROOT / "evals" / "lee-benjamin-source-map.json").read_text())
-    assert data["status"] == "PRE_APPROVAL_MAPPING"
-    assert data["benjamin_agent_status"] == "PENDING_SOURCE_APPROVAL"
+    assert data["status"] == "APPROVED_MAPPING"
+    assert data["benjamin_agent_status"] == "BUILT"
     assert data["counts"]["EXACT"] == 0
     v2 = [m for m in data["mappings"] if m["benjamin_edition_id"] == "benjamin-artwork-v2"]
     v3 = [m for m in data["mappings"] if m["benjamin_edition_id"] == "benjamin-artwork-v3"]
@@ -150,15 +150,45 @@ def test_source_map_keeps_v2_mapping_separate_from_v3():
     assert all(m["mapping_status"] == "STRONG_MATCH" for m in data["mappings"])
 
 
-def test_benjamin_verified_sources_remain_unapproved():
+def test_benjamin_verified_sources_are_explicitly_approved():
     data = json.loads((ROOT / "evals" / "benjamin-source-verification.json").read_text())
-    assert data["approval_status"] == "PENDING_SOURCE_APPROVAL"
+    assert data["approval_status"] == "APPROVED_AND_VERIFIED"
     assert len(data["sources"]) == 2
     assert all(item["source_verified"] is True for item in data["sources"])
-    assert all(item["user_approved"] is False for item in data["sources"])
+    assert all(item["user_approved"] is True for item in data["sources"])
     by_id = {item["edition_id"]: item for item in data["sources"]}
     assert by_id["benjamin-artwork-v2"]["container_pdf_page_range"] == [196, 230]
     assert by_id["benjamin-artwork-v2"]["gs_page_range"] == [350, 384]
     assert by_id["benjamin-artwork-v3"]["pdf_page_range"] == [1, 38]
     assert by_id["benjamin-artwork-v3"]["gs_page_range"] == [471, 508]
     assert not any(by_id["benjamin-artwork-v3"]["v2_only_term_hits"].values())
+
+
+def test_benjamin_agent_fixtures_are_separate_and_edition_bound():
+    v2 = PaperAgent.from_json(ROOT / "fixtures" / "benjamin-artwork-v2-agent.json")
+    v3 = PaperAgent.from_json(ROOT / "fixtures" / "benjamin-artwork-v3-agent.json")
+    assert v2.paper_id == v2.edition_id == "benjamin-artwork-v2"
+    assert v3.paper_id == v3.edition_id == "benjamin-artwork-v3"
+    assert v2.source_id != v3.source_id
+    assert len(v2.store.values()) >= 3
+    assert len(v3.store.values()) >= 3
+
+
+def test_phase2_dialogue_artifacts_meet_minimum_counts_and_types():
+    base = ROOT / "evals" / "phase2"
+    d = json.loads((base / "test-d-critiques.json").read_text())
+    e = json.loads((base / "test-e-lee-responses.json").read_text())
+    f = json.loads((base / "test-f-synthesis.json").read_text())
+    assert d["critique_count"] >= 6 and d["v2_count"] >= 3 and d["v3_count"] >= 3
+    assert e["response_count"] == d["critique_count"]
+    assert len(f["issues"]) >= 3 and len(f["research_gaps"]) >= 3 and len(f["research_questions"]) >= 3
+    assert all(x["statement_type"] in {"AI_SYNTHESIS", "UNRESOLVED"} for x in f["issues"] + f["research_gaps"] + f["research_questions"])
+    assert all(x["statement_type"] == "UNRESOLVED" for x in f["research_questions"])
+
+
+def test_phase2_hard_gate_verification_is_zero_error():
+    data = json.loads((ROOT / "evals" / "phase2" / "phase2-dialogue-verification.json").read_text())
+    for key in ["FALSE_AUTHOR_CLAIM","EXTERNAL_AS_AUTHOR_ERROR","CROSS_EDITION_CONTAMINATION","UNSUPPORTED_DIALOGUE_TURN","TEMPORAL_CORPUS_CONTAMINATION","FAKE_PAGE_CITATION"]:
+        assert data[key] == 0
+        assert data["hard_gates"][key] is True
+    assert data["TEST_D"] == data["TEST_E"] == data["TEST_F"] == "PASS"
