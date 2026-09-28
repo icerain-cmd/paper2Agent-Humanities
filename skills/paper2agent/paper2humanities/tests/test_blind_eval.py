@@ -108,3 +108,58 @@ def test_wrong_page_is_not_hidden_by_correct_type():
     assert report["attribution_type_accuracy"] == 1.0
     assert report["page_accuracy"] < 1.0
     assert report["adversarial_robustness_rate"] < 1.0
+
+
+def test_author_to_external_mutation_degrades_voice_accuracy():
+    records = [gold_record(f"q{i}") for i in range(40)]
+    responses = {"responses": [response(f"q{i}") for i in range(40)]}
+    responses["responses"][0]["predicted_voice"] = "EXTERNAL"
+    report = score_panel(panel(records), responses)
+    assert report["evidence_voice_accuracy"] < 1.0
+
+
+def test_wrong_span_mutation_degrades_span_accuracy():
+    records = [gold_record(f"q{i}") for i in range(40)]
+    responses = {"responses": [response(f"q{i}") for i in range(40)]}
+    responses["responses"][0]["evidence_span"] = "wrong span"
+    report = score_panel(panel(records), responses)
+    assert report["evidence_span_accuracy"] < 1.0
+    assert report["adversarial_robustness_rate"] < 1.0
+
+
+def test_unresolved_to_author_claim_mutation_trips_false_author_gate():
+    records = [gold_record(f"q{i}") for i in range(40)]
+    records[0] = gold_record(
+        "q0", expected_type="UNRESOLVED", expected_voice="UNKNOWN",
+        expected_page=None, gold_evidence_span=None,
+        allowed_answer_types=["UNRESOLVED"], forbidden_answer_types=["AUTHOR_CLAIM"],
+        adversarial_category="unsupported_premise",
+    )
+    responses = {"responses": [response(f"q{i}") for i in range(40)]}
+    report = score_panel(panel(records), responses)
+    assert report["false_author_claim"] == 1
+
+
+def test_interpretation_to_author_claim_mutation_is_counted():
+    records = [gold_record(f"q{i}") for i in range(40)]
+    records[0] = gold_record(
+        "q0", expected_type="INTERPRETATION", expected_voice="UNKNOWN",
+        allowed_answer_types=["INTERPRETATION", "UNRESOLVED"],
+        forbidden_answer_types=["AUTHOR_CLAIM"],
+        adversarial_category="interpretation_promotion",
+    )
+    responses = {"responses": [response(f"q{i}") for i in range(40)]}
+    report = score_panel(panel(records), responses)
+    assert report["interpretation_promotion_error"] == 1
+    assert report["false_author_claim"] == 1
+
+
+def test_wrong_edition_mutation_trips_cross_edition_gate():
+    records = [gold_record(f"q{i}") for i in range(40)]
+    records[0]["expected_edition_id"] = "benjamin-artwork-v2"
+    responses = {"responses": [response(f"q{i}") for i in range(40)]}
+    responses["responses"][0]["predicted_edition_id"] = "benjamin-artwork-v3"
+    report = score_panel(panel(records), responses)
+    assert report["edition_accuracy"] < 1.0
+    assert report["cross_edition_contamination"] == 1
+    assert report["hard_gates"]["CROSS_EDITION_CONTAMINATION"] is False
