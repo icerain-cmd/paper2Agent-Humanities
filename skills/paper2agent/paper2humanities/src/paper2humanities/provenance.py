@@ -7,7 +7,7 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Iterable
 
-from .schema import EpistemicStatement, ProvenanceError, StatementType
+from .schema import EpistemicStatement, ProvenanceError, SourceEdition, StatementType
 
 
 def canonical_text(text: str) -> str:
@@ -18,15 +18,17 @@ def canonical_text(text: str) -> str:
 class PaperEvidenceIndex:
     """Page-indexed evidence exported from a reviewed Paper2Skill work directory."""
 
-    def __init__(self, paper_id: str, source_id: str, source_sha256: str, pages: dict[int, str]):
+    def __init__(self, paper_id: str, source_id: str, source_sha256: str, pages: dict[int, str], edition: SourceEdition | None = None):
         self.paper_id = paper_id
         self.source_id = source_id
         self.source_sha256 = source_sha256
         self.pages = dict(pages)
+        self.edition = edition
 
     @classmethod
     def from_paper2skill_work(
-        cls, work_dir: str | Path, paper_id: str, source_id: str | None = None
+        cls, work_dir: str | Path, paper_id: str, source_id: str | None = None,
+        edition: SourceEdition | None = None,
     ) -> "PaperEvidenceIndex":
         work = Path(work_dir)
         inventory = json.loads((work / "inventory.json").read_text())
@@ -49,7 +51,7 @@ class PaperEvidenceIndex:
             )
         if not pages:
             raise ProvenanceError("no reviewed Paper2Skill pages found")
-        return cls(paper_id, source_id, source["sha256"], pages)
+        return cls(paper_id, source_id, source["sha256"], pages, edition=edition)
 
     @classmethod
     def from_dict(cls, data: dict) -> "PaperEvidenceIndex":
@@ -58,6 +60,7 @@ class PaperEvidenceIndex:
             data["source_id"],
             data["source_sha256"],
             {int(page): text for page, text in data["pages"].items()},
+            edition=SourceEdition.from_dict(data["edition"]) if data.get("edition") else None,
         )
 
     def to_dict(self) -> dict:
@@ -66,6 +69,7 @@ class PaperEvidenceIndex:
             "source_id": self.source_id,
             "source_sha256": self.source_sha256,
             "pages": {str(page): text for page, text in sorted(self.pages.items())},
+            "edition": self.edition.to_dict() if self.edition else None,
         }
 
     def contains(self, page: int, evidence_span: str) -> bool:
@@ -131,6 +135,11 @@ def validate_against_source(
         return
     if statement.paper_id != index.paper_id or statement.source_id != index.source_id:
         raise ProvenanceError("statement paper/source does not match evidence index")
+    if index.edition is not None:
+        if statement.edition_id != index.edition.edition_id:
+            raise ProvenanceError("statement edition does not match evidence index edition")
+    elif statement.edition_id is not None:
+        raise ProvenanceError("statement declares an edition but evidence index is not edition-aware")
     if statement.page is None or not index.contains(statement.page, statement.evidence_span or ""):
         raise ProvenanceError(
             f"evidence span not found on PDF page {statement.page}: {statement.statement_id}"
