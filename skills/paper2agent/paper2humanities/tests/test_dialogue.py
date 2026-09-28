@@ -91,6 +91,20 @@ def test_critique_requires_explicit_target_and_own_evidence():
     assert turn.statement.target_paper == "b"
 
 
+def test_unknown_critique_target_paper_fails():
+    a, b = agent("a", "a1"), agent("b", "b1")
+    dialogue = ScholarlyDialogue([a, b])
+    with pytest.raises(ProvenanceError):
+        dialogue.create_turn(
+            action=DialogueAction.CRITIQUE,
+            actor_paper="a",
+            statement_id="k-missing",
+            text="critique",
+            support_ids=("a1",),
+            target_paper="missing-paper",
+        )
+
+
 def test_research_question_remains_unresolved_not_author_claim():
     a, b = agent("a", "a1"), agent("b", "b1")
     dialogue = ScholarlyDialogue([a, b])
