@@ -76,3 +76,7 @@ Phase 1.5 does not execute Lee ↔ Benjamin critique, Lee response, or cross-pap
 ## Current Phase 1.5 run
 
 Committed panel size: 50. Gold review: PASS. The committed-response scoring report records type, voice, page, span, unsupported-premise rejection, and adversarial robustness at 1.0, with zero false author claims, zero external-as-author errors, and zero interpretation promotions. Because the roles were only temporally separated in one execution environment, these numbers are a reproducible finite-panel result, not a claim of general open-ended model accuracy.
+
+## Live behavioral boundary result
+
+The first official `LIVE_BLIND_RUN` is `lee-aura-live-20260928T041757Z`. It uses `DETERMINISTIC_BEHAVIORAL_EVAL` because no external inference runtime was available to the repository process. Gold was not available during response generation and `EXTERNAL_BLIND=false` is recorded explicitly. The run scored type 0.44, voice 0.52, page 0.3658536585, span 0.0731707317, unsupported-premise rejection 0.3333333333, with 5 false author claims and 4 external-as-author errors. These failures are retained as the current behavioral boundary.
