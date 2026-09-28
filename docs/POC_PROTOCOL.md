@@ -87,3 +87,9 @@ text only after translation/rights status is confirmed. No Benjamin paper was in
 `BENJAMIN_AGENT=PENDING_SOURCE_APPROVAL`.
 
 Cross-paper Issue Detection and Research Question Novelty remain unscored until source approval. Phase 1.5 adds a separate `BLIND_ADVERSARIAL_PANEL`; its behavioral metrics must never be conflated with these curated-fixture checks.
+
+## Phase 1.5 evaluation hardening
+
+The committed blind/adversarial panel contains 50 queries spanning false attribution, embedded quotation, interpretation-promotion, concept-neighbor, page, unsupported-premise, mixed-voice, and ambiguous-attribution cases. In the current reproducible run, Attribution Type Accuracy, Evidence Voice Accuracy, Page Accuracy, Evidence Span Accuracy, Unsupported Claim Rejection Rate, and Adversarial Robustness Rate are 1.0; `FALSE_AUTHOR_CLAIM=0`, `EXTERNAL_AS_AUTHOR_ERROR=0`, and `INTERPRETATION_PROMOTION_ERROR=0`. These results describe this finite reviewed panel only. Query authoring, source-based gold review/adjudication, and behavioral response passes were temporally separated in one execution environment rather than independently blinded external evaluators. See `EVALUATION_PROTOCOL.md`.
+
+Benjamin source/edition preparation is documented separately in `BENJAMIN_EDITION_AUDIT.md`; no Benjamin Agent or Tests D–F are executed before source approval.
