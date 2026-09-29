@@ -1,0 +1,20 @@
+{
+  "panel_id": "phase3-holdout30-v4",
+  "implementation_freeze_sha_v4": "e9051f58f1de6d8d0fbce6587b2ba10e5b589ccd",
+  "created_after_freeze": true,
+  "size": 30,
+  "exact_overlap_prior_dev_and_live": 0,
+  "query_sha256": "06a051c03653cd04ac06b5e609ecfe7f8a432d683b3f2926a91a51d08e282a9d",
+  "gold_created": false,
+  "categories": [
+    "ATTRIBUTION",
+    "CRITIQUE",
+    "CROSS_PAPER_INTERPRETATION",
+    "EDITION_BOUNDARY",
+    "MIXED_VOICE",
+    "PAGE_RETRIEVAL",
+    "PARAPHRASE",
+    "RESPONSE",
+    "UNSUPPORTED_PREMISE"
+  ]
+}

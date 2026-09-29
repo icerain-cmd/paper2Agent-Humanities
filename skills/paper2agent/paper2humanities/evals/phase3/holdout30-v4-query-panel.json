@@ -1,0 +1,189 @@
+{
+  "schema_version": 4,
+  "panel_id": "phase3-holdout30-v4",
+  "panel_type": "QUERY_ONLY",
+  "implementation_freeze_sha_v4": "e9051f58f1de6d8d0fbce6587b2ba10e5b589ccd",
+  "created_after_freeze": true,
+  "queries": [
+    {
+      "query_id": "H30V4-001",
+      "category": "ATTRIBUTION",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019에서 제3기술의 핵심가치로 투명화를 제시하는 저자 문장을 찾아 PDF 쪽수를 적어라."
+    },
+    {
+      "query_id": "H30V4-002",
+      "category": "ATTRIBUTION",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3에서 가까워도 먼 것의 일회적 현현으로 아우라를 정의한 벤야민의 근거 위치를 확인하라."
+    },
+    {
+      "query_id": "H30V4-003",
+      "category": "ATTRIBUTION",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2가 제2기술의 지향을 자연과 인류의 상호작용으로 서술하는 대목의 PDF 쪽수를 찾아라."
+    },
+    {
+      "query_id": "H30V4-004",
+      "category": "PAGE_RETRIEVAL",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3에서 영화 관객을 주의를 포함하지 않는 평가 태도의 산만한 시험관으로 부르는 문장의 위치를 제시하라."
+    },
+    {
+      "query_id": "H30V4-005",
+      "category": "PAGE_RETRIEVAL",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019가 가상텍스트의 배치와 거리 조정을 가능하게 하는 편집기술을 신뢰화로 설명한 PDF 쪽수를 찾아라."
+    },
+    {
+      "query_id": "H30V4-006",
+      "category": "PAGE_RETRIEVAL",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2에서 오늘날 예술의 기능을 상호작용의 연습으로 보며 영화를 특별히 언급하는 위치를 찾아라."
+    },
+    {
+      "query_id": "H30V4-007",
+      "category": "PARAPHRASE",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2에서 첫째 기술과 둘째 기술이 인간을 투입하는 정도를 어떻게 다르게 말하는지 근거 페이지와 함께 요약하라."
+    },
+    {
+      "query_id": "H30V4-008",
+      "category": "PARAPHRASE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019가 투명화와 신뢰화를 모두 그렇게 보이도록 만드는 기술이라고 말한 대목을 출처 쪽수와 함께 설명하라."
+    },
+    {
+      "query_id": "H30V4-009",
+      "category": "PARAPHRASE",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3에서 예술작품 수용의 두 극인 제의가치와 전시가치를 언급하는 문장을 찾아라."
+    },
+    {
+      "query_id": "H30V4-010",
+      "category": "PARAPHRASE",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2가 제2기술의 기원을 유희와 연결하는 구절의 PDF 쪽수를 확인하라."
+    },
+    {
+      "query_id": "H30V4-011",
+      "category": "UNSUPPORTED_PREMISE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019가 NFT 소유권 검증을 신뢰화의 실증 사례로 직접 제시했는지 문헌 범위에서 답하라."
+    },
+    {
+      "query_id": "H30V4-012",
+      "category": "UNSUPPORTED_PREMISE",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2에서 대형언어모델의 토큰 확률을 제2기술의 사례로 분석한 페이지가 있는가?"
+    },
+    {
+      "query_id": "H30V4-013",
+      "category": "UNSUPPORTED_PREMISE",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3가 틱톡 추천 피드를 영화의 산만한 수용과 동일시하는 문장을 실제로 제시하는가?"
+    },
+    {
+      "query_id": "H30V4-014",
+      "category": "UNSUPPORTED_PREMISE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019가 양자컴퓨팅을 투명화의 필수 조건이라고 명시하는지 확인하라."
+    },
+    {
+      "query_id": "H30V4-015",
+      "category": "UNSUPPORTED_PREMISE",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3가 2025년 생성형 AI 영상을 영화 관객 논의의 직접 사례로 명명하는가?"
+    },
+    {
+      "query_id": "H30V4-016",
+      "category": "CROSS_PAPER_INTERPRETATION",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 아우라 거리 정의와 Lee 2019의 신뢰화 거리 조정을 비교하고, 같은 개념이라는 결론의 근거 한계를 구분하라."
+    },
+    {
+      "query_id": "H30V4-017",
+      "category": "CROSS_PAPER_INTERPRETATION",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2의 자연과 인류 상호작용 설명과 Lee 2019의 투명화를 비교해, 두 설명의 연결에서 확인되지 않는 점을 한정하라."
+    },
+    {
+      "query_id": "H30V4-018",
+      "category": "MIXED_VOICE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019가 인용한 벤야민의 제2기술 기원 문장과 Lee 자신의 아우라 없는 아우라 문장을 같은 저자 주장으로 묶을 수 있는지 구분하라."
+    },
+    {
+      "query_id": "H30V4-019",
+      "category": "CROSS_PAPER_INTERPRETATION",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 산만한 영화 관객 근거와 Lee 2019의 디지털예술 연구 필요성 진술을 비교하고, 직접 충돌을 단정할 수 있는지 한정하라."
+    },
+    {
+      "query_id": "H30V4-020",
+      "category": "RESPONSE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 신뢰화 근거를 사용하여 논문에 거리 조정 논의가 전혀 없다는 비판에 답하고, 남는 검증 범위를 구분하라."
+    },
+    {
+      "query_id": "H30V4-021",
+      "category": "EDITION_BOUNDARY",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 아우라 정의와 다다 양식에 관한 설명을 하나의 동일 명제로 합쳐도 되는지 근거별로 분리하라."
+    },
+    {
+      "query_id": "H30V4-022",
+      "category": "CRITIQUE",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2가 영화를 상호작용의 연습으로 보는 진술과 Lee 2019의 디지털예술 연구 과제를 비교해, 제공된 근거에서 비판 가능한 범위만 말하라."
+    },
+    {
+      "query_id": "H30V4-023",
+      "category": "ATTRIBUTION",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019가 기술편집시대라는 전제에서 아우라를 다시 검토하겠다는 논문 목적을 밝힌 위치를 찾아라."
+    },
+    {
+      "query_id": "H30V4-024",
+      "category": "ATTRIBUTION",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3에서 몰입한 관람자와 산만한 대중이 작품을 받아들이는 방향을 대비한 저자 대목의 페이지를 찾아라."
+    },
+    {
+      "query_id": "H30V4-025",
+      "category": "ATTRIBUTION",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2가 제2기술의 실험적 성격을 첫째 기술과 견주어 설명하는 대목의 페이지를 제시하라."
+    },
+    {
+      "query_id": "H30V4-026",
+      "category": "UNSUPPORTED_PREMISE",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2가 인스타그램 릴스의 스크롤 행동을 제2기술의 놀이로 직접 거론하는가?"
+    },
+    {
+      "query_id": "H30V4-027",
+      "category": "UNSUPPORTED_PREMISE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019가 2024년 출시된 생성형 AI 서비스를 제3기술의 대표 사례로 이름 붙이는가?"
+    },
+    {
+      "query_id": "H30V4-028",
+      "category": "ATTRIBUTION",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3가 기술적 복제와 진품성의 관계를 설명하며 Echtheit를 언급하는 문장의 PDF 쪽수를 찾아라."
+    },
+    {
+      "query_id": "H30V4-029",
+      "category": "RESPONSE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 투명화와 신뢰화 근거를 비교해 두 개념을 모두 단순한 사실 복사 기술로 보는 비판에 답하되, 확인되지 않는 부분을 남겨라."
+    },
+    {
+      "query_id": "H30V4-030",
+      "category": "UNSUPPORTED_PREMISE",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3가 가상현실 헤드셋의 몰입 측정 실험을 아우라 정의의 직접 근거로 보고하는가?"
+    }
+  ]
+}
