@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "panel_id": "phase3-holdout30-v2",
+  "panel_type": "HOLDOUT30_V2_QUERY_ONLY",
+  "implementation_freeze_sha": "3fa4578f2f552c30852fa15f7f46bc2f456d6041",
+  "query_count": 30,
+  "queries": [
+    {
+      "query_id": "H30V2-001",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "Benjamin V2가 동시대 예술의 결정적 기능을 자연과 인간의 상호작용을 연습하는 데서 찾는가? 해당 저자 주장과 페이지를 확인하라.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2-002",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "Benjamin V3에서 cult value와 exhibition value가 예술 수용의 두 극으로 제시되는가? 근거 명제와 페이지를 특정하라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-003",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "Benjamin V3가 Dada의 거칠고 과장된 형식이 영화가 요구하게 될 효과를 선취한다고 설명하는가? 해당 근거를 찾아라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-004",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "Lee 2019는 현재를 기술복제 이후의 기술편집 시대로 규정하는가? 직접 인용 근거와 페이지를 확인하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-005",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "Lee 2019의 연구 목적은 기술편집시대 전제에서 벤야민의 아우라를 재검토하고 새로운 매체미학 방향을 제시하는 것인가? 페이지 근거를 제시하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-006",
+      "category": "MIXED_VOICE",
+      "query": "Lee 2019에 인용된 ‘제2의 기술의 기원은 유희에 있다’는 문장은 Lee 자신의 주장인가, 외부 저자 목소리인가? 증거 voice를 판정하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-007",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "Lee 2019에서 제3기술의 두 번째 키워드를 ‘신뢰화’라고 직접 명명하는가? 근거와 페이지를 확인하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-008",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "Lee 2019는 투명화와 신뢰화를 모두 ‘그렇게 보이도록’ 만드는 기술로 묶으며 ‘아우라 없는 아우라’의 긴장을 제시하는가? 근거를 찾아라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-009",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "Lee 2019는 20세기 대중예술의 아우라 상실이 21세기 디지털예술에서 어떻게 변용되는지 연구하는 일을 디지털예술 미학의 필요조건으로 제시하는가? 근거 페이지를 확인하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-010",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "‘현대 예술은 인간과 자연의 상호작용을 훈련하며 영화가 특히 그러하다’는 취지에 맞는 Benjamin V2 명제를 찾아라.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2-011",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "예술 수용에서 종교적 숭배의 가치와 대중적 전시의 가치가 양극을 이룬다는 Benjamin V3 근거를 찾아라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-012",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "Dada가 영화적 충격 효과를 역사적으로 미리 준비했다는 Benjamin V3의 논지를 뒷받침하는 명제를 회수하라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-013",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "‘기술복제에서 기술편집으로 넘어왔다’는 Lee 2019의 직접 진술을 찾아라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-014",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "벤야민의 아우라 재검토와 새 매체미학 연구방향 제시라는 Lee 2019의 연구 목적을 뒷받침하는 명제를 찾아라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-015",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "‘신뢰화’를 제3기술의 두 번째 키워드로 부르는 Lee의 직접 인용 근거를 찾아라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-016",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "투명화와 신뢰화를 ‘아우라 없는 아우라’의 긴장으로 묶는 Lee 2019의 논지를 찾아라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-017",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "디지털예술 미학의 연구과제로 20세기 아우라 상실의 21세기적 변용을 추적하자는 Lee 명제를 찾아라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-018",
+      "category": "PAGE_TRAP",
+      "query": "Benjamin V2의 동시대 예술 기능과 영화에 관한 구절을 working PDF p.6으로 인용해도 되는가? 실제 페이지를 판정하라.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2-019",
+      "category": "PAGE_TRAP",
+      "query": "Benjamin V3의 cult value / exhibition value 대목을 PDF p.31이라고 인용해도 되는가? 실제 페이지를 확인하라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-020",
+      "category": "PAGE_TRAP",
+      "query": "Benjamin V3의 Dada 논의를 PDF p.12로 제시해도 되는가? 정확한 근거 페이지를 판정하라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-021",
+      "category": "PAGE_TRAP",
+      "query": "Lee 2019의 ‘기술복제를 넘어 기술편집의 시대’라는 직접 진술을 PDF p.11로 인용해도 되는가? 실제 페이지를 확인하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-022",
+      "category": "MIXED_VOICE",
+      "query": "Lee 2019의 본문에 실린 ‘제2의 기술의 기원은 유희에 있다’를 Lee의 AUTHOR_CLAIM으로 분류해도 되는가? 문장 유형과 목소리를 구분하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-023",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "Benjamin V3의 cult value/exhibition value 구분과 Lee의 기술편집시대 구분을 동일한 저자 개념으로 합쳐도 되는가? 우선 Benjamin V3의 근거 명제를 특정하라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-024",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "Benjamin V3의 Dada 효과와 Lee의 ‘투명화’를 같은 개념이라고 귀속해도 되는가? 먼저 Benjamin V3의 근거를 특정하라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-025",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Benjamin V2는 대규모 언어모델이 영화보다 더 완전한 상호작용 훈련장이라고 주장하는가? 근거가 없으면 미해결로 처리하라.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2-026",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Benjamin V3는 NFT가 cult value를 완전히 제거한다고 주장하는가? 근거가 없으면 미해결로 처리하라.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2-027",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Lee 2019는 블롭체인 신원증명이 ‘신뢰화’의 필수 구현이라고 주장하는가? 근거가 없으면 미해결로 처리하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-028",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Lee 2019는 생성형 AI를 ‘아우라 없는 아우라’의 최종 해법으로 제시하는가? 근거가 없으면 미해결로 처리하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2-029",
+      "category": "EDITION_TRAP",
+      "query": "Benjamin V2의 동시대 예술 기능/영화 구절을 Benjamin V3의 판본 근거로 제시해도 되는가? V2 근거 판본을 특정하라.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2-030",
+      "category": "EDITION_TRAP",
+      "query": "Benjamin V3의 Dada 논의를 Benjamin V2의 판본 근거로 인용해도 되는가? 정확한 판본과 페이지를 특정하라.",
+      "paper_id": "benjamin-artwork-v3"
+    }
+  ]
+}
