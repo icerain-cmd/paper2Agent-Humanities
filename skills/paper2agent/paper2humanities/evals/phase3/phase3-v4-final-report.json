@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "task": "PAPER2AGENT_HUMANITIES_PHASE3_FROM_PC2_PERSISTED_STATE",
+  "status": "COMPLETE",
+  "generated_utc": "2026-09-29T10:28:25.777015+00:00",
+  "implementation_freeze_sha_v4": "e9051f58f1de6d8d0fbce6587b2ba10e5b589ccd",
+  "chronology": {
+    "panel_freeze_commit": "032796a1017da43bf935309a0cf7a7bb9b1651f8",
+    "response_freeze_commit": "420db56a42f8f82d8771a18f7a53cd537eee4734",
+    "gold_creation_commit": "5b99d686b3fbc8f2edc39b3faa7fb5c10ab5b03d",
+    "panel_sha256": "06a051c03653cd04ac06b5e609ecfe7f8a432d683b3f2926a91a51d08e282a9d",
+    "response_sha256": "a36711d2807d5f98c00290873b91c6aed9d5443d40c8dce4c199c284cff5f2c8",
+    "gold_sha256": "a0de2efb4f83fcade3b3136595a7868145c7dacabe72c2ac3fd83c6d74369ed8",
+    "gold_available_during_generation": false,
+    "gold_created_after_response_freeze": true,
+    "gold_leakage": 0,
+    "zero_exact_overlap_prior_dev_live": true
+  },
+  "live_dialogue": {
+    "runs": 32,
+    "accepted": 26,
+    "abstained": 6,
+    "all_abstentions_insufficient": true,
+    "D": 6,
+    "D_by_edition": {
+      "benjamin-artwork-v2": 3,
+      "benjamin-artwork-v3": 3
+    },
+    "E": 6,
+    "F": {
+      "ISSUE": 3,
+      "GAP": 3,
+      "RESEARCH_QUESTION": 3
+    },
+    "multiturn": 5,
+    "status": "PASS"
+  },
+  "development": {
+    "v3_reclassification": "DEV30_COMPAT_V3",
+    "dev10_repair_accuracy": 1.0,
+    "dev10_composite_dev_only": true,
+    "dev10_hard_gate_counts": {
+      "FALSE_AUTHOR_CLAIM": 0,
+      "EXTERNAL_AS_AUTHOR_ERROR": 0,
+      "CROSS_EDITION_CONTAMINATION": 0,
+      "UNSUPPORTED_DIALOGUE_TURN": 0,
+      "TEMPORAL_CORPUS_CONTAMINATION": 0,
+      "FAKE_PAGE_CITATION": 0,
+      "HARDCODED_DIALOGUE_TEXT": 0,
+      "GOLD_LEAKAGE": 0
+    }
+  },
+  "holdout30_v4": {
+    "queries": 30,
+    "accepted": 22,
+    "abstained": 8,
+    "rejected": 0,
+    "all_abstentions_insufficient": true,
+    "matches": 28,
+    "accuracy": 0.9333333333333333,
+    "hard_gate_counts": {
+      "FALSE_AUTHOR_CLAIM": 0,
+      "EXTERNAL_AS_AUTHOR_ERROR": 0,
+      "CROSS_EDITION_CONTAMINATION": 0,
+      "UNSUPPORTED_DIALOGUE_TURN": 0,
+      "TEMPORAL_CORPUS_CONTAMINATION": 0,
+      "FAKE_PAGE_CITATION": 0,
+      "HARDCODED_DIALOGUE_TEXT": 0,
+      "GOLD_LEAKAGE": 0
+    },
+    "status": "PASS",
+    "mismatches": [
+      {
+        "query_id": "H30V4-001",
+        "gold_type": "AUTHOR_CLAIM",
+        "actual_type": "SOURCE_QUOTE",
+        "actual_page": [
+          22
+        ],
+        "cause": "Exact author quotation typed SOURCE_QUOTE while frozen gold expected AUTHOR_CLAIM; cited page and support are correct."
+      },
+      {
+        "query_id": "H30V4-009",
+        "gold_type": "AUTHOR_CLAIM",
+        "actual_type": "SOURCE_QUOTE",
+        "actual_page": [
+          12
+        ],
+        "cause": "Exact author quotation typed SOURCE_QUOTE while frozen gold expected AUTHOR_CLAIM; cited page and support are correct."
+      }
+    ]
+  },
+  "tests": {
+    "humanities_phase3_upstream_pytest": {
+      "passed": 79,
+      "failed": 0
+    },
+    "paper2skill_upstream_unittest": {
+      "passed": 27,
+      "failed": 0
+    },
+    "total_passed": 106,
+    "diff_check": "PASS"
+  },
+  "final_hard_gates_pass": true,
+  "draft_pr": 3,
+  "merge_pr": false
+}
