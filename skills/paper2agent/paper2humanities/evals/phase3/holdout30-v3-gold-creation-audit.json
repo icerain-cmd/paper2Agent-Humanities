@@ -1,0 +1,12 @@
+{
+  "panel_id": "phase3-holdout30-v3",
+  "implementation_freeze_sha_v3": "f511ef15c0c48f55627c3af0178f2192c04d3d53",
+  "query_sha256": "a4535b19f752f082d355c4bebb33ef3f43b5ca47b33edd36b371b502ee1bd203",
+  "response_sha256": "b2f54ed8e993ed19f02df7ff0287020ed21de7102acc8db786f7ad01bf388aff",
+  "gold_sha256": "3aa8b1e9ffeb8c3ad2b11f019eb4ef0d4cbd86ec7a6aa03b4bbed5ee303b6ad2",
+  "gold_created_after_response_freeze": true,
+  "response_commit": "c8cd22f",
+  "gold_available_during_generation": false,
+  "gold_leakage": 0,
+  "gold_policy": "Source-backed expected type/paper/edition/page/support was defined after response freeze from query intent and frozen agent evidence; response content was not used to select expected values."
+}
