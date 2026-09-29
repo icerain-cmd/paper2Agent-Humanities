@@ -2,11 +2,13 @@
 
 ## Current status
 
-`PHASE3_STATUS=IMPLEMENTED_AWAITING_FREEZE_AND_LIVE_EVALUATION`. Phase 3 is not complete.
+`PHASE3_STATUS=REPAIR_VALIDATED_AWAITING_V3_FREEZE`. Phase 3 is not complete.
 
-The host independently verified `PC2_RUNTIME=PASS`, `REAL_MODEL_SMOKE=PASS`, and `ISOLATED_RUNTIME_SMOKE=PASS` with Codex `0.155.1`. Schema-constrained ephemeral read-only calls passed for generator `gpt-6-sol` and verifier `gpt-5.6-sol`. The verifier is an independent model invocation with fresh context containing the candidate turn and supplied evidence only. These are host runtime facts; this workspace did not run `codex exec`.
+PC2 runtime is live and verified on `DESKTOP-GA4FNS2` with Codex `0.155.1`. Generator `gpt-6-sol` and verifier `gpt-5.6-sol` both completed real schema-constrained ephemeral calls. The verifier runs with fresh context and is independent from the generator model.
 
-`SUPERSEDED_BY_CROSS_PAPER_FIX=3fa4578f2f552c30852fa15f7f46bc2f456d6041`. `IMPLEMENTATION_FREEZE_SHA_V2=3fa4578f2f552c30852fa15f7f46bc2f456d6041`. `HOLDOUT30_V2=NOT_CREATED_PRE_FREEZE`. Live D/E/F, multiturn, DEV50 generation and HOLDOUT30_V2 scoring remain `NOT_RUN`. No Phase-3 hard-gate success is claimed.
+The V2 evaluation exposed `UNSUPPORTED_DIALOGUE_TURN=4` in rows H30V2F-005/006/012/013. All four had the needed primary evidence in retrieval top-k. The direct failure was a schema/publication-gate contract mismatch: `publication_gate()` required a `qualification` for `PARTIALLY_SUPPORTED`, while the live typed-turn schema prohibited that field. Repair commit `226a5bd` added explicit `evidence_sufficiency` and `qualification` fields and tightened the generator contract. A fresh four-query live reproduction then returned four `ACCEPTED` turns with `gate_errors=[]`; generator and verifier each completed four calls in one attempt per row.
+
+Because implementation changed after the V2 holdout, that 30-query set is now `DEV30_COMPAT_V2`, not official unseen holdout evidence. A new post-freeze `HOLDOUT30_V3` must be created and evaluated before Phase 3 can be declared complete. Full D/E/F, five-stage multiturn, DEV50_V3, and fresh HOLDOUT30_V3 evaluation are still pending.
 
 ## Baseline and development evidence
 
@@ -21,4 +23,4 @@ The host independently verified `PC2_RUNTIME=PASS`, `REAL_MODEL_SMOKE=PASS`, and
 
 The runner requires at least three accepted Test D critiques from each Benjamin edition, one accepted Test E Lee response per accepted D, three accepted Test F artifacts of each subtype (ISSUE, GAP, RESEARCH_QUESTION), and the accepted multiturn sequence Benjamin → Lee → Benjamin → Lee → synthesis. Rejected attempts are retained in the artifact. Bounded retries use alternative evidence-bounded queries. The artifact records generator and verifier subprocess-attempt totals for later `REAL_MODEL_CALLS` computation.
 
-Panel generation accepts a query-only file. It freezes the response SHA and records `gold_available_during_generation=false` in the manifest. The separate scoring commands check the frozen SHA before opening gold. No `HOLDOUT30_V2` panel or gold has been created.
+Panel generation accepts a query-only file. It freezes the response SHA and records `gold_available_during_generation=false` in the manifest. The separate scoring commands check the frozen SHA before opening gold. The new HOLDOUT30_V2 query-only panel is ready; no new gold or response has been created.

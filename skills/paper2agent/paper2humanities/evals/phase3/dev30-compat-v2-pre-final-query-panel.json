@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "panel_id": "phase3-holdout30-v2-post-freeze-0068459",
+  "panel_type": "HOLDOUT30_V2_QUERY_ONLY",
+  "implementation_freeze_sha": "006845917201f701e5d0c5f00dff56a2d2b8a2e7",
+  "created_at_utc": "2026-09-29T05:19:44.784933+00:00",
+  "query_count": 30,
+  "queries": [
+    {
+      "query_id": "H30V2F-001",
+      "category": "PARAPHRASE",
+      "query": "In the second version, how is the first technology distinguished from the second in its treatment of human beings? Cite the retrieved passage.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-002",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "Does Benjamin associate the second technology with a single irreversible act or with experimentation? Identify the source page.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-003",
+      "category": "ATTRIBUTION",
+      "query": "What human relationship to nature does the second version connect with the origin of the second technology?",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-004",
+      "category": "PARAPHRASE",
+      "query": "Locate the second-version passage that replaces mastery over nature with reciprocal interplay.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-005",
+      "category": "PAGE_TRAP",
+      "query": "Is the socially decisive practice function of contemporary art evidenced on page 6 of the second version? Check the actual page.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-006",
+      "category": "ATTRIBUTION",
+      "query": "How does the second version define aura through distance, and what social process accompanies its decay?",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-007",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Does the second-version evidence establish that digital platforms restore an artwork’s aura? Answer from available passages only.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-008",
+      "category": "EDITION_TRAP",
+      "query": "Does the second version explicitly call cinema audiences distracted examiners? Verify against this edition’s evidence.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-009",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "In the second-version evidence, is play tied to domination or to a step back from nature?",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-010",
+      "category": "PAGE_TRAP",
+      "query": "Which page actually supports the contrast between once-for-all technique and repeatable experiment in version two?",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-011",
+      "category": "ATTRIBUTION",
+      "query": "Find the third-version statement about the original artwork’s Here and Now and the basis of authenticity.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-012",
+      "category": "PARAPHRASE",
+      "query": "What happens to an artwork’s aura under mechanical reproduction according to version three?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-013",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "In the third version, can something close still appear distant in the account of natural aura?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-014",
+      "category": "ATTRIBUTION",
+      "query": "Identify the paired values described as poles of artwork reception in the third version.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-015",
+      "category": "PARAPHRASE",
+      "query": "How does the concentrated spectator’s relation to the artwork differ from distracted reception in version three?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-016",
+      "category": "ATTRIBUTION",
+      "query": "What unusual combination of judgment and distraction does Benjamin assign to the cinema public?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-017",
+      "category": "PAGE_TRAP",
+      "query": "Is the cinema-public examiner passage on page 12 of version three? Give its evidence page.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-018",
+      "category": "ATTRIBUTION",
+      "query": "What future artistic effect does the third-version discussion connect with Dada’s aggressive forms?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-019",
+      "category": "EDITION_TRAP",
+      "query": "Does version three itself ground the origin of second technology in play? Use this edition alone.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-020",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Do the supplied third-version passages say virtual reality abolishes cult value?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-021",
+      "category": "ATTRIBUTION",
+      "query": "이용욱의 2019년 글은 현재의 기술 조건을 복제를 넘어 어떤 시대로 부르는가? 해당 문장의 근거를 찾으라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-022",
+      "category": "ATTRIBUTION",
+      "query": "기술편집이라는 전제에서 이 논문이 새로 검토하려는 개념과 연구 목적을 근거로 정리하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-023",
+      "category": "PAGE_TRAP",
+      "query": "컴퓨터와 인터넷을 기술편집시대의 시작으로 지목하는 대목이 2쪽인가? 실제 근거 쪽을 확인하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-024",
+      "category": "ATTRIBUTION",
+      "query": "새로운 아우라의 장래 이름을 이 논문은 무엇이라 예고하는가? 인용 범위를 확인하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-025",
+      "category": "MIXED_VOICE",
+      "query": "이 논문에 실린 제2의 기술과 유희의 연결은 이용욱 자신의 목소리인가, 인용된 목소리인가?",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-026",
+      "category": "ATTRIBUTION",
+      "query": "제3기술의 핵심가치로 제시된 첫 번째 개념을 출처와 함께 밝히라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-027",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "신뢰화는 가상텍스트의 배치와 거리 조정에 어떻게 관계하는가? 저자의 설명 범위만 쓰라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-028",
+      "category": "PARAPHRASE",
+      "query": "투명화와 신뢰화를 함께 다루는 대목에서 생기는 아우라의 역설을 근거와 함께 확인하라.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-029",
+      "category": "ATTRIBUTION",
+      "query": "20세기 대중예술과 21세기 디지털예술의 아우라 문제를 잇는 연구 과제는 무엇인가?",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-030",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "이 논문이 NFT 시장의 가격 상승을 디지털아우라의 실증 근거로 제시하는가? 제공된 증거만으로 답하라.",
+      "paper_id": "lee-aura-2019"
+    }
+  ]
+}
