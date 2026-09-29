@@ -1,0 +1,8 @@
+{
+  "panel_id": "phase3-holdout30-v2",
+  "implementation_freeze_sha": "3fa4578f2f552c30852fa15f7f46bc2f456d6041",
+  "query_count": 30,
+  "query_overlap_with_dev50": 0,
+  "query_overlap_with_dev30_compat": 0,
+  "gold_hidden_during_generation": true
+}

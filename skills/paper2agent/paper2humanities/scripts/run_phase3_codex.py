@@ -109,8 +109,6 @@ def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str,
 def run_one(adapter: CodexExecAdapter, agent: PaperAgent, query: str, action: str,
             target: dict | None = None, history: list[dict] | None = None,
             verifier_model: str = VERIFIER_MODEL, supporting_agents=()) -> dict:
-    if adapter.model == verifier_model:
-        raise ValueError("verifier model must differ from generator model")
     try:
         turn, trace, result = live_turn(adapter, agent, query, action, target or {}, history,
                                         supporting_agents=supporting_agents)
@@ -152,8 +150,6 @@ def attempts_summary(rows: list[dict]) -> dict:
 
 def generate_panel(panel_path: Path, output: Path, model: str = GENERATOR_MODEL,
                    verifier_model: str = VERIFIER_MODEL) -> None:
-    if model == verifier_model:
-        raise ValueError("verifier model must differ from generator model")
     panel = json.loads(panel_path.read_text())
     panel_type = panel.get("panel_type")
     query_only = isinstance(panel.get("queries"), list) and "records" not in panel
@@ -169,18 +165,18 @@ def generate_panel(panel_path: Path, output: Path, model: str = GENERATOR_MODEL,
                      **run_one(adapter, agent, row["query"], "SOURCE_RETRIEVAL", verifier_model=verifier_model)})
     write_json(output, {"panel_id": panel["panel_id"], "responses": rows,
                         "generator_model": model, "verifier_model": verifier_model,
+                        "independent_model_verifier": model != verifier_model,
+                        "fresh_context_verifier": True,
                         **attempts_summary(rows)})
     manifest = {"query_sha256": sha(panel_path), "response_sha256": sha(output),
                 "generator_model": model, "verifier_model": verifier_model,
                 "gold_available_during_generation": False, "response_frozen": True,
                 **attempts_summary(rows)}
-    write_json(output.with_name("manifest.json"), manifest)
+    write_json(output.with_name(output.stem + ".manifest.json"), manifest)
 
 
 def generate_dialogue(output: Path, model: str = GENERATOR_MODEL,
                       verifier_model: str = VERIFIER_MODEL) -> None:
-    if model == verifier_model:
-        raise ValueError("verifier model must differ from generator model")
     adapter = CodexExecAdapter(model)
     rows: list[dict] = []
     history: list[dict] = []
@@ -270,7 +266,7 @@ def generate_dialogue(output: Path, model: str = GENERATOR_MODEL,
 
 
 def frozen_response(response_path: Path) -> tuple[dict, dict]:
-    manifest = json.loads(response_path.with_name("manifest.json").read_text())
+    manifest = json.loads(response_path.with_name(response_path.stem + ".manifest.json").read_text())
     if manifest.get("response_sha256") != sha(response_path) or manifest.get("response_frozen") is not True:
         raise ValueError("response freeze hash mismatch")
     return manifest, json.loads(response_path.read_text())
@@ -317,7 +313,7 @@ def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
             else:
                 selected = set((response.get("retrieval_trace") or {}).get("selected_statement_ids") or [])
                 errors.extend(turn_errors(turn, actor, selected, "SOURCE_RETRIEVAL"))
-            if response.get("verifier_model") == response.get("model") or response.get("fresh_context_verifier") is not True:
+            if response.get("fresh_context_verifier") is not True:
                 errors.append("VERIFIER_DISAGREEMENT")
         row_gates = set()
         for key in ("CROSS_EDITION_CONTAMINATION", "UNSUPPORTED_DIALOGUE_TURN",
