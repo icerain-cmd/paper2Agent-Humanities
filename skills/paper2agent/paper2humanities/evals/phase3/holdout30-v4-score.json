@@ -1,0 +1,168 @@
+{
+  "panel_id": "phase3-holdout30-v4",
+  "response_sha256": "a36711d2807d5f98c00290873b91c6aed9d5443d40c8dce4c199c284cff5f2c8",
+  "accuracy": 0.9333333333333333,
+  "rows": [
+    {
+      "query_id": "H30V4-001",
+      "match": false,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-002",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-003",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-004",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-005",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-006",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-007",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-008",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-009",
+      "match": false,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-010",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-011",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V4-012",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V4-013",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V4-014",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V4-015",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V4-016",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-017",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-018",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-019",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-020",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-021",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-022",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-023",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-024",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-025",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-026",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V4-027",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V4-028",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-029",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V4-030",
+      "match": true,
+      "outcome": "ABSTAINED"
+    }
+  ],
+  "hard_gate_counts": {
+    "FALSE_AUTHOR_CLAIM": 0,
+    "EXTERNAL_AS_AUTHOR_ERROR": 0,
+    "CROSS_EDITION_CONTAMINATION": 0,
+    "UNSUPPORTED_DIALOGUE_TURN": 0,
+    "TEMPORAL_CORPUS_CONTAMINATION": 0,
+    "FAKE_PAGE_CITATION": 0,
+    "HARDCODED_DIALOGUE_TEXT": 0,
+    "GOLD_LEAKAGE": 0
+  },
+  "status": "PASS"
+}
