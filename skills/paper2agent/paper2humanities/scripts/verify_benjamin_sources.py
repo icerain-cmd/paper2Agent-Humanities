@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verify Benjamin V2/V3 source candidates without approving or ingesting them."""
 from __future__ import annotations
-import argparse, hashlib, json
+import argparse, hashlib, json, re
 from pathlib import Path
 from pypdf import PdfReader, PdfWriter
 
@@ -16,6 +16,10 @@ V3_FORBIDDEN_V2 = [
     "erste Technik", "zweiten Technik", "Ein für allemal",
     "Einmal ist keinmal", "Ursprung der zweiten Technik",
 ]
+V2_TECHNIK_VARIANTS = re.compile(
+    r"\b(?:erste|ersten|erster|erstes|zweite|zweiten|zweiter|zweites)\s+Technik\b",
+    re.IGNORECASE,
+)
 
 
 def sha256(path: Path) -> str:
@@ -69,6 +73,9 @@ def main() -> int:
         term: [i for i, body in enumerate(v3_all, 1) if term.lower() in body.lower()]
         for term in V3_FORBIDDEN_V2
     }
+    forbidden_hits["first/second Technik variants"] = [
+        i for i, body in enumerate(v3_all, 1) if V2_TECHNIK_VARIANTS.search(body)
+    ]
     if any(forbidden_hits.values()):
         raise SystemExit(f"V2-only passage contaminated V3: {forbidden_hits}")
 

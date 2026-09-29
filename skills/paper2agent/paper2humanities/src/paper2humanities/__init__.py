@@ -2,7 +2,7 @@
 
 from .dialogue import (
     DialogueAction, DialogueTurn, RelationType, SemanticSupportStatus,
-    ScholarlyDialogue, validate_turn_for_publication,
+    ScholarlyDialogue, review_binding_sha256, validate_turn_for_publication,
 )
 from .evaluation import evaluate_agent
 from .paper_agent import PaperAgent
@@ -35,4 +35,5 @@ __all__ = [
     "unsupported_author_claims",
     "validate_against_source",
     "validate_turn_for_publication",
+    "review_binding_sha256",
 ]

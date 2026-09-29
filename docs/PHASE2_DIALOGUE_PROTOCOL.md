@@ -44,8 +44,8 @@ There is no judge/winner operation.
 
 For paper-owned QUESTION / CRITIQUE / RESPOND turns:
 
-1. every support statement must belong to the actor paper;
-2. when the actor has an edition identity, each support statement must carry the same edition identity;
+1. every paper-owned support statement must match the actor's `paper_id`, `source_id`, and `edition_id`, and its grounded source statement must match the corresponding evidence index;
+2. wording checks, including German inflections of first/second `Technik`, provide an additional warning layer;
 3. a V2 statement cannot be emitted with a V3 citation;
 4. a V3 agent cannot answer a V2-only passage;
 5. cross-edition synthesis must cite statements from both separate source agents and remains `AI_SYNTHESIS` or `UNRESOLVED`.
@@ -63,6 +63,8 @@ This is a negative-control list, not a claim that these terms exhaust all later 
 Provenance validity and semantic support are separate.
 
 A turn begins at `PROVENANCE_VALID`; this means its support IDs exist and obey paper/edition boundaries. It is not yet publishable.
+
+Approval is bound to SHA256 of canonical UTF-8 JSON containing `turn_id`, `text`, `statement_type`, `support_ids`, `relation_type`, `actor_paper`, `actor_edition_id`, `target_paper`, and `target_statement_id` (sorted keys, compact separators, original support order). The semantic review artifact stores `review_binding_sha256`; publication and verification block changed or unbound turns with `SEMANTIC_REVIEW_STALE`.
 
 Reviewer statuses:
 

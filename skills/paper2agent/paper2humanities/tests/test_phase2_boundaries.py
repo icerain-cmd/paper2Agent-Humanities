@@ -15,6 +15,7 @@ from paper2humanities import (
     SemanticSupportStatus,
     StatementType,
     validate_turn_for_publication,
+    review_binding_sha256,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -131,11 +132,78 @@ def test_semantic_review_required_before_dialogue_publication():
         turn,
         review_status=ReviewStatus.REVIEWED,
         semantic_support=SemanticSupportStatus.SEMANTICALLY_SUPPORTED,
+        review_binding_sha256=review_binding_sha256(turn),
     )
     validate_turn_for_publication(reviewed)
     unsupported = replace(reviewed, semantic_support=SemanticSupportStatus.UNSUPPORTED)
     with pytest.raises(ProvenanceError, match="not publishable"):
         validate_turn_for_publication(unsupported)
+
+
+@pytest.mark.parametrize("text", [
+    "erste Technik", "ersten Technik", "erster Technik", "erstes Technik",
+    "zweite Technik", "zweiten Technik", "zweiter Technik", "zweites Technik",
+])
+def test_v3_lexical_defense_covers_german_inflections(text):
+    v3 = edition_agent("benjamin-artwork-v3")
+    with pytest.raises(ValueError, match="temporal/corpus boundary"):
+        v3.validate_output_text(f"The phrase {text} belongs to V2.")
+
+
+def test_v3_rejects_v2_support_even_without_v2_wording():
+    dialogue = ScholarlyDialogue([
+        edition_agent("benjamin-artwork-v2"), edition_agent("benjamin-artwork-v3")
+    ])
+    with pytest.raises(ProvenanceError, match="own paper evidence"):
+        dialogue.create_turn(
+            action=DialogueAction.CRITIQUE, actor_paper="benjamin-artwork-v3",
+            statement_id="v3-mislabeled", text="A neutral sentence.",
+            support_ids=("benjamin-artwork-v2-s",), target_paper="benjamin-artwork-v2",
+        )
+
+
+@pytest.mark.parametrize("change", [
+    lambda t: replace(t, statement=replace(t.statement, text="Changed after review")),
+    lambda t: replace(t, support_ids=("other-support",)),
+    lambda t: replace(t, relation_type=RelationType.QUALIFIES),
+    lambda t: replace(t, actor_edition_id="benjamin-artwork-v3"),
+    lambda t: replace(t, target_paper="another-paper"),
+    lambda t: replace(t, target_statement_id="another-target"),
+])
+def test_review_binding_invalidates_mutated_publication_fields(change):
+    dialogue = ScholarlyDialogue([
+        edition_agent("benjamin-artwork-v2"), edition_agent("benjamin-artwork-v3")
+    ])
+    turn = dialogue.create_turn(
+        action=DialogueAction.CRITIQUE, actor_paper="benjamin-artwork-v2",
+        statement_id="bound-turn", text="The reviewed text.",
+        support_ids=("benjamin-artwork-v2-s",),
+        target_paper="benjamin-artwork-v3", relation_type=RelationType.TENSIONS_WITH,
+    )
+    approved = replace(turn, review_status=ReviewStatus.REVIEWED,
+                       semantic_support=SemanticSupportStatus.SEMANTICALLY_SUPPORTED,
+                       review_binding_sha256=review_binding_sha256(turn))
+    validate_turn_for_publication(approved)
+    with pytest.raises(ProvenanceError, match="SEMANTIC_REVIEW_STALE"):
+        validate_turn_for_publication(change(approved))
+
+
+@pytest.mark.parametrize("field,value", [
+    ("text", "Changed after approval"),
+    ("support_ids", ["b-v3-c-aura-withers"]),
+    ("relation_type", "QUALIFIES"),
+    ("actor_edition_id", "benjamin-artwork-v3"),
+    ("target_paper", "benjamin-artwork-v3"),
+    ("target_statement_id", "lee-c-immersion"),
+])
+def test_committed_semantic_review_digest_rejects_artifact_mutations(field, value):
+    base = ROOT / "evals" / "phase2"
+    turn = json.loads((base / "test-d-critiques.json").read_text())["turns"][0]
+    review = json.loads((base / "phase2-semantic-review.json").read_text())
+    approval = next(row for row in review["reviews"] if row["turn_id"] == turn["turn_id"])
+    assert review_binding_sha256(turn) == approval["review_binding_sha256"]
+    mutated = {**turn, field: value}
+    assert review_binding_sha256(mutated) != approval["review_binding_sha256"]
 
 
 def test_source_map_keeps_v2_mapping_separate_from_v3():

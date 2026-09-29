@@ -3,6 +3,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
+import hashlib
+import json
 
 from .paper_agent import PaperAgent
 from .schema import EpistemicStatement, ProvenanceError, ReviewStatus, StatementType
@@ -49,6 +51,7 @@ class DialogueTurn:
     relation_type: RelationType = RelationType.UNRESOLVED
     semantic_support: SemanticSupportStatus = SemanticSupportStatus.PROVENANCE_VALID
     review_status: ReviewStatus = ReviewStatus.NEEDS_REVIEW
+    review_binding_sha256: str | None = None
 
     @property
     def actor(self) -> str:
@@ -128,20 +131,17 @@ class ScholarlyDialogue:
             DialogueAction.QUESTION,
         }
         if action in own_evidence_actions:
-            foreign = [item.statement_id for item in supports if item.paper_id != actor_paper]
+            foreign = [
+                item.statement_id for item in supports
+                if item.paper_id != actor_paper
+                or item.source_id != actor_agent.source_id
+                or item.edition_id != actor_agent.edition_id
+                or item.statement_type not in {StatementType.AUTHOR_CLAIM, StatementType.SOURCE_QUOTE}
+            ]
             if foreign:
                 raise ProvenanceError(
                     f"{action.value} paper agent may use only its own paper evidence: {foreign}"
                 )
-            if actor_agent is not None and actor_agent.edition_id is not None:
-                wrong_edition = [
-                    item.statement_id for item in supports
-                    if item.edition_id != actor_agent.edition_id
-                ]
-                if wrong_edition:
-                    raise ProvenanceError(
-                        f"{action.value} paper agent may use only its own edition evidence: {wrong_edition}"
-                    )
 
         if action in cross_actions and len(support_papers) < 2:
             raise ProvenanceError(f"{action.value} requires provenance from at least two papers")
@@ -185,6 +185,28 @@ class ScholarlyDialogue:
         )
 
 
+REVIEW_BINDING_FIELDS = (
+    "turn_id", "text", "statement_type", "support_ids", "relation_type",
+    "actor_paper", "actor_edition_id", "target_paper", "target_statement_id",
+)
+
+
+def review_binding_sha256(turn: DialogueTurn | dict) -> str:
+    """Bind a semantic decision to the exact publication fields, in fixed JSON order."""
+    if isinstance(turn, DialogueTurn):
+        values = {
+            "turn_id": turn.turn_id, "text": turn.statement.text,
+            "statement_type": turn.statement.statement_type.value,
+            "support_ids": list(turn.support_ids), "relation_type": turn.relation_type.value,
+            "actor_paper": turn.actor_paper, "actor_edition_id": turn.actor_edition_id,
+            "target_paper": turn.target_paper, "target_statement_id": turn.target_statement_id,
+        }
+    else:
+        values = {key: turn[key] for key in REVIEW_BINDING_FIELDS}
+    payload = json.dumps(values, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
 def validate_turn_for_publication(turn: DialogueTurn) -> None:
     if turn.review_status != ReviewStatus.REVIEWED:
         raise ProvenanceError("dialogue turn requires human/reviewer REVIEWED status before publication")
@@ -195,3 +217,5 @@ def validate_turn_for_publication(turn: DialogueTurn) -> None:
         raise ProvenanceError(
             f"dialogue turn semantic support is not publishable: {turn.semantic_support.value}"
         )
+    if turn.review_binding_sha256 != review_binding_sha256(turn):
+        raise ProvenanceError("SEMANTIC_REVIEW_STALE: reviewed turn differs from approved content")

@@ -62,6 +62,11 @@ class PaperAgent:
 
     def validate_output_text(self, text: str) -> None:
         violations = [term for term in self.forbidden_terms if term and term.lower() in text.lower()]
+        if self.edition_id == "benjamin-artwork-v3" and re.search(
+            r"\b(?:erste|ersten|erster|erstes|zweite|zweiten|zweiter|zweites)\s+Technik\b",
+            text, re.IGNORECASE,
+        ):
+            violations.append("V2 first/second technology terminology")
         if violations:
             raise ValueError(f"temporal/corpus boundary violation for {self.paper_id}: {violations}")
 

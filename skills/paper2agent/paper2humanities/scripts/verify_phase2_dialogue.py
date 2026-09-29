@@ -8,7 +8,8 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"src"))
 
 from paper2humanities import (
-    PaperAgent, PaperEvidenceIndex, SourceEdition, StatementType, validate_against_source
+    PaperAgent, PaperEvidenceIndex, SourceEdition, StatementType, validate_against_source,
+    review_binding_sha256,
 )
 
 LATER_LEE_TERMS=["아투라","기계세","Mechanocene","기술생성시대","공진주체 WE","마찰의 투명성","생성 아우라"]
@@ -68,15 +69,20 @@ def main():
         source_statements.update({s.statement_id:s for s in a.store.values()})
 
     false_author=external_as_author=cross_edition=unsupported=temporal=0
+    stale_review=0
     d_ids={x["turn_id"] for x in d["turns"]}
     e_ids={x["turn_id"] for x in e["turns"]}
 
     for t in d["turns"]:
         actor=agents[t["actor_paper"]]
         for sid in t["support_ids"]:
-            st=source_statements[sid]
-            if st.paper_id!=actor.paper_id: unsupported+=1
-            if actor.edition_id and st.edition_id!=actor.edition_id: cross_edition+=1
+            st=source_statements.get(sid)
+            if st is None:
+                unsupported+=1
+                continue
+            if st.paper_id!=actor.paper_id or st.source_id!=actor.source_id or st.edition_id!=actor.edition_id:
+                cross_edition+=1
+            if st.statement_type not in {StatementType.AUTHOR_CLAIM,StatementType.SOURCE_QUOTE}: unsupported+=1
             if st.evidence_voice and st.evidence_voice.value=="EXTERNAL" and st.statement_type==StatementType.AUTHOR_CLAIM:
                 external_as_author+=1
         if t["target_statement_id"] not in source_statements: unsupported+=1
@@ -84,17 +90,24 @@ def main():
         rv=semantic_by.get(t["turn_id"])
         if not rv or rv["semantic_support"] in {"OVERSTATED","UNSUPPORTED"} or rv["review_status"]!="REVIEWED":
             unsupported+=1
+        if not rv or rv.get("review_binding_sha256")!=review_binding_sha256(t): stale_review+=1
 
     for t in e["turns"]:
         if t["target_turn_id"] not in d_ids: unsupported+=1
         for sid in t["support_ids"]:
-            st=source_statements[sid]
-            if st.paper_id!="lee-aura-2019": unsupported+=1
+            st=source_statements.get(sid)
+            if st is None:
+                unsupported+=1
+                continue
+            actor=agents[t["actor_paper"]]
+            if st.paper_id!=actor.paper_id or st.source_id!=actor.source_id or st.edition_id!=actor.edition_id:
+                cross_edition+=1
         if t["statement_type"]=="AUTHOR_CLAIM": false_author+=1
         if any(term.lower() in t["text"].lower() for term in LATER_LEE_TERMS): temporal+=1
         rv=semantic_by.get(t["turn_id"])
         if not rv or rv["semantic_support"] in {"OVERSTATED","UNSUPPORTED"} or rv["review_status"]!="REVIEWED":
             unsupported+=1
+        if not rv or rv.get("review_binding_sha256")!=review_binding_sha256(t): stale_review+=1
 
     synthesis_items=f["issues"]+f["research_gaps"]+f["research_questions"]
     all_turn_ids=d_ids|e_ids|{x["turn_id"] for x in synthesis_items}
@@ -104,6 +117,7 @@ def main():
         rv=semantic_by.get(t["turn_id"])
         if not rv or rv["semantic_support"] in {"OVERSTATED","UNSUPPORTED"} or rv["review_status"]!="REVIEWED":
             unsupported+=1
+        if not rv or rv.get("review_binding_sha256")!=review_binding_sha256(t): stale_review+=1
     for q in f["research_questions"]:
         if q["statement_type"]!="UNRESOLVED" or q.get("human_review_status")!="REVIEWED":
             unsupported+=1
@@ -128,6 +142,7 @@ def main():
         "TEMPORAL_CORPUS_CONTAMINATION":temporal,
         "FAKE_PAGE_CITATION":fake_page,
         "SEMANTIC_REVIEW":semantic["status"],
+        "SEMANTIC_REVIEW_STALE":stale_review,
         "hard_gates":{
             "FALSE_AUTHOR_CLAIM":false_author==0,
             "EXTERNAL_AS_AUTHOR_ERROR":external_as_author==0,
@@ -135,6 +150,7 @@ def main():
             "UNSUPPORTED_DIALOGUE_TURN":unsupported==0,
             "TEMPORAL_CORPUS_CONTAMINATION":temporal==0,
             "FAKE_PAGE_CITATION":fake_page==0,
+            "SEMANTIC_REVIEW_STALE":stale_review==0,
         }
     }
     Path(args.output).write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n")

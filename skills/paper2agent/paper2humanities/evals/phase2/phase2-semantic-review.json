@@ -18,127 +18,148 @@
       "turn_id": "D1-v2-human-use-vs-third-tech",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Correctly compares V2 human-deployment criterion with Lee's transparency/artificial criterion without attributing digital language to Benjamin."
+      "note": "Correctly compares V2 human-deployment criterion with Lee's transparency/artificial criterion without attributing digital language to Benjamin.",
+      "review_binding_sha256": "5bacfebf6037fb6fccc84594732bc9e3f0d5d081774b175f4841af2214fcd419"
     },
     {
       "turn_id": "D2-v2-play-vs-tech-editing-start",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Correctly distinguishes Benjamin's conceptual origin of second technology from Lee's periodization of technology-editing by computer/Internet."
+      "note": "Correctly distinguishes Benjamin's conceptual origin of second technology from Lee's periodization of technology-editing by computer/Internet.",
+      "review_binding_sha256": "881a5409976a22cc7b25e2dd60b879f8267877fd9a33422c0a84193259cc70ff"
     },
     {
       "turn_id": "D3-v2-interplay-vs-transparency",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "The stated tension is an explicit cross-source interpretation grounded in V2 interplay and Lee transparency; not presented as a Benjamin claim."
+      "note": "The stated tension is an explicit cross-source interpretation grounded in V2 interplay and Lee transparency; not presented as a Benjamin claim.",
+      "review_binding_sha256": "069c5ec7dc359c5b11b6005419e01d8b266290c739c9bd48cdb1323e2fdf7f30"
     },
     {
       "turn_id": "D4-v3-aura-withering-vs-digital-aura",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Grounded contrast between V3 aura withering and Lee's prospective digital aura; preserves historical difference."
+      "note": "Grounded contrast between V3 aura withering and Lee's prospective digital aura; preserves historical difference.",
+      "review_binding_sha256": "2fc79f29eb44bcdaf0fcda7b87c2f624bc1364bf345f16b1f3b93140cfdbc8f2"
     },
     {
       "turn_id": "D5-v3-authenticity-vs-trust",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Correctly frames Lee trust as a reframing of criterion rather than an answer already present in Benjamin."
+      "note": "Correctly frames Lee trust as a reframing of criterion rather than an answer already present in Benjamin.",
+      "review_binding_sha256": "7dcf8daf23b9da4306cfdd59c46a8572525a2901ce15e7e790bcec3e636bb74c"
     },
     {
       "turn_id": "D6-v3-distraction-vs-immersion",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Both reception propositions are grounded and their unresolved relation is accurately labelled tension."
+      "note": "Both reception propositions are grounded and their unresolved relation is accurately labelled tension.",
+      "review_binding_sha256": "e219357b7a5192de3c459b039da1ca61838480d34ed803adc15ee0948285f3c4"
     },
     {
       "turn_id": "E1-lee-third-tech-response",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Uses Lee's 2019 third-technology claim only and explicitly avoids claiming it is Benjamin's criterion."
+      "note": "Uses Lee's 2019 third-technology claim only and explicitly avoids claiming it is Benjamin's criterion.",
+      "review_binding_sha256": "ebf72c429dacce4c44e129893bc88b812e9d425b2d5514de16b648d4f52b8f59"
     },
     {
       "turn_id": "E2-lee-tech-editing-threshold-response",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Uses Lee's computer/Internet periodization and does not invent a rebuttal."
+      "note": "Uses Lee's computer/Internet periodization and does not invent a rebuttal.",
+      "review_binding_sha256": "4dba91518c634ce180ea6e09b96f70ad23f0cac72d3ee15ef694706fa134833e"
     },
     {
       "turn_id": "E3-lee-transparency-response",
       "semantic_support": "PARTIALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "First clause is directly grounded; the absence of reconciliation is a careful unresolved observation."
+      "note": "First clause is directly grounded; the absence of reconciliation is a careful unresolved observation.",
+      "review_binding_sha256": "eab880c92cf384cb999bb9b4911533a1895a6812d04aa3be6a5bafb65bc044b6"
     },
     {
       "turn_id": "E4-lee-digital-aura-response",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Matches Lee's prospective wording and retains the 'may ultimately emerge' status."
+      "note": "Matches Lee's prospective wording and retains the 'may ultimately emerge' status.",
+      "review_binding_sha256": "c58506d1d3d02d92686ba005928683ce45d53f08345719107e35b23107a6a018"
     },
     {
       "turn_id": "E5-lee-trust-response",
       "semantic_support": "PARTIALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Lee's trust criterion is grounded; relation to V3 authenticity remains explicitly unresolved."
+      "note": "Lee's trust criterion is grounded; relation to V3 authenticity remains explicitly unresolved.",
+      "review_binding_sha256": "32b1a7236d7a4cc2a063457b474a95b531b10be1d838dca32fd43cb902ddb41b"
     },
     {
       "turn_id": "E6-lee-immersion-response",
       "semantic_support": "PARTIALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "The table grounds distraction/immersion, but no unsupported transition mechanism is supplied."
+      "note": "The table grounds distraction/immersion, but no unsupported transition mechanism is supplied.",
+      "review_binding_sha256": "38ef023dddd79975f5911b606b293a10fbf6aa4dd86a19553daa24e3ce2652f0"
     },
     {
       "turn_id": "F-issue-technology-axis",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Synthesis follows reviewed D/E turns and separates Benjamin V2 and Lee classificatory axes."
+      "note": "Synthesis follows reviewed D/E turns and separates Benjamin V2 and Lee classificatory axes.",
+      "review_binding_sha256": "ac27acce01867484fb9df012c51196628d2d13aaf2d16f93db7ececdbd354652"
     },
     {
       "turn_id": "F-issue-aura-transformation",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Preserves both V3 withering and Lee's prospective digital-aura claim as different thresholds."
+      "note": "Preserves both V3 withering and Lee's prospective digital-aura claim as different thresholds.",
+      "review_binding_sha256": "e020f6c296b3b35e359b6cc4b3a027997652815cdbb34fb4af6cffb94262bd71"
     },
     {
       "turn_id": "F-issue-reception",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Correctly identifies an unexplained reception transition rather than resolving it."
+      "note": "Correctly identifies an unexplained reception transition rather than resolving it.",
+      "review_binding_sha256": "4edc1bd2b00e3feebd1000ec0fcb46c452caa8fe0b318107e2dfd4a383fde98e"
     },
     {
       "turn_id": "F-gap-v2-v3-lee-technology",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Neither source supplies a transition rule between V2 second technology and Lee third technology."
+      "note": "Neither source supplies a transition rule between V2 second technology and Lee third technology.",
+      "review_binding_sha256": "3d5ecd1e5f504462a0537c554858958d776472cf6066c1a2b6d333446341b562"
     },
     {
       "turn_id": "F-gap-authenticity-digital-aura",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "The gap follows from V3 authenticity and Lee's transformed aura without treating them as identical concepts."
+      "note": "The gap follows from V3 authenticity and Lee's transformed aura without treating them as identical concepts.",
+      "review_binding_sha256": "c12bbc1324165fa0460834f777a7a9ab7acf59f270e6d0149cd1d757751cc96f"
     },
     {
       "turn_id": "F-gap-distraction-immersion",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "The absence of a source-grounded mechanism from distraction to immersion is correctly preserved."
+      "note": "The absence of a source-grounded mechanism from distraction to immersion is correctly preserved.",
+      "review_binding_sha256": "1652270e5a1bca18f38e779f37c92822a034c1048797094ea59c2973aa0fd275"
     },
     {
       "turn_id": "F-rq-1",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Novel question arises from the documented mismatch of technological axes and is not answered by either source."
+      "note": "Novel question arises from the documented mismatch of technological axes and is not answered by either source.",
+      "review_binding_sha256": "b9ef12e38bacfdb80394ab7c3c4cbd1b511329af1c53ec6082dddea23561dfb7"
     },
     {
       "turn_id": "F-rq-2",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Novel question arises from the authenticity/digital-aura gap and retains V3 edition specificity."
+      "note": "Novel question arises from the authenticity/digital-aura gap and retains V3 edition specificity.",
+      "review_binding_sha256": "a306f59a40ca2d15601e7b38177bf2c32b42f0bf7b692675e7bc0a426fdd6449"
     },
     {
       "turn_id": "F-rq-3",
       "semantic_support": "SEMANTICALLY_SUPPORTED",
       "review_status": "REVIEWED",
-      "note": "Novel question arises from the distraction/immersion gap and avoids reducing the sources to simple opposition."
+      "note": "Novel question arises from the distraction/immersion gap and avoids reducing the sources to simple opposition.",
+      "review_binding_sha256": "dc1543904e3f42c231d69d9f962417662ebc7e91e65e9159d5b559fb6951d28d"
     }
   ]
 }

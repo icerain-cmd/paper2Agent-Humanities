@@ -15,6 +15,7 @@ from paper2humanities import (
     DialogueAction, EpistemicStatement, EvidenceVoice, PaperAgent, PaperEvidenceIndex,
     RelationType, ReviewStatus, ScholarlyDialogue, SemanticSupportStatus,
     StatementType, validate_against_source,
+    review_binding_sha256,
 )
 
 def load_json(path: Path):
@@ -53,6 +54,7 @@ def reviewed(turn, semantic, note):
         turn,
         review_status=ReviewStatus.REVIEWED,
         semantic_support=semantic,
+        review_binding_sha256=review_binding_sha256(turn),
     ), note
 
 def build_lee_phase2(base_path: Path, lee_work: Path, output: Path):
@@ -292,7 +294,8 @@ def main():
             text=text, support_ids=support, relation_type=RelationType.UNRESOLVED,
         )
         turn=replace(turn, review_status=ReviewStatus.REVIEWED,
-                     semantic_support=SemanticSupportStatus.SEMANTICALLY_SUPPORTED)
+                     semantic_support=SemanticSupportStatus.SEMANTICALLY_SUPPORTED,
+                     review_binding_sha256=review_binding_sha256(turn))
         dialogue.register_reviewed_turn(turn)
         issue_turns.append(turn)
 
@@ -321,7 +324,8 @@ def main():
             relation_type=RelationType.UNRESOLVED,
         )
         turn=replace(turn, review_status=ReviewStatus.REVIEWED,
-                     semantic_support=SemanticSupportStatus.SEMANTICALLY_SUPPORTED)
+                     semantic_support=SemanticSupportStatus.SEMANTICALLY_SUPPORTED,
+                     review_binding_sha256=review_binding_sha256(turn))
         dialogue.register_reviewed_turn(turn)
         gap_turns.append(turn)
 
@@ -359,7 +363,8 @@ def main():
             relation_type=RelationType.UNRESOLVED,
         )
         turn=replace(turn, review_status=ReviewStatus.REVIEWED,
-                     semantic_support=SemanticSupportStatus.SEMANTICALLY_SUPPORTED)
+                     semantic_support=SemanticSupportStatus.SEMANTICALLY_SUPPORTED,
+                     review_binding_sha256=review_binding_sha256(turn))
         dialogue.register_reviewed_turn(turn)
         rq_turns.append(turn)
         rq_meta[sid]={
