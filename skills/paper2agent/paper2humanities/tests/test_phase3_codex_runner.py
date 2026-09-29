@@ -149,7 +149,7 @@ def test_dialogue_targets_and_labels_survive_rejected_attempt(tmp_path):
 def test_frozen_hash_checked_before_gold_is_opened(tmp_path):
     response = tmp_path / "responses.json"
     response.write_text('{"responses": []}')
-    runner.write_json(tmp_path / "manifest.json", {"response_sha256": "wrong", "response_frozen": True})
+    runner.write_json(tmp_path / "responses.manifest.json", {"response_sha256": "wrong", "response_frozen": True})
     with pytest.raises(ValueError, match="response freeze hash mismatch"):
         runner.score_holdout(tmp_path / "missing-gold.json", response, tmp_path / "score.json")
 
@@ -158,7 +158,7 @@ def test_holdout_gates_count_artifact_errors(tmp_path):
     response = tmp_path / "responses.json"
     runner.write_json(response, {"responses": [{"query_id": "q1", "outcome": "REJECTED",
         "gate_errors": ["FAKE_PAGE_CITATION", "TEMPORAL_CORPUS_CONTAMINATION", "VERIFIER_DISAGREEMENT"]}]})
-    runner.write_json(tmp_path / "manifest.json", {"response_sha256": runner.sha(response),
+    runner.write_json(tmp_path / "responses.manifest.json", {"response_sha256": runner.sha(response),
                       "response_frozen": True, "gold_available_during_generation": False})
     gold = tmp_path / "gold.json"
     runner.write_json(gold, {"panel_id": "p", "records": [{"query_id": "q1", "type": "UNRESOLVED",
@@ -169,3 +169,28 @@ def test_holdout_gates_count_artifact_errors(tmp_path):
     assert gates["FAKE_PAGE_CITATION"] == 1
     assert gates["TEMPORAL_CORPUS_CONTAMINATION"] == 1
     assert gates["UNSUPPORTED_DIALOGUE_TURN"] == 1
+
+
+def test_same_model_verifier_is_fresh_and_explicitly_nonindependent():
+    agent = runner.AGENTS["benjamin-artwork-v2"]
+    source = next(s for s in agent.store.values() if s.evidence_voice and s.evidence_voice.value == "AUTHOR")
+    turn = source_turn(agent, source)
+    trace = {"selected_statement_ids": [source.statement_id]}
+    result = ModelResult(json.dumps(turn), "codex-exec", runner.GENERATOR_MODEL, {"attempts": 1}, "digest")
+    packets = []
+
+    class SameModelVerifier:
+        def __init__(self, model):
+            assert model == runner.GENERATOR_MODEL
+        def generate_typed_turn(self, *, system_contract, payload):
+            packets.append(payload)
+            return result
+
+    adapter = type("Generator", (), {"model": runner.GENERATOR_MODEL})()
+    with patch.object(runner, "live_turn", return_value=(turn, trace, result)), patch.object(runner, "CodexExecAdapter", SameModelVerifier):
+        row = runner.run_one(adapter, agent, "private query", "SOURCE_RETRIEVAL",
+                             verifier_model=runner.GENERATOR_MODEL, history=[{"secret": "history"}])
+    assert row["outcome"] == "ACCEPTED"
+    assert row["independent_model_verifier"] is False
+    assert row["fresh_context_verifier"] is True
+    assert set(packets[0]) == {"candidate_turn", "evidence"}
