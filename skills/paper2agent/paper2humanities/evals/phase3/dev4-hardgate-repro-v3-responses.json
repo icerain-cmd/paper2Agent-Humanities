@@ -1,0 +1,683 @@
+{
+  "panel_id": "phase3-dev4-hardgate-repro-v3",
+  "responses": [
+    {
+      "query_id": "H30V2F-005",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "현대 예술의 기능을 이러한 상호작용의 연습으로 설명하고, 특히 영화에 적용한다는 점은 저자의 주장으로 확인된다. 다만 제시된 원문 구절에는 ‘사회적으로 결정적인’이라는 수식어가 없어 그 부분까지는 확인할 수 없다. 근거는 V2 PDF 10쪽이다.",
+        "statement_type": "AUTHOR_CLAIM",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v2-c-art-function"
+        ],
+        "pages": [
+          10
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v2",
+        "actor_edition_id": "benjamin-artwork-v2",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "제시된 원문 구절은 ‘사회적으로 결정적인’이라는 수식어를 뒷받침하지 않는다.",
+        "evidence_span": "Funktion der heutigen Kunst ist Einübung in dieses Zusammenspiel. Insbesondere gilt das vom Film."
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v2-c-art-function",
+          "b-v2-c-play-origin",
+          "b-v2-c-interplay",
+          "b-v2-c-aura-decay",
+          "b-v2-c-technique-human-use",
+          "b-v2-c-once-experiment"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v2-c-art-function",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Funktion der heutigen Kunst ist Einübung in dieses Zusammenspiel. Insbesondere gilt das vom Film."
+          },
+          {
+            "statement_id": "b-v2-c-play-origin",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Der Ursprung der zweiten Technik ist da zu suchen, wo der Mensch zum ersten Mal und mit unbewußter List daran ging, Abstand von der Natur zu nehmen. Er liegt mit anderen Worten im Spiel."
+          },
+          {
+            "statement_id": "b-v2-c-interplay",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Die erste hat es wirklich auf Beherrschung der Natur abgesehen; die zweite viel mehr auf ein Zusammenspiel zwischen der Natur und der Menschheit."
+          },
+          {
+            "statement_id": "b-v2-c-aura-decay",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 6,
+            "evidence_span": "Was ist eigentlich Aura? Ein sonderbares Gespinst aus Raum und Zeit: einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v2-c-technique-human-use",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "daß die erste Technik den Menschen so sehr, daß die zweite ihn so wenig wie möglich einsetzt."
+          },
+          {
+            "statement_id": "b-v2-c-once-experiment",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Das Ein für allemal gilt für die erste Technik (da geht es um die nie wiedergutzumachende Verfehlung oder den ewig stellvertretenden Opfertod). Das Einmal ist keinmal gilt für die zweite (sie hat es mit dem Experiment und seiner unermüdlichen Variierung der Versuchsanordnung zu tun)."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: The socially decisive function of contemporary art is described as practice in this interplay, especially in film.",
+            "candidate_statement_ids": [
+              "b-v2-c-art-function",
+              "b-v2-c-play-origin",
+              "b-v2-c-interplay",
+              "b-v2-c-aura-decay",
+              "b-v2-c-technique-human-use",
+              "b-v2-c-once-experiment"
+            ],
+            "candidate_scores": {
+              "b-v2-c-art-function": 42.180543,
+              "b-v2-c-play-origin": 11.534532,
+              "b-v2-c-interplay": 10.29337,
+              "b-v2-c-aura-decay": 6.455091,
+              "b-v2-c-technique-human-use": 4.425471,
+              "b-v2-c-once-experiment": 3.520781
+            },
+            "selected_statement_ids": [
+              "b-v2-c-art-function",
+              "b-v2-c-play-origin",
+              "b-v2-c-interplay",
+              "b-v2-c-aura-decay",
+              "b-v2-c-technique-human-use",
+              "b-v2-c-once-experiment"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v2-c-art-function",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Funktion der heutigen Kunst ist Einübung in dieses Zusammenspiel. Insbesondere gilt das vom Film.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-play-origin",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Der Ursprung der zweiten Technik ist da zu suchen, wo der Mensch zum ersten Mal und mit unbewußter List daran ging, Abstand von der Natur zu nehmen. Er liegt mit anderen Worten im Spiel.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-interplay",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Die erste hat es wirklich auf Beherrschung der Natur abgesehen; die zweite viel mehr auf ein Zusammenspiel zwischen der Natur und der Menschheit.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-aura-decay",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 6,
+                "evidence_span": "Was ist eigentlich Aura? Ein sonderbares Gespinst aus Raum und Zeit: einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-technique-human-use",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "daß die erste Technik den Menschen so sehr, daß die zweite ihn so wenig wie möglich einsetzt.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-once-experiment",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Das Ein für allemal gilt für die erste Technik (da geht es um die nie wiedergutzumachende Verfehlung oder den ewig stellvertretenden Opfertod). Das Einmal ist keinmal gilt für die zweite (sie hat es mit dem Experiment und seiner unermüdlichen Variierung der Versuchsanordnung zu tun).",
+                "edition_id": "benjamin-artwork-v2"
+              }
+            ],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2"
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "2f6536228d0f255cb302b51af8d0763ccf3f048f34d681f0e9afd1097796148b",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V2F-006",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "Benjamin defines aura as a unique appearance of distance, however near it may be. The supplied passage does not verify the claimed connection between aura’s decay, mass reproduction, and the desire to bring things nearer.",
+        "statement_type": "AUTHOR_CLAIM",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v2-c-aura-decay"
+        ],
+        "pages": [
+          6
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v2",
+        "actor_edition_id": "benjamin-artwork-v2",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "Page 6 supports the definition of aura; the quoted span does not establish the proposed account of its decay.",
+        "evidence_span": "Was ist eigentlich Aura? Ein sonderbares Gespinst aus Raum und Zeit: einmalige Erscheinung einer Ferne, so nah sie sein mag."
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v2-c-aura-decay",
+          "b-v2-c-technique-human-use",
+          "b-v2-c-play-origin",
+          "b-v2-c-art-function",
+          "b-v2-c-interplay",
+          "b-v2-c-once-experiment"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v2-c-aura-decay",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 6,
+            "evidence_span": "Was ist eigentlich Aura? Ein sonderbares Gespinst aus Raum und Zeit: einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v2-c-technique-human-use",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "daß die erste Technik den Menschen so sehr, daß die zweite ihn so wenig wie möglich einsetzt."
+          },
+          {
+            "statement_id": "b-v2-c-play-origin",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Der Ursprung der zweiten Technik ist da zu suchen, wo der Mensch zum ersten Mal und mit unbewußter List daran ging, Abstand von der Natur zu nehmen. Er liegt mit anderen Worten im Spiel."
+          },
+          {
+            "statement_id": "b-v2-c-art-function",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Funktion der heutigen Kunst ist Einübung in dieses Zusammenspiel. Insbesondere gilt das vom Film."
+          },
+          {
+            "statement_id": "b-v2-c-interplay",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Die erste hat es wirklich auf Beherrschung der Natur abgesehen; die zweite viel mehr auf ein Zusammenspiel zwischen der Natur und der Menschheit."
+          },
+          {
+            "statement_id": "b-v2-c-once-experiment",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Das Ein für allemal gilt für die erste Technik (da geht es um die nie wiedergutzumachende Verfehlung oder den ewig stellvertretenden Opfertod). Das Einmal ist keinmal gilt für die zweite (sie hat es mit dem Experiment und seiner unermüdlichen Variierung der Versuchsanordnung zu tun)."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin defines aura as a unique appearance of distance and connects its contemporary decay to mass reproduction and the desire to bring things nearer.",
+            "candidate_statement_ids": [
+              "b-v2-c-aura-decay",
+              "b-v2-c-technique-human-use",
+              "b-v2-c-play-origin",
+              "b-v2-c-art-function",
+              "b-v2-c-interplay",
+              "b-v2-c-once-experiment"
+            ],
+            "candidate_scores": {
+              "b-v2-c-aura-decay": 51.304,
+              "b-v2-c-technique-human-use": 9.138086,
+              "b-v2-c-play-origin": 7.444938,
+              "b-v2-c-art-function": 6.455091,
+              "b-v2-c-interplay": 4.174157,
+              "b-v2-c-once-experiment": 2.732324
+            },
+            "selected_statement_ids": [
+              "b-v2-c-aura-decay",
+              "b-v2-c-technique-human-use",
+              "b-v2-c-play-origin",
+              "b-v2-c-art-function",
+              "b-v2-c-interplay",
+              "b-v2-c-once-experiment"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v2-c-aura-decay",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 6,
+                "evidence_span": "Was ist eigentlich Aura? Ein sonderbares Gespinst aus Raum und Zeit: einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-technique-human-use",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "daß die erste Technik den Menschen so sehr, daß die zweite ihn so wenig wie möglich einsetzt.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-play-origin",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Der Ursprung der zweiten Technik ist da zu suchen, wo der Mensch zum ersten Mal und mit unbewußter List daran ging, Abstand von der Natur zu nehmen. Er liegt mit anderen Worten im Spiel.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-art-function",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Funktion der heutigen Kunst ist Einübung in dieses Zusammenspiel. Insbesondere gilt das vom Film.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-interplay",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Die erste hat es wirklich auf Beherrschung der Natur abgesehen; die zweite viel mehr auf ein Zusammenspiel zwischen der Natur und der Menschheit.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-once-experiment",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Das Ein für allemal gilt für die erste Technik (da geht es um die nie wiedergutzumachende Verfehlung oder den ewig stellvertretenden Opfertod). Das Einmal ist keinmal gilt für die zweite (sie hat es mit dem Experiment und seiner unermüdlichen Variierung der Versuchsanordnung zu tun).",
+                "edition_id": "benjamin-artwork-v2"
+              }
+            ],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2"
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "7ea42bb509c1056adfecc284762697a6eb81662a072661b837f884992b70cfa2",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V2F-012",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "V3 p.35에서 벤야민은 영화 관객이 주의집중 없이 평가하며 ‘산만한 시험관’이라고 직접 말한다. 다만 제시된 구절만으로 영화가 이러한 수용 방식을 ‘훈련한다’는 표현까지 저자의 주장으로 확인할 수는 없다.",
+        "statement_type": "AUTHOR_CLAIM",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v3-c-film-examiner"
+        ],
+        "pages": [
+          35
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v3",
+        "actor_edition_id": "benjamin-artwork-v3",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "‘주의집중 없는 평가’와 ‘산만한 시험관’은 명시되어 있지만, 영화가 그 수용 방식을 훈련한다는 주장은 제시된 원문에 명시되어 있지 않다.",
+        "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter."
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v3-c-film-examiner",
+          "b-v3-c-distraction",
+          "b-v3-c-dada-demand",
+          "b-v3-c-aura-withers",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-aura-distance"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v3-c-film-examiner",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 35,
+            "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter."
+          },
+          {
+            "statement_id": "b-v3-c-distraction",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 34,
+            "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich."
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "b-v3-c-aura-withers",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 7,
+            "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura."
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Film trains a reception in distraction; the cinema public is an examiner, but a distracted one, whose evaluative attitude does not include attention.",
+            "candidate_statement_ids": [
+              "b-v3-c-film-examiner",
+              "b-v3-c-distraction",
+              "b-v3-c-dada-demand",
+              "b-v3-c-aura-withers",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-aura-distance",
+              "b-v3-c-authenticity"
+            ],
+            "candidate_scores": {
+              "b-v3-c-film-examiner": 57.069683,
+              "b-v3-c-distraction": 11.317882,
+              "b-v3-c-dada-demand": 5.447469,
+              "b-v3-c-aura-withers": 4.82843,
+              "b-v3-c-cult-exhibition": 4.82843,
+              "b-v3-c-aura-distance": 3.284318,
+              "b-v3-c-authenticity": 2.665279
+            },
+            "selected_statement_ids": [
+              "b-v3-c-film-examiner",
+              "b-v3-c-distraction",
+              "b-v3-c-dada-demand",
+              "b-v3-c-aura-withers",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-aura-distance"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-film-examiner",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 35,
+                "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-distraction",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 34,
+                "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-withers",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 7,
+                "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": [
+              "b-v3-c-authenticity"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "9e91a013f2afd9e7561132f1f71770487774c1d004b6e4920f48f5311a309969",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V2F-013",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "제시된 31쪽 구절은 예술의 기괴하고 조야한 형식이 풍부한 역사적 힘의 중심에서 나온다는 부분을 뒷받침한다. 그러나 이 구절만으로 그 형식이 다다의 것인지, 영화에서 추구된 효과를 선취했다는 주장인지까지는 확인할 수 없다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v3-c-dada-demand"
+        ],
+        "pages": [
+          31
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v3",
+        "actor_edition_id": "benjamin-artwork-v3",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "다다와 영화의 관계까지 포함한 전체 명제는 제시된 원문 발췌만으로 확인되지 않는다.",
+        "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v3-c-dada-demand",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-film-examiner",
+          "b-v3-c-aura-distance",
+          "b-v3-c-authenticity",
+          "b-v3-c-aura-withers"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "b-v3-c-film-examiner",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 35,
+            "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter."
+          },
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-aura-withers",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 7,
+            "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin describes Dada's crude and extravagant forms as emerging from a rich historical force field and as anticipating effects later sought in film.",
+            "candidate_statement_ids": [
+              "b-v3-c-dada-demand",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-film-examiner",
+              "b-v3-c-aura-distance",
+              "b-v3-c-authenticity",
+              "b-v3-c-aura-withers",
+              "b-v3-c-distraction"
+            ],
+            "candidate_scores": {
+              "b-v3-c-dada-demand": 52.748317,
+              "b-v3-c-cult-exhibition": 6.48569,
+              "b-v3-c-film-examiner": 5.447469,
+              "b-v3-c-aura-distance": 5.278051,
+              "b-v3-c-authenticity": 4.659011,
+              "b-v3-c-aura-withers": 3.62079,
+              "b-v3-c-distraction": 2.832333
+            },
+            "selected_statement_ids": [
+              "b-v3-c-dada-demand",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-film-examiner",
+              "b-v3-c-aura-distance",
+              "b-v3-c-authenticity",
+              "b-v3-c-aura-withers"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-film-examiner",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 35,
+                "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-withers",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 7,
+                "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": [
+              "b-v3-c-distraction"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "216a4f2c0b4d2c3a7e4fc799161a55c11911f2635636e5ef8bd056c4932e96b8",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    }
+  ],
+  "generator_model": "gpt-6-sol",
+  "verifier_model": "gpt-5.6-sol",
+  "independent_model_verifier": true,
+  "fresh_context_verifier": true,
+  "generator_subprocess_attempts": 4,
+  "verifier_subprocess_attempts": 4
+}

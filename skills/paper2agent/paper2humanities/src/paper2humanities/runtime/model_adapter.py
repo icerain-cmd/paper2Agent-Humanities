@@ -63,10 +63,19 @@ def validate_typed_turn(value: Any) -> dict[str, Any]:
         raise GenerationFormatFailure("evidence_span must be string or null")
     if value["semantic_support"] not in {"SEMANTICALLY_SUPPORTED", "PARTIALLY_SUPPORTED", "OVERSTATED", "UNSUPPORTED"}:
         raise GenerationFormatFailure("invalid semantic_support")
+    sufficiency = value.get("evidence_sufficiency")
+    if sufficiency is not None and sufficiency not in {"SUFFICIENT", "PARTIAL", "INSUFFICIENT", "CONFLICTING"}:
+        raise GenerationFormatFailure("invalid evidence_sufficiency")
+    qualification = value.get("qualification")
+    if qualification is not None and not isinstance(qualification, str):
+        raise GenerationFormatFailure("qualification must be string or null")
+    if value["semantic_support"] == "PARTIALLY_SUPPORTED" and "qualification" in value and not (qualification or "").strip():
+        raise GenerationFormatFailure("partial support requires qualification")
     if value["statement_type"] == "UNRESOLVED":
         if (value["support_ids"] or value["pages"] or value["evidence_span"] is not None
                 or value["evidence_voice"] != "UNKNOWN" or value["semantic_support"] != "UNSUPPORTED"
-                or value["relation_type"] != "UNRESOLVED"):
+                or (value.get("evidence_sufficiency") is not None and value.get("evidence_sufficiency") not in {"INSUFFICIENT", "CONFLICTING"})
+                or value.get("qualification") is not None or value["relation_type"] != "UNRESOLVED"):
             raise GenerationFormatFailure("UNRESOLVED abstention shape required")
     else:
         if not value["support_ids"] or not value["pages"] or not value["evidence_span"]:
