@@ -1,0 +1,30 @@
+{
+  "panel_id": "phase3-dev4-hardgate-repro-v3",
+  "panel_type": "QUERY_ONLY",
+  "queries": [
+    {
+      "query_id": "H30V2F-005",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: The socially decisive function of contemporary art is described as practice in this interplay, especially in film.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-006",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin defines aura as a unique appearance of distance and connects its contemporary decay to mass reproduction and the desire to bring things nearer.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-012",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Film trains a reception in distraction; the cinema public is an examiner, but a distracted one, whose evaluative attitude does not include attention.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-013",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin describes Dada's crude and extravagant forms as emerging from a rich historical force field and as anticipating effects later sought in film.",
+      "paper_id": "benjamin-artwork-v3"
+    }
+  ]
+}
