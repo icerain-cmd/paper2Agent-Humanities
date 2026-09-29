@@ -1,0 +1,111 @@
+{
+  "schema_version": 3,
+  "panel_id": "phase3-dev10-v3-repair",
+  "panel_type": "DEV_GOLD",
+  "records": [
+    {
+      "query_id": "H30V3-007",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 35,
+      "support": [
+        "b-v3-c-film-examiner"
+      ]
+    },
+    {
+      "query_id": "H30V3-013",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 18,
+      "support": [
+        "lee-q-benjamin-second-tech",
+        "lee-c-tension"
+      ]
+    },
+    {
+      "query_id": "H30V3-014",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance",
+        "b-v3-c-dada-demand"
+      ]
+    },
+    {
+      "query_id": "H30V3-015",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 18,
+      "support": [
+        "lee-q-benjamin-second-tech",
+        "lee-c-transparent"
+      ]
+    },
+    {
+      "query_id": "H30V3-020",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance"
+      ]
+    },
+    {
+      "query_id": "H30V3-025",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-interplay"
+      ]
+    },
+    {
+      "query_id": "H30V3-026",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance"
+      ]
+    },
+    {
+      "query_id": "H30V3-027",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 35,
+      "support": [
+        "b-v3-c-film-examiner"
+      ]
+    },
+    {
+      "query_id": "H30V3-028",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition"
+      ]
+    },
+    {
+      "query_id": "H30V3-030",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ]
+    }
+  ]
+}

@@ -82,6 +82,21 @@ def validate_typed_turn(value: Any) -> dict[str, Any]:
             raise GenerationFormatFailure("grounded turn requires support, page, and span")
     if value["statement_type"] == "AUTHOR_CLAIM" and value["evidence_voice"] != "AUTHOR":
         raise GenerationFormatFailure("author claim requires author voice")
+    claims = value.get("claims")
+    if claims is not None:
+        if not isinstance(claims, list) or (value["statement_type"] != "UNRESOLVED" and not claims):
+            raise GenerationFormatFailure("grounded turn requires claim-level typing")
+        if value["statement_type"] == "UNRESOLVED" and claims:
+            raise GenerationFormatFailure("abstention cannot contain claims")
+        for claim in claims:
+            if (not isinstance(claim, dict) or not isinstance(claim.get("text"), str)
+                    or not claim["text"].strip() or claim.get("statement_type") not in STATEMENT_TYPES - {"UNRESOLVED"}
+                    or not isinstance(claim.get("support_ids"), list)
+                    or not claim["support_ids"] or not set(claim["support_ids"]) <= set(value["support_ids"])):
+                raise GenerationFormatFailure("invalid claim-level support or type")
+        if value["statement_type"] == "AUTHOR_CLAIM" and any(
+                claim["statement_type"] != "AUTHOR_CLAIM" for claim in claims):
+            raise GenerationFormatFailure("derived claim cannot be typed as whole-turn AUTHOR_CLAIM")
     return value
 
 class CodexExecAdapter(ModelAdapter):

@@ -1,0 +1,12 @@
+{
+  "query_sha256": "5bdd2b672deb54daa41878903948f361ce0a091bed812bc3b5981ab18f53ab68",
+  "response_sha256": "8917e4a5ffa91c8b02323fd45eabf2a393ef0f447c29d9a122fa9082f922cc5c",
+  "gold_available_during_generation": false,
+  "response_frozen": true,
+  "composite_dev_only": true,
+  "source_runs": [
+    "dev10-v3-repair-responses.json",
+    "dev2-cross-paper-recheck-responses.json",
+    "dev1-verifier-diagnosis-responses.json"
+  ]
+}

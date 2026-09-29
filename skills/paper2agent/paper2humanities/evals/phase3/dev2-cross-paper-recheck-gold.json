@@ -1,0 +1,27 @@
+{
+  "schema_version": 3,
+  "panel_id": "phase3-dev2-cross-paper-recheck",
+  "panel_type": "DEV_GOLD",
+  "records": [
+    {
+      "query_id": "H30V3-020",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance"
+      ]
+    },
+    {
+      "query_id": "H30V3-026",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance"
+      ]
+    }
+  ]
+}

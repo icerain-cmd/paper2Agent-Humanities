@@ -1,0 +1,13 @@
+{
+  "original_panel_id": "phase3-holdout30-v3",
+  "new_classification": "DEV30_COMPAT_V3",
+  "reason": "Gold, responses, and score were inspected before V4 implementation changes; the V3 panel can no longer serve as an unseen holdout.",
+  "preserved_artifacts": [
+    "holdout30-v3-query-panel.json",
+    "holdout30-v3-responses.json",
+    "holdout30-v3-responses.manifest.json",
+    "holdout30-v3-gold.json",
+    "holdout30-v3-score.json"
+  ],
+  "future_use": "development diagnosis and regression only"
+}

@@ -24,6 +24,20 @@ evidence_sufficiency=INSUFFICIENT or CONFLICTING, qualification=null,
 and relation_type=UNRESOLVED. Keep the input action unchanged.
 AUTHOR_CLAIM may cite only the actor paper and edition. Other grounded turn types
 may cite explicitly supplied supporting papers and editions.
+Split every grounded response into claim-level entries in claims. Each entry has a short
+text, statement_type, and its own support_ids selected from the turn. Type a directly
+reported author proposition AUTHOR_CLAIM; type a comparison, attribution decision,
+limitation, evaluation, or rebuttal INTERPRETATION, or AI_SYNTHESIS only when constructing
+a new research synthesis. A whole response containing any derived evaluation or rebuttal
+must be INTERPRETATION or AI_SYNTHESIS, never AUTHOR_CLAIM, even if it begins with a
+source fact. When the user asks whether two source statements can be equated, combined,
+attributed, or criticized, prefer INTERPRETATION for an evidence-bounded judgment.
+For abstention set claims=[]. Do not turn an unsupported premise into a source claim.
+If output_contract.response_type_hint is INTERPRETATION, type an evidence-bounded
+judgment INTERPRETATION when supported; otherwise abstain.
+When two passages support only a limit on comparison, keep the comparison PARTIAL
+with an explicit qualification; do not mark conceptual identity or nonidentity
+SUFFICIENT merely because both passages use a similar word.
 Return the typed-turn JSON schema directly. Do not include hidden reasoning."""
 def generate(adapter:ModelAdapter, payload:dict):
     require_live_adapter(adapter)
