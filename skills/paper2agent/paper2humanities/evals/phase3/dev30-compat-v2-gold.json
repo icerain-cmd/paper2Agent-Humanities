@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0",
+  "panel_id": "phase3-holdout30-v2-final",
+  "panel_type": "HOLDOUT30_V2_GOLD",
+  "implementation_freeze_sha": "006845917201f701e5d0c5f00dff56a2d2b8a2e7",
+  "gold_created_after_freeze": true,
+  "gold_hidden_during_generation": true,
+  "records": [
+    {
+      "query_id": "H30V2F-001",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-technique-human-use"
+      ]
+    },
+    {
+      "query_id": "H30V2F-002",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-once-experiment"
+      ]
+    },
+    {
+      "query_id": "H30V2F-003",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-play-origin"
+      ]
+    },
+    {
+      "query_id": "H30V2F-004",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-interplay"
+      ]
+    },
+    {
+      "query_id": "H30V2F-005",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-art-function"
+      ]
+    },
+    {
+      "query_id": "H30V2F-006",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 6,
+      "support": [
+        "b-v2-c-aura-decay"
+      ]
+    },
+    {
+      "query_id": "H30V2F-007",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 6,
+      "support": [
+        "b-v3-c-authenticity"
+      ]
+    },
+    {
+      "query_id": "H30V2F-008",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 7,
+      "support": [
+        "b-v3-c-aura-withers"
+      ]
+    },
+    {
+      "query_id": "H30V2F-009",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance"
+      ]
+    },
+    {
+      "query_id": "H30V2F-010",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 12,
+      "support": [
+        "b-v3-c-cult-exhibition"
+      ]
+    },
+    {
+      "query_id": "H30V2F-011",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 34,
+      "support": [
+        "b-v3-c-distraction"
+      ]
+    },
+    {
+      "query_id": "H30V2F-012",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 35,
+      "support": [
+        "b-v3-c-film-examiner"
+      ]
+    },
+    {
+      "query_id": "H30V2F-013",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 31,
+      "support": [
+        "b-v3-c-dada-demand"
+      ]
+    },
+    {
+      "query_id": "H30V2F-014",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 2,
+      "support": [
+        "lee-c-purpose"
+      ]
+    },
+    {
+      "query_id": "H30V2F-015",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 11,
+      "support": [
+        "lee-c-tech-start"
+      ]
+    },
+    {
+      "query_id": "H30V2F-016",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent"
+      ]
+    },
+    {
+      "query_id": "H30V2F-017",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition"
+      ]
+    },
+    {
+      "query_id": "H30V2F-018",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 27,
+      "support": [
+        "lee-c-tension"
+      ]
+    },
+    {
+      "query_id": "H30V2F-019",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 29,
+      "support": [
+        "lee-c-research-program"
+      ]
+    },
+    {
+      "query_id": "H30V2F-020",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-021",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-022",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-023",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-024",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-025",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-026",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-027",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-028",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-029",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V2F-030",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    }
+  ]
+}

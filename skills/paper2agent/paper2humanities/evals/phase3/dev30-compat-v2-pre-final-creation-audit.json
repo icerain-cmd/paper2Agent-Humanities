@@ -1,0 +1,13 @@
+{
+  "panel_id": "phase3-holdout30-v2-post-freeze-0068459",
+  "implementation_freeze_sha": "006845917201f701e5d0c5f00dff56a2d2b8a2e7",
+  "created_after_freeze": true,
+  "query_count": 30,
+  "query_sha256": "3e379ebd85d558fef605742c1d2024d689aa7643458e5f37c9a83f4398274128",
+  "query_overlap_with_dev50": 0,
+  "query_overlap_with_dev30_compat": 0,
+  "query_overlap_with_invalidated_pre_e7_v2": 0,
+  "gold_created": false,
+  "gold_available_during_generation": false,
+  "response_created": false
+}
