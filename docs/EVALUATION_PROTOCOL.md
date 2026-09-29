@@ -51,6 +51,7 @@ An unsupported or absent premise may legitimately have no page/span; its gold re
 Artifact-level scoring reports the metrics separately rather than collapsing them into one score:
 
 - Attribution Type Accuracy
+- Source ID Accuracy (`SOURCE_ID_ACCURACY`): responses whose `source_id` matches the gold `expected_source`, divided by panel size
 - Evidence Voice Accuracy
 - Page Accuracy
 - Evidence Span Accuracy
@@ -65,6 +66,7 @@ Hard gates:
 ```
 FALSE_AUTHOR_CLAIM = 0
 EXTERNAL_AS_AUTHOR_ERROR = 0
+WRONG_SOURCE_ID = 0
 ```
 
 A high score is not interpreted as general paper-level accuracy. The panel is finite, reviewed, and reproducible; failures remain in the report.

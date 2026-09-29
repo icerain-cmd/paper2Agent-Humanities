@@ -127,6 +127,36 @@ def test_wrong_span_mutation_degrades_span_accuracy():
     assert report["adversarial_robustness_rate"] < 1.0
 
 
+def test_unrelated_source_id_mutation_fails_attribution_and_hard_gate():
+    records = [gold_record(f"q{i}") for i in range(40)]
+    responses = {"responses": [response(f"q{i}") for i in range(40)]}
+    responses["responses"][0]["source_id"] = "unrelated-source"
+
+    report = score_panel(panel(records), responses)
+
+    assert report["source_id_accuracy"] == 39 / 40
+    assert report["wrong_source_id"] == 1
+    assert len(report["failures"]) == 1
+    assert report["failures"][0]["query_id"] == "q0"
+    assert report["failures"][0]["source_identity_match"] is False
+    assert report["failures"][0]["source_id_match"] is False
+    assert report["adversarial_robustness_rate"] == 39 / 40
+    assert report["hard_gates"]["WRONG_SOURCE_ID"] is False
+
+
+def test_declared_paper_id_is_bound_to_gold_paper():
+    gold = panel([gold_record(f"q{i}") for i in range(40)])
+    gold["paper_id"] = "p1"
+    responses = {"responses": [response(f"q{i}") for i in range(40)]}
+    responses["responses"][0]["paper_id"] = "unrelated-paper"
+
+    report = score_panel(gold, responses)
+
+    assert report["failures"][0]["source_identity_match"] is False
+    assert report["failures"][0]["paper_id_match"] is False
+    assert report["adversarial_robustness_rate"] == 39 / 40
+
+
 def test_unresolved_to_author_claim_mutation_trips_false_author_gate():
     records = [gold_record(f"q{i}") for i in range(40)]
     records[0] = gold_record(
@@ -162,4 +192,5 @@ def test_wrong_edition_mutation_trips_cross_edition_gate():
     report = score_panel(panel(records), responses)
     assert report["edition_accuracy"] < 1.0
     assert report["cross_edition_contamination"] == 1
+    assert report["failures"][0]["source_identity_match"] is False
     assert report["hard_gates"]["CROSS_EDITION_CONTAMINATION"] is False

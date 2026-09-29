@@ -81,10 +81,11 @@ def score_panel(gold: dict[str, Any], responses: dict[str, Any], *, evaluation_s
     if set(by_id) != gold_ids:
         raise ProvenanceError("response IDs must exactly match gold panel IDs")
 
-    type_ok = voice_ok = page_ok = span_ok = edition_ok = robust = 0
+    type_ok = voice_ok = source_ok = page_ok = span_ok = edition_ok = robust = 0
     page_total = span_total = edition_total = 0
     unsupported_total = unsupported_rejected = 0
     false_author_claim = external_as_author = interpretation_promotion = cross_edition_contamination = 0
+    wrong_source_id = 0
     failures: list[dict[str, Any]] = []
 
     for rec in records:
@@ -93,6 +94,16 @@ def score_panel(gold: dict[str, Any], responses: dict[str, Any], *, evaluation_s
         voice_match = pred.get("predicted_voice") == rec["expected_voice"]
         type_ok += int(type_match)
         voice_ok += int(voice_match)
+
+        source_match = pred.get("source_id") == rec["expected_source"]
+        source_ok += int(source_match)
+        wrong_source_id += int(not source_match)
+        expected_paper = rec.get("expected_paper_id", gold.get("paper_id"))
+        paper_match = (
+            pred.get("paper_id") == expected_paper
+            if expected_paper is not None and ("paper_id" in pred or "expected_paper_id" in rec)
+            else True
+        )
 
         page_match = True
         if rec["expected_page"] is not None:
@@ -129,7 +140,8 @@ def score_panel(gold: dict[str, Any], responses: dict[str, Any], *, evaluation_s
         if rec["expected_type"] == "INTERPRETATION" and pred.get("predicted_type") == "AUTHOR_CLAIM":
             interpretation_promotion += 1
 
-        row_ok = type_match and voice_match and page_match and span_match and edition_match
+        source_identity_match = source_match and paper_match and edition_match
+        row_ok = type_match and voice_match and source_identity_match and page_match and span_match
         robust += int(row_ok)
         if not row_ok:
             failures.append({
@@ -137,6 +149,9 @@ def score_panel(gold: dict[str, Any], responses: dict[str, Any], *, evaluation_s
                 "category": rec["adversarial_category"],
                 "type_match": type_match,
                 "voice_match": voice_match,
+                "source_identity_match": source_identity_match,
+                "source_id_match": source_match,
+                "paper_id_match": paper_match,
                 "page_match": page_match,
                 "span_match": span_match,
                 "edition_match": edition_match,
@@ -148,6 +163,7 @@ def score_panel(gold: dict[str, Any], responses: dict[str, Any], *, evaluation_s
         "panel_size": total,
         "attribution_type_accuracy": type_ok / total,
         "evidence_voice_accuracy": voice_ok / total,
+        "source_id_accuracy": source_ok / total,
         "page_accuracy": page_ok / page_total if page_total else 1.0,
         "evidence_span_accuracy": span_ok / span_total if span_total else 1.0,
         "edition_accuracy": edition_ok / edition_total if edition_total else 1.0,
@@ -158,12 +174,14 @@ def score_panel(gold: dict[str, Any], responses: dict[str, Any], *, evaluation_s
         "external_as_author_error": external_as_author,
         "interpretation_promotion_error": interpretation_promotion,
         "cross_edition_contamination": cross_edition_contamination,
+        "wrong_source_id": wrong_source_id,
         "adversarial_robustness_rate": robust / total,
         "failures": failures,
         "hard_gates": {
             "FALSE_AUTHOR_CLAIM": false_author_claim == 0,
             "EXTERNAL_AS_AUTHOR_ERROR": external_as_author == 0,
             "CROSS_EDITION_CONTAMINATION": cross_edition_contamination == 0,
+            "WRONG_SOURCE_ID": wrong_source_id == 0,
         },
     }
     return report

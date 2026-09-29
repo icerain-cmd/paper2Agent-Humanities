@@ -13,8 +13,7 @@
   "source": {
     "source_id": "s001-lee-aura-2019",
     "sha256": "864e341de1fa049fd3c5285c882125967671aebde4ef37f5d9156613d061adae",
-    "origin": "user-google-drive",
-    "drive_id": "REDACTED_PRIVATE_SOURCE",
+    "origin": "user-provided-private-source",
     "paper2skill_verification": "reviewed_with_limitations",
     "review_note": "All 31 pages visually reviewed. 33 exact diagnostics were adjudicated; strict Paper2Skill verification passed."
   },
