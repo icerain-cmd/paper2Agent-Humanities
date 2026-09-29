@@ -1,0 +1,2578 @@
+{
+  "panel_id": "phase3-dev10-v3-repair",
+  "responses": [
+    {
+      "query_id": "H30V3-007",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "V3 PDF 35쪽(GS I.2, 505쪽)에서 벤야민은 영화 관객을 평가하는 태도를 지녔지만 주의를 집중하지 않는 “산만한 시험관”으로 서술한다.",
+        "statement_type": "AUTHOR_CLAIM",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v3-c-film-examiner"
+        ],
+        "pages": [
+          35
+        ],
+        "relation_type": "EXTENDS",
+        "actor_paper": "benjamin-artwork-v3",
+        "actor_edition_id": "benjamin-artwork-v3",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "SEMANTICALLY_SUPPORTED",
+        "evidence_sufficiency": "SUFFICIENT",
+        "qualification": null,
+        "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+        "claims": [
+          {
+            "text": "영화관에서 관객의 평가하는 태도에는 주의집중이 포함되지 않으며, 관객은 산만한 시험관이다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "b-v3-c-film-examiner"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v3-c-film-examiner",
+          "b-v3-c-dada-demand",
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v3-c-film-examiner",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 35,
+            "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter."
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-aura-withers",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 7,
+            "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "V3에서 영화 관객을 ‘주의집중을 포함하지 않는 평가자, 즉 산만한 시험관’으로 서술한 근거 페이지를 찾아라.",
+            "candidate_statement_ids": [
+              "b-v3-c-film-examiner",
+              "b-v3-c-dada-demand",
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-distraction"
+            ],
+            "candidate_scores": {
+              "b-v3-c-film-examiner": 40.99032,
+              "b-v3-c-dada-demand": 8.902603,
+              "b-v3-c-aura-distance": 0.25,
+              "b-v3-c-aura-withers": 0.25,
+              "b-v3-c-authenticity": 0.25,
+              "b-v3-c-cult-exhibition": 0.25,
+              "b-v3-c-distraction": 0.25
+            },
+            "selected_statement_ids": [
+              "b-v3-c-film-examiner",
+              "b-v3-c-dada-demand",
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-film-examiner",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 35,
+                "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-withers",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 7,
+                "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": [
+              "b-v3-c-distraction"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "aea4e8cf00224885dcb132616e1701fcaefe031153567b3af1f88a1ecbe8e58a",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-013",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "같은 저자 목소리로 처리해서는 안 된다. ‘아우라 없는 아우라’는 Lee 자신의 주장이다. 다만 제공된 벤야민 인용은 제2기술에 관한 것이므로, 아우라 정의를 인용한 문장의 문구와 위치는 이 자료만으로 확인할 수 없다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "lee-c-tension",
+          "lee-q-benjamin-second-tech"
+        ],
+        "pages": [
+          18,
+          27
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "lee-aura-2019",
+        "actor_edition_id": null,
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "제공된 외부 인용은 벤야민의 아우라 정의가 아니므로, 해당 정의 인용문의 정확한 근거 범위는 확인되지 않는다.",
+        "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+        "claims": [
+          {
+            "text": "Lee는 투명화와 신뢰화를 ‘아우라 없는 아우라’라고 주장한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "lee-c-tension"
+            ]
+          },
+          {
+            "text": "제공된 벤야민 인용은 외부 목소리이지만 제2기술에 관한 것이어서 아우라 정의 인용문의 문구를 확인하는 근거는 아니다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "lee-q-benjamin-second-tech"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "lee-c-purpose",
+          "lee-c-tension",
+          "lee-c-research-program",
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-q-benjamin-second-tech"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          },
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-c-research-program",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 29,
+            "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다."
+          },
+          {
+            "statement_id": "lee-c-transparent",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 22,
+            "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다."
+          },
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-q-benjamin-second-tech",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 18,
+            "evidence_span": "제2의 기술의 기원은 유희에 있다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "Lee 2019에서 벤야민의 아우라 정의를 인용하는 문장과 Lee 자신의 ‘아우라 없는 아우라’ 주장을 같은 저자 목소리로 처리해도 되는가? 근거 범위를 구분하라.",
+            "candidate_statement_ids": [
+              "lee-c-purpose",
+              "lee-c-tension",
+              "lee-c-research-program",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-trust-keyword",
+              "lee-i-distance",
+              "lee-c-tech-start",
+              "lee-q-tech-editing"
+            ],
+            "candidate_scores": {
+              "lee-c-purpose": 5.796671,
+              "lee-c-tension": 5.796671,
+              "lee-c-research-program": 2.71723,
+              "lee-c-transparent": 2.71723,
+              "lee-c-trust-definition": 2.71723,
+              "lee-q-benjamin-second-tech": 2.71723,
+              "lee-q-digital-aura": 2.71723,
+              "lee-q-trust-keyword": 2.71723,
+              "lee-i-distance": 2.46723,
+              "lee-c-tech-start": 0.25,
+              "lee-q-tech-editing": 0.25
+            },
+            "selected_statement_ids": [
+              "lee-c-purpose",
+              "lee-c-tension",
+              "lee-c-research-program",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-research-program",
+                "paper_id": "lee-aura-2019",
+                "page": 29,
+                "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-transparent",
+                "paper_id": "lee-aura-2019",
+                "page": 22,
+                "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-benjamin-second-tech",
+                "paper_id": "lee-aura-2019",
+                "page": 18,
+                "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-q-digital-aura",
+              "lee-q-trust-keyword",
+              "lee-i-distance",
+              "lee-c-tech-start",
+              "lee-q-tech-editing"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "bba4fb1013fa71189d13a3ac2a804f4bb96553184837a08eaf4fe042ce17316d",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-014",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "두 기술을 하나의 단일 주장으로 합쳐 벤야민에게 귀속할 수 없다. V3에서 아우라는 ‘아무리 가까워도 먼 것의 일회적 현현’으로 정의된다. 다다의 기괴하고 거친 형식은 풍부한 역사적 힘의 중심에서 나온다고 기술된다. 서로 다른 대목이므로 분리해 귀속해야 한다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-dada-demand"
+        ],
+        "pages": [
+          9,
+          31
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v3",
+        "actor_edition_id": "benjamin-artwork-v3",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "SEMANTICALLY_SUPPORTED",
+        "evidence_sufficiency": "SUFFICIENT",
+        "qualification": null,
+        "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+        "claims": [
+          {
+            "text": "벤야민은 아우라를 ‘아무리 가까워도 먼 것의 일회적 현현’으로 정의한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "b-v3-c-aura-distance"
+            ]
+          },
+          {
+            "text": "벤야민은 다다의 기괴하고 거친 형식이 풍부한 역사적 힘의 중심에서 나온다고 기술한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "b-v3-c-dada-demand"
+            ]
+          },
+          {
+            "text": "두 기술은 서로 다른 대목에 근거하므로 하나의 단일 주장으로 합쳐 귀속할 수 없다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-dada-demand"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-aura-withers",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 7,
+            "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "b-v3-c-distraction",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 34,
+            "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "V3의 아우라 정의와 다다에 관한 기술을 하나의 단일 주장으로 합쳐 귀속할 수 있는가? 서로 다른 근거라면 분리해 답하라.",
+            "candidate_statement_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand",
+              "b-v3-c-distraction",
+              "b-v3-c-film-examiner"
+            ],
+            "candidate_scores": {
+              "b-v3-c-aura-distance": 4.576302,
+              "b-v3-c-aura-withers": 4.576302,
+              "b-v3-c-authenticity": 0.25,
+              "b-v3-c-cult-exhibition": 0.25,
+              "b-v3-c-dada-demand": 0.25,
+              "b-v3-c-distraction": 0.25,
+              "b-v3-c-film-examiner": 0.25
+            },
+            "selected_statement_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand",
+              "b-v3-c-distraction"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-withers",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 7,
+                "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-distraction",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 34,
+                "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich.",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": [
+              "b-v3-c-film-examiner"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "48a47a3e332e8f9e69983fc23f17941240af2c028fa4a84a161a485b66b48c65",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-015",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "둘 다 Lee 자신의 원래 명제로 표기해서는 안 된다. ‘제2기술’의 유희적 기원은 Lee가 인용한 벤야민의 설명이고, ‘제3기술’의 투명화·신뢰화는 Lee가 이 논문에서 제시하는 개념적 설명이다. 다만 제3기술 개념의 역사적 최초 제안자가 Lee인지는 제시된 근거만으로 확인할 수 없다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "lee-q-benjamin-second-tech",
+          "lee-c-transparent",
+          "lee-q-trust-keyword"
+        ],
+        "pages": [
+          18,
+          22,
+          23
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "lee-aura-2019",
+        "actor_edition_id": null,
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "제3기술을 Lee의 논문 속 설명으로 귀속할 수 있지만, 개념의 역사적 독창성이나 최초 제안 여부는 확인되지 않는다.",
+        "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+        "claims": [
+          {
+            "text": "‘제2의 기술의 기원은 유희에 있다’는 Lee가 인용한 벤야민의 설명이다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "lee-q-benjamin-second-tech"
+            ]
+          },
+          {
+            "text": "Lee는 제3기술의 핵심가치로 ‘투명화’를, 두 번째 키워드로 ‘신뢰화’를 제시한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "lee-c-transparent",
+              "lee-q-trust-keyword"
+            ]
+          },
+          {
+            "text": "따라서 두 설명을 모두 Lee 자신의 원래 명제로 표기하는 것은 부정확하다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "lee-q-benjamin-second-tech",
+              "lee-c-transparent",
+              "lee-q-trust-keyword"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "lee-c-tension",
+          "lee-c-purpose",
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-q-benjamin-second-tech",
+          "lee-q-trust-keyword"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          },
+          {
+            "statement_id": "lee-c-transparent",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 22,
+            "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다."
+          },
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-q-benjamin-second-tech",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 18,
+            "evidence_span": "제2의 기술의 기원은 유희에 있다."
+          },
+          {
+            "statement_id": "lee-q-trust-keyword",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 23,
+            "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "‘제2기술’에 관한 벤야민의 설명과 Lee의 ‘제3기술’ 개념을 모두 Lee 자신의 원래 명제로 표기해도 되는지 판정하라.",
+            "candidate_statement_ids": [
+              "lee-c-tension",
+              "lee-c-purpose",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech",
+              "lee-q-trust-keyword",
+              "lee-c-research-program",
+              "lee-c-tech-start",
+              "lee-q-digital-aura",
+              "lee-q-tech-editing"
+            ],
+            "candidate_scores": {
+              "lee-c-tension": 8.669917,
+              "lee-c-purpose": 6.408883,
+              "lee-c-transparent": 5.590476,
+              "lee-c-trust-definition": 5.590476,
+              "lee-q-benjamin-second-tech": 5.590476,
+              "lee-q-trust-keyword": 5.590476,
+              "lee-c-research-program": 0.25,
+              "lee-c-tech-start": 0.25,
+              "lee-q-digital-aura": 0.25,
+              "lee-q-tech-editing": 0.25
+            },
+            "selected_statement_ids": [
+              "lee-c-tension",
+              "lee-c-purpose",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech",
+              "lee-q-trust-keyword"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-transparent",
+                "paper_id": "lee-aura-2019",
+                "page": 22,
+                "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-benjamin-second-tech",
+                "paper_id": "lee-aura-2019",
+                "page": 18,
+                "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-trust-keyword",
+                "paper_id": "lee-aura-2019",
+                "page": 23,
+                "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-c-research-program",
+              "lee-c-tech-start",
+              "lee-q-digital-aura",
+              "lee-q-tech-editing"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "4c4dcc40d9711302b0667a0de9ac8c9dd60d3feb589c008982cf177e89cd7397",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-020",
+      "outcome": "REJECTED",
+      "turn": {
+        "text": "V3에서 벤야민은 아우라를 가까이 있어도 거리를 지닌 일회적 현상으로 정의한다. Lee 2019는 ‘신뢰화’를 사용 맥락과 주체의 욕망에 따라 가상텍스트를 배치하고 거리를 조정하는 편집기술로 설명한다. 두 진술에 모두 ‘거리’가 등장하지만, V3의 정의만으로 두 개념의 동일성을 선언할 수는 없다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v3-c-aura-distance",
+          "lee-c-trust-definition"
+        ],
+        "pages": [
+          9,
+          24
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v3",
+        "actor_edition_id": "benjamin-artwork-v3",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "SEMANTICALLY_SUPPORTED",
+        "evidence_sufficiency": "SUFFICIENT",
+        "qualification": null,
+        "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+        "claims": [
+          {
+            "text": "벤야민은 아우라를 가까이 있어도 거리를 지닌 일회적 현상으로 정의한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "b-v3-c-aura-distance"
+            ]
+          },
+          {
+            "text": "Lee 2019는 ‘신뢰화’를 가상텍스트의 배치와 거리 조정을 가능하게 하는 편집기술로 설명한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "lee-c-trust-definition"
+            ]
+          },
+          {
+            "text": "두 진술에 ‘거리’가 등장한다는 사실만으로 개념적 동일성은 성립하지 않는다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "b-v3-c-aura-distance",
+              "lee-c-trust-definition"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [
+        "FALSE_AUTHOR_CLAIM"
+      ],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction",
+          "lee-c-trust-definition",
+          "lee-i-distance",
+          "lee-c-tension",
+          "lee-q-trust-keyword",
+          "lee-c-purpose",
+          "lee-c-research-program"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-aura-withers",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 7,
+            "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "b-v3-c-distraction",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 34,
+            "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich."
+          },
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-i-distance",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": null,
+            "evidence_span": null
+          },
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-q-trust-keyword",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 23,
+            "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          },
+          {
+            "statement_id": "lee-c-research-program",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 29,
+            "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "V3의 아우라 ‘거리’ 정의를 확인한 뒤, 그 근거만으로 Lee 2019의 ‘신뢰화’와 개념적 동일성을 선언할 수 있는지 판정하라.",
+            "candidate_statement_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand",
+              "b-v3-c-distraction",
+              "b-v3-c-film-examiner"
+            ],
+            "candidate_scores": {
+              "b-v3-c-aura-distance": 12.598231,
+              "b-v3-c-aura-withers": 4.576302,
+              "b-v3-c-authenticity": 0.25,
+              "b-v3-c-cult-exhibition": 0.25,
+              "b-v3-c-dada-demand": 0.25,
+              "b-v3-c-distraction": 0.25,
+              "b-v3-c-film-examiner": 0.25
+            },
+            "selected_statement_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand",
+              "b-v3-c-distraction"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-withers",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 7,
+                "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-distraction",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 34,
+                "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich.",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": [
+              "b-v3-c-film-examiner"
+            ]
+          },
+          {
+            "query": "V3의 아우라 ‘거리’ 정의를 확인한 뒤, 그 근거만으로 Lee 2019의 ‘신뢰화’와 개념적 동일성을 선언할 수 있는지 판정하라.",
+            "candidate_statement_ids": [
+              "lee-c-trust-definition",
+              "lee-i-distance",
+              "lee-c-tension",
+              "lee-q-trust-keyword",
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-transparent",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-c-tech-start",
+              "lee-q-tech-editing"
+            ],
+            "candidate_scores": {
+              "lee-c-trust-definition": 14.887365,
+              "lee-i-distance": 10.173077,
+              "lee-c-tension": 7.181517,
+              "lee-q-trust-keyword": 7.181517,
+              "lee-c-purpose": 2.71723,
+              "lee-c-research-program": 2.71723,
+              "lee-c-transparent": 2.71723,
+              "lee-q-benjamin-second-tech": 2.71723,
+              "lee-q-digital-aura": 2.71723,
+              "lee-c-tech-start": 0.25,
+              "lee-q-tech-editing": 0.25
+            },
+            "selected_statement_ids": [
+              "lee-c-trust-definition",
+              "lee-i-distance",
+              "lee-c-tension",
+              "lee-q-trust-keyword",
+              "lee-c-purpose",
+              "lee-c-research-program"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-i-distance",
+                "paper_id": "lee-aura-2019",
+                "page": null,
+                "evidence_span": null,
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-trust-keyword",
+                "paper_id": "lee-aura-2019",
+                "page": 23,
+                "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-research-program",
+                "paper_id": "lee-aura-2019",
+                "page": 29,
+                "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-c-transparent",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-c-tech-start",
+              "lee-q-tech-editing"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          },
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "a8ff249daa91714a2afa34b5555963114b5970882e2f32a21d0b9da0bf0fdfae",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-025",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "V2에서 제2기술은 자연을 지배하기보다 자연과 인류의 상호작용을 지향한다. Lee 2019의 ‘투명화’ 대목은 사용자와 도구, 현실과 가상 등의 구분이 사라지는 데 초점을 둔다. 제시된 대목만으로는 그 투명화가 자연과 인류의 관계를 어떻게 설명하는지 확인할 수 없으므로, V2의 상호작용 개념을 충분히 설명한다고 판단하기에는 근거가 부족하다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v2-c-interplay",
+          "lee-c-transparent"
+        ],
+        "pages": [
+          10,
+          22
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v2",
+        "actor_edition_id": "benjamin-artwork-v2",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "Lee 2019의 제시된 ‘투명화’ 대목에는 자연과 인류의 관계에 대한 명시적 설명이 없다. 논문 전체가 그 관계를 다루지 않는다는 판단은 할 수 없다.",
+        "evidence_span": "Die erste hat es wirklich auf Beherrschung der Natur abgesehen; die zweite viel mehr auf ein Zusammenspiel zwischen der Natur und der Menschheit.",
+        "claims": [
+          {
+            "text": "V2는 제2기술이 자연과 인류의 상호작용을 지향한다고 말한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "b-v2-c-interplay"
+            ]
+          },
+          {
+            "text": "제시된 Lee 2019의 ‘투명화’ 대목은 사용자와 도구, 현실과 가상 등의 구분이 사라지는 데 초점을 둔다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "lee-c-transparent"
+            ]
+          },
+          {
+            "text": "이 대목만으로는 ‘투명화’가 V2의 자연과 인류의 상호작용을 충분히 설명하는지 판단할 수 없다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "b-v2-c-interplay",
+              "lee-c-transparent"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v2-c-art-function",
+          "b-v2-c-aura-decay",
+          "b-v2-c-interplay",
+          "b-v2-c-once-experiment",
+          "b-v2-c-play-origin",
+          "b-v2-c-technique-human-use",
+          "lee-c-tension",
+          "lee-c-transparent",
+          "lee-i-distance",
+          "lee-c-purpose",
+          "lee-c-research-program",
+          "lee-c-tech-start"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v2-c-art-function",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Funktion der heutigen Kunst ist Einübung in dieses Zusammenspiel. Insbesondere gilt das vom Film."
+          },
+          {
+            "statement_id": "b-v2-c-aura-decay",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 6,
+            "evidence_span": "Was ist eigentlich Aura? Ein sonderbares Gespinst aus Raum und Zeit: einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v2-c-interplay",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Die erste hat es wirklich auf Beherrschung der Natur abgesehen; die zweite viel mehr auf ein Zusammenspiel zwischen der Natur und der Menschheit."
+          },
+          {
+            "statement_id": "b-v2-c-once-experiment",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Das Ein für allemal gilt für die erste Technik (da geht es um die nie wiedergutzumachende Verfehlung oder den ewig stellvertretenden Opfertod). Das Einmal ist keinmal gilt für die zweite (sie hat es mit dem Experiment und seiner unermüdlichen Variierung der Versuchsanordnung zu tun)."
+          },
+          {
+            "statement_id": "b-v2-c-play-origin",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "Der Ursprung der zweiten Technik ist da zu suchen, wo der Mensch zum ersten Mal und mit unbewußter List daran ging, Abstand von der Natur zu nehmen. Er liegt mit anderen Worten im Spiel."
+          },
+          {
+            "statement_id": "b-v2-c-technique-human-use",
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2",
+            "page": 10,
+            "evidence_span": "daß die erste Technik den Menschen so sehr, daß die zweite ihn so wenig wie möglich einsetzt."
+          },
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-c-transparent",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 22,
+            "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다."
+          },
+          {
+            "statement_id": "lee-i-distance",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": null,
+            "evidence_span": null
+          },
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          },
+          {
+            "statement_id": "lee-c-research-program",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 29,
+            "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다."
+          },
+          {
+            "statement_id": "lee-c-tech-start",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 11,
+            "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "V2의 자연과 인류의 상호작용 대목을 근거로, Lee 2019의 ‘투명화’가 자연과의 관계를 충분히 설명하는지 근거 범위 안에서 비판적으로 점검하라.",
+            "candidate_statement_ids": [
+              "b-v2-c-art-function",
+              "b-v2-c-aura-decay",
+              "b-v2-c-interplay",
+              "b-v2-c-once-experiment",
+              "b-v2-c-play-origin",
+              "b-v2-c-technique-human-use"
+            ],
+            "candidate_scores": {
+              "b-v2-c-art-function": 0.25,
+              "b-v2-c-aura-decay": 0.25,
+              "b-v2-c-interplay": 0.25,
+              "b-v2-c-once-experiment": 0.25,
+              "b-v2-c-play-origin": 0.25,
+              "b-v2-c-technique-human-use": 0.25
+            },
+            "selected_statement_ids": [
+              "b-v2-c-art-function",
+              "b-v2-c-aura-decay",
+              "b-v2-c-interplay",
+              "b-v2-c-once-experiment",
+              "b-v2-c-play-origin",
+              "b-v2-c-technique-human-use"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v2-c-art-function",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Funktion der heutigen Kunst ist Einübung in dieses Zusammenspiel. Insbesondere gilt das vom Film.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-aura-decay",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 6,
+                "evidence_span": "Was ist eigentlich Aura? Ein sonderbares Gespinst aus Raum und Zeit: einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-interplay",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Die erste hat es wirklich auf Beherrschung der Natur abgesehen; die zweite viel mehr auf ein Zusammenspiel zwischen der Natur und der Menschheit.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-once-experiment",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Das Ein für allemal gilt für die erste Technik (da geht es um die nie wiedergutzumachende Verfehlung oder den ewig stellvertretenden Opfertod). Das Einmal ist keinmal gilt für die zweite (sie hat es mit dem Experiment und seiner unermüdlichen Variierung der Versuchsanordnung zu tun).",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-play-origin",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "Der Ursprung der zweiten Technik ist da zu suchen, wo der Mensch zum ersten Mal und mit unbewußter List daran ging, Abstand von der Natur zu nehmen. Er liegt mit anderen Worten im Spiel.",
+                "edition_id": "benjamin-artwork-v2"
+              },
+              {
+                "statement_id": "b-v2-c-technique-human-use",
+                "paper_id": "benjamin-artwork-v2",
+                "page": 10,
+                "evidence_span": "daß die erste Technik den Menschen so sehr, daß die zweite ihn so wenig wie möglich einsetzt.",
+                "edition_id": "benjamin-artwork-v2"
+              }
+            ],
+            "rejected_candidates": []
+          },
+          {
+            "query": "V2의 자연과 인류의 상호작용 대목을 근거로, Lee 2019의 ‘투명화’가 자연과의 관계를 충분히 설명하는지 근거 범위 안에서 비판적으로 점검하라.",
+            "candidate_statement_ids": [
+              "lee-c-tension",
+              "lee-c-transparent",
+              "lee-i-distance",
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-tech-start",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-tech-editing",
+              "lee-q-trust-keyword"
+            ],
+            "candidate_scores": {
+              "lee-c-tension": 4.714287,
+              "lee-c-transparent": 4.714287,
+              "lee-i-distance": 4.464287,
+              "lee-c-purpose": 0.25,
+              "lee-c-research-program": 0.25,
+              "lee-c-tech-start": 0.25,
+              "lee-c-trust-definition": 0.25,
+              "lee-q-benjamin-second-tech": 0.25,
+              "lee-q-digital-aura": 0.25,
+              "lee-q-tech-editing": 0.25,
+              "lee-q-trust-keyword": 0.25
+            },
+            "selected_statement_ids": [
+              "lee-c-tension",
+              "lee-c-transparent",
+              "lee-i-distance",
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-tech-start"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-transparent",
+                "paper_id": "lee-aura-2019",
+                "page": 22,
+                "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-i-distance",
+                "paper_id": "lee-aura-2019",
+                "page": null,
+                "evidence_span": null,
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-research-program",
+                "paper_id": "lee-aura-2019",
+                "page": 29,
+                "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-tech-start",
+                "paper_id": "lee-aura-2019",
+                "page": 11,
+                "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-tech-editing",
+              "lee-q-trust-keyword"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2"
+          },
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "781f3a1dfd5291e0a592dc12d1279b442120ece8ffc6b083cf996c4b326f9b2b",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-026",
+      "outcome": "REJECTED",
+      "turn": {
+        "text": "벤야민 V3에서 아우라는 가까이 있어도 먼 것으로 나타나는 일회적 현상이다. Lee 2019는 사용 맥락과 주체의 욕망에 따라 가상텍스트의 거리가 조정된다고 설명하면서, 그렇게 보이도록 만든 효과를 ‘아우라 없는 아우라’라고 부른다. 남는 간극은 조정 가능한 거리감이 벤야민의 ‘일회적 현현’과 어떤 개념적 관계에 있는지다. 제시된 발췌만으로는 Lee가 이를 동일한 아우라로 보는지, 아우라를 흉내 낸 별개의 효과로 보는지 확정할 수 없다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v3-c-aura-distance",
+          "lee-c-trust-definition",
+          "lee-c-tension"
+        ],
+        "pages": [
+          9,
+          24,
+          27
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v3",
+        "actor_edition_id": "benjamin-artwork-v3",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "제시된 발췌는 거리의 일회성과 기술적 조정을 대비할 근거를 주지만, Lee의 전체 논증이 두 개념의 관계를 어떻게 해명하는지는 확인할 수 없다.",
+        "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+        "claims": [
+          {
+            "text": "벤야민은 아우라를 가까이 있어도 먼 것으로 나타나는 일회적 현상으로 정의한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "b-v3-c-aura-distance"
+            ]
+          },
+          {
+            "text": "Lee는 사용 맥락과 주체의 욕망에 따른 거리 조정을 설명하고, 그렇게 보이도록 만든 효과를 ‘아우라 없는 아우라’라고 부른다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "lee-c-trust-definition",
+              "lee-c-tension"
+            ]
+          },
+          {
+            "text": "조정 가능한 거리감과 일회적 현현의 관계는 제시된 발췌만으로 확정되지 않는다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "b-v3-c-aura-distance",
+              "lee-c-trust-definition",
+              "lee-c-tension"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [
+        "FALSE_AUTHOR_CLAIM"
+      ],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction",
+          "lee-c-trust-definition",
+          "lee-i-distance",
+          "lee-c-tension",
+          "lee-c-purpose",
+          "lee-c-research-program",
+          "lee-c-transparent"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-aura-withers",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 7,
+            "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "b-v3-c-distraction",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 34,
+            "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich."
+          },
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-i-distance",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": null,
+            "evidence_span": null
+          },
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          },
+          {
+            "statement_id": "lee-c-research-program",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 29,
+            "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다."
+          },
+          {
+            "statement_id": "lee-c-transparent",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 22,
+            "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "V3의 아우라 거리 정의를 기준으로, 기술적으로 조정된 거리감을 ‘아우라 없는 아우라’로 부르는 Lee 2019의 설명에 남는 개념적 간극을 근거 한계와 함께 지적하라.",
+            "candidate_statement_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand",
+              "b-v3-c-distraction",
+              "b-v3-c-film-examiner"
+            ],
+            "candidate_scores": {
+              "b-v3-c-aura-distance": 12.598231,
+              "b-v3-c-aura-withers": 4.576302,
+              "b-v3-c-authenticity": 0.25,
+              "b-v3-c-cult-exhibition": 0.25,
+              "b-v3-c-dada-demand": 0.25,
+              "b-v3-c-distraction": 0.25,
+              "b-v3-c-film-examiner": 0.25
+            },
+            "selected_statement_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand",
+              "b-v3-c-distraction"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-withers",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 7,
+                "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-distraction",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 34,
+                "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich.",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": [
+              "b-v3-c-film-examiner"
+            ]
+          },
+          {
+            "query": "V3의 아우라 거리 정의를 기준으로, 기술적으로 조정된 거리감을 ‘아우라 없는 아우라’로 부르는 Lee 2019의 설명에 남는 개념적 간극을 근거 한계와 함께 지적하라.",
+            "candidate_statement_ids": [
+              "lee-c-trust-definition",
+              "lee-i-distance",
+              "lee-c-tension",
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-transparent",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-trust-keyword",
+              "lee-c-tech-start",
+              "lee-q-tech-editing"
+            ],
+            "candidate_scores": {
+              "lee-c-trust-definition": 10.423077,
+              "lee-i-distance": 10.173077,
+              "lee-c-tension": 5.796671,
+              "lee-c-purpose": 2.71723,
+              "lee-c-research-program": 2.71723,
+              "lee-c-transparent": 2.71723,
+              "lee-q-benjamin-second-tech": 2.71723,
+              "lee-q-digital-aura": 2.71723,
+              "lee-q-trust-keyword": 2.71723,
+              "lee-c-tech-start": 0.25,
+              "lee-q-tech-editing": 0.25
+            },
+            "selected_statement_ids": [
+              "lee-c-trust-definition",
+              "lee-i-distance",
+              "lee-c-tension",
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-transparent"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-i-distance",
+                "paper_id": "lee-aura-2019",
+                "page": null,
+                "evidence_span": null,
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-research-program",
+                "paper_id": "lee-aura-2019",
+                "page": 29,
+                "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-transparent",
+                "paper_id": "lee-aura-2019",
+                "page": 22,
+                "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-trust-keyword",
+              "lee-c-tech-start",
+              "lee-q-tech-editing"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          },
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "074af36621864c24df7c6a5d83f42e76b1864aef55b77c45f78260aae07b5d7c",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-027",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "V3에서 벤야민은 영화 관객이 평가하는 태도를 취하면서도 주의를 집중하지 않는 ‘산만한 검사자’라고 말한다. 이를 근거로 Lee 2019의 디지털 아우라 연구에 수용자의 주의와 평가 방식도 검토해야 한다는 비판적 질문을 제기할 수 있다. 다만 제공된 Lee 발췌문만으로는 Lee가 산만한 수용을 간과했는지, 디지털 예술의 수용을 영화 관객의 수용과 동일하게 보았는지 판단할 수 없다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "b-v3-c-film-examiner",
+          "lee-c-research-program",
+          "lee-c-trust-definition"
+        ],
+        "pages": [
+          35,
+          29,
+          24
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "benjamin-artwork-v3",
+        "actor_edition_id": "benjamin-artwork-v3",
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "비판적 질문은 제기할 수 있지만, 제공된 Lee 발췌문만으로 논문 전체의 누락이나 디지털 수용 방식에 관한 Lee의 입장을 단정할 수 없다.",
+        "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+        "claims": [
+          {
+            "text": "벤야민은 영화 관객을 주의를 집중하지 않는 ‘산만한 검사자’로 설명한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "b-v3-c-film-examiner"
+            ]
+          },
+          {
+            "text": "Lee는 디지털 예술에서 아우라 상실이 어떻게 변용되는지 연구할 필요를 제시하고, ‘신뢰화’를 사용 맥락과 욕망에 따른 거리 조정의 편집기술로 설명한다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "lee-c-research-program",
+              "lee-c-trust-definition"
+            ]
+          },
+          {
+            "text": "두 논의를 함께 읽으면 디지털 아우라 연구에 수용자의 주의와 평가 방식을 묻는 비판적 질문을 제기할 수 있다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "b-v3-c-film-examiner",
+              "lee-c-research-program",
+              "lee-c-trust-definition"
+            ]
+          },
+          {
+            "text": "제공된 발췌문은 Lee가 산만한 수용을 간과했거나 영화와 디지털 예술의 수용을 동일시했다고 판단하기에 부족하다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "b-v3-c-film-examiner",
+              "lee-c-research-program",
+              "lee-c-trust-definition"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "b-v3-c-film-examiner",
+          "b-v3-c-dada-demand",
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "lee-c-trust-definition",
+          "lee-c-research-program",
+          "lee-q-digital-aura",
+          "lee-c-purpose",
+          "lee-c-tech-start",
+          "lee-c-tension"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v3-c-film-examiner",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 35,
+            "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter."
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-aura-withers",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 7,
+            "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-c-research-program",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 29,
+            "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다."
+          },
+          {
+            "statement_id": "lee-q-digital-aura",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 17,
+            "evidence_span": "궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다."
+          },
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          },
+          {
+            "statement_id": "lee-c-tech-start",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 11,
+            "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다."
+          },
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "V3의 산만한 영화 관객 논의를 근거로 Lee 2019를 비판할 수 있는 범위와, 제공된 Lee 근거가 없어 비판을 멈춰야 하는 범위를 구분하라.",
+            "candidate_statement_ids": [
+              "b-v3-c-film-examiner",
+              "b-v3-c-dada-demand",
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-distraction"
+            ],
+            "candidate_scores": {
+              "b-v3-c-film-examiner": 19.598509,
+              "b-v3-c-dada-demand": 8.902603,
+              "b-v3-c-aura-distance": 0.25,
+              "b-v3-c-aura-withers": 0.25,
+              "b-v3-c-authenticity": 0.25,
+              "b-v3-c-cult-exhibition": 0.25,
+              "b-v3-c-distraction": 0.25
+            },
+            "selected_statement_ids": [
+              "b-v3-c-film-examiner",
+              "b-v3-c-dada-demand",
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-film-examiner",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 35,
+                "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-withers",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 7,
+                "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": [
+              "b-v3-c-distraction"
+            ]
+          },
+          {
+            "query": "V3의 산만한 영화 관객 논의를 근거로 Lee 2019를 비판할 수 있는 범위와, 제공된 Lee 근거가 없어 비판을 멈춰야 하는 범위를 구분하라.",
+            "candidate_statement_ids": [
+              "lee-c-trust-definition",
+              "lee-c-research-program",
+              "lee-q-digital-aura",
+              "lee-c-purpose",
+              "lee-c-tech-start",
+              "lee-c-tension",
+              "lee-c-transparent",
+              "lee-q-benjamin-second-tech",
+              "lee-q-tech-editing",
+              "lee-q-trust-keyword"
+            ],
+            "candidate_scores": {
+              "lee-c-trust-definition": 3.329442,
+              "lee-c-research-program": 2.818616,
+              "lee-q-digital-aura": 2.818616,
+              "lee-c-purpose": 0.25,
+              "lee-c-tech-start": 0.25,
+              "lee-c-tension": 0.25,
+              "lee-c-transparent": 0.25,
+              "lee-q-benjamin-second-tech": 0.25,
+              "lee-q-tech-editing": 0.25,
+              "lee-q-trust-keyword": 0.25
+            },
+            "selected_statement_ids": [
+              "lee-c-trust-definition",
+              "lee-c-research-program",
+              "lee-q-digital-aura",
+              "lee-c-purpose",
+              "lee-c-tech-start",
+              "lee-c-tension"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-research-program",
+                "paper_id": "lee-aura-2019",
+                "page": 29,
+                "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-digital-aura",
+                "paper_id": "lee-aura-2019",
+                "page": 17,
+                "evidence_span": "궁극적으로는 ‘디지털아우라’라 명명될 수 있는 새로운 아우라가 등장할 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-tech-start",
+                "paper_id": "lee-aura-2019",
+                "page": 11,
+                "evidence_span": "기술복제시대가 사진기와 영사 기의 발명에서 시작되었다면 기술편집시대는 컴퓨터와 인터넷의 발명이 그 시작이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-c-transparent",
+              "lee-q-benjamin-second-tech",
+              "lee-q-tech-editing",
+              "lee-q-trust-keyword"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          },
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "f62f809549be9d2c470996538894edddf932f7962255d8c08830978da819b226",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-028",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "Lee는 ‘신뢰화’를 사용 맥락과 주체의 욕망에 따라 가상텍스트를 배치하고 거리를 조정하게 하는 편집기술로 설명한다. 따라서 거리 조정이 전혀 논의되지 않는다는 비판에는 이 정의를 들어 응답할 수 있다. 다만 제시된 근거만으로 거리 조정의 구체적 과정까지 충분히 분석했다고 판단할 수는 없다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "lee-c-trust-definition"
+        ],
+        "pages": [
+          24
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "lee-aura-2019",
+        "actor_edition_id": null,
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "‘전혀 논의되지 않는다’는 주장에는 반박할 수 있지만, 제공된 구절만으로 논의의 구체성이나 충분함까지 입증할 수는 없다.",
+        "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+        "claims": [
+          {
+            "text": "Lee는 ‘신뢰화’를 가상텍스트의 배치와 거리 조정을 가능하게 하는 편집기술로 설명한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "lee-c-trust-definition"
+            ]
+          },
+          {
+            "text": "이 정의는 거리 조정이 전혀 논의되지 않는다는 비판을 한정하지만, 논의의 구체성이나 충분함까지 입증하지는 않는다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "lee-c-trust-definition"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "lee-c-trust-definition",
+          "lee-i-distance",
+          "lee-c-tension",
+          "lee-q-trust-keyword",
+          "lee-c-purpose",
+          "lee-c-research-program"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-i-distance",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": null,
+            "evidence_span": null
+          },
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-q-trust-keyword",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 23,
+            "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          },
+          {
+            "statement_id": "lee-c-research-program",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 29,
+            "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "Lee 2019의 ‘신뢰화’ 정의를 근거로, 거리 조정이 전혀 논의되지 않는다는 비판에 어디까지 응답할 수 있는지 한정해서 설명하라.",
+            "candidate_statement_ids": [
+              "lee-c-trust-definition",
+              "lee-i-distance",
+              "lee-c-tension",
+              "lee-q-trust-keyword",
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-tech-start",
+              "lee-c-transparent",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-tech-editing"
+            ],
+            "candidate_scores": {
+              "lee-c-trust-definition": 12.420135,
+              "lee-i-distance": 7.705848,
+              "lee-c-tension": 4.714287,
+              "lee-q-trust-keyword": 4.714287,
+              "lee-c-purpose": 0.25,
+              "lee-c-research-program": 0.25,
+              "lee-c-tech-start": 0.25,
+              "lee-c-transparent": 0.25,
+              "lee-q-benjamin-second-tech": 0.25,
+              "lee-q-digital-aura": 0.25,
+              "lee-q-tech-editing": 0.25
+            },
+            "selected_statement_ids": [
+              "lee-c-trust-definition",
+              "lee-i-distance",
+              "lee-c-tension",
+              "lee-q-trust-keyword",
+              "lee-c-purpose",
+              "lee-c-research-program"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-i-distance",
+                "paper_id": "lee-aura-2019",
+                "page": null,
+                "evidence_span": null,
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-trust-keyword",
+                "paper_id": "lee-aura-2019",
+                "page": 23,
+                "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-research-program",
+                "paper_id": "lee-aura-2019",
+                "page": 29,
+                "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-c-tech-start",
+              "lee-c-transparent",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-tech-editing"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "06fd17541c61df51292555be63ba4644fb01d40fecc1208d0a1020e06c840da5",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    },
+    {
+      "query_id": "H30V3-030",
+      "outcome": "ACCEPTED",
+      "turn": {
+        "text": "두 개념을 모두 단순한 사실 재현 기술로 보는 비판은 제시된 근거와 맞지 않는다. 이 논문에서 ‘투명화’는 사용자와 도구, 현실과 가상 등의 차이가 사라지는 것을 가리키고, ‘신뢰화’는 사용 맥락과 주체의 욕망에 따라 가상텍스트를 배치하고 거리를 조정하는 편집기술이다. 저자는 두 개념이 모두 ‘그렇게 보이도록’ 만든다고 하면서 ‘아우라 없는 아우라’라는 긴장을 제시한다. 다만 이 근거만으로 두 기술의 구체적 작동 방식이나 실제 효과까지 판단할 수는 없다.",
+        "statement_type": "INTERPRETATION",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-c-tension"
+        ],
+        "pages": [
+          22,
+          24,
+          27
+        ],
+        "relation_type": "QUALIFIES",
+        "actor_paper": "lee-aura-2019",
+        "actor_edition_id": null,
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "PARTIALLY_SUPPORTED",
+        "evidence_sufficiency": "PARTIAL",
+        "qualification": "제시된 구절은 개념적 정의와 저자의 평가를 뒷받침하지만, 구체적 작동 방식이나 실제 효과는 입증하지 않는다.",
+        "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+        "claims": [
+          {
+            "text": "저자는 ‘투명화’를 사용자와 도구, 현실과 가상 등의 차이가 사라지는 것으로 설명한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "lee-c-transparent"
+            ]
+          },
+          {
+            "text": "저자는 ‘신뢰화’를 사용 맥락과 주체의 욕망에 따라 가상텍스트를 배치하고 거리를 조정하는 편집기술로 설명한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "lee-c-trust-definition"
+            ]
+          },
+          {
+            "text": "저자는 두 개념이 모두 ‘그렇게 보이도록’ 만든다며 ‘아우라 없는 아우라’라는 긴장을 제시한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [
+              "lee-c-tension"
+            ]
+          },
+          {
+            "text": "따라서 두 개념을 단순한 사실 재현 기술로 동일시하는 비판은 이 구절들만으로는 성립하기 어렵다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-c-tension"
+            ]
+          },
+          {
+            "text": "제시된 근거만으로 두 기술의 구체적 작동 방식이나 실제 효과를 판단할 수는 없다.",
+            "statement_type": "INTERPRETATION",
+            "support_ids": [
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-c-tension"
+            ]
+          }
+        ]
+      },
+      "gate_errors": [],
+      "retrieval_trace": {
+        "selected_statement_ids": [
+          "lee-c-tension",
+          "lee-i-distance",
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-q-trust-keyword",
+          "lee-c-purpose"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-i-distance",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": null,
+            "evidence_span": null
+          },
+          {
+            "statement_id": "lee-c-transparent",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 22,
+            "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다."
+          },
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-q-trust-keyword",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 23,
+            "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "Lee 2019의 ‘투명화’와 ‘신뢰화’ 근거를 사용해 두 개념이 모두 단순한 사실 재현 기술이라는 비판에 답하되, 근거가 말하지 않는 부분은 명시적으로 남겨라.",
+            "candidate_statement_ids": [
+              "lee-c-tension",
+              "lee-i-distance",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-trust-keyword",
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-tech-start",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-tech-editing"
+            ],
+            "candidate_scores": {
+              "lee-c-tension": 12.258016,
+              "lee-i-distance": 7.543729,
+              "lee-c-transparent": 4.714287,
+              "lee-c-trust-definition": 4.714287,
+              "lee-q-trust-keyword": 4.714287,
+              "lee-c-purpose": 0.25,
+              "lee-c-research-program": 0.25,
+              "lee-c-tech-start": 0.25,
+              "lee-q-benjamin-second-tech": 0.25,
+              "lee-q-digital-aura": 0.25,
+              "lee-q-tech-editing": 0.25
+            },
+            "selected_statement_ids": [
+              "lee-c-tension",
+              "lee-i-distance",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-trust-keyword",
+              "lee-c-purpose"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-i-distance",
+                "paper_id": "lee-aura-2019",
+                "page": null,
+                "evidence_span": null,
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-transparent",
+                "paper_id": "lee-aura-2019",
+                "page": 22,
+                "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-trust-keyword",
+                "paper_id": "lee-aura-2019",
+                "page": 23,
+                "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-c-research-program",
+              "lee-c-tech-start",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-tech-editing"
+            ]
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "model": "gpt-6-sol",
+      "provider": "codex-exec",
+      "prompt_sha256": "4809930786f0d947c608e612a44e67780f9160022c99ef4889e0f8b9932ec7f9",
+      "verifier_model": "gpt-5.6-sol",
+      "fresh_context_verifier": true,
+      "independent_model_verifier": true,
+      "generator_subprocess_attempts": 1,
+      "verifier_subprocess_attempts": 1
+    }
+  ],
+  "generator_model": "gpt-6-sol",
+  "verifier_model": "gpt-5.6-sol",
+  "independent_model_verifier": true,
+  "fresh_context_verifier": true,
+  "generator_subprocess_attempts": 10,
+  "verifier_subprocess_attempts": 10
+}

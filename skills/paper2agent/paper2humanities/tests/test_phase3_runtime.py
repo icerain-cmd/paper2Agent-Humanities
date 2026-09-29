@@ -46,6 +46,12 @@ def test_retrieval_trace_is_inspectable_and_source_bounded():
     assert all(h.paper_id=="benjamin-artwork-v2" for h in hits)
     assert all(h.edition_id=="benjamin-artwork-v2" for h in hits)
 
+def test_multilingual_film_examiner_survives_top_six_tie():
+    agent=PaperAgent.from_json(ROOT/"fixtures"/"benjamin-artwork-v3-agent.json")
+    hits,trace=retrieve(agent,"V3에서 영화 관객을 주의집중을 포함하지 않는 평가자, 즉 산만한 시험관으로 서술한 근거 페이지",limit=6)
+    assert "b-v3-c-film-examiner" in trace["selected_statement_ids"]
+    assert any(h.statement_id=="b-v3-c-film-examiner" and h.page==35 for h in hits)
+
 def test_unsupported_generation_blocked():
     turn={"support_ids":["s1"],"actor_paper":"p","actor_edition_id":None,
           "statement_type":"CRITIQUE","action":"CRITIQUE","semantic_support":"UNSUPPORTED"}

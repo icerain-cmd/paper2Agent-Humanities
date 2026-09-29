@@ -16,6 +16,11 @@ ALIASES = {
     "play": {"유희","놀이","spiel","play"},
     "trust": {"신뢰화","trust"},
     "transparency": {"투명화","transparency"},
+    "film": {"영화", "film", "kino", "cinema"},
+    "audience": {"관객", "publikum", "public", "audience"},
+    "examiner": {"시험관", "평가자", "examinator", "examiner", "begutachtende"},
+    "attention": {"주의집중", "aufmerksamkeit", "attention"},
+    "distance": {"거리", "ferne", "distance"},
 }
 @dataclass(frozen=True)
 class RetrievalHit:

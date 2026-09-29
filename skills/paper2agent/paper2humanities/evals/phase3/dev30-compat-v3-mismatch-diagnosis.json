@@ -1,0 +1,489 @@
+{
+  "classification": "DEV30_COMPAT_V3",
+  "source_panel": "phase3-holdout30-v3",
+  "mismatch_count": 10,
+  "rows": [
+    {
+      "query_id": "H30V3-007",
+      "query": "V3에서 영화 관객을 ‘주의집중을 포함하지 않는 평가자, 즉 산만한 시험관’으로 서술한 근거 페이지를 찾아라.",
+      "gold": {
+        "query_id": "H30V3-007",
+        "type": "AUTHOR_CLAIM",
+        "paper": "benjamin-artwork-v3",
+        "edition": "benjamin-artwork-v3",
+        "page": 35,
+        "support": [
+          "b-v3-c-film-examiner"
+        ]
+      },
+      "actual": {
+        "outcome": "ABSTAINED",
+        "type": "UNRESOLVED",
+        "support_ids": [],
+        "pages": [],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction"
+        ],
+        "cause": "Seven V3 candidates tied at 0.25; page-35 film examiner ranked seventh and fell outside top six."
+      },
+      "classifier": {
+        "actual_type": "UNRESOLVED",
+        "expected_type": "AUTHOR_CLAIM",
+        "cause": "Type was appropriate or abstained; mismatch arose elsewhere."
+      },
+      "failure_category": "RETRIEVAL_TIE_TRUNCATION",
+      "generator": {
+        "cause": "No relevant page-35 evidence in selected packet; generated a bounded abstention."
+      },
+      "verifier": {
+        "cause": "Confirmed safe abstention."
+      }
+    },
+    {
+      "query_id": "H30V3-013",
+      "query": "Lee 2019에서 벤야민의 아우라 정의를 인용하는 문장과 Lee 자신의 ‘아우라 없는 아우라’ 주장을 같은 저자 목소리로 처리해도 되는가? 근거 범위를 구분하라.",
+      "gold": {
+        "query_id": "H30V3-013",
+        "type": "INTERPRETATION",
+        "paper": "lee-aura-2019",
+        "edition": null,
+        "page": 18,
+        "support": [
+          "lee-q-benjamin-second-tech",
+          "lee-c-tension"
+        ]
+      },
+      "actual": {
+        "outcome": "ACCEPTED",
+        "type": "AI_SYNTHESIS",
+        "support_ids": [
+          "lee-c-tension",
+          "lee-q-benjamin-second-tech"
+        ],
+        "pages": [
+          18,
+          27
+        ],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "lee-c-purpose",
+          "lee-c-tension",
+          "lee-c-research-program",
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-q-benjamin-second-tech"
+        ],
+        "cause": "Both cited Lee passages were retrieved, but the cited Benjamin quotation concerns second technology, not an aura definition."
+      },
+      "classifier": {
+        "actual_type": "AI_SYNTHESIS",
+        "expected_type": "INTERPRETATION",
+        "cause": "Whole-turn type was too broad for the requested judgment."
+      },
+      "failure_category": "INTERPRETATION_AS_SYNTHESIS",
+      "generator": {
+        "cause": "Qualified the unsupported aura-definition premise but typed an attribution distinction as AI_SYNTHESIS."
+      },
+      "verifier": {
+        "cause": "Accepted the type and evidence boundary."
+      }
+    },
+    {
+      "query_id": "H30V3-014",
+      "query": "V3의 아우라 정의와 다다에 관한 기술을 하나의 단일 주장으로 합쳐 귀속할 수 있는가? 서로 다른 근거라면 분리해 답하라.",
+      "gold": {
+        "query_id": "H30V3-014",
+        "type": "INTERPRETATION",
+        "paper": "benjamin-artwork-v3",
+        "edition": "benjamin-artwork-v3",
+        "page": 9,
+        "support": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-dada-demand"
+        ]
+      },
+      "actual": {
+        "outcome": "ACCEPTED",
+        "type": "AI_SYNTHESIS",
+        "support_ids": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-dada-demand"
+        ],
+        "pages": [
+          9,
+          31
+        ],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction"
+        ],
+        "cause": "Both V3 passages were retrieved."
+      },
+      "classifier": {
+        "actual_type": "AI_SYNTHESIS",
+        "expected_type": "INTERPRETATION",
+        "cause": "Whole-turn type was too broad for the requested judgment."
+      },
+      "failure_category": "INTERPRETATION_AS_SYNTHESIS",
+      "generator": {
+        "cause": "Separated distinct V3 passages in prose but typed the comparison AI_SYNTHESIS."
+      },
+      "verifier": {
+        "cause": "Accepted the type."
+      }
+    },
+    {
+      "query_id": "H30V3-015",
+      "query": "‘제2기술’에 관한 벤야민의 설명과 Lee의 ‘제3기술’ 개념을 모두 Lee 자신의 원래 명제로 표기해도 되는지 판정하라.",
+      "gold": {
+        "query_id": "H30V3-015",
+        "type": "INTERPRETATION",
+        "paper": "lee-aura-2019",
+        "edition": null,
+        "page": 18,
+        "support": [
+          "lee-q-benjamin-second-tech",
+          "lee-c-transparent"
+        ]
+      },
+      "actual": {
+        "outcome": "REJECTED",
+        "type": "INTERPRETATION",
+        "support_ids": [
+          "lee-q-benjamin-second-tech",
+          "lee-c-transparent",
+          "lee-q-trust-keyword"
+        ],
+        "pages": [
+          18,
+          22,
+          23
+        ],
+        "gate_errors": [
+          "VERIFIER_DISAGREEMENT"
+        ]
+      },
+      "retrieval": {
+        "selected": [
+          "lee-c-tension",
+          "lee-c-purpose",
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-q-benjamin-second-tech",
+          "lee-q-trust-keyword"
+        ],
+        "cause": "Lee quotation and author claim were retrieved."
+      },
+      "classifier": {
+        "actual_type": "INTERPRETATION",
+        "expected_type": "INTERPRETATION",
+        "cause": "Type was appropriate or abstained; mismatch arose elsewhere."
+      },
+      "failure_category": "VERIFIER_DISAGREEMENT",
+      "generator": {
+        "cause": "Produced an INTERPRETATION with mixed external quotation and Lee author evidence."
+      },
+      "verifier": {
+        "cause": "Returned a different turn, causing VERIFIER_DISAGREEMENT and rejection."
+      }
+    },
+    {
+      "query_id": "H30V3-020",
+      "query": "V3의 아우라 ‘거리’ 정의를 확인한 뒤, 그 근거만으로 Lee 2019의 ‘신뢰화’와 개념적 동일성을 선언할 수 있는지 판정하라.",
+      "gold": {
+        "query_id": "H30V3-020",
+        "type": "INTERPRETATION",
+        "paper": "benjamin-artwork-v3",
+        "edition": "benjamin-artwork-v3",
+        "page": 9,
+        "support": [
+          "b-v3-c-aura-distance"
+        ]
+      },
+      "actual": {
+        "outcome": "ABSTAINED",
+        "type": "UNRESOLVED",
+        "support_ids": [],
+        "pages": [],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction"
+        ],
+        "cause": "V3 aura passage retrieved; Lee corpus was not supplied to this panel call."
+      },
+      "classifier": {
+        "actual_type": "UNRESOLVED",
+        "expected_type": "INTERPRETATION",
+        "cause": "Type was appropriate or abstained; mismatch arose elsewhere."
+      },
+      "failure_category": "MISSING_COMPARISON_CORPUS",
+      "generator": {
+        "cause": "Abstained because the named Lee corpus was absent."
+      },
+      "verifier": {
+        "cause": "Confirmed safe abstention."
+      }
+    },
+    {
+      "query_id": "H30V3-025",
+      "query": "V2의 자연과 인류의 상호작용 대목을 근거로, Lee 2019의 ‘투명화’가 자연과의 관계를 충분히 설명하는지 근거 범위 안에서 비판적으로 점검하라.",
+      "gold": {
+        "query_id": "H30V3-025",
+        "type": "INTERPRETATION",
+        "paper": "benjamin-artwork-v2",
+        "edition": "benjamin-artwork-v2",
+        "page": 10,
+        "support": [
+          "b-v2-c-interplay"
+        ]
+      },
+      "actual": {
+        "outcome": "ABSTAINED",
+        "type": "UNRESOLVED",
+        "support_ids": [],
+        "pages": [],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "b-v2-c-art-function",
+          "b-v2-c-aura-decay",
+          "b-v2-c-interplay",
+          "b-v2-c-once-experiment",
+          "b-v2-c-play-origin",
+          "b-v2-c-technique-human-use"
+        ],
+        "cause": "V2 interplay passage retrieved; Lee corpus was not supplied to this panel call."
+      },
+      "classifier": {
+        "actual_type": "UNRESOLVED",
+        "expected_type": "INTERPRETATION",
+        "cause": "Type was appropriate or abstained; mismatch arose elsewhere."
+      },
+      "failure_category": "MISSING_COMPARISON_CORPUS",
+      "generator": {
+        "cause": "Abstained because the named Lee corpus was absent."
+      },
+      "verifier": {
+        "cause": "Confirmed safe abstention."
+      }
+    },
+    {
+      "query_id": "H30V3-026",
+      "query": "V3의 아우라 거리 정의를 기준으로, 기술적으로 조정된 거리감을 ‘아우라 없는 아우라’로 부르는 Lee 2019의 설명에 남는 개념적 간극을 근거 한계와 함께 지적하라.",
+      "gold": {
+        "query_id": "H30V3-026",
+        "type": "INTERPRETATION",
+        "paper": "benjamin-artwork-v3",
+        "edition": "benjamin-artwork-v3",
+        "page": 9,
+        "support": [
+          "b-v3-c-aura-distance"
+        ]
+      },
+      "actual": {
+        "outcome": "ABSTAINED",
+        "type": "UNRESOLVED",
+        "support_ids": [],
+        "pages": [],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction"
+        ],
+        "cause": "V3 aura passage retrieved; Lee corpus was not supplied to this panel call."
+      },
+      "classifier": {
+        "actual_type": "UNRESOLVED",
+        "expected_type": "INTERPRETATION",
+        "cause": "Type was appropriate or abstained; mismatch arose elsewhere."
+      },
+      "failure_category": "MISSING_COMPARISON_CORPUS",
+      "generator": {
+        "cause": "Abstained because the named Lee corpus was absent."
+      },
+      "verifier": {
+        "cause": "Confirmed safe abstention."
+      }
+    },
+    {
+      "query_id": "H30V3-027",
+      "query": "V3의 산만한 영화 관객 논의를 근거로 Lee 2019를 비판할 수 있는 범위와, 제공된 Lee 근거가 없어 비판을 멈춰야 하는 범위를 구분하라.",
+      "gold": {
+        "query_id": "H30V3-027",
+        "type": "INTERPRETATION",
+        "paper": "benjamin-artwork-v3",
+        "edition": "benjamin-artwork-v3",
+        "page": 35,
+        "support": [
+          "b-v3-c-film-examiner"
+        ]
+      },
+      "actual": {
+        "outcome": "ACCEPTED",
+        "type": "AI_SYNTHESIS",
+        "support_ids": [
+          "b-v3-c-distraction"
+        ],
+        "pages": [
+          34
+        ],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction"
+        ],
+        "cause": "Page-35 film examiner passage tied at 0.25 and was truncated; Lee corpus was absent."
+      },
+      "classifier": {
+        "actual_type": "AI_SYNTHESIS",
+        "expected_type": "INTERPRETATION",
+        "cause": "Type was appropriate or abstained; mismatch arose elsewhere."
+      },
+      "failure_category": "RETRIEVAL_TIE_TRUNCATION_AND_MISSING_COMPARISON_CORPUS",
+      "generator": {
+        "cause": "Used page-34 distraction as a substitute for unavailable page-35 film-examiner evidence."
+      },
+      "verifier": {
+        "cause": "Accepted the bounded but wrong-anchor turn."
+      }
+    },
+    {
+      "query_id": "H30V3-028",
+      "query": "Lee 2019의 ‘신뢰화’ 정의를 근거로, 거리 조정이 전혀 논의되지 않는다는 비판에 어디까지 응답할 수 있는지 한정해서 설명하라.",
+      "gold": {
+        "query_id": "H30V3-028",
+        "type": "INTERPRETATION",
+        "paper": "lee-aura-2019",
+        "edition": null,
+        "page": 24,
+        "support": [
+          "lee-c-trust-definition"
+        ]
+      },
+      "actual": {
+        "outcome": "ACCEPTED",
+        "type": "AUTHOR_CLAIM",
+        "support_ids": [
+          "lee-c-trust-definition"
+        ],
+        "pages": [
+          24
+        ],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "lee-c-tension",
+          "lee-c-trust-definition",
+          "lee-q-trust-keyword",
+          "lee-i-distance",
+          "lee-c-purpose",
+          "lee-c-research-program"
+        ],
+        "cause": "Lee trust definition was retrieved."
+      },
+      "classifier": {
+        "actual_type": "AUTHOR_CLAIM",
+        "expected_type": "INTERPRETATION",
+        "cause": "Whole-turn type was too broad for the requested judgment."
+      },
+      "failure_category": "MIXED_CLAIM_WHOLE_TURN_AUTHOR",
+      "generator": {
+        "cause": "Mixed a direct Lee fact with a derived rebuttal and typed the whole turn AUTHOR_CLAIM."
+      },
+      "verifier": {
+        "cause": "Accepted the mixed turn."
+      }
+    },
+    {
+      "query_id": "H30V3-030",
+      "query": "Lee 2019의 ‘투명화’와 ‘신뢰화’ 근거를 사용해 두 개념이 모두 단순한 사실 재현 기술이라는 비판에 답하되, 근거가 말하지 않는 부분은 명시적으로 남겨라.",
+      "gold": {
+        "query_id": "H30V3-030",
+        "type": "INTERPRETATION",
+        "paper": "lee-aura-2019",
+        "edition": null,
+        "page": 22,
+        "support": [
+          "lee-c-transparent",
+          "lee-c-trust-definition"
+        ]
+      },
+      "actual": {
+        "outcome": "ACCEPTED",
+        "type": "AI_SYNTHESIS",
+        "support_ids": [
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-c-tension"
+        ],
+        "pages": [
+          22,
+          24,
+          27
+        ],
+        "gate_errors": []
+      },
+      "retrieval": {
+        "selected": [
+          "lee-c-tension",
+          "lee-i-distance",
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-q-trust-keyword",
+          "lee-c-purpose"
+        ],
+        "cause": "Lee transparency, trust, and tension passages were retrieved."
+      },
+      "classifier": {
+        "actual_type": "AI_SYNTHESIS",
+        "expected_type": "INTERPRETATION",
+        "cause": "Whole-turn type was too broad for the requested judgment."
+      },
+      "failure_category": "INTERPRETATION_AS_SYNTHESIS",
+      "generator": {
+        "cause": "Produced a bounded rebuttal but typed it AI_SYNTHESIS."
+      },
+      "verifier": {
+        "cause": "Accepted the type."
+      }
+    }
+  ]
+}

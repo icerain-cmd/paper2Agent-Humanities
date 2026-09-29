@@ -2,6 +2,20 @@ from __future__ import annotations
 from .retrieval import retrieve
 from .generator import generate
 from .model_adapter import ModelAdapter
+import re
+
+INTERPRETIVE_REQUEST = re.compile(
+    r"같은 저자 목소리|단일 주장|원래 명제|개념적 (?:동일성|간극)|"
+    r"구분|분리|비판|한정|충분히|비교|반박|"
+    r"compare|distinguish|critique|rebut|evaluate|same claim|same author voice",
+    re.IGNORECASE,
+)
+
+def response_type_hint(question: str, action: str) -> str | None:
+    if action == "SOURCE_RETRIEVAL" and INTERPRETIVE_REQUEST.search(question):
+        return "INTERPRETATION"
+    return None
+
 def live_turn(adapter:ModelAdapter, agent, research_question:str, action:str, target:dict,
               history:list[dict]|None=None, supporting_agents=()):
     agents=(agent, *supporting_agents)
@@ -33,6 +47,7 @@ def live_turn(adapter:ModelAdapter, agent, research_question:str, action:str, ta
       "target":target,"evidence":evidence,
       "dialogue_history":history or [],
       "output_contract":{"action":"copy dialogue_action exactly",
+          "response_type_hint":response_type_hint(research_question, action),
           "grounded":"non-UNRESOLVED requires support_ids, pages, evidence_span",
           "abstention":{"statement_type":"UNRESOLVED","support_ids":[],"pages":[],
               "evidence_voice":"UNKNOWN","evidence_span":None,

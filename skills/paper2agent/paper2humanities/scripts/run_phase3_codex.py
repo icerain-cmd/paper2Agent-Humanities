@@ -48,6 +48,20 @@ def agent_for(query: str, default: str = "lee-aura-2019", paper_id: str | None =
     return AGENTS[default]
 
 
+def supporting_agents_for(query: str, actor: PaperAgent) -> tuple[PaperAgent, ...]:
+    """Supply a second corpus only when the query explicitly names that work."""
+    low = query.lower()
+    names = []
+    if actor.paper_id != "lee-aura-2019" and ("lee" in low or "이용욱" in low):
+        names.append("lee-aura-2019")
+    if actor.paper_id == "lee-aura-2019":
+        if "v2" in low or "제2판" in low or "zweite fassung" in low:
+            names.append("benjamin-artwork-v2")
+        if "v3" in low or "제3판" in low or "dritte fassung" in low:
+            names.append("benjamin-artwork-v3")
+    return tuple(AGENTS[name] for name in names)
+
+
 def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str,
                 supporting_agents=()) -> list[str]:
     errors = []
@@ -88,6 +102,12 @@ def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str,
             elif (source.paper_id, source.edition_id) not in allowed or (turn["statement_type"] == "AUTHOR_CLAIM" and (source.paper_id, source.edition_id) != (agent.paper_id, agent.edition_id)):
                 errors.append("CROSS_EDITION_CONTAMINATION")
         known = [evidence[sid] for sid in supports if sid in evidence]
+        for claim in turn.get("claims", []):
+            if claim["statement_type"] == "AUTHOR_CLAIM" and any(
+                    sid not in evidence or evidence[sid].evidence_voice is None
+                    or evidence[sid].evidence_voice.value != "AUTHOR"
+                    for sid in claim["support_ids"]):
+                errors.append("FALSE_AUTHOR_CLAIM")
         if set(turn["pages"]) != {s.page for s in known}:
             errors.append("FAKE_PAGE_CITATION")
         span_sources = [s for s in known if s.evidence_span == turn["evidence_span"]]
@@ -122,6 +142,7 @@ def run_one(adapter: CodexExecAdapter, agent: PaperAgent, query: str, action: st
     verifier_packet = {"candidate_turn": turn,
                        "evidence": [evidence[sid].to_dict() for sid in sorted(selected)]}
     verifier_attempts = 0
+    verifier_alternative = None
     try:
         verifier_result = CodexExecAdapter(verifier_model).generate_typed_turn(
             system_contract="Independently check the candidate against only the supplied evidence. Return every candidate field unchanged if valid. Otherwise return an UNRESOLVED turn, preserving the candidate action, with empty support_ids and pages, UNKNOWN voice, null evidence_span, UNSUPPORTED semantic_support, and UNRESOLVED relation_type. No external knowledge or dialogue history.",
@@ -130,12 +151,14 @@ def run_one(adapter: CodexExecAdapter, agent: PaperAgent, query: str, action: st
         verified = json.loads(verifier_result.text)
         if verified != turn:
             errors.append("VERIFIER_DISAGREEMENT")
+            verifier_alternative = verified
     except (GenerationFormatFailure, ModelRuntimeUnavailable, ValueError) as exc:
         verifier_attempts = getattr(exc, "attempts", 0)
         errors.append(f"VERIFIER_FAILURE: {exc}")
     abstained = turn["statement_type"] == "UNRESOLVED"
     return {"outcome": "REJECTED" if errors else "ABSTAINED" if abstained else "ACCEPTED",
             "turn": turn, "gate_errors": errors, "retrieval_trace": trace,
+            "verifier_alternative": verifier_alternative,
             "model": result.model, "provider": result.provider, "prompt_sha256": result.prompt_sha256,
             "verifier_model": verifier_model, "fresh_context_verifier": True,
             "independent_model_verifier": result.model != verifier_model,
@@ -161,8 +184,10 @@ def generate_panel(panel_path: Path, output: Path, model: str = GENERATOR_MODEL,
     rows = []
     for row in panel["queries"]:
         agent = agent_for(row["query"], paper_id=row.get("paper_id"))
+        supporting = supporting_agents_for(row["query"], agent)
         rows.append({"query_id": row["query_id"],
-                     **run_one(adapter, agent, row["query"], "SOURCE_RETRIEVAL", verifier_model=verifier_model)})
+                     **run_one(adapter, agent, row["query"], "SOURCE_RETRIEVAL", verifier_model=verifier_model,
+                               supporting_agents=supporting)})
     write_json(output, {"panel_id": panel["panel_id"], "responses": rows,
                         "generator_model": model, "verifier_model": verifier_model,
                         "independent_model_verifier": model != verifier_model,
@@ -312,12 +337,18 @@ def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
                 errors.append("CROSS_EDITION_CONTAMINATION")
             else:
                 selected = set((response.get("retrieval_trace") or {}).get("selected_statement_ids") or [])
-                errors.extend(turn_errors(turn, actor, selected, "SOURCE_RETRIEVAL"))
+                allowed = (response.get("retrieval_trace") or {}).get("allowed_agents") or []
+                supporting = tuple(AGENTS[item["paper_id"]] for item in allowed
+                                   if item.get("paper_id") in AGENTS
+                                   and (item["paper_id"], item.get("edition_id")) != (actor.paper_id, actor.edition_id)
+                                   and AGENTS[item["paper_id"]].edition_id == item.get("edition_id"))
+                errors.extend(turn_errors(turn, actor, selected, "SOURCE_RETRIEVAL", supporting))
             if response.get("fresh_context_verifier") is not True:
                 errors.append("VERIFIER_DISAGREEMENT")
         row_gates = set()
-        for key in ("CROSS_EDITION_CONTAMINATION", "UNSUPPORTED_DIALOGUE_TURN",
-                    "TEMPORAL_CORPUS_CONTAMINATION", "FAKE_PAGE_CITATION", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE"):
+        for key in ("FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR", "CROSS_EDITION_CONTAMINATION",
+                    "UNSUPPORTED_DIALOGUE_TURN", "TEMPORAL_CORPUS_CONTAMINATION",
+                    "FAKE_PAGE_CITATION", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE"):
             if any(key in error for error in errors):
                 row_gates.add(key)
         if any(token in error for error in errors for token in ("UNSELECTED_SUPPORT_ID", "UNKNOWN_SUPPORT_ID", "EVIDENCE_SPAN_MISMATCH", "EVIDENCE_VOICE_MISMATCH", "PUBLICATION_GATE", "VERIFIER_DISAGREEMENT")):

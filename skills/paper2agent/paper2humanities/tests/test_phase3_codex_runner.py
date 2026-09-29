@@ -8,6 +8,7 @@ import pytest
 from paper2humanities.runtime.model_adapter import ModelResult
 from paper2humanities.runtime.model_adapter import validate_typed_turn, GenerationFormatFailure
 from paper2humanities.runtime.orchestration import live_turn
+from paper2humanities.runtime.orchestration import response_type_hint
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "run_phase3_codex.py"
 spec = importlib.util.spec_from_file_location("phase3_codex_runner", SCRIPT)
@@ -34,6 +35,51 @@ def test_turn_gate_checks_selected_support_page_span_voice_actor_and_action():
     assert "ACTOR_EDITION_MISMATCH" in runner.turn_errors({**turn, "actor_edition_id": "wrong"}, agent, {source.statement_id}, "SOURCE_RETRIEVAL")
     assert "ACTION_MISMATCH" in runner.turn_errors({**turn, "action": "CRITIQUE"}, agent, {source.statement_id}, "SOURCE_RETRIEVAL")
     assert "ACTION_STATEMENT_TYPE_MISMATCH" in runner.turn_errors({**turn, "action": "SYNTHESIS"}, agent, {source.statement_id}, "SYNTHESIS")
+
+
+def test_mixed_source_fact_and_rebuttal_requires_claim_level_interpretation():
+    agent = runner.AGENTS["lee-aura-2019"]
+    source = agent.store.get("lee-c-trust-definition")
+    fact = {"text": "Lee defines trust through distance adjustment", "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [source.statement_id]}
+    rebuttal = {"text": "The claim of no discussion of distance is too broad", "statement_type": "INTERPRETATION",
+                "support_ids": [source.statement_id]}
+    turn = {**source_turn(agent, source), "claims": [fact, rebuttal]}
+    with pytest.raises(GenerationFormatFailure, match="derived claim"):
+        validate_typed_turn(turn)
+    turn["statement_type"] = "INTERPRETATION"
+    assert runner.turn_errors(turn, agent, {source.statement_id}, "SOURCE_RETRIEVAL") == []
+
+
+def test_claim_level_author_fact_can_name_explicit_supporting_paper():
+    actor = runner.AGENTS["benjamin-artwork-v3"]
+    lee = runner.AGENTS["lee-aura-2019"]
+    benjamin = actor.store.get("b-v3-c-aura-distance")
+    lee_source = lee.store.get("lee-c-trust-definition")
+    turn = {**source_turn(actor, benjamin), "statement_type": "INTERPRETATION",
+            "support_ids": [benjamin.statement_id, lee_source.statement_id],
+            "pages": [benjamin.page, lee_source.page],
+            "claims": [{"text": "Lee describes trust through adjusted distance", "statement_type": "AUTHOR_CLAIM",
+                        "support_ids": [lee_source.statement_id]},
+                       {"text": "The two concepts cannot simply be equated", "statement_type": "INTERPRETATION",
+                        "support_ids": [benjamin.statement_id, lee_source.statement_id]}]}
+    assert runner.turn_errors(turn, actor, set(turn["support_ids"]), "SOURCE_RETRIEVAL", (lee,)) == []
+
+
+def test_explicit_cross_paper_comparison_supplies_only_named_second_corpus():
+    v3 = runner.AGENTS["benjamin-artwork-v3"]
+    assert runner.supporting_agents_for("V3의 거리 정의와 Lee 2019의 신뢰화 비교", v3) == (runner.AGENTS["lee-aura-2019"],)
+    assert runner.supporting_agents_for("V3의 거리 정의를 찾아라", v3) == ()
+    lee = runner.AGENTS["lee-aura-2019"]
+    assert runner.supporting_agents_for("Lee와 V2를 비교", lee) == (runner.AGENTS["benjamin-artwork-v2"],)
+
+
+def test_comparison_and_rebuttal_request_interpretation_without_changing_fact_lookup():
+    for query in ("두 문장을 같은 저자 목소리로 처리할 수 있는가?", "하나의 단일 주장인가? 분리해 답하라.",
+                  "두 개념을 원래 명제로 표기해도 되는가?", "비판에 어디까지 답할 수 있는가?"):
+        assert response_type_hint(query, "SOURCE_RETRIEVAL") == "INTERPRETATION"
+    assert response_type_hint("저자의 직접 주장의 페이지를 찾아라", "SOURCE_RETRIEVAL") is None
+    assert response_type_hint("비판하라", "CRITIQUE") is None
 
 
 def test_cross_paper_critique_and_v2_v3_contamination():
@@ -157,7 +203,7 @@ def test_frozen_hash_checked_before_gold_is_opened(tmp_path):
 def test_holdout_gates_count_artifact_errors(tmp_path):
     response = tmp_path / "responses.json"
     runner.write_json(response, {"responses": [{"query_id": "q1", "outcome": "REJECTED",
-        "gate_errors": ["FAKE_PAGE_CITATION", "TEMPORAL_CORPUS_CONTAMINATION", "VERIFIER_DISAGREEMENT"]}]})
+        "gate_errors": ["FAKE_PAGE_CITATION", "TEMPORAL_CORPUS_CONTAMINATION", "VERIFIER_DISAGREEMENT", "FALSE_AUTHOR_CLAIM"]}]})
     runner.write_json(tmp_path / "responses.manifest.json", {"response_sha256": runner.sha(response),
                       "response_frozen": True, "gold_available_during_generation": False})
     gold = tmp_path / "gold.json"
@@ -169,6 +215,32 @@ def test_holdout_gates_count_artifact_errors(tmp_path):
     assert gates["FAKE_PAGE_CITATION"] == 1
     assert gates["TEMPORAL_CORPUS_CONTAMINATION"] == 1
     assert gates["UNSUPPORTED_DIALOGUE_TURN"] == 1
+    assert gates["FALSE_AUTHOR_CLAIM"] == 1
+
+
+def test_score_rechecks_explicit_cross_paper_evidence_without_contamination(tmp_path):
+    actor = runner.AGENTS["benjamin-artwork-v3"]
+    lee = runner.AGENTS["lee-aura-2019"]
+    primary = actor.store.get("b-v3-c-aura-distance")
+    secondary = lee.store.get("lee-c-trust-definition")
+    turn = {**source_turn(actor, primary), "statement_type": "INTERPRETATION",
+            "support_ids": [primary.statement_id, secondary.statement_id],
+            "pages": [primary.page, secondary.page]}
+    response = tmp_path / "responses.json"
+    runner.write_json(response, {"responses": [{"query_id": "q1", "outcome": "ACCEPTED", "turn": turn,
+        "gate_errors": [], "fresh_context_verifier": True,
+        "retrieval_trace": {"selected_statement_ids": turn["support_ids"],
+                            "allowed_agents": [{"paper_id": actor.paper_id, "edition_id": actor.edition_id},
+                                               {"paper_id": lee.paper_id, "edition_id": lee.edition_id}]}}]})
+    runner.write_json(tmp_path / "responses.manifest.json", {"response_sha256": runner.sha(response),
+                      "response_frozen": True, "gold_available_during_generation": False})
+    gold = tmp_path / "gold.json"
+    runner.write_json(gold, {"panel_id": "p", "records": [{"query_id": "q1", "type": "INTERPRETATION",
+        "paper": actor.paper_id, "edition": actor.edition_id, "page": primary.page,
+        "support": [primary.statement_id]}]})
+    output = tmp_path / "score.json"
+    runner.score_holdout(gold, response, output)
+    assert all(value == 0 for value in json.loads(output.read_text())["hard_gate_counts"].values())
 
 
 def test_same_model_verifier_is_fresh_and_explicitly_nonindependent():
@@ -194,3 +266,21 @@ def test_same_model_verifier_is_fresh_and_explicitly_nonindependent():
     assert row["independent_model_verifier"] is False
     assert row["fresh_context_verifier"] is True
     assert set(packets[0]) == {"candidate_turn", "evidence"}
+
+
+def test_verifier_disagreement_preserves_alternative_for_diagnosis():
+    agent = runner.AGENTS["benjamin-artwork-v3"]
+    source = agent.store.get("b-v3-c-aura-distance")
+    turn = source_turn(agent, source)
+    alternative = {**turn, "text": "different answer"}
+    generator = ModelResult(json.dumps(turn), "codex-exec", runner.GENERATOR_MODEL, {"attempts": 1}, "digest")
+    class FakeVerifier:
+        def __init__(self, model): pass
+        def generate_typed_turn(self, **kwargs):
+            return ModelResult(json.dumps(alternative), "codex-exec", runner.VERIFIER_MODEL,
+                               {"attempts": 1}, "digest2")
+    with patch.object(runner, "live_turn", return_value=(turn, {"selected_statement_ids": [source.statement_id]}, generator)), \
+         patch.object(runner, "CodexExecAdapter", FakeVerifier):
+        result = runner.run_one(object(), agent, "query", "SOURCE_RETRIEVAL")
+    assert result["outcome"] == "REJECTED"
+    assert result["verifier_alternative"] == alternative
