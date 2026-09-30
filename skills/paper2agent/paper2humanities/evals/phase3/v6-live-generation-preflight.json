@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task": "PAPER2AGENT_HUMANITIES_V6_LIVE_GENERATION_PREFLIGHT",
+  "status": "BLOCKED_GENERATOR_UNAVAILABLE",
+  "checked_at_utc": "2026-09-30T05:03:53.669195+00:00",
+  "implementation_freeze_sha_v6": "fb895e563f5631103c3eb901069cc713097927ee",
+  "query_panel_freeze_commit": "d3eeaa110b37c3cd42d6d2d0803cafc9c99c4743",
+  "query_panel_sha256": "1b16f6e30dd49a43a9a8f6093c5acf7f68fc67cd3023ce8a4a774ae3c1870a7a",
+  "required_generator": "gpt-6-sol",
+  "required_verifier": "gpt-5.6-sol",
+  "independent_model_verifier_required": true,
+  "fresh_context_verifier_required": true,
+  "environment_checks": {
+    "codex_cli_available": false,
+    "ocx_available": false,
+    "codex_ds_available": false,
+    "model_runtime_env_present": false
+  },
+  "response_generation_started": false,
+  "response_artifact_created": false,
+  "gold_available": false,
+  "implementation_modified_after_freeze": false,
+  "next_step": "Run frozen HOLDOUT30_V6 panel with the required gpt-6-sol generator in an authorized live runtime; freeze responses and SHA before any gold creation.",
+  "merge_performed": false
+}
