@@ -788,7 +788,7 @@
         ]
       },
       "gate_errors": [],
-      "root_cause": "gold is valid: reviewed lee-c-immersion exists at PDF p.17 in the Phase2 fixture, but Phase3 runtime loads the stale base Lee fixture that omits it",
+      "root_cause": "gold is valid: reviewed Paper2Skill page 17 contains the comparison-table row 수용 태도 / 정신분산 / 정신몰입; the canonical Lee evidence index omitted that reviewed table row, so Phase3 runtime could not expose lee-c-immersion as grounded evidence",
       "repair_category": "STALE_RUNTIME_FIXTURE_GROUNDING"
     },
     {
@@ -1366,7 +1366,7 @@
   ],
   "notes": [
     "V5 remains DEV30_COMPAT_V5 and must never be reused as an official holdout.",
-    "H30V5-021 fixture audit: lee-c-immersion is a reviewed AUTHOR_CLAIM with page=17 and evidence_span in lee-aura-2019-phase2-agent.json; no page was invented.",
+    "H30V5-021 source audit: reviewed Paper2Skill page-0017 is reviewed=true and its comparison table contains |수용 태도|정신분산|정신몰입|; canonical evidence index page 17 omitted that reviewed table row. V6 restores the reviewed row; no page or span is invented.",
     "Runtime/evaluator/gold defects are intentionally separated before remediation."
   ]
 }

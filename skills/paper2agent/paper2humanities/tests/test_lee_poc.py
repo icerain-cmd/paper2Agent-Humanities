@@ -46,8 +46,8 @@ def test_unsupported_author_claim_gate_is_zero():
     report = evaluate_agent(agent, index)
     assert report["evaluation_scope"] == "CURATED_FIXTURE"
     assert report["evaluation_kind"] == "FIXTURE_VALIDATION"
-    assert report["grounded_statement_count"] == 10
-    assert report["total_statement_count"] == 11
+    assert report["grounded_statement_count"] == 11
+    assert report["total_statement_count"] == 12
     assert report["unsupported_author_claim"] == 0
     assert report["unsupported_claim_rate"] == 0.0
     assert report["page_level_traceability"] == 1.0
