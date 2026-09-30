@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task": "PAPER2AGENT_HUMANITIES_V6_IMPLEMENTATION_FREEZE",
+  "status": "FROZEN_PENDING_LIVE_HOLDOUT",
+  "implementation_parent_sha": "25cfda112bc9f2f4600671b0286b18b1632bafa7",
+  "v6_scoring_contract_sha": "675fc760eeff89bb84e347ce0b70b2cf747550ce",
+  "v6_pass_contract_sha": "146f954f3a074e06c44e3d0ae8de8af0d983c518",
+  "dev_regression_sha256": "69af8608a1a7cbcbb7c03532462c61af149dde69336343ef2a68f5a817375924",
+  "dev_regression_pass": true,
+  "tests": {
+    "humanities": "117/117 PASS",
+    "paper2skill_upstream": "27/27 PASS"
+  },
+  "unit_test_environment_note": "Two CodexExecAdapter unit tests use mocked subprocess calls; a temporary PATH stub was used only so shutil.which(codex) reaches those mocks. This does not establish a live Codex runtime.",
+  "live_runtime": {
+    "codex_cli_available": false,
+    "required_generator": "gpt-6-sol",
+    "required_verifier": "gpt-5.6-sol",
+    "generation_status": "BLOCKED_ON_THIS_HOST"
+  },
+  "immutability_after_freeze": [
+    "runtime",
+    "retrieval",
+    "classifier",
+    "schema",
+    "verifier",
+    "scorer",
+    "pass_contract"
+  ],
+  "historical_v5_policy": "DEV30_COMPAT_V5 preserved exactly; never reuse as holdout",
+  "merge_performed": false
+}
