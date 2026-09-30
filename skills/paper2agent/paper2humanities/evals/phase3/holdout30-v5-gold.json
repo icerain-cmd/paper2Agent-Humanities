@@ -1,0 +1,351 @@
+{
+  "schema_version": 5,
+  "panel_id": "phase3-holdout30-v5",
+  "panel_type": "HOLDOUT30_V5_GOLD",
+  "implementation_freeze_sha_v5": "7e00096335e5fe2be894d55e667c70e7a7d27051",
+  "query_panel_freeze_sha": "78a7c93",
+  "response_freeze_sha": "80736a58e778698c35e9ea761c30cb537e60a786",
+  "gold_created_after_response_freeze": true,
+  "gold_available_during_generation": false,
+  "records": [
+    {
+      "query_id": "H30V5-001",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 11,
+      "support": [
+        "lee-c-tech-start"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-002",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 7,
+      "support": [
+        "b-v3-c-aura-withers"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3"
+    },
+    {
+      "query_id": "H30V5-003",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-technique-human-use"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+    },
+    {
+      "query_id": "H30V5-004",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-005",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 12,
+      "support": [
+        "b-v3-c-cult-exhibition"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3"
+    },
+    {
+      "query_id": "H30V5-006",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-art-function"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+    },
+    {
+      "query_id": "H30V5-007",
+      "type": "SOURCE_QUOTE",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 18,
+      "support": [
+        "lee-q-benjamin-second-tech"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-008",
+      "type": "SOURCE_QUOTE",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 18,
+      "support": [
+        "lee-q-benjamin-second-tech"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-009",
+      "type": "UNRESOLVED",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": null,
+      "support": [],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-010",
+      "type": "UNRESOLVED",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": null,
+      "support": [],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+    },
+    {
+      "query_id": "H30V5-011",
+      "type": "UNRESOLVED",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": null,
+      "support": [],
+      "source_id": "s001-benjamin-kunstwerk-v3"
+    },
+    {
+      "query_id": "H30V5-012",
+      "type": "UNRESOLVED",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": null,
+      "support": [],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-013",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-c-tension"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-014",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 34,
+      "support": [
+        "b-v3-c-distraction"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3"
+    },
+    {
+      "query_id": "H30V5-015",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-play-origin"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+    },
+    {
+      "query_id": "H30V5-016",
+      "type": "CRITIQUE",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-interplay",
+        "lee-c-transparent"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+    },
+    {
+      "query_id": "H30V5-017",
+      "type": "CRITIQUE",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 7,
+      "support": [
+        "b-v3-c-aura-withers",
+        "lee-q-digital-aura"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3"
+    },
+    {
+      "query_id": "H30V5-018",
+      "type": "CRITIQUE",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition",
+        "b-v3-c-authenticity"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-019",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent",
+        "b-v2-c-interplay"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-020",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 17,
+      "support": [
+        "lee-q-digital-aura",
+        "b-v3-c-aura-withers"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-021",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 17,
+      "support": [
+        "lee-c-immersion",
+        "b-v3-c-distraction"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-022",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent",
+        "b-v2-c-interplay"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-023",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance",
+        "lee-c-trust-definition"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3"
+    },
+    {
+      "query_id": "H30V5-024",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-play-origin",
+        "lee-q-tech-editing"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+    },
+    {
+      "query_id": "H30V5-025",
+      "type": "AI_SYNTHESIS",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 17,
+      "support": [
+        "lee-q-digital-aura",
+        "b-v3-c-aura-withers"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-026",
+      "type": "AI_SYNTHESIS",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-technique-human-use",
+        "lee-c-transparent"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+    },
+    {
+      "query_id": "H30V5-027",
+      "type": "AI_SYNTHESIS",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition",
+        "b-v3-c-authenticity"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-028",
+      "type": "AI_SYNTHESIS",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent",
+        "b-v2-c-interplay"
+      ],
+      "source_id": "s001-lee-aura-2019"
+    },
+    {
+      "query_id": "H30V5-029",
+      "type": "AI_SYNTHESIS",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 34,
+      "support": [
+        "b-v3-c-distraction",
+        "lee-c-immersion"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3"
+    },
+    {
+      "query_id": "H30V5-030",
+      "type": "AI_SYNTHESIS",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-play-origin",
+        "lee-q-tech-editing"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+    }
+  ]
+}
