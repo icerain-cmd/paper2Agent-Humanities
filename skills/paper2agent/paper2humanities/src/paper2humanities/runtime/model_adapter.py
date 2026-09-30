@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from typing import Any
 import hashlib, json, os, urllib.request, subprocess, tempfile, shutil
 from pathlib import Path
+from .attribution import ATTRIBUTION_OWNERS, STATEMENT_FORMS, enrich_attribution_axes
 
 class ModelRuntimeUnavailable(RuntimeError):
     def __init__(self, message: str, attempts: int = 0):
@@ -48,6 +49,10 @@ def validate_typed_turn(value: Any) -> dict[str, Any]:
         raise GenerationFormatFailure("invalid statement or relation type")
     if value["evidence_voice"] not in {"AUTHOR", "EXTERNAL", "UNKNOWN"}:
         raise GenerationFormatFailure("invalid evidence voice")
+    if value.get("statement_form") is not None and value["statement_form"] not in STATEMENT_FORMS:
+        raise GenerationFormatFailure("invalid statement_form")
+    if value.get("attribution_owner") is not None and value["attribution_owner"] not in ATTRIBUTION_OWNERS:
+        raise GenerationFormatFailure("invalid attribution_owner")
     if not isinstance(value["support_ids"], list) or any(not isinstance(x, str) for x in value["support_ids"]):
         raise GenerationFormatFailure("support_ids must be string array")
     if not isinstance(value["pages"], list) or any(type(x) is not int or x < 1 for x in value["pages"]):
@@ -133,7 +138,7 @@ class CodexExecAdapter(ModelAdapter):
                 if completed.returncode != 0:
                     raise ModelRuntimeUnavailable(f"codex exec exited {completed.returncode}", attempt + 1)
                 try:
-                    value = validate_typed_turn(json.loads(output.read_text(encoding="utf-8")))
+                    value = enrich_attribution_axes(validate_typed_turn(json.loads(output.read_text(encoding="utf-8"))))
                 except (OSError, ValueError, TypeError) as exc:
                     error = str(exc)
                     continue
@@ -194,7 +199,7 @@ class OpenAICompatibleAdapter(ModelAdapter):
             with urllib.request.urlopen(req, timeout=120) as resp:
                 data = json.loads(resp.read())
             try:
-                value = validate_typed_turn(json.loads(data["choices"][0]["message"]["content"]))
+                value = enrich_attribution_axes(validate_typed_turn(json.loads(data["choices"][0]["message"]["content"])))
             except (ValueError, TypeError, KeyError, IndexError) as exc:
                 error = str(exc)
                 continue

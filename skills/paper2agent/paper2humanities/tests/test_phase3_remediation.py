@@ -208,3 +208,102 @@ def test_v6_pageless_final_support_and_missing_actor_are_explicit_gates():
              "actor_paper": actor.paper_id, "actor_edition_id": actor.edition_id, "action": "CRITIQUE",
              "claims": [{"text": "critique", "statement_type": "CRITIQUE", "support_ids": [target.statement_id]}]}
     assert "MISSING_ACTOR_SUPPORT" in runner.turn_errors(cross, actor, {target.statement_id}, "CRITIQUE", (lee,))
+
+
+def test_v6_attribution_axes_separate_answer_form_from_external_owner():
+    from paper2humanities.runtime.attribution import infer_attribution_owner, infer_statement_form
+    turn = {"statement_type": "INTERPRETATION", "evidence_voice": "EXTERNAL"}
+    assert infer_statement_form(turn) == "INTERPRETIVE_STATEMENT"
+    assert infer_attribution_owner(turn) == "EXTERNAL"
+    quote = {"statement_type": "SOURCE_QUOTE", "evidence_voice": "EXTERNAL"}
+    assert infer_statement_form(quote) == "QUOTE"
+    assert infer_attribution_owner(quote) == "EXTERNAL"
+
+
+def test_v6_factual_external_attribution_accepts_interpretive_judgment_form():
+    from test_phase3_codex_runner import runner
+    actor = runner.AGENTS["lee-aura-2019"]
+    source = actor.store.get("lee-q-benjamin-second-tech")
+    turn = {"text": "이 문장은 Lee 자신의 주장이 아니라 외부 인용이다.",
+            "statement_type": "INTERPRETATION", "evidence_voice": "EXTERNAL",
+            "support_ids": [source.statement_id], "pages": [source.page], "relation_type": "QUALIFIES",
+            "actor_paper": actor.paper_id, "actor_edition_id": actor.edition_id,
+            "action": "EXTERNAL_ATTRIBUTION", "semantic_support": "SEMANTICALLY_SUPPORTED",
+            "evidence_sufficiency": "SUFFICIENT", "qualification": None,
+            "evidence_span": source.evidence_span,
+            "claims": [{"text": "외부 인용으로 귀속된다.", "statement_type": "INTERPRETATION",
+                        "support_ids": [source.statement_id]}]}
+    response = {"query_id": "q", "source_id": actor.source_id, "outcome": "ACCEPTED",
+                "classified_action": "EXTERNAL_ATTRIBUTION", "turn": turn, "gate_errors": [],
+                "fresh_context_verifier": True, "independent_model_verifier": True,
+                "retrieval_trace": {"selected_statement_ids": [source.statement_id],
+                    "allowed_agents": [{"paper_id": actor.paper_id, "edition_id": actor.edition_id}]}}
+    gold = {"panel_id": "v6", "panel_type": "HOLDOUT30_V6_GOLD", "records": [{
+        "query_id": "q", "task_family": "FACTUAL", "action": "EXTERNAL_ATTRIBUTION",
+        "type": "SOURCE_QUOTE", "paper": actor.paper_id, "edition": actor.edition_id,
+        "page": source.page, "support": [source.statement_id], "source_id": actor.source_id,
+        "statement_form": "INTERPRETIVE_STATEMENT", "attribution_owner": "EXTERNAL"}]}
+    report = runner.score_v6_holdout(gold, {"responses": [response]}, {"response_sha256": "x", "gold_available_during_generation": False})
+    assert report["factual_task_accuracy"] == 1.0
+    assert report["attribution_form_accuracy"] == report["attribution_owner_accuracy"] == 1.0
+    assert all(v == 0 for v in report["hard_gate_counts"].values())
+
+
+def test_v6_scholarly_scoring_allows_alternative_grounded_support_path():
+    from test_phase3_codex_runner import runner
+    actor = runner.AGENTS["lee-aura-2019"]
+    benjamin = runner.AGENTS["benjamin-artwork-v3"]
+    lee_source = actor.store.get("lee-c-research-program")
+    b_source = benjamin.store.get("b-v3-c-aura-withers")
+    supports = [lee_source.statement_id, b_source.statement_id]
+    turn = {"text": "두 논의 사이의 판단 기준이 추가 연구 공백이다.",
+            "statement_type": "AI_SYNTHESIS", "evidence_voice": lee_source.evidence_voice.value,
+            "support_ids": supports, "pages": sorted({lee_source.page, b_source.page}),
+            "relation_type": "QUALIFIES", "actor_paper": actor.paper_id, "actor_edition_id": actor.edition_id,
+            "action": "RESEARCH_GAP", "semantic_support": "PARTIALLY_SUPPORTED",
+            "evidence_sufficiency": "PARTIAL", "qualification": "두 발췌가 직접 동일성을 주장하지는 않는다.",
+            "evidence_span": lee_source.evidence_span,
+            "claims": [{"text": "추가 연구의 판단 기준이 필요하다.", "statement_type": "AI_SYNTHESIS",
+                        "support_ids": supports}]}
+    response = {"query_id": "q", "source_id": actor.source_id, "outcome": "ACCEPTED",
+                "classified_action": "RESEARCH_GAP", "turn": turn, "gate_errors": [],
+                "fresh_context_verifier": True, "independent_model_verifier": True,
+                "retrieval_trace": {"selected_statement_ids": supports,
+                    "allowed_agents": [{"paper_id": actor.paper_id, "edition_id": actor.edition_id},
+                                       {"paper_id": benjamin.paper_id, "edition_id": benjamin.edition_id}]}}
+    gold = {"panel_id": "v6", "panel_type": "HOLDOUT30_V6_GOLD", "records": [{
+        "query_id": "q", "task_family": "SCHOLARLY", "action": "RESEARCH_GAP",
+        "type": "AI_SYNTHESIS", "paper": actor.paper_id, "edition": actor.edition_id,
+        "page": 17, "support": ["lee-q-digital-aura", "b-v3-c-aura-withers"],
+        "source_id": actor.source_id,
+        "required_papers": [{"paper_id": actor.paper_id, "edition_id": actor.edition_id},
+                            {"paper_id": benjamin.paper_id, "edition_id": benjamin.edition_id}]}]}
+    report = runner.score_v6_holdout(gold, {"responses": [response]}, {"response_sha256": "x", "gold_available_during_generation": False})
+    assert report["scholarly_task_validity"] == report["overall_validity"] == 1.0
+    assert all(v == 0 for v in report["hard_gate_counts"].values())
+
+
+def test_v6_factual_scoring_remains_strict_about_support_identity():
+    from test_phase3_codex_runner import runner
+    actor = runner.AGENTS["benjamin-artwork-v3"]
+    actual = actor.store.get("b-v3-c-film-examiner")
+    expected = actor.store.get("b-v3-c-distraction")
+    turn = {"text": actual.text, "statement_type": "AUTHOR_CLAIM", "evidence_voice": "AUTHOR",
+            "support_ids": [actual.statement_id], "pages": [actual.page], "relation_type": "QUALIFIES",
+            "actor_paper": actor.paper_id, "actor_edition_id": actor.edition_id, "action": "SOURCE_RETRIEVAL",
+            "semantic_support": "SEMANTICALLY_SUPPORTED", "evidence_sufficiency": "SUFFICIENT",
+            "qualification": None, "evidence_span": actual.evidence_span,
+            "claims": [{"text": actual.text, "statement_type": "AUTHOR_CLAIM", "support_ids": [actual.statement_id]}]}
+    response = {"query_id": "q", "source_id": actor.source_id, "outcome": "ACCEPTED",
+                "classified_action": "SOURCE_RETRIEVAL", "turn": turn, "gate_errors": [],
+                "fresh_context_verifier": True, "independent_model_verifier": True,
+                "retrieval_trace": {"selected_statement_ids": [actual.statement_id],
+                    "allowed_agents": [{"paper_id": actor.paper_id, "edition_id": actor.edition_id}]}}
+    gold = {"panel_id": "v6", "panel_type": "HOLDOUT30_V6_GOLD", "records": [{
+        "query_id": "q", "task_family": "FACTUAL", "action": "SOURCE_RETRIEVAL", "type": "AUTHOR_CLAIM",
+        "paper": actor.paper_id, "edition": actor.edition_id, "page": expected.page,
+        "support": [expected.statement_id], "source_id": actor.source_id,
+        "statement_form": "PARAPHRASE", "attribution_owner": "AUTHOR"}]}
+    report = runner.score_v6_holdout(gold, {"responses": [response]}, {"response_sha256": "x", "gold_available_during_generation": False})
+    assert report["factual_task_accuracy"] == 0.0
+    assert report["source_id_accuracy"] == 1.0

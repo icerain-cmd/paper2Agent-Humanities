@@ -18,11 +18,20 @@ from paper2humanities.runtime.model_adapter import (
 )
 from paper2humanities.runtime.orchestration import live_turn
 from paper2humanities.runtime.classifier import classify_query
-from paper2humanities.runtime.pass_contract import evaluate_pass_contract, load_v5_contract
+from paper2humanities.runtime.pass_contract import (
+    evaluate_pass_contract, evaluate_v6_pass_contract, load_v5_contract, load_v6_contract,
+)
+from paper2humanities.runtime.attribution import infer_attribution_owner, infer_statement_form
 from paper2humanities.runtime.verifier import publication_gate
 
 GENERATOR_MODEL = "gpt-6-sol"
 VERIFIER_MODEL = "gpt-5.6-sol"
+FACTUAL_ACTIONS = {"AUTHOR_ATTRIBUTION", "EXTERNAL_ATTRIBUTION", "SOURCE_RETRIEVAL"}
+SCHOLARLY_ACTIONS = {"INTERPRETATION", "CRITIQUE", "RESPONSE", "CROSS_PAPER_COMPARE", "RESEARCH_GAP", "RESEARCH_QUESTION"}
+V6_HARD_GATES = ("FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR", "WRONG_SOURCE_ID",
+    "CROSS_EDITION_CONTAMINATION", "UNSUPPORTED_DIALOGUE_TURN", "STALE_SEMANTIC_REVIEW",
+    "TEMPORAL_CORPUS_CONTAMINATION", "FAKE_PAGE_CITATION", "PAGELESS_FINAL_SUPPORT",
+    "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE")
 FIXTURES = ROOT / "fixtures"
 AGENTS = {name: PaperAgent.from_json(FIXTURES / f"{name}-agent.json") for name in
           ("benjamin-artwork-v2", "benjamin-artwork-v3", "lee-aura-2019")}
@@ -327,9 +336,151 @@ def score_dev(gold_path: Path, response_path: Path, output: Path) -> None:
     write_json(output, score)
 
 
+
+def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
+    """V6: strict factual scoring plus provenance-valid scholarly scoring."""
+    records = gold["records"]
+    responses = raw["responses"]
+    by_id = {row["query_id"]: row for row in responses}
+    if len(by_id) != len(responses) or set(by_id) != {row["query_id"] for row in records}:
+        raise ValueError("gold and response IDs differ")
+    if any(not row.get("source_id") or not row.get("action") or not row.get("task_family") for row in records):
+        raise ValueError("V6 gold requires source_id, action, and task_family")
+    gates = {name: 0 for name in V6_HARD_GATES}
+    if manifest.get("gold_available_during_generation") is not False:
+        gates["GOLD_LEAKAGE"] += 1
+    rows = []
+    factual_total = factual_valid = scholarly_total = scholarly_valid = 0
+    source_correct = page_total = page_correct = 0
+    unsupported_total = unsupported_rejected = 0
+    abstained_total = abstained_correct = 0
+    form_total = form_correct = owner_total = owner_correct = 0
+    for rec in records:
+        response = by_id[rec["query_id"]]
+        turn = response.get("turn") or {}
+        action = response.get("classified_action") or turn.get("action")
+        accepted = response.get("outcome") == "ACCEPTED"
+        abstained = response.get("outcome") == "ABSTAINED"
+        expected_unresolved = rec.get("expected_outcome") == "ABSTAIN" or rec.get("type") == "UNRESOLVED"
+        errors = list(response.get("gate_errors") or [])
+        row_gates = set()
+        source_id_match = response.get("source_id") == rec["source_id"]
+        source_correct += int(source_id_match)
+        if not source_id_match:
+            row_gates.add("WRONG_SOURCE_ID")
+        actor_match = turn.get("actor_paper") == rec.get("paper") and turn.get("actor_edition_id") == rec.get("edition")
+        if (accepted or abstained) and not actor_match:
+            row_gates.add("CROSS_EDITION_CONTAMINATION")
+        if response.get("fresh_context_verifier") is not True or response.get("independent_model_verifier") is not True:
+            row_gates.add("STALE_SEMANTIC_REVIEW")
+
+        evidence = {}
+        support_sources = set()
+        if accepted:
+            actor = AGENTS.get(turn.get("actor_paper"))
+            if actor is None:
+                errors.append("CROSS_EDITION_CONTAMINATION")
+            else:
+                allowed = (response.get("retrieval_trace") or {}).get("allowed_agents") or []
+                supporting = tuple(AGENTS[item["paper_id"]] for item in allowed
+                    if item.get("paper_id") in AGENTS
+                    and (item["paper_id"], item.get("edition_id")) != (actor.paper_id, actor.edition_id)
+                    and AGENTS[item["paper_id"]].edition_id == item.get("edition_id"))
+                selected = set((response.get("retrieval_trace") or {}).get("selected_statement_ids") or [])
+                errors.extend(turn_errors(turn, actor, selected, action, supporting))
+                evidence = {statement.statement_id: statement for agent in (actor, *supporting)
+                            for statement in agent.store.values()}
+                for sid in turn.get("support_ids", []):
+                    source = evidence.get(sid)
+                    if source is not None:
+                        support_sources.add((source.paper_id, source.edition_id))
+
+        for name in V6_HARD_GATES:
+            if any(name in error for error in errors):
+                row_gates.add(name)
+        if any(token in error for error in errors for token in
+               ("UNSELECTED_SUPPORT_ID", "UNKNOWN_SUPPORT_ID", "EVIDENCE_SPAN_MISMATCH",
+                "EVIDENCE_VOICE_MISMATCH", "PUBLICATION_GATE", "VERIFIER_DISAGREEMENT",
+                "MISSING_ACTOR_SUPPORT", "MISSING_TARGET_SUPPORT")):
+            row_gates.add("UNSUPPORTED_DIALOGUE_TURN")
+
+        owner = infer_attribution_owner(turn)
+        form = infer_statement_form(turn)
+        if accepted and turn.get("statement_type") == "AUTHOR_CLAIM" and owner == "EXTERNAL":
+            row_gates.update({"FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR"})
+        required_papers = {(item["paper_id"], item.get("edition_id")) for item in rec.get("required_papers", [])}
+        required_sources_ok = not required_papers or required_papers <= support_sources
+        if accepted and not required_sources_ok:
+            row_gates.add("UNSUPPORTED_DIALOGUE_TURN")
+
+        expected_form = rec.get("statement_form")
+        expected_owner = rec.get("attribution_owner")
+        form_ok = expected_form is None or form == expected_form
+        owner_ok = expected_owner is None or owner == expected_owner
+        if expected_form is not None and not expected_unresolved:
+            form_total += 1; form_correct += int(form_ok)
+        if expected_owner is not None and not expected_unresolved:
+            owner_total += 1; owner_correct += int(owner_ok)
+        if rec.get("page") is not None:
+            page_total += 1; page_correct += int(rec["page"] in turn.get("pages", []))
+
+        hard_gate_clean = not row_gates
+        action_ok = action == rec["action"] and turn.get("action") == rec["action"]
+        if rec["task_family"] == "FACTUAL":
+            factual_total += 1
+            if expected_unresolved:
+                valid = abstained and turn.get("statement_type") == "UNRESOLVED" and actor_match and source_id_match and action_ok and hard_gate_clean
+            else:
+                strict_support = set(turn.get("support_ids", [])) == set(rec.get("support", []))
+                strict_page = rec.get("page") is None or set(turn.get("pages", [])) == {rec["page"]}
+                valid = accepted and actor_match and source_id_match and action_ok and strict_support and strict_page and form_ok and owner_ok and hard_gate_clean
+            factual_valid += int(valid)
+        elif rec["task_family"] == "SCHOLARLY":
+            scholarly_total += 1
+            valid = (accepted and actor_match and source_id_match and action_ok and required_sources_ok
+                     and turn.get("semantic_support") in {"SEMANTICALLY_SUPPORTED", "PARTIALLY_SUPPORTED"}
+                     and turn.get("evidence_sufficiency") in {"SUFFICIENT", "PARTIAL"}
+                     and bool(turn.get("claims")) and hard_gate_clean)
+            scholarly_valid += int(valid)
+        else:
+            raise ValueError(f"unknown V6 task_family: {rec['task_family']}")
+
+        if expected_unresolved:
+            unsupported_total += 1
+            unsupported_rejected += int(abstained and turn.get("statement_type") == "UNRESOLVED")
+        if abstained:
+            abstained_total += 1
+            abstained_correct += int(expected_unresolved)
+        for name in row_gates:
+            gates[name] += 1
+        rows.append({"query_id": rec["query_id"], "task_family": rec["task_family"],
+                     "action": action, "valid": bool(valid), "outcome": response.get("outcome"),
+                     "statement_form": form, "attribution_owner": owner,
+                     "gate_errors": sorted(row_gates)})
+
+    total = len(records)
+    report = {"panel_id": gold["panel_id"], "response_sha256": manifest["response_sha256"],
+              "factual_task_accuracy": factual_valid / factual_total if factual_total else 1.0,
+              "scholarly_task_validity": scholarly_valid / scholarly_total if scholarly_total else 1.0,
+              "overall_validity": (factual_valid + scholarly_valid) / total,
+              "source_id_accuracy": source_correct / total,
+              "page_accuracy": page_correct / page_total if page_total else 1.0,
+              "attribution_form_accuracy": form_correct / form_total if form_total else 1.0,
+              "attribution_owner_accuracy": owner_correct / owner_total if owner_total else 1.0,
+              "unsupported_premise_rejection": unsupported_rejected / unsupported_total if unsupported_total else 1.0,
+              "abstention_precision": abstained_correct / abstained_total if abstained_total else 1.0,
+              "rows": rows, "hard_gate_counts": gates}
+    verdict = evaluate_v6_pass_contract(report, load_v6_contract())
+    report["pass_contract"] = verdict
+    report["status"] = verdict["status"]
+    return report
+
 def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
     manifest, raw = frozen_response(response_path)
     gold = json.loads(gold_path.read_text())
+    if gold.get("panel_type") == "HOLDOUT30_V6_GOLD":
+        write_json(output, score_v6_holdout(gold, raw, manifest))
+        return
     records = gold["records"]
     response_list = raw["responses"]
     by_id = {r["query_id"]: r for r in response_list}
