@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "panel_id": "phase3-holdout30-v5",
+  "original_role": "FRESH_HOLDOUT30_V5",
+  "formal_status": "FAIL",
+  "reclassification": "DEV30_COMPAT_V5",
+  "reason": "preregistered V5 pass contract failed; panel/response/gold are now exposed development data and must never be reused as holdout",
+  "response_sha256": "c9b213bcf35b90bf0c9daa275884a17d47ea95dbe19879f1b43e754296031009",
+  "score_sha256": "02e2fd4abce71fe45cb2d062eebb5d5ba2ca55bb266246f0418b88421d9ddbf0",
+  "accuracy": 0.7,
+  "hard_gate_counts": {
+    "FALSE_AUTHOR_CLAIM": 0,
+    "EXTERNAL_AS_AUTHOR_ERROR": 0,
+    "CROSS_EDITION_CONTAMINATION": 1,
+    "UNSUPPORTED_DIALOGUE_TURN": 0,
+    "TEMPORAL_CORPUS_CONTAMINATION": 0,
+    "FAKE_PAGE_CITATION": 2,
+    "HARDCODED_DIALOGUE_TEXT": 0,
+    "GOLD_LEAKAGE": 0,
+    "WRONG_SOURCE_ID": 0,
+    "STALE_SEMANTIC_REVIEW": 0
+  },
+  "failed_query_ids": [
+    "H30V5-003",
+    "H30V5-005",
+    "H30V5-006",
+    "H30V5-007",
+    "H30V5-008",
+    "H30V5-016",
+    "H30V5-021",
+    "H30V5-025",
+    "H30V5-029"
+  ],
+  "reuse_policy": "DEVELOPMENT_ONLY; future final validation requires new implementation freeze and fresh HOLDOUT30_V6 with exact query overlap zero"
+}
