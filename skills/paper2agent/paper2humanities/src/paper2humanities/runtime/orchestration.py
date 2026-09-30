@@ -23,24 +23,44 @@ def live_turn(adapter:ModelAdapter, agent, research_question:str, action:str, ta
     if len(identities)!=len(set(identities)):
         raise ValueError("duplicate allowed paper/edition")
     evidence=[]
+    retrieval_hints=[]
     traces=[]
     seen_ids=set()
+    grounded_counts={}
     for source_agent in agents:
         hits, source_trace=retrieve(source_agent,research_question,action=action)
-        traces.append(source_trace)
+        publishable_ids=[]
+        hint_ids=[]
         for hit in hits:
             if hit.statement_id in seen_ids:
                 raise ValueError("ambiguous support ID across selected agents")
             seen_ids.add(hit.statement_id)
             source=source_agent.store.get(hit.statement_id)
+            if hit.page is None or not hit.evidence_span:
+                hint_ids.append(hit.statement_id)
+                retrieval_hints.append({"statement_id":hit.statement_id,"paper_id":hit.paper_id,
+                    "edition_id":hit.edition_id,"text":source.text})
+                continue
+            publishable_ids.append(hit.statement_id)
             evidence.append({**hit.__dict__, "text":source.text,
                 "statement_type":source.statement_type.value,
                 "evidence_voice":source.evidence_voice.value if source.evidence_voice else "UNKNOWN",
                 "citation":source.citation})
+        grounded_counts[(source_agent.paper_id,source_agent.edition_id)]=len(publishable_ids)
+        source_trace={**source_trace,"publishable_selected_statement_ids":publishable_ids,
+                      "hint_statement_ids":hint_ids}
+        traces.append(source_trace)
+    cross_source_action=action in {"CRITIQUE","RESPONSE","CROSS_PAPER_COMPARE","RESEARCH_GAP","RESEARCH_QUESTION"}
+    required_identities=identities if cross_source_action and len(agents)>1 else []
+    missing_required=[{"paper_id":p,"edition_id":v} for p,v in required_identities
+                      if grounded_counts.get((p,v),0)==0]
     trace={"action":action,"selected_statement_ids":[e["statement_id"] for e in evidence],
            "selected_evidence":[{"statement_id":e["statement_id"],"paper_id":e["paper_id"],
                "edition_id":e["edition_id"],"page":e["page"],"evidence_span":e["evidence_span"]} for e in evidence],
-           "source_traces":traces,"allowed_agents":[{"paper_id":p,"edition_id":v} for p,v in identities]}
+           "retrieval_hints":retrieval_hints,"source_traces":traces,
+           "required_source_presence":[{"paper_id":p,"edition_id":v} for p,v in required_identities],
+           "missing_required_sources":missing_required,
+           "allowed_agents":[{"paper_id":p,"edition_id":v} for p,v in identities]}
     packet={
       "research_question":research_question,"dialogue_action":action,
       "actor_paper":agent.paper_id,"actor_edition_id":agent.edition_id,
@@ -49,6 +69,9 @@ def live_turn(adapter:ModelAdapter, agent, research_question:str, action:str, ta
       "output_contract":{"action":"copy dialogue_action exactly",
           "response_type_hint":response_type_hint(research_question, action),
           "grounded":"non-UNRESOLVED requires support_ids, pages, evidence_span",
+          "required_source_presence":[{"paper_id":p,"edition_id":v} for p,v in required_identities],
+          "missing_required_sources":missing_required,
+          "missing_source_rule":"if missing_required_sources is non-empty, abstain",
           "abstention":{"statement_type":"UNRESOLVED","support_ids":[],"pages":[],
               "evidence_voice":"UNKNOWN","evidence_span":None,
               "semantic_support":"UNSUPPORTED","relation_type":"UNRESOLVED"}}

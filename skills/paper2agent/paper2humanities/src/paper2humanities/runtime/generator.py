@@ -21,7 +21,10 @@ The output action MUST exactly copy input dialogue_action. Never use a reason co
 For AUTHOR_ATTRIBUTION cite only AUTHOR voice evidence; for EXTERNAL_ATTRIBUTION cite
 only EXTERNAL voice evidence and never turn it into an author claim. INTERPRETATION and
 CROSS_PAPER_COMPARE require an evidence-bounded interpretation. An empty evidence packet
-always requires the UNRESOLVED abstention form below.
+always requires the UNRESOLVED abstention form below. If output_contract.missing_required_sources
+is non-empty, the requested cross-paper actor/target grounding is incomplete and you MUST return
+the UNRESOLVED abstention form rather than constructing a one-sided scholarly turn. Retrieval hints
+are not source evidence and must never be cited as support.
 If evidence is insufficient, statement_type MUST be UNRESOLVED with support_ids=[],
 pages=[], evidence_voice=UNKNOWN, evidence_span=null, semantic_support=UNSUPPORTED,
 evidence_sufficiency=INSUFFICIENT or CONFLICTING, qualification=null,

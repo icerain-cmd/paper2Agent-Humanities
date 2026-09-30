@@ -108,6 +108,14 @@ def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str,
             elif (source.paper_id, source.edition_id) not in allowed or (turn["statement_type"] == "AUTHOR_CLAIM" and (source.paper_id, source.edition_id) != (agent.paper_id, agent.edition_id)):
                 errors.append("CROSS_EDITION_CONTAMINATION")
         known = [evidence[sid] for sid in supports if sid in evidence]
+        if any(source.page is None or not source.evidence_span for source in known):
+            errors.append("PAGELESS_FINAL_SUPPORT")
+        if action in {"CRITIQUE", "RESPONSE", "CROSS_PAPER_COMPARE", "RESEARCH_GAP", "RESEARCH_QUESTION"} and supporting_agents:
+            used_sources = {(source.paper_id, source.edition_id) for source in known}
+            if (agent.paper_id, agent.edition_id) not in used_sources:
+                errors.append("MISSING_ACTOR_SUPPORT")
+            if any((other.paper_id, other.edition_id) not in used_sources for other in supporting_agents):
+                errors.append("MISSING_TARGET_SUPPORT")
         for claim in turn.get("claims", []):
             if claim["statement_type"] == "AUTHOR_CLAIM" and any(
                     sid not in evidence or evidence[sid].evidence_voice is None
@@ -330,7 +338,7 @@ def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
     gates = {key: 0 for key in ("FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR",
              "CROSS_EDITION_CONTAMINATION", "UNSUPPORTED_DIALOGUE_TURN",
              "TEMPORAL_CORPUS_CONTAMINATION", "FAKE_PAGE_CITATION", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE",
-             "WRONG_SOURCE_ID", "STALE_SEMANTIC_REVIEW")}
+             "WRONG_SOURCE_ID", "STALE_SEMANTIC_REVIEW", "PAGELESS_FINAL_SUPPORT")}
     if manifest.get("gold_available_during_generation") is not False:
         gates["GOLD_LEAKAGE"] += 1
     rows = []
@@ -395,10 +403,10 @@ def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
             row_gates.add("STALE_SEMANTIC_REVIEW")
         for key in ("FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR", "CROSS_EDITION_CONTAMINATION",
                     "UNSUPPORTED_DIALOGUE_TURN", "TEMPORAL_CORPUS_CONTAMINATION",
-                    "FAKE_PAGE_CITATION", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE"):
+                    "FAKE_PAGE_CITATION", "PAGELESS_FINAL_SUPPORT", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE"):
             if any(key in error for error in errors):
                 row_gates.add(key)
-        if any(token in error for error in errors for token in ("UNSELECTED_SUPPORT_ID", "UNKNOWN_SUPPORT_ID", "EVIDENCE_SPAN_MISMATCH", "EVIDENCE_VOICE_MISMATCH", "PUBLICATION_GATE", "VERIFIER_DISAGREEMENT")):
+        if any(token in error for error in errors for token in ("UNSELECTED_SUPPORT_ID", "UNKNOWN_SUPPORT_ID", "EVIDENCE_SPAN_MISMATCH", "EVIDENCE_VOICE_MISMATCH", "PUBLICATION_GATE", "VERIFIER_DISAGREEMENT", "MISSING_ACTOR_SUPPORT", "MISSING_TARGET_SUPPORT")):
             row_gates.add("UNSUPPORTED_DIALOGUE_TURN")
         if accepted and turn.get("statement_type") == "AUTHOR_CLAIM" and rec["type"] != "AUTHOR_CLAIM":
             row_gates.add("FALSE_AUTHOR_CLAIM")

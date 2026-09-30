@@ -7,8 +7,17 @@ from ..schema import StatementType
 
 TOKEN = re.compile(r"[A-Za-z][A-Za-z0-9_-]*|[가-힣]{2,}")
 ALIASES = {
-    "second technology": {"제2기술","zweite technik","second technology"},
-    "third technology": {"제3기술","third technology"},
+    "first technology": {"첫째 기술", "첫 번째 기술", "제1기술", "erste technik", "first technology"},
+    "second technology": {"둘째 기술", "두 번째 기술", "제2기술", "zweite technik", "second technology"},
+    "third technology": {"제3기술", "third technology"},
+    "human deployment": {"인간을 투입", "인간 투입", "사람을 사용", "인간을 사용", "mensch", "einsetzt", "einsetzen", "human deployment", "deploy the human", "human use"},
+    "cult value": {"제의가치", "제의 가치", "kultwert", "cult value"},
+    "exhibition value": {"전시가치", "전시 가치", "ausstellungswert", "exhibition value"},
+    "social function": {"사회적 기능", "사회 기능", "funktion der heutigen kunst", "social function", "socially decisive function"},
+    "interplay": {"자연과 인류의 상호작용", "자연과 인간의 상호작용", "상호작용", "zusammenspiel", "natur und menschheit", "interplay", "nature and humanity"},
+    "reception": {"수용", "rezeption", "reception"},
+    "polar accents": {"두 극", "극", "polare", "polar accents"},
+    "contemporary art": {"현대 예술", "현대예술", "heutigen kunst", "contemporary art"},
     "aura": {"아우라","aura"},
     "authenticity": {"진정성","진품성","echtheit","authenticity"},
     "distraction": {"정신분산","zerstreuung","distraction"},

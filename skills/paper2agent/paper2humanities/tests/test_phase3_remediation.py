@@ -140,3 +140,71 @@ def test_v5_scoring_checks_source_id_and_frozen_semantic_review(tmp_path):
     scored = json.loads(output.read_text())
     assert scored["status"] == "FAIL"
     assert scored["hard_gate_counts"]["WRONG_SOURCE_ID"] == 1
+
+
+def test_v6_multilingual_aliases_recover_v5_expected_evidence_without_padding():
+    from test_phase3_codex_runner import runner
+    cases = [
+        (runner.AGENTS["benjamin-artwork-v2"], "V2에서 첫째 기술과 둘째 기술이 인간을 투입하는 방식이 다르다는 근거", "AUTHOR_ATTRIBUTION", "b-v2-c-technique-human-use"),
+        (runner.AGENTS["benjamin-artwork-v3"], "V3에서 제의가치와 전시가치를 작품 수용의 두 극으로 설명하는 근거", "SOURCE_RETRIEVAL", "b-v3-c-cult-exhibition"),
+        (runner.AGENTS["benjamin-artwork-v2"], "V2에서 현대 예술의 사회적 기능을 자연과 인류의 상호작용 연습과 연결하는 근거", "SOURCE_RETRIEVAL", "b-v2-c-art-function"),
+        (runner.AGENTS["benjamin-artwork-v2"], "V2의 자연과 인류의 상호작용 개념", "CRITIQUE", "b-v2-c-interplay"),
+    ]
+    for agent, query, action, expected in cases:
+        hits, trace = retrieve(agent, query, action=action)
+        assert expected in trace["selected_statement_ids"]
+        assert hits
+    hits, trace = retrieve(runner.AGENTS["benjamin-artwork-v2"], "quasar nebula astrophysics", limit=50)
+    assert hits == [] and trace["selected_statement_ids"] == []
+
+
+def test_v6_phase3_lee_fixture_contains_reviewed_grounded_immersion_claim():
+    from test_phase3_codex_runner import runner
+    source = runner.AGENTS["lee-aura-2019"].store.get("lee-c-immersion")
+    assert source.statement_type.value == "AUTHOR_CLAIM"
+    assert source.evidence_voice.value == "AUTHOR"
+    assert source.page == 17 and source.evidence_span == "수용 태도|정신분산|정신몰입"
+    assert source.review_status.value == "REVIEWED"
+
+
+def test_v6_pageless_interpretation_is_trace_hint_not_final_evidence():
+    from test_phase3_codex_runner import runner
+    packets = []
+    actor = runner.AGENTS["benjamin-artwork-v3"]
+    lee = runner.AGENTS["lee-aura-2019"]
+    class Adapter:
+        def available(self): return True
+        def generate_typed_turn(self, *, system_contract, payload):
+            packets.append(payload)
+            turn = {"text": "insufficient", "statement_type": "UNRESOLVED", "evidence_voice": "UNKNOWN",
+                    "support_ids": [], "pages": [], "relation_type": "UNRESOLVED", "actor_paper": actor.paper_id,
+                    "actor_edition_id": actor.edition_id, "action": payload["dialogue_action"],
+                    "semantic_support": "UNSUPPORTED", "evidence_sufficiency": "INSUFFICIENT",
+                    "qualification": None, "evidence_span": None, "claims": []}
+            return ModelResult(json.dumps(turn), "test", "test", {"attempts": 1}, "digest")
+    _, trace, _ = live_turn(Adapter(), actor, "Benjamin V3의 정신분산과 Lee 2019의 몰입을 함께 검토하는 연구질문", "RESEARCH_QUESTION", {}, supporting_agents=(lee,))
+    assert "lee-i-distance" not in trace["selected_statement_ids"]
+    assert "lee-i-distance" in {h["statement_id"] for h in trace["retrieval_hints"]}
+    assert "lee-c-immersion" in trace["selected_statement_ids"]
+    assert trace["missing_required_sources"] == []
+    assert all(item["page"] and item["evidence_span"] for item in trace["selected_evidence"])
+    assert all(e["page"] and e["evidence_span"] for e in packets[0]["evidence"])
+
+
+def test_v6_pageless_final_support_and_missing_actor_are_explicit_gates():
+    from test_phase3_codex_runner import runner
+    lee = runner.AGENTS["lee-aura-2019"]
+    sid = "lee-i-distance"
+    turn = {"text": "derived", "statement_type": "INTERPRETATION", "evidence_voice": "UNKNOWN",
+            "support_ids": [sid], "pages": [17], "relation_type": "QUALIFIES", "actor_paper": lee.paper_id,
+            "actor_edition_id": lee.edition_id, "action": "INTERPRETATION", "semantic_support": "SEMANTICALLY_SUPPORTED",
+            "evidence_sufficiency": "SUFFICIENT", "qualification": None, "evidence_span": "derived", "claims": [
+                {"text": "derived", "statement_type": "INTERPRETATION", "support_ids": [sid]}]}
+    assert "PAGELESS_FINAL_SUPPORT" in runner.turn_errors(turn, lee, {sid}, "INTERPRETATION")
+    actor = runner.AGENTS["benjamin-artwork-v2"]
+    target = lee.store.get("lee-c-transparent")
+    cross = {**turn, "text": "critique", "statement_type": "CRITIQUE", "evidence_voice": "AUTHOR",
+             "support_ids": [target.statement_id], "pages": [target.page], "evidence_span": target.evidence_span,
+             "actor_paper": actor.paper_id, "actor_edition_id": actor.edition_id, "action": "CRITIQUE",
+             "claims": [{"text": "critique", "statement_type": "CRITIQUE", "support_ids": [target.statement_id]}]}
+    assert "MISSING_ACTOR_SUPPORT" in runner.turn_errors(cross, actor, {target.statement_id}, "CRITIQUE", (lee,))
