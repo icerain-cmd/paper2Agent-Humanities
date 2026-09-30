@@ -110,3 +110,11 @@ BENJAMIN_AGENT=PENDING_SOURCE_APPROVAL
 ```
 
 No Lee ↔ Benjamin critique, response, or research-gap generation is executed in Phase 1.5.
+
+## Phase-2 facsimile verification update
+
+Actual source files were downloaded and checked. The Commons four-version container is 291 PDF pages with SHA-256 `0f5f14abc67e1da4829b37830d2ac3f554468e7ff7470be3d6dd4db813d877c1`. V2 occupies container PDF pp.196–230 = GS VII.1 pp.350–384. The reviewed working slice is 35 pages with SHA-256 `d5c9f013689f2662a64e8235a4599ade25036fb40dcd18a388b93d683bcca0ec`. Its first/second-technology passage occurs at container p.205 / slice p.10 / GS p.359. The source uses grammatical forms including `erste Technik`, `die zweite`, and `der zweiten Technik`, together with `Ein für allemal`, `Einmal ist keinmal`, and the origin of second technology in `Spiel`.
+
+The separate V3 facsimile is 38 pages, SHA-256 `bdb9107b41e05fd6919592d6ba786b501f160a1618b1d9e1f4d21108d0745568`, mapping PDF pp.1–38 to GS I.2 pp.471–508. Aura/Echtheit/Kultwert/Ausstellungswert/Film/Zerstreuung/Rezeption were positively located. A full-page scan found no V2-specific first/second-technology passage strings.
+
+Both candidates were later explicitly approved by the user on 2026-09-28. Verification and approval remain separate events; V2 and V3 were subsequently ingested as distinct Paper Agents.

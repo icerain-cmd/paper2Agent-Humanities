@@ -19,14 +19,19 @@ class PaperAgent:
         source_sha256: str,
         concepts: list[str],
         statements: list[EpistemicStatement],
+        edition_id: str | None = None,
+        forbidden_terms: list[str] | None = None,
     ):
         self.paper_id = paper_id
         self.title = title
         self.author = author
         self.source_id = source_id
         self.source_sha256 = source_sha256
+        self.edition_id = edition_id
+        self.forbidden_terms = tuple(forbidden_terms or ())
         self.concepts = tuple(concepts)
         self.store = StatementStore(statements)
+        self._validate_statement_boundaries()
 
     @classmethod
     def from_json(cls, path: str | Path) -> "PaperAgent":
@@ -39,7 +44,31 @@ class PaperAgent:
             source_sha256=data["source"]["sha256"],
             concepts=list(data.get("concepts", [])),
             statements=[EpistemicStatement.from_dict(item) for item in data["statements"]],
+            edition_id=data.get("source", {}).get("edition_id") or data.get("edition_id"),
+            forbidden_terms=list(data.get("corpus_policy", {}).get("forbidden_terms", [])),
         )
+
+
+    def _validate_statement_boundaries(self) -> None:
+        for statement in self.store.values():
+            if statement.statement_type not in {StatementType.SOURCE_QUOTE, StatementType.AUTHOR_CLAIM}:
+                continue
+            if statement.paper_id != self.paper_id or statement.source_id != self.source_id:
+                raise ValueError(f"grounded statement crosses PaperAgent source boundary: {statement.statement_id}")
+            if self.edition_id is not None and statement.edition_id != self.edition_id:
+                raise ValueError(f"grounded statement crosses PaperAgent edition boundary: {statement.statement_id}")
+            if self.edition_id is None and statement.edition_id is not None:
+                raise ValueError(f"statement declares edition for non-editioned PaperAgent: {statement.statement_id}")
+
+    def validate_output_text(self, text: str) -> None:
+        violations = [term for term in self.forbidden_terms if term and term.lower() in text.lower()]
+        if self.edition_id == "benjamin-artwork-v3" and re.search(
+            r"\b(?:erste|ersten|erster|erstes|zweite|zweiten|zweiter|zweites)\s+Technik\b",
+            text, re.IGNORECASE,
+        ):
+            violations.append("V2 first/second technology terminology")
+        if violations:
+            raise ValueError(f"temporal/corpus boundary violation for {self.paper_id}: {violations}")
 
     def retrieve(
         self,
@@ -70,4 +99,5 @@ class PaperAgent:
             statement.statement_type in {StatementType.SOURCE_QUOTE, StatementType.AUTHOR_CLAIM}
             and statement.paper_id == self.paper_id
             and statement.source_id == self.source_id
+            and statement.edition_id == self.edition_id
         )

@@ -1,0 +1,124 @@
+{
+  "schema_version": 2,
+  "paper_id": "benjamin-artwork-v2",
+  "title": "Das Kunstwerk im Zeitalter seiner technischen Reproduzierbarkeit (Zweite Fassung)",
+  "author": "Walter Benjamin",
+  "source": {
+    "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+    "sha256": "d5c9f013689f2662a64e8235a4599ade25036fb40dcd18a388b93d683bcca0ec",
+    "edition_id": "benjamin-artwork-v2",
+    "edition": {
+      "work_id": "benjamin-artwork",
+      "edition_id": "benjamin-artwork-v2",
+      "version_label": "Zweite Fassung (1936)",
+      "source_language": "de",
+      "publication_year": 1989,
+      "canonical_source": "Walter Benjamin, Gesammelte Schriften VII.1, Suhrkamp 1989, pp.350-384"
+    },
+    "paper2skill_verification": "reviewed_with_limitations",
+    "user_approved": true
+  },
+  "concepts": [
+    "Aura",
+    "erste Technik",
+    "zweite Technik",
+    "Spiel",
+    "Zusammenspiel",
+    "Film"
+  ],
+  "corpus_policy": {
+    "forbidden_terms": []
+  },
+  "statements": [
+    {
+      "statement_id": "b-v2-c-technique-human-use",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin distinguishes first and second technology by the tendency of the first to deploy the human as much as possible and the second as little as possible.",
+      "paper_id": "benjamin-artwork-v2",
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "author": "Walter Benjamin",
+      "page": 10,
+      "section": "VI",
+      "evidence_span": "daß die erste Technik den Menschen so sehr, daß die zweite ihn so wenig wie möglich einsetzt.",
+      "citation": "V2 PDF p.10; GS VII.1 p.359",
+      "edition_id": "benjamin-artwork-v2",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v2-c-once-experiment",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "First technology is associated with the once-for-all, while second technology is associated with experiment and repeatable variation.",
+      "paper_id": "benjamin-artwork-v2",
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "author": "Walter Benjamin",
+      "page": 10,
+      "section": "VI",
+      "evidence_span": "Das Ein für allemal gilt für die erste Technik (da geht es um die nie wiedergutzumachende Verfehlung oder den ewig stellvertretenden Opfertod). Das Einmal ist keinmal gilt für die zweite (sie hat es mit dem Experiment und seiner unermüdlichen Variierung der Versuchsanordnung zu tun).",
+      "citation": "V2 PDF p.10; GS VII.1 p.359",
+      "edition_id": "benjamin-artwork-v2",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v2-c-play-origin",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin locates the origin of second technology in the human taking distance from nature and, in other words, in play.",
+      "paper_id": "benjamin-artwork-v2",
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "author": "Walter Benjamin",
+      "page": 10,
+      "section": "VI",
+      "evidence_span": "Der Ursprung der zweiten Technik ist da zu suchen, wo der Mensch zum ersten Mal und mit unbewußter List daran ging, Abstand von der Natur zu nehmen. Er liegt mit anderen Worten im Spiel.",
+      "citation": "V2 PDF p.10; GS VII.1 p.359",
+      "edition_id": "benjamin-artwork-v2",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v2-c-interplay",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin contrasts domination of nature with second technology's orientation toward an interplay between nature and humanity.",
+      "paper_id": "benjamin-artwork-v2",
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "author": "Walter Benjamin",
+      "page": 10,
+      "section": "VI",
+      "evidence_span": "Die erste hat es wirklich auf Beherrschung der Natur abgesehen; die zweite viel mehr auf ein Zusammenspiel zwischen der Natur und der Menschheit.",
+      "citation": "V2 PDF p.10; GS VII.1 p.359",
+      "edition_id": "benjamin-artwork-v2",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v2-c-art-function",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "The socially decisive function of contemporary art is described as practice in this interplay, especially in film.",
+      "paper_id": "benjamin-artwork-v2",
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "author": "Walter Benjamin",
+      "page": 10,
+      "section": "VI",
+      "evidence_span": "Funktion der heutigen Kunst ist Einübung in dieses Zusammenspiel. Insbesondere gilt das vom Film.",
+      "citation": "V2 PDF p.10; GS VII.1 p.359",
+      "edition_id": "benjamin-artwork-v2",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
+      "statement_id": "b-v2-c-aura-decay",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Benjamin defines aura as a unique appearance of distance and connects its contemporary decay to mass reproduction and the desire to bring things nearer.",
+      "paper_id": "benjamin-artwork-v2",
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "author": "Walter Benjamin",
+      "page": 6,
+      "section": "IV",
+      "evidence_span": "Was ist eigentlich Aura? Ein sonderbares Gespinst aus Raum und Zeit: einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+      "citation": "V2 PDF p.6; GS VII.1 p.355",
+      "edition_id": "benjamin-artwork-v2",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    }
+  ]
+}

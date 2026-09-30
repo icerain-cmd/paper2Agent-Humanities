@@ -1,6 +1,9 @@
 """Paper2Agent-Humanities public API."""
 
-from .dialogue import DialogueAction, DialogueTurn, ScholarlyDialogue
+from .dialogue import (
+    DialogueAction, DialogueTurn, RelationType, SemanticSupportStatus,
+    ScholarlyDialogue, review_binding_sha256, validate_turn_for_publication,
+)
 from .evaluation import evaluate_agent
 from .paper_agent import PaperAgent
 from .provenance import (
@@ -16,6 +19,8 @@ __all__ = [
     "AttributionFirewall",
     "DialogueAction",
     "DialogueTurn",
+    "RelationType",
+    "SemanticSupportStatus",
     "EpistemicStatement",
     "EvidenceVoice",
     "PaperAgent",
@@ -29,4 +34,6 @@ __all__ = [
     "evaluate_agent",
     "unsupported_author_claims",
     "validate_against_source",
+    "validate_turn_for_publication",
+    "review_binding_sha256",
 ]

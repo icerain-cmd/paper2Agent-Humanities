@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "test": "E",
+  "method": "Lee 2019 responses use Lee-2019 evidence only.",
+  "response_count": 6,
+  "turns": [
+    {
+      "turn_id": "E1-lee-third-tech-response",
+      "action": "RESPOND",
+      "actor_paper": "lee-aura-2019",
+      "actor_edition_id": null,
+      "target_paper": "benjamin-artwork-v2",
+      "target_statement_id": null,
+      "support_ids": [
+        "lee-c-transparent"
+      ],
+      "text": "Lee 2019 can respond only by restating its own third-technology axis: the paper treats artificial mediation as the means for addressing differences and identifies transparency as a core value. The paper does not claim that this is Benjamin's criterion.",
+      "statement_type": "INTERPRETATION",
+      "relation_type": "QUALIFIES",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "response_status": "SUPPORTED_RESPONSE",
+      "semantic_review_note": "The response stays within Lee's third-technology proposition and does not import later Lee concepts.",
+      "target_turn_id": "D1-v2-human-use-vs-third-tech"
+    },
+    {
+      "turn_id": "E2-lee-tech-editing-threshold-response",
+      "action": "RESPOND",
+      "actor_paper": "lee-aura-2019",
+      "actor_edition_id": null,
+      "target_paper": "benjamin-artwork-v2",
+      "target_statement_id": null,
+      "support_ids": [
+        "lee-c-tech-start"
+      ],
+      "text": "Lee 2019 grounds its periodization of the technology-editing era in the invention of the computer and Internet. This source-supported threshold is different from Benjamin V2's conceptual account of the origin of second technology in play.",
+      "statement_type": "INTERPRETATION",
+      "relation_type": "QUALIFIES",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "response_status": "SUPPORTED_RESPONSE",
+      "semantic_review_note": "The response does not attempt to refute Benjamin; it clarifies Lee's distinct periodization criterion.",
+      "target_turn_id": "D2-v2-play-vs-tech-editing-start"
+    },
+    {
+      "turn_id": "E3-lee-transparency-response",
+      "action": "RESPOND",
+      "actor_paper": "lee-aura-2019",
+      "actor_edition_id": null,
+      "target_paper": "benjamin-artwork-v2",
+      "target_statement_id": null,
+      "support_ids": [
+        "lee-c-transparent"
+      ],
+      "text": "Lee 2019's available response is that third technology places nature and human beings on an artificial plane and describes difference as becoming transparent. The paper does not supply a source-grounded reconciliation with Benjamin's concept of interplay.",
+      "statement_type": "INTERPRETATION",
+      "relation_type": "QUALIFIES",
+      "semantic_support": "PARTIALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "response_status": "PARTIAL_RESPONSE",
+      "semantic_review_note": "The first sentence is directly supported; the second accurately records the absence of a reconciliation rather than inventing one.",
+      "target_turn_id": "D3-v2-interplay-vs-transparency"
+    },
+    {
+      "turn_id": "E4-lee-digital-aura-response",
+      "action": "RESPOND",
+      "actor_paper": "lee-aura-2019",
+      "actor_edition_id": null,
+      "target_paper": "benjamin-artwork-v3",
+      "target_statement_id": null,
+      "support_ids": [
+        "lee-q-digital-aura"
+      ],
+      "text": "Lee 2019 does not deny the earlier diagnosis of aura loss; it projects that beyond the intermediate 'relay of aura' a new aura that could be called digital aura may ultimately emerge.",
+      "statement_type": "INTERPRETATION",
+      "relation_type": "QUALIFIES",
+      "semantic_support": "SEMANTICALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "response_status": "SUPPORTED_RESPONSE",
+      "semantic_review_note": "The response follows Lee's prospective wording and does not claim that digital aura is already established.",
+      "target_turn_id": "D4-v3-aura-withering-vs-digital-aura"
+    },
+    {
+      "turn_id": "E5-lee-trust-response",
+      "action": "RESPOND",
+      "actor_paper": "lee-aura-2019",
+      "actor_edition_id": null,
+      "target_paper": "benjamin-artwork-v3",
+      "target_statement_id": null,
+      "support_ids": [
+        "lee-c-trust-definition"
+      ],
+      "text": "Lee 2019 can answer only partially: its 'trust' account shifts the issue toward contextual placement and the subject's desire, but the paper does not source-groundedly resolve Benjamin V3's Here-and-Now criterion of authenticity.",
+      "statement_type": "INTERPRETATION",
+      "relation_type": "QUALIFIES",
+      "semantic_support": "PARTIALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "response_status": "PARTIAL_RESPONSE",
+      "semantic_review_note": "The supported part is Lee's trust criterion; the non-resolution is preserved rather than completed by AI.",
+      "target_turn_id": "D5-v3-authenticity-vs-trust"
+    },
+    {
+      "turn_id": "E6-lee-immersion-response",
+      "action": "RESPOND",
+      "actor_paper": "lee-aura-2019",
+      "actor_edition_id": null,
+      "target_paper": "benjamin-artwork-v3",
+      "target_statement_id": null,
+      "support_ids": [
+        "lee-c-immersion"
+      ],
+      "text": "Lee 2019's comparison table explicitly contrasts distraction in the technology-reproduction era with immersion in the technology-editing era. The paper states the contrast but does not fully derive how immersion transforms Benjamin V3's mass-reception account.",
+      "statement_type": "INTERPRETATION",
+      "relation_type": "QUALIFIES",
+      "semantic_support": "PARTIALLY_SUPPORTED",
+      "review_status": "REVIEWED",
+      "response_status": "PARTIAL_RESPONSE",
+      "semantic_review_note": "The reception contrast is directly grounded; the theoretical bridge is correctly left incomplete.",
+      "target_turn_id": "D6-v3-distraction-vs-immersion"
+    }
+  ]
+}

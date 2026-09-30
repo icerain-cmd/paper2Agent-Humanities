@@ -13,7 +13,8 @@
   "source": {
     "source_id": "s001-lee-aura-2019",
     "sha256": "864e341de1fa049fd3c5285c882125967671aebde4ef37f5d9156613d061adae",
-    "origin": "user-provided-private-source",
+    "origin": "user-google-drive",
+    "drive_id": "REDACTED_PRIVATE_SOURCE",
     "paper2skill_verification": "reviewed_with_limitations",
     "review_note": "All 31 pages visually reviewed. 33 exact diagnostics were adjudicated; strict Paper2Skill verification passed."
   },
@@ -201,6 +202,20 @@
       ],
       "confidence": 0.86,
       "review_status": "NEEDS_REVIEW"
+    },
+    {
+      "statement_id": "lee-c-immersion",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Lee's comparison table characterizes reception in the technology-editing era as immersion, contrasting it with distraction in the technology-reproduction era.",
+      "paper_id": "lee-aura-2019",
+      "source_id": "s001-lee-aura-2019",
+      "author": "이용욱",
+      "page": 17,
+      "section": "2. 기술복제시대와 기술편집시대",
+      "evidence_span": "수용 태도|정신분산|정신몰입",
+      "citation": "Lee 2019 PDF p.17 (printed p.263), comparison table",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
     }
   ],
   "corpus_policy": {
@@ -215,5 +230,11 @@
       "생성 아우라"
     ],
     "policy": "Later Lee concepts or current-theory vocabulary absent from the 2019 source cannot be emitted as Lee-2019 Paper Agent claims/responses."
+  },
+  "phase2_extension": {
+    "purpose": "Dialogue-only reviewed extension; the original 11-statement CURATED_FIXTURE is unchanged.",
+    "added_statement_ids": [
+      "lee-c-immersion"
+    ]
   }
 }

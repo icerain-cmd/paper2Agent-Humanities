@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "work_id": "benjamin-artwork",
-  "agent_status": "PENDING_SOURCE_APPROVAL",
+  "agent_status": "BUILT",
   "candidates": [
     {
       "edition_id": "benjamin-artwork-v2",
@@ -13,7 +13,19 @@
       "facsimile_available": true,
       "transcription_status": "No dedicated twice-proofread V2 transcription identified; facsimile review required.",
       "lee_mapping": "Lee 2019 PDF p.18 / printed p.264; first/second technology passage.",
-      "approval_status": "PENDING_SOURCE_APPROVAL"
+      "approval_status": "APPROVED_AND_VERIFIED",
+      "verification_status": "APPROVED_AND_VERIFIED",
+      "container_sha256": "0f5f14abc67e1da4829b37830d2ac3f554468e7ff7470be3d6dd4db813d877c1",
+      "container_pdf_page_range": [
+        196,
+        230
+      ],
+      "gs_page_range": [
+        350,
+        384
+      ],
+      "prepared_slice_sha256": "d5c9f013689f2662a64e8235a4599ade25036fb40dcd18a388b93d683bcca0ec",
+      "verified_key_passage_gs_page": 359
     },
     {
       "edition_id": "benjamin-artwork-v3",
@@ -25,7 +37,18 @@
       "facsimile_available": true,
       "transcription_status": "Wikisource complete; twice proofread against linked source facsimile.",
       "lee_mapping": "Suitable for final-version aura/reproduction claims; not V2-only first/second technology material.",
-      "approval_status": "PENDING_SOURCE_APPROVAL"
+      "approval_status": "APPROVED_AND_VERIFIED",
+      "verification_status": "APPROVED_AND_VERIFIED",
+      "pdf_sha256": "bdb9107b41e05fd6919592d6ba786b501f160a1618b1d9e1f4d21108d0745568",
+      "pdf_page_range": [
+        1,
+        38
+      ],
+      "gs_page_range": [
+        471,
+        508
+      ],
+      "v2_only_passage_negative_verification": "PASS"
     }
   ]
 }
