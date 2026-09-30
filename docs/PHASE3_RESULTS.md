@@ -2,7 +2,7 @@
 
 ## Current status
 
-`PHASE3_STATUS=COMPLETE`.
+The sanitized Phase 3 implementation is experimental. The completed V4 evaluation below is a **HISTORICAL VALID RESULT** under its frozen implementation and V4 protocol. The branch now contains additional remediation and a preregistered V5 contract; no V5 generation or score exists.
 
 The authoritative Phase 3 state is recorded in:
 

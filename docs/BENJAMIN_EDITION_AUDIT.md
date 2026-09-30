@@ -1,5 +1,7 @@
 # Benjamin Edition Audit — Phase 1.5
 
+**HISTORICAL PHASE STATE.** This records the Phase 1.5 source audit. Benjamin V2 and V3 were later approved and built as separate Paper Agents; see `BENJAMIN_SOURCE_APPROVAL.md` and `PHASE3_RESULTS.md`.
+
 Status: source acquisition / edition audit only. **No Benjamin Paper Agent is created in Phase 1.5.**
 
 ## Why edition identity is mandatory

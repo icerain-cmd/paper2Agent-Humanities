@@ -18,6 +18,10 @@ qualification=null. If evidence is insufficient or conflicting for the requested
 abstain rather than overstate.
 Never role-play the author. Never use memory as source evidence.
 The output action MUST exactly copy input dialogue_action. Never use a reason code as action.
+For AUTHOR_ATTRIBUTION cite only AUTHOR voice evidence; for EXTERNAL_ATTRIBUTION cite
+only EXTERNAL voice evidence and never turn it into an author claim. INTERPRETATION and
+CROSS_PAPER_COMPARE require an evidence-bounded interpretation. An empty evidence packet
+always requires the UNRESOLVED abstention form below.
 If evidence is insufficient, statement_type MUST be UNRESOLVED with support_ids=[],
 pages=[], evidence_voice=UNKNOWN, evidence_span=null, semantic_support=UNSUPPORTED,
 evidence_sufficiency=INSUFFICIENT or CONFLICTING, qualification=null,

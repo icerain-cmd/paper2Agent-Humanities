@@ -39,7 +39,16 @@ def _terms(text: str) -> set[str]:
             t |= vals | {key}
     return t
 
-def retrieve(agent: PaperAgent, query: str, limit: int=6) -> tuple[list[RetrievalHit], dict]:
+def retrieve(agent: PaperAgent, query: str, limit: int=6, action: str="SOURCE_RETRIEVAL") -> tuple[list[RetrievalHit], dict]:
+    edition = agent.edition_id or ""
+    requested = re.findall(r"\b(?:v[23])\b|제[23]판|(?:zweite|dritte) fassung", query.lower())
+    requested_edition = {"v2": "v2", "제2판": "v2", "zweite fassung": "v2",
+                         "v3": "v3", "제3판": "v3", "dritte fassung": "v3"}
+    if edition and requested and any(requested_edition[x] not in edition for x in requested):
+        return [], {"query": query, "action": action, "candidate_statement_ids": [],
+                    "candidate_scores": {}, "selected_statement_ids": [],
+                    "selected_evidence": [], "rejected_candidates": [],
+                    "reason": "EDITION_MISMATCH"}
     q=_terms(query)
     rows=[]
     docs=list(agent.store.values())
@@ -53,6 +62,12 @@ def retrieve(agent: PaperAgent, query: str, limit: int=6) -> tuple[list[Retrieva
     for s in docs:
         terms=doc_terms[s.statement_id]
         common=q & terms
+        if not common:
+            continue
+        if action == "AUTHOR_ATTRIBUTION" and s.evidence_voice and s.evidence_voice.value != "AUTHOR":
+            continue
+        if action == "EXTERNAL_ATTRIBUTION" and s.evidence_voice and s.evidence_voice.value != "EXTERNAL":
+            continue
         score=sum(math.log((n+1)/(df[x]+0.5))+1 for x in common)
         if s.statement_type in {StatementType.SOURCE_QUOTE,StatementType.AUTHOR_CLAIM}: score+=0.25
         if score>0:
@@ -61,6 +76,7 @@ def retrieve(agent: PaperAgent, query: str, limit: int=6) -> tuple[list[Retrieva
     chosen=rows[:limit]
     trace={
         "query":query,
+        "action":action,
         "candidate_statement_ids":[x.statement_id for x in rows],
         "candidate_scores":{x.statement_id:round(x.score,6) for x in rows},
         "selected_statement_ids":[x.statement_id for x in chosen],

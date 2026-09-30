@@ -17,6 +17,8 @@ from paper2humanities.runtime.model_adapter import (
     validate_typed_turn,
 )
 from paper2humanities.runtime.orchestration import live_turn
+from paper2humanities.runtime.classifier import classify_query
+from paper2humanities.runtime.pass_contract import evaluate_pass_contract, load_v5_contract
 from paper2humanities.runtime.verifier import publication_gate
 
 GENERATOR_MODEL = "gpt-6-sol"
@@ -84,6 +86,10 @@ def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str,
         errors.append("ACTION_STATEMENT_TYPE_MISMATCH")
     if action == "RESPONSE" and turn["statement_type"] not in {"INTERPRETATION", "AI_SYNTHESIS", "UNRESOLVED"}:
         errors.append("ACTION_STATEMENT_TYPE_MISMATCH")
+    if action in {"INTERPRETATION", "CROSS_PAPER_COMPARE"} and turn["statement_type"] not in {"INTERPRETATION", "UNRESOLVED"}:
+        errors.append("ACTION_STATEMENT_TYPE_MISMATCH")
+    if action == "EXTERNAL_ATTRIBUTION" and turn["statement_type"] == "AUTHOR_CLAIM":
+        errors.append("FALSE_AUTHOR_CLAIM")
     if abstained:
         if supports or turn["pages"] or turn["evidence_span"] is not None or turn["evidence_voice"] != "UNKNOWN" or turn["semantic_support"] != "UNSUPPORTED" or turn["relation_type"] != "UNRESOLVED":
             errors.append("INVALID_ABSTENTION")
@@ -157,6 +163,7 @@ def run_one(adapter: CodexExecAdapter, agent: PaperAgent, query: str, action: st
         errors.append(f"VERIFIER_FAILURE: {exc}")
     abstained = turn["statement_type"] == "UNRESOLVED"
     return {"outcome": "REJECTED" if errors else "ABSTAINED" if abstained else "ACCEPTED",
+            "source_id": agent.source_id, "classified_action": action,
             "turn": turn, "gate_errors": errors, "retrieval_trace": trace,
             "verifier_alternative": verifier_alternative,
             "model": result.model, "provider": result.provider, "prompt_sha256": result.prompt_sha256,
@@ -185,8 +192,8 @@ def generate_panel(panel_path: Path, output: Path, model: str = GENERATOR_MODEL,
     for row in panel["queries"]:
         agent = agent_for(row["query"], paper_id=row.get("paper_id"))
         supporting = supporting_agents_for(row["query"], agent)
-        rows.append({"query_id": row["query_id"],
-                     **run_one(adapter, agent, row["query"], "SOURCE_RETRIEVAL", verifier_model=verifier_model,
+        rows.append({"query_id": row["query_id"], "source_id": agent.source_id,
+                     **run_one(adapter, agent, row["query"], classify_query(row["query"]).value, verifier_model=verifier_model,
                                supporting_agents=supporting)})
     write_json(output, {"panel_id": panel["panel_id"], "responses": rows,
                         "generator_model": model, "verifier_model": verifier_model,
@@ -322,15 +329,51 @@ def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
         raise ValueError("gold and response IDs differ")
     gates = {key: 0 for key in ("FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR",
              "CROSS_EDITION_CONTAMINATION", "UNSUPPORTED_DIALOGUE_TURN",
-             "TEMPORAL_CORPUS_CONTAMINATION", "FAKE_PAGE_CITATION", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE")}
+             "TEMPORAL_CORPUS_CONTAMINATION", "FAKE_PAGE_CITATION", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE",
+             "WRONG_SOURCE_ID", "STALE_SEMANTIC_REVIEW")}
     if manifest.get("gold_available_during_generation") is not False:
         gates["GOLD_LEAKAGE"] += 1
     rows = []
+    source_correct = unsupported_total = unsupported_rejected = 0
+    type_correct = voice_correct = 0
+    page_total = page_correct = span_total = span_correct = 0
+    abstained_total = abstained_correct = 0
+    semantic_total = semantic_correct = 0
+    v5 = gold.get("panel_type") == "HOLDOUT30_V5_GOLD"
+    if v5 and any(not rec.get("source_id") for rec in records):
+        raise ValueError("V5 gold records require source_id")
+    semantic_review = {}
+    if v5:
+        review_path = response_path.with_name(response_path.stem + ".semantic-review.json")
+        if review_path.is_file():
+            semantic_review = json.loads(review_path.read_text())
+    reviewed_ids = set(semantic_review.get("reviewed_query_ids", [])) if semantic_review.get("response_sha256") == manifest["response_sha256"] else set()
     for rec in records:
         response = by_id[rec["query_id"]]
         turn = response.get("turn") or {}
         accepted = response.get("outcome") == "ACCEPTED"
         errors = list(response.get("gate_errors") or [])
+        source_match = (turn.get("actor_paper") == rec.get("paper") and
+                        (not v5 or response.get("source_id") == rec["source_id"]))
+        source_correct += int(source_match)
+        type_correct += int(turn.get("statement_type") == rec["type"])
+        expected_voice = rec.get("voice")
+        voice_correct += int(expected_voice is None or turn.get("evidence_voice") == expected_voice)
+        if rec.get("page") is not None:
+            page_total += 1
+            page_correct += int(rec["page"] in turn.get("pages", []))
+        if rec.get("evidence_span") is not None:
+            span_total += 1
+            span_correct += int(turn.get("evidence_span") == rec["evidence_span"])
+        if response.get("outcome") == "ABSTAINED":
+            abstained_total += 1
+            abstained_correct += int(rec["type"] == "UNRESOLVED")
+        if response.get("outcome") == "ACCEPTED":
+            semantic_total += 1
+            semantic_correct += int(turn.get("semantic_support") in {"SEMANTICALLY_SUPPORTED", "PARTIALLY_SUPPORTED"})
+        if rec["type"] == "UNRESOLVED":
+            unsupported_total += 1
+            unsupported_rejected += int(response.get("outcome") == "ABSTAINED" and turn.get("statement_type") == "UNRESOLVED")
         if accepted:
             actor = AGENTS.get(turn.get("actor_paper"))
             if actor is None:
@@ -342,10 +385,14 @@ def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
                                    if item.get("paper_id") in AGENTS
                                    and (item["paper_id"], item.get("edition_id")) != (actor.paper_id, actor.edition_id)
                                    and AGENTS[item["paper_id"]].edition_id == item.get("edition_id"))
-                errors.extend(turn_errors(turn, actor, selected, "SOURCE_RETRIEVAL", supporting))
+                errors.extend(turn_errors(turn, actor, selected, response.get("classified_action", turn.get("action", "SOURCE_RETRIEVAL")), supporting))
             if response.get("fresh_context_verifier") is not True:
                 errors.append("VERIFIER_DISAGREEMENT")
         row_gates = set()
+        if not source_match:
+            row_gates.add("WRONG_SOURCE_ID")
+        if v5 and rec["query_id"] not in reviewed_ids:
+            row_gates.add("STALE_SEMANTIC_REVIEW")
         for key in ("FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR", "CROSS_EDITION_CONTAMINATION",
                     "UNSUPPORTED_DIALOGUE_TURN", "TEMPORAL_CORPUS_CONTAMINATION",
                     "FAKE_PAGE_CITATION", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE"):
@@ -375,8 +422,21 @@ def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
             match = response.get("outcome") == "ABSTAINED" and turn.get("statement_type") == "UNRESOLVED"
         rows.append({"query_id": rec["query_id"], "match": bool(match), "outcome": response.get("outcome")})
     report = {"panel_id": gold["panel_id"], "response_sha256": manifest["response_sha256"],
-              "accuracy": sum(r["match"] for r in rows) / len(rows), "rows": rows,
+              "accuracy": sum(r["match"] for r in rows) / len(rows),
+              "attribution_type_accuracy": type_correct / len(rows),
+              "evidence_voice_accuracy": voice_correct / len(rows),
+              "source_id_accuracy": source_correct / len(rows),
+              "page_accuracy": page_correct / page_total if page_total else 1.0,
+              "evidence_span_accuracy": span_correct / span_total if span_total else 1.0,
+              "unsupported_premise_rejection": unsupported_rejected / unsupported_total if unsupported_total else 1.0,
+              "abstention_precision": abstained_correct / abstained_total if abstained_total else 1.0,
+              "semantic_support_rate": semantic_correct / semantic_total if semantic_total else 1.0,
+              "rows": rows,
               "hard_gate_counts": gates, "status": "PASS" if all(v == 0 for v in gates.values()) else "FAIL"}
+    if v5:
+        verdict = evaluate_pass_contract(report, load_v5_contract())
+        report["pass_contract"] = verdict
+        report["status"] = verdict["status"]
     write_json(output, report)
 
 

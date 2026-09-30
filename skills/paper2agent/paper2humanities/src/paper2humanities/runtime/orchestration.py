@@ -26,7 +26,7 @@ def live_turn(adapter:ModelAdapter, agent, research_question:str, action:str, ta
     traces=[]
     seen_ids=set()
     for source_agent in agents:
-        hits, source_trace=retrieve(source_agent,research_question)
+        hits, source_trace=retrieve(source_agent,research_question,action=action)
         traces.append(source_trace)
         for hit in hits:
             if hit.statement_id in seen_ids:
@@ -37,7 +37,7 @@ def live_turn(adapter:ModelAdapter, agent, research_question:str, action:str, ta
                 "statement_type":source.statement_type.value,
                 "evidence_voice":source.evidence_voice.value if source.evidence_voice else "UNKNOWN",
                 "citation":source.citation})
-    trace={"selected_statement_ids":[e["statement_id"] for e in evidence],
+    trace={"action":action,"selected_statement_ids":[e["statement_id"] for e in evidence],
            "selected_evidence":[{"statement_id":e["statement_id"],"paper_id":e["paper_id"],
                "edition_id":e["edition_id"],"page":e["page"],"evidence_span":e["evidence_span"]} for e in evidence],
            "source_traces":traces,"allowed_agents":[{"paper_id":p,"edition_id":v} for p,v in identities]}

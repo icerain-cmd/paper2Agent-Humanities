@@ -10,7 +10,7 @@
     "relation_type": {"type": "string", "enum": ["CONTRADICTS", "TENSIONS_WITH", "QUALIFIES", "EXTENDS", "REFRAMES", "NOT_ADDRESSED", "UNRESOLVED"]},
     "actor_paper": {"type": "string"},
     "actor_edition_id": {"type": ["string", "null"]},
-    "action": {"type": "string", "enum": ["SOURCE_RETRIEVAL", "CRITIQUE", "RESPONSE", "ISSUE", "RESEARCH_GAP", "RESEARCH_QUESTION", "SYNTHESIS"]},
+    "action": {"type": "string", "enum": ["SOURCE_RETRIEVAL", "AUTHOR_ATTRIBUTION", "EXTERNAL_ATTRIBUTION", "INTERPRETATION", "CROSS_PAPER_COMPARE", "CRITIQUE", "RESPONSE", "ISSUE", "RESEARCH_GAP", "RESEARCH_QUESTION", "SYNTHESIS"]},
     "semantic_support": {"type": "string", "enum": ["SEMANTICALLY_SUPPORTED", "PARTIALLY_SUPPORTED", "OVERSTATED", "UNSUPPORTED"]},
     "evidence_sufficiency": {"type": "string", "enum": ["SUFFICIENT", "PARTIAL", "INSUFFICIENT", "CONFLICTING"]},
     "qualification": {"type": ["string", "null"]},
