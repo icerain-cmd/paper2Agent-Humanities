@@ -1,0 +1,30 @@
+{
+  "run_id": "lee-aura-live-20260928T041757Z",
+  "timestamp": "2026-09-28T04:17:57+00:00",
+  "git_commit": "2194ab86eaf9f39e7b589ec783ab84371e940a7c",
+  "query_panel_sha256": "c411bac58b82e8bfd5e1ca6b94dce37b2f7586c87249209063f237c150ba42b9",
+  "source_sha256": "864e341de1fa049fd3c5285c882125967671aebde4ef37f5d9156613d061adae",
+  "agent_artifact_sha256": "6c9642fd154ad87178d1238df8de08cd03a601bc77c80c4686954c86a0ad0896",
+  "response_artifact_sha256": "356762e7015941e5e31e266b9410f4fcd7b6fd249191fc6550e00aeea8d9df18",
+  "runtime": "python 3.12.3",
+  "model_or_host_agent": "none — deterministic provenance classifier v1",
+  "live_eval_mode": "DETERMINISTIC_BEHAVIORAL_EVAL",
+  "gold_available_during_response_generation": false,
+  "external_blind": false,
+  "generation_method": "query-only + reviewed source lexical retrieval/conservative classification",
+  "generator_command_argv": [
+    "/usr/bin/python3",
+    "-I",
+    "/home/ubuntu/p2a-humanities-phase1/upstream/skills/paper2agent/paper2humanities/scripts/generate_deterministic_responses.py",
+    "--queries",
+    "/tmp/p2h-live-runtime-2zy_qzwl/query-panel.json",
+    "--source",
+    "/tmp/p2h-live-runtime-2zy_qzwl/source/reviewed-source.json",
+    "--agent",
+    "/tmp/p2h-live-runtime-2zy_qzwl/agent/paper-agent.json",
+    "--output",
+    "/tmp/p2h-live-runtime-2zy_qzwl/output/responses.json"
+  ],
+  "generator_stdout": "{\"responses\": 50, \"generation_method\": \"DETERMINISTIC_RETRIEVAL_CLASSIFICATION_V1\"}",
+  "gold_unsealed_after_response_sha256": true
+}

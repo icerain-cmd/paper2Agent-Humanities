@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "work_id": "benjamin-artwork",
+  "agent_status": "PENDING_SOURCE_APPROVAL",
+  "candidates": [
+    {
+      "edition_id": "benjamin-artwork-v2",
+      "version_label": "Zweite Fassung (1936)",
+      "source_language": "de",
+      "publication_year": 1989,
+      "canonical_source": "Walter Benjamin, Gesammelte Schriften VII.1, Suhrkamp, 1989, pp. 350-384",
+      "access_candidate": "https://commons.wikimedia.org/wiki/File:Benjamin_Kunstwerk.pdf",
+      "facsimile_available": true,
+      "transcription_status": "No dedicated twice-proofread V2 transcription identified; facsimile review required.",
+      "lee_mapping": "Lee 2019 PDF p.18 / printed p.264; first/second technology passage.",
+      "approval_status": "PENDING_SOURCE_APPROVAL"
+    },
+    {
+      "edition_id": "benjamin-artwork-v3",
+      "version_label": "Dritte Fassung (1939)",
+      "source_language": "de",
+      "publication_year": 1980,
+      "canonical_source": "Walter Benjamin, Gesammelte Schriften I.2, Suhrkamp, 1980, pp. 471-508",
+      "access_candidate": "https://de.wikisource.org/wiki/Das_Kunstwerk_im_Zeitalter_seiner_technischen_Reproduzierbarkeit_(Dritte_Fassung)",
+      "facsimile_available": true,
+      "transcription_status": "Wikisource complete; twice proofread against linked source facsimile.",
+      "lee_mapping": "Suitable for final-version aura/reproduction claims; not V2-only first/second technology material.",
+      "approval_status": "PENDING_SOURCE_APPROVAL"
+    }
+  ]
+}

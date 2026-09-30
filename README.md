@@ -9,6 +9,16 @@
 
 Paper2Agent coordinates parallel specialist agents to turn scientific papers into reliable MCP servers and skills.
 
+## Paper2Agent-Humanities (experimental)
+
+**What is Paper2Agent-Humanities?** It is a minimal, attribution-aware layer on top of a reviewed Paper2Skill bundle. It represents source quotations, author claims, interpretations, AI syntheses, critiques, and unresolved points as different proposition types instead of letting them collapse into one conversational voice.
+
+**Why humanities needs attribution-aware paper agents.** Humanities arguments often depend on who is speaking, which edition or page supports a proposition, and whether a sentence is an author's claim or a later interpretation. The humanities layer therefore treats page-level provenance and `Unsupported AUTHOR_CLAIM = 0` as gates.
+
+**Quick start.** Run Paper2Skill and finish its page review first, then use `skills/paper2agent/paper2humanities/`. See `docs/POC_PROTOCOL.md` for the first Lee Yongwook PoC and `docs/EPISTEMIC_PROVENANCE.md` for the schema.
+
+**Current experimental status.** Phase 1 validates one Lee Yongwook paper agent. The reported 1.0/0.0 PoC metrics are `CURATED_FIXTURE` validation over 11 selected statements, not a claim of 100% attribution accuracy across the 31-page paper. Phase 1.5 includes a 50-query `COMMITTED_BLIND_RESPONSE_SET`; its artifact-level scoring passes both hard attribution gates, but its query/gold/response roles were temporally separated in one execution environment and are not an independently blinded external benchmark. It is not a live inference result. The first separate `LIVE_BLIND_RUN` uses deterministic retrieval/classification (no external model), keeps gold unavailable during generation, and exposes substantial failures (type 0.44, voice 0.52, false AUTHOR_CLAIM 5, external-as-author 4). See `docs/LIVE_EVALUATION_PROTOCOL.md` and `docs/EVALUATION_PROTOCOL.md`. Benjamin V2/V3 remain edition-separated and Agent B remains pending source approval; see `docs/BENJAMIN_EDITION_AUDIT.md`.
+
 ## 🚀 Quick Start
 
 ### Basic Usage
@@ -210,6 +220,16 @@ Use Scanpy MCP to preprocess and cluster the single-cell dataset pbmc_all.h5ad.
 * AlphaGenome: https://Paper2Agent-alphagenome-mcp.hf.space
 * Scanpy: https://Paper2Agent-scanpy-mcp.hf.space
 * TISSUE: https://Paper2Agent-tissue-mcp.hf.space
+
+## Paper2Agent-Humanities (experimental)
+
+Paper2Agent-Humanities is an attribution-aware extension for humanities research. It keeps Paper2Skill as the verified source layer, then adds typed scholarly statements and evidence-bounded Paper Agents so SOURCE_QUOTE, AUTHOR_CLAIM, INTERPRETATION, AI_SYNTHESIS, CRITIQUE, and UNRESOLVED remain distinct.
+
+Humanities work often depends on distinguishing an author's own proposition from quoted scholarship and later interpretation. The extension therefore requires source spans for author claims and prevents AI interpretation from being silently promoted to author attribution.
+
+Quick start: first build and strictly verify a Paper2Skill work directory, then use `skills/paper2agent/paper2humanities/` to create reviewed statements and dialogue turns. See `docs/HUMANITIES_ARCHITECTURE.md` and `docs/POC_PROTOCOL.md`.
+
+Current status: experimental Phase-1 provenance/dialogue layer with a Lee Yong-wook paper PoC. It does not claim autonomous scholarly judgment, and the Benjamin comparison agent remains pending source approval.
 
 ## 📚 Citation
 ```
