@@ -1,0 +1,156 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "text": {
+      "type": "string"
+    },
+    "statement_type": {
+      "type": "string",
+      "enum": [
+        "SOURCE_QUOTE",
+        "AUTHOR_CLAIM",
+        "INTERPRETATION",
+        "AI_SYNTHESIS",
+        "CRITIQUE",
+        "UNRESOLVED"
+      ]
+    },
+    "evidence_voice": {
+      "type": "string",
+      "enum": [
+        "AUTHOR",
+        "EXTERNAL",
+        "UNKNOWN"
+      ]
+    },
+    "support_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "relation_type": {
+      "type": "string",
+      "enum": [
+        "CONTRADICTS",
+        "TENSIONS_WITH",
+        "QUALIFIES",
+        "EXTENDS",
+        "REFRAMES",
+        "NOT_ADDRESSED",
+        "UNRESOLVED"
+      ]
+    },
+    "actor_paper": {
+      "type": "string"
+    },
+    "actor_edition_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "SOURCE_RETRIEVAL",
+        "AUTHOR_ATTRIBUTION",
+        "EXTERNAL_ATTRIBUTION",
+        "INTERPRETATION",
+        "CROSS_PAPER_COMPARE",
+        "CRITIQUE",
+        "RESPONSE",
+        "ISSUE",
+        "RESEARCH_GAP",
+        "RESEARCH_QUESTION",
+        "SYNTHESIS"
+      ]
+    },
+    "semantic_support": {
+      "type": "string",
+      "enum": [
+        "SEMANTICALLY_SUPPORTED",
+        "PARTIALLY_SUPPORTED",
+        "OVERSTATED",
+        "UNSUPPORTED"
+      ]
+    },
+    "evidence_sufficiency": {
+      "type": "string",
+      "enum": [
+        "SUFFICIENT",
+        "PARTIAL",
+        "INSUFFICIENT",
+        "CONFLICTING"
+      ]
+    },
+    "qualification": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_span": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "statement_type": {
+            "type": "string",
+            "enum": [
+              "SOURCE_QUOTE",
+              "AUTHOR_CLAIM",
+              "INTERPRETATION",
+              "AI_SYNTHESIS",
+              "CRITIQUE"
+            ]
+          },
+          "support_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "text",
+          "statement_type",
+          "support_ids"
+        ]
+      }
+    }
+  },
+  "required": [
+    "text",
+    "statement_type",
+    "evidence_voice",
+    "support_ids",
+    "pages",
+    "relation_type",
+    "actor_paper",
+    "actor_edition_id",
+    "action",
+    "semantic_support",
+    "evidence_sufficiency",
+    "qualification",
+    "evidence_span",
+    "claims"
+  ]
+}

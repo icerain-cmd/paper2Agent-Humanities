@@ -33,6 +33,7 @@ class ModelAdapter:
         raise NotImplementedError
 
 SCHEMA_PATH = Path(__file__).with_name("typed_turn.schema.json")
+CODEX_SCHEMA_PATH = Path(__file__).with_name("typed_turn.codex.schema.json")
 REQUIRED_TURN = {"text", "statement_type", "evidence_voice", "support_ids", "pages",
                  "relation_type", "actor_paper", "actor_edition_id", "action",
                  "semantic_support", "evidence_span"}
@@ -112,7 +113,7 @@ class CodexExecAdapter(ModelAdapter):
         self.model, self.executable, self.timeout = model, executable, timeout
 
     def available(self) -> bool:
-        return shutil.which(self.executable) is not None and SCHEMA_PATH.is_file()
+        return shutil.which(self.executable) is not None and CODEX_SCHEMA_PATH.is_file()
 
     def generate_typed_turn(self, *, system_contract: str, payload: dict[str, Any]) -> ModelResult:
         if not self.available():
@@ -129,7 +130,7 @@ class CodexExecAdapter(ModelAdapter):
                 output = Path(temp) / "turn.json"
                 argv = [self.executable, "exec", "--ephemeral", "--skip-git-repo-check",
                         "--ignore-user-config", "--ignore-rules", "-s", "read-only", "-m", self.model,
-                        "--output-schema", str(SCHEMA_PATH), "-o", str(output), prompt]
+                        "--output-schema", str(CODEX_SCHEMA_PATH), "-o", str(output), prompt]
                 try:
                     completed = subprocess.run(argv, cwd=temp, stdin=subprocess.DEVNULL,
                                                capture_output=True, text=True, timeout=self.timeout, check=False)
