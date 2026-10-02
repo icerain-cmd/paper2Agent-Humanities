@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task": "PAPER2AGENT_HUMANITIES_V6_FINAL_SCORING",
+  "panel": "phase3-holdout30-v6",
+  "reclassification": "DEV30_COMPAT_V6",
+  "next_final_holdout": "HOLDOUT30_V7",
+  "query_sha256": "1b986c58d9c829bd8201c15e83223dfd0fa92b892bc8a1fc26f5ceffc70de976",
+  "response_sha256": "9a12e4b1a7e70b6a0445cb0eb12111faa38fcc8f50afd3145038804007009b32",
+  "gold_sha256": "54b69a966648bec4396e85eac198cc9c22a6350721b93b09f9ae846c01725355",
+  "score_file": "holdout30-v6-score.json",
+  "holdout_status": "FAIL",
+  "pass_contract_id": "HOLDOUT30_V6_PREREGISTERED_PASS_CONTRACT",
+  "failed_hard_gates": {
+    "TEMPORAL_CORPUS_CONTAMINATION": 1,
+    "STALE_SEMANTIC_REVIEW": 1
+  },
+  "failed_thresholds": {
+    "UNSUPPORTED_PREMISE_REJECTION": {
+      "actual": 0.6666666666666666,
+      "required_minimum": 0.9
+    }
+  },
+  "failed_query_ids": [
+    "H30V6-011",
+    "H30V6-022"
+  ],
+  "reason_for_reclassification": "The frozen V6 evaluation failed the preregistered pass contract because not all hard gates were zero and unsupported premise rejection was below threshold. V6 remains immutable development evidence and must not be patched or rescored as an official holdout.",
+  "response_modified_after_freeze": false,
+  "gold_modified_after_freeze": false,
+  "scorer_modified": false,
+  "merge_performed": false
+}
