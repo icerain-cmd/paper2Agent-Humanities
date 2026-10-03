@@ -1,0 +1,10 @@
+{
+  "query_sha256": "9bf3febf8afde7e79b185e7e69447fc29df76bf4fc57e468efca869429fa65ff",
+  "response_sha256": "10b7b09c60cadefb9fb65574f74ac57202a03a87c773ed4ef42299236fe221ee",
+  "generator_model": "gpt-6-sol",
+  "verifier_model": "gpt-5.6-sol",
+  "gold_available_during_generation": false,
+  "response_frozen": true,
+  "generator_subprocess_attempts": 31,
+  "verifier_subprocess_attempts": 31
+}
