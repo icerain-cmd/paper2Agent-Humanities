@@ -1,0 +1,73 @@
+{
+  "TASK": "PAPER2AGENT_HUMANITIES_PHASE3_HARD_GATE_REPAIR_AND_FINAL_LIVE_RUN",
+  "PHASE3_STATUS": "COMPLETE",
+  "PC2_RUNTIME": "PASS",
+  "RUNTIME_KIND": "CODEX_EXEC",
+  "CODEX_VERSION": "0.155.1",
+  "GENERATOR_MODEL": "gpt-6-sol",
+  "VERIFIER_MODEL": "gpt-5.6-sol",
+  "INDEPENDENT_MODEL_VERIFIER": true,
+  "FRESH_CONTEXT_VERIFIER": true,
+  "CODEX_EXEC_ADAPTER": "PASS",
+  "REAL_MODEL_SMOKE": "PASS",
+  "ISOLATED_RUNTIME_SMOKE": "PASS",
+  "IMPLEMENTATION_REPAIR_SHA": "226a5bd",
+  "IMPLEMENTATION_FREEZE_SHA_V3": "f511ef15c0c48f55627c3af0178f2192c04d3d53",
+  "OLD_HOLDOUT30_V2": "DEV30_COMPAT_V2",
+  "NEW_HOLDOUT30_V3": "DEV30_COMPAT_V3",
+  "DEV4_HARD_GATE_REPRO": {
+    "queries": 4,
+    "accepted": 4,
+    "generator_subprocess_attempts": 4,
+    "verifier_subprocess_attempts": 4,
+    "unsupported_dialogue_turn": 0
+  },
+  "LIVE_TEST_D": {
+    "status": "PASS",
+    "accepted": 6,
+    "V2": 3,
+    "V3": 3
+  },
+  "LIVE_TEST_E": {
+    "status": "PASS",
+    "accepted": 6
+  },
+  "LIVE_TEST_F": {
+    "status": "PASS",
+    "ISSUE": 3,
+    "GAP": 3,
+    "RESEARCH_QUESTION": 3
+  },
+  "LIVE_MULTITURN": {
+    "status": "PASS",
+    "accepted": 5
+  },
+  "DEV50_V3_RESULT": "NOT_USED_FOR_FINAL_V4_GATE",
+  "HOLDOUT30_V3_RESULT": "DEVELOPMENT_ONLY",
+  "HARD_GATES_OFFICIAL": {
+    "FALSE_AUTHOR_CLAIM": 0,
+    "EXTERNAL_AS_AUTHOR_ERROR": 0,
+    "CROSS_EDITION_CONTAMINATION": 0,
+    "UNSUPPORTED_DIALOGUE_TURN": 0,
+    "TEMPORAL_CORPUS_CONTAMINATION": 0,
+    "FAKE_PAGE_CITATION": 0,
+    "HARDCODED_DIALOGUE_TEXT": 0,
+    "GOLD_LEAKAGE": 0
+  },
+  "UPSTREAM_TESTS": "PASS",
+  "HUMANITIES_TESTS": "PASS",
+  "PHASE3_TESTS": "PASS",
+  "TOTAL_TESTS": 106,
+  "credentials_discovered_or_scraped": false,
+  "IMPLEMENTATION_FREEZE_SHA_V4": "e9051f58f1de6d8d0fbce6587b2ba10e5b589ccd",
+  "OLD_HOLDOUT30_V3": "DEV30_COMPAT_V3",
+  "NEW_HOLDOUT30_V4": "EVALUATED_PASS",
+  "HOLDOUT30_V4_RESULT": {
+    "status": "PASS",
+    "accuracy": 0.9333333333333333,
+    "matches": 28,
+    "queries": 30
+  },
+  "GOLD_LEAKAGE": 0,
+  "FINAL_REPORT": "phase3-v4-final-report.json"
+}

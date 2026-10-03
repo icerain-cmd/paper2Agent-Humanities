@@ -1,0 +1,67 @@
+{
+  "schema_version": 3,
+  "panel_id": "phase3-dev10-v3-repair",
+  "panel_type": "QUERY_ONLY",
+  "queries": [
+    {
+      "query_id": "H30V3-007",
+      "category": "PAGE_RETRIEVAL",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3에서 영화 관객을 ‘주의집중을 포함하지 않는 평가자, 즉 산만한 시험관’으로 서술한 근거 페이지를 찾아라."
+    },
+    {
+      "query_id": "H30V3-013",
+      "category": "MIXED_VOICE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019에서 벤야민의 아우라 정의를 인용하는 문장과 Lee 자신의 ‘아우라 없는 아우라’ 주장을 같은 저자 목소리로 처리해도 되는가? 근거 범위를 구분하라."
+    },
+    {
+      "query_id": "H30V3-014",
+      "category": "MIXED_VOICE",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 아우라 정의와 다다에 관한 기술을 하나의 단일 주장으로 합쳐 귀속할 수 있는가? 서로 다른 근거라면 분리해 답하라."
+    },
+    {
+      "query_id": "H30V3-015",
+      "category": "MIXED_VOICE",
+      "paper_id": "lee-aura-2019",
+      "query": "‘제2기술’에 관한 벤야민의 설명과 Lee의 ‘제3기술’ 개념을 모두 Lee 자신의 원래 명제로 표기해도 되는지 판정하라."
+    },
+    {
+      "query_id": "H30V3-020",
+      "category": "CROSS_PAPER_COMPARISON",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 아우라 ‘거리’ 정의를 확인한 뒤, 그 근거만으로 Lee 2019의 ‘신뢰화’와 개념적 동일성을 선언할 수 있는지 판정하라."
+    },
+    {
+      "query_id": "H30V3-025",
+      "category": "CRITIQUE",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2의 자연과 인류의 상호작용 대목을 근거로, Lee 2019의 ‘투명화’가 자연과의 관계를 충분히 설명하는지 근거 범위 안에서 비판적으로 점검하라."
+    },
+    {
+      "query_id": "H30V3-026",
+      "category": "CRITIQUE",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 아우라 거리 정의를 기준으로, 기술적으로 조정된 거리감을 ‘아우라 없는 아우라’로 부르는 Lee 2019의 설명에 남는 개념적 간극을 근거 한계와 함께 지적하라."
+    },
+    {
+      "query_id": "H30V3-027",
+      "category": "CRITIQUE",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 산만한 영화 관객 논의를 근거로 Lee 2019를 비판할 수 있는 범위와, 제공된 Lee 근거가 없어 비판을 멈춰야 하는 범위를 구분하라."
+    },
+    {
+      "query_id": "H30V3-028",
+      "category": "RESPONSE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 ‘신뢰화’ 정의를 근거로, 거리 조정이 전혀 논의되지 않는다는 비판에 어디까지 응답할 수 있는지 한정해서 설명하라."
+    },
+    {
+      "query_id": "H30V3-030",
+      "category": "RESPONSE",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 ‘투명화’와 ‘신뢰화’ 근거를 사용해 두 개념이 모두 단순한 사실 재현 기술이라는 비판에 답하되, 근거가 말하지 않는 부분은 명시적으로 남겨라."
+    }
+  ]
+}

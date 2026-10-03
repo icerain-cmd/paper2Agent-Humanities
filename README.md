@@ -17,7 +17,9 @@ Paper2Agent coordinates parallel specialist agents to turn scientific papers int
 
 **Quick start.** Run Paper2Skill and finish its page review first, then use `skills/paper2agent/paper2humanities/`. See `docs/POC_PROTOCOL.md` for the first Lee Yongwook PoC and `docs/EPISTEMIC_PROVENANCE.md` for the schema.
 
-**Current experimental status.** Phase 1 validates one Lee Yongwook paper agent. The reported 1.0/0.0 PoC metrics are `CURATED_FIXTURE` validation over 11 selected statements, not a claim of 100% attribution accuracy across the 31-page paper. Phase 1.5 includes a 50-query `COMMITTED_BLIND_RESPONSE_SET`; its artifact-level scoring passes both hard attribution gates, but its query/gold/response roles were temporally separated in one execution environment and are not an independently blinded external benchmark. It is not a live inference result. The first separate `LIVE_BLIND_RUN` uses deterministic retrieval/classification (no external model), keeps gold unavailable during generation, and exposes substantial failures (type 0.44, voice 0.52, false AUTHOR_CLAIM 5, external-as-author 4). See `docs/LIVE_EVALUATION_PROTOCOL.md` and `docs/EVALUATION_PROTOCOL.md`. Benjamin V2 and V3 were explicitly approved as separate sources, independently ingested and reviewed through Paper2Skill, and built as distinct edition-bounded Paper Agents. Phase 2 then executed evidence-bounded Tests D/E/F with six reviewed critiques, six Lee-2019 responses, three cross-paper issues, three research gaps, and three research questions. See `docs/BENJAMIN_SOURCE_APPROVAL.md`, `docs/LEE_BENJAMIN_MAPPING.md`, and `docs/PHASE2_RESULTS.md`. Benjamin V2/V3 remain edition-separated and Agent B remains pending source approval; see `docs/BENJAMIN_EDITION_AUDIT.md`.
+**Current experimental status.** The sanitized Phase 3 branch has a live Codex Exec generator and independent verifier, edition-bounded Lee 2019 and Benjamin V2/V3 agents, action-aware retrieval, and a typed dialogue pipeline. The completed HOLDOUT30 V4 run is a **historical valid result**: 28/30 exact matches, 0.9333 accuracy, and zero recorded hard-gate failures under its V4 protocol. The V5 pass contract is preregistered; HOLDOUT30 V5 has not been generated or scored. See `docs/PHASE3_RESULTS.md` and `docs/PHASE3_HOLDOUT_PROTOCOL.md`.
+
+**HISTORICAL PHASE STATE.** Phase 1 validated 11 curated Lee statements; Phase 1.5 added a deterministic 50-query blind-response artifact and a separate live deterministic run. Those figures describe their own earlier protocols, not the current Phase 3 runtime. Benjamin V2 and V3 were subsequently approved and reviewed as separate sources, and Phase 2 completed controlled D/E/F dialogue. See `docs/POC_PROTOCOL.md`, `docs/EVALUATION_PROTOCOL.md`, and `docs/PHASE2_RESULTS.md`.
 
 ## 🚀 Quick Start
 
@@ -229,7 +231,7 @@ Humanities work often depends on distinguishing an author's own proposition from
 
 Quick start: first build and strictly verify a Paper2Skill work directory, then use `skills/paper2agent/paper2humanities/` to create reviewed statements and dialogue turns. See `docs/HUMANITIES_ARCHITECTURE.md` and `docs/POC_PROTOCOL.md`.
 
-Current status: experimental Phase-1 provenance/dialogue layer with a Lee Yong-wook paper PoC. It does not claim autonomous scholarly judgment, and the Benjamin comparison agent remains pending source approval.
+Current status: sanitized Phase 3 experimental runtime with live dialogue and separate Lee 2019, Benjamin V2, and Benjamin V3 agents. HOLDOUT30 V4 is a historical valid result; V5 is preregistered and unrun. This does not establish autonomous scholarly judgment. See `docs/PHASE3_RESULTS.md`.
 
 ## 📚 Citation
 ```
@@ -242,4 +244,3 @@ Current status: experimental Phase-1 provenance/dialogue layer with a Lee Yong-w
   url={https://www.nature.com/articles/s41586-026-11044-y}
 }
 ```
-

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "task": "PAPER2AGENT_HUMANITIES_V7_FINAL_SCORING",
+  "panel": "phase3-holdout30-v7",
+  "reclassification": "DEV30_COMPAT_V7",
+  "query_sha256": "a689ed7f1d9f1fefa4f627fd978e5299bece44dfeb5e4d34ed16eb7170547ff9",
+  "response_sha256": "e08eab1760d019e857cadbddc0f0a6dcfa73bc83098a46b0a756b4e96581ad16",
+  "gold_sha256": "fbc718de00f41ef09afea54aab13526adc4cbd9eeb38b44c3884ead2f810fb76",
+  "pass_contract_sha256": "d59eec90d86b50adb15b5981b1cad5a38f491e0483618dd83cce312e7dedb50a",
+  "score_file": "holdout30-v7-score.json",
+  "holdout_status": "FAIL",
+  "failed_hard_gates": {},
+  "failed_thresholds": {
+    "FACTUAL_TASK_ACCURACY": {
+      "actual": 0.8461538461538461,
+      "required_minimum": 0.9
+    },
+    "SCHOLARLY_TASK_VALIDITY": {
+      "actual": 0.7647058823529411,
+      "required_minimum": 0.9
+    },
+    "OVERALL_VALIDITY": {
+      "actual": 0.8,
+      "required_minimum": 0.9
+    },
+    "ABSTENTION_PRECISION": {
+      "actual": 0.6666666666666666,
+      "required_minimum": 0.8
+    }
+  },
+  "passed_thresholds": {
+    "SOURCE_ID_ACCURACY": 1.0,
+    "UNSUPPORTED_PREMISE_REJECTION": 1.0
+  },
+  "failed_query_ids": [
+    "H30V7-005",
+    "H30V7-008",
+    "H30V7-019",
+    "H30V7-021",
+    "H30V7-024",
+    "H30V7-026"
+  ],
+  "reason_for_reclassification": "The immutable V7 holdout failed preregistered quality thresholds despite all hard gates being zero. V7 remains immutable development evidence and must not be patched or rescored as an official holdout.",
+  "response_modified_after_freeze": false,
+  "gold_modified_after_freeze": false,
+  "scorer_modified": false,
+  "merge_performed": false
+}

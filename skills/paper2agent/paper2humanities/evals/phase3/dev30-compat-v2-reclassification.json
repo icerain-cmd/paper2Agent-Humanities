@@ -1,0 +1,20 @@
+{
+  "classification": "DEV30_COMPAT_V2",
+  "reason": "Implementation changed after the V2 holdout was evaluated; it is no longer unseen holdout evidence.",
+  "source_freeze_sha_v2": "006845917201f701e5d0c5f00dff56a2d2b8a2e7",
+  "reclassified_after_repair_commit": "226a5bd",
+  "preserve_original_internal_panel_ids": true,
+  "files": {
+    "query_panel": "dev30-compat-v2-query-panel.json",
+    "gold": "dev30-compat-v2-gold.json",
+    "responses": "dev30-compat-v2-responses.json",
+    "response_manifest": "dev30-compat-v2-responses.manifest.json",
+    "score": "dev30-compat-v2-score.json",
+    "creation_audit": "dev30-compat-v2-creation-audit.json"
+  },
+  "prior_hard_gate": {
+    "UNSUPPORTED_DIALOGUE_TURN": 4,
+    "status": "development_failure_repaired_and_reproduced"
+  },
+  "official_holdout_claim": false
+}

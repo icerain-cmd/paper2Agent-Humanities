@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "panel_id": "phase3-holdout30-v2-final",
+  "panel_type": "HOLDOUT30_V2_QUERY_ONLY",
+  "implementation_freeze_sha": "006845917201f701e5d0c5f00dff56a2d2b8a2e7",
+  "query_count": 30,
+  "queries": [
+    {
+      "query_id": "H30V2F-001",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin distinguishes first and second technology by the tendency of the first to deploy the human as much as possible and the second as little as possible.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-002",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: First technology is associated with the once-for-all, while second technology is associated with experiment and repeatable variation.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-003",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin locates the origin of second technology in the human taking distance from nature and, in other words, in play.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-004",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin contrasts domination of nature with second technology's orientation toward an interplay between nature and humanity.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-005",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: The socially decisive function of contemporary art is described as practice in this interplay, especially in film.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-006",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v2 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin defines aura as a unique appearance of distance and connects its contemporary decay to mass reproduction and the desire to bring things nearer.",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-007",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin grounds authenticity in the Here and Now of the original and states that the domain of authenticity eludes technical reproducibility.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-008",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: In the age of technical reproducibility, what withers is the artwork's aura.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-009",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin defines natural aura as the unique appearance of a distance, however near it may be.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-010",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin identifies cult value and exhibition value as two polar accents in the reception of artworks.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-011",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin contrasts concentration with distraction: the concentrated beholder enters the work, whereas the distracted mass absorbs the work into itself.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-012",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Film trains a reception in distraction; the cinema public is an examiner, but a distracted one, whose evaluative attitude does not include attention.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-013",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "benjamin-artwork-v3 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: Benjamin describes Dada's crude and extravagant forms as emerging from a rich historical force field and as anticipating effects later sought in film.",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-014",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "lee-aura-2019 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: 논문은 기술편집시대라는 전제에서 벤야민의 아우라 개념을 다시 검토하고 새로운 매체미학 연구 방향을 제시하는 것을 목적으로 삼는다.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-015",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "lee-aura-2019 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: 기술편집시대의 시작을 컴퓨터와 인터넷의 발명에서 찾는다.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-016",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "lee-aura-2019 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: 제3기술의 핵심가치로 ‘투명화’를 제시한다.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-017",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "lee-aura-2019 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: ‘신뢰화’를 사용의 맥락과 주체의 욕망에 따라 가상텍스트를 배치하고 거리를 조정하게 하는 편집기술로 설명한다.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-018",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "lee-aura-2019 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: 투명화와 신뢰화를 모두 ‘그렇게 보이도록’ 만드는 기술로 규정하면서 ‘아우라 없는 아우라’라는 긴장을 제시한다.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-019",
+      "category": "GROUNDED_AUTHOR_CLAIM",
+      "query": "lee-aura-2019 문헌에 한정하여 다음 명제가 저자 자신의 주장으로 실제 확인되는지 판정하고, 확인된다면 근거 페이지를 제시하라: 20세기 대중예술의 아우라 상실이 21세기 디지털예술에서 어떻게 변용되는지 연구하는 일을 디지털예술 미학의 필요조건으로 제시한다.",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-020",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Benjamin V2가 생성형 AI의 프롬프트 엔지니어링을 제2기술의 대표 사례로 직접 논의한다고 볼 수 있는가?",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-021",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Benjamin V3가 21세기 소셜미디어 알고리즘을 아우라 붕괴의 직접 원인으로 명시하는가?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-022",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Lee 2019가 블록체인 NFT를 기술편집예술의 핵심 사례로 직접 분석하는가?",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-023",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Benjamin V2가 제3기술이라는 용어를 정의하고 이를 디지털 네트워크와 연결하는가?",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-024",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Benjamin V3가 가상현실 헤드셋의 몰입성을 영화 수용의 완성형으로 평가하는가?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-025",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Lee 2019가 ChatGPT를 아우라 없는 아우라의 사례로 직접 언급하는가?",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-026",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Benjamin V2가 cult value와 exhibition value의 구분을 NFT 시장 가격 형성과 연결하는가?",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-027",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Benjamin V3가 제2기술의 기원을 인공지능 자동화에서 찾는다고 명시하는가?",
+      "paper_id": "benjamin-artwork-v3"
+    },
+    {
+      "query_id": "H30V2F-028",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Lee 2019가 메타버스 플랫폼을 제3기술의 표준 형식으로 규정하는가?",
+      "paper_id": "lee-aura-2019"
+    },
+    {
+      "query_id": "H30V2F-029",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Benjamin V2가 스마트폰 카메라를 기술복제의 최종 단계라고 서술하는가?",
+      "paper_id": "benjamin-artwork-v2"
+    },
+    {
+      "query_id": "H30V2F-030",
+      "category": "UNSUPPORTED_TEMPORAL_OR_CONCEPT_TRAP",
+      "query": "Lee 2019가 2025년 생성형 AI 예술 사례를 실증 자료로 사용했는가?",
+      "paper_id": "lee-aura-2019"
+    }
+  ]
+}

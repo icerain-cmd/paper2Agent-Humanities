@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "IMPLEMENTATION_FROZEN",
+  "remediation_commit": "9c1fb71e96eea500acdd76d8766eafc5df9e7fee",
+  "pass_contract_commit": "9c1fb71e96eea500acdd76d8766eafc5df9e7fee",
+  "pass_contract_sha256": "b552fdb56480045a9f8cbc0c0b9c262fb627a71ecb39ed04a5b0a667c41d1a1a",
+  "phase3_v4_result": "HISTORICAL_VALID_RESULT",
+  "v4_accuracy": 0.9333333333333333,
+  "v4_matches": 28,
+  "v4_queries": 30,
+  "pre_freeze_tests": {
+    "pr4_humanities": 43,
+    "pr4_paper2skill": 27,
+    "pr5_humanities": 75,
+    "pr5_paper2skill": 27,
+    "pr6_humanities_phase3": 109,
+    "pr6_paper2skill": 27
+  },
+  "active_stack_sensitive_history_count": [
+    0,
+    0,
+    0
+  ],
+  "github_remote_purge_required": true
+}

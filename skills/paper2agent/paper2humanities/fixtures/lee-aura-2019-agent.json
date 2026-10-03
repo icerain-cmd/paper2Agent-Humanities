@@ -191,6 +191,20 @@
       "evidence_voice": "AUTHOR"
     },
     {
+      "statement_id": "lee-c-immersion",
+      "statement_type": "AUTHOR_CLAIM",
+      "text": "Lee's comparison table characterizes reception in the technology-editing era as immersion, contrasting it with distraction in the technology-reproduction era.",
+      "paper_id": "lee-aura-2019",
+      "source_id": "s001-lee-aura-2019",
+      "author": "이용욱",
+      "page": 17,
+      "section": "2. 기술복제시대와 기술편집시대",
+      "evidence_span": "수용 태도|정신분산|정신몰입",
+      "citation": "Lee 2019 PDF p.17 (printed p.263), comparison table",
+      "evidence_voice": "AUTHOR",
+      "review_status": "REVIEWED"
+    },
+    {
       "statement_id": "lee-i-distance",
       "statement_type": "INTERPRETATION",
       "text": "이 논문의 기술편집시대 아우라 문제는 단순한 ‘상실’보다 거리·몰입·투명화·신뢰의 재구성 문제로 읽을 수 있다.",

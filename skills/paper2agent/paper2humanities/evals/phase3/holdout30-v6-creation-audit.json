@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "panel_id": "phase3-holdout30-v6",
+  "query_panel_sha256": "1b986c58d9c829bd8201c15e83223dfd0fa92b892bc8a1fc26f5ceffc70de976",
+  "implementation_freeze_sha_v6": "2fa06c79551978baf2546776233e8df20df362cd",
+  "query_count": 30,
+  "exact_overlap_count": 0,
+  "prior_query_count_checked": 179,
+  "prior_files_checked": [
+    "dev30-compat-v2-query-panel.json",
+    "dev50-query-only.json",
+    "dev9-v5-failures.json",
+    "holdout30-v3-query-panel.json",
+    "holdout30-v4-query-panel.json",
+    "holdout30-v5-query-panel.json"
+  ],
+  "category_counts": {
+    "AUTHOR_ATTRIBUTION": 3,
+    "CRITIQUE": 3,
+    "CROSS_PAPER_COMPARE": 3,
+    "EXTERNAL_ATTRIBUTION": 2,
+    "INTERPRETATION": 3,
+    "RESEARCH_GAP": 3,
+    "RESEARCH_QUESTION": 3,
+    "RESPONSE": 3,
+    "SOURCE_RETRIEVAL": 4,
+    "UNSUPPORTED_PREMISE": 3
+  },
+  "classifier_routes": [
+    {
+      "query_id": "H30V6-001",
+      "expected": "AUTHOR_ATTRIBUTION",
+      "actual": "AUTHOR_ATTRIBUTION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-002",
+      "expected": "AUTHOR_ATTRIBUTION",
+      "actual": "AUTHOR_ATTRIBUTION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-003",
+      "expected": "AUTHOR_ATTRIBUTION",
+      "actual": "AUTHOR_ATTRIBUTION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-004",
+      "expected": "EXTERNAL_ATTRIBUTION",
+      "actual": "EXTERNAL_ATTRIBUTION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-005",
+      "expected": "EXTERNAL_ATTRIBUTION",
+      "actual": "EXTERNAL_ATTRIBUTION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-006",
+      "expected": "SOURCE_RETRIEVAL",
+      "actual": "SOURCE_RETRIEVAL",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-007",
+      "expected": "SOURCE_RETRIEVAL",
+      "actual": "SOURCE_RETRIEVAL",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-008",
+      "expected": "SOURCE_RETRIEVAL",
+      "actual": "SOURCE_RETRIEVAL",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-009",
+      "expected": "SOURCE_RETRIEVAL",
+      "actual": "SOURCE_RETRIEVAL",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-010",
+      "expected": "SOURCE_RETRIEVAL",
+      "actual": "SOURCE_RETRIEVAL",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-011",
+      "expected": "SOURCE_RETRIEVAL",
+      "actual": "SOURCE_RETRIEVAL",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-012",
+      "expected": "SOURCE_RETRIEVAL",
+      "actual": "SOURCE_RETRIEVAL",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-013",
+      "expected": "INTERPRETATION",
+      "actual": "INTERPRETATION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-014",
+      "expected": "INTERPRETATION",
+      "actual": "INTERPRETATION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-015",
+      "expected": "INTERPRETATION",
+      "actual": "INTERPRETATION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-016",
+      "expected": "CRITIQUE",
+      "actual": "CRITIQUE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-017",
+      "expected": "CRITIQUE",
+      "actual": "CRITIQUE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-018",
+      "expected": "CRITIQUE",
+      "actual": "CRITIQUE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-019",
+      "expected": "RESPONSE",
+      "actual": "RESPONSE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-020",
+      "expected": "RESPONSE",
+      "actual": "RESPONSE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-021",
+      "expected": "RESPONSE",
+      "actual": "RESPONSE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-022",
+      "expected": "CROSS_PAPER_COMPARE",
+      "actual": "CROSS_PAPER_COMPARE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-023",
+      "expected": "CROSS_PAPER_COMPARE",
+      "actual": "CROSS_PAPER_COMPARE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-024",
+      "expected": "CROSS_PAPER_COMPARE",
+      "actual": "CROSS_PAPER_COMPARE",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-025",
+      "expected": "RESEARCH_GAP",
+      "actual": "RESEARCH_GAP",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-026",
+      "expected": "RESEARCH_GAP",
+      "actual": "RESEARCH_GAP",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-027",
+      "expected": "RESEARCH_GAP",
+      "actual": "RESEARCH_GAP",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-028",
+      "expected": "RESEARCH_QUESTION",
+      "actual": "RESEARCH_QUESTION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-029",
+      "expected": "RESEARCH_QUESTION",
+      "actual": "RESEARCH_QUESTION",
+      "pass": true
+    },
+    {
+      "query_id": "H30V6-030",
+      "expected": "RESEARCH_QUESTION",
+      "actual": "RESEARCH_QUESTION",
+      "pass": true
+    }
+  ],
+  "anti_clone_note": "Questions were redesigned around different evidence combinations and task framings; exact overlap is zero. External attribution is limited to two because the reviewed Lee fixture contains one explicit EXTERNAL-voice quotation.",
+  "gold_available": false
+}

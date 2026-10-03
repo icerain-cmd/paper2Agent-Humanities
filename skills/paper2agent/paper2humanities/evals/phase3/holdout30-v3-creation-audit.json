@@ -1,0 +1,21 @@
+{
+  "panel_id": "phase3-holdout30-v3",
+  "implementation_freeze_sha_v3": "f511ef15c0c48f55627c3af0178f2192c04d3d53",
+  "created_after_freeze": true,
+  "size": 30,
+  "exact_overlap_dev_and_live": 0,
+  "query_sha256": "a4535b19f752f082d355c4bebb33ef3f43b5ca47b33edd36b371b502ee1bd203",
+  "categories": [
+    "ABSTENTION",
+    "AUTHOR_EXTERNAL_ATTRIBUTION",
+    "CRITIQUE",
+    "CROSS_PAPER_COMPARISON",
+    "EDITION_TRAP",
+    "MIXED_VOICE",
+    "PAGE_RETRIEVAL",
+    "PARAPHRASE",
+    "RESPONSE",
+    "UNSUPPORTED_PREMISE"
+  ],
+  "gold_created": false
+}

@@ -1,0 +1,14 @@
+{
+  "panel_id": "phase3-holdout30-v4",
+  "implementation_freeze_sha_v4": "e9051f58f1de6d8d0fbce6587b2ba10e5b589ccd",
+  "panel_freeze_commit": "032796a",
+  "response_freeze_commit": "420db56",
+  "query_sha256": "06a051c03653cd04ac06b5e609ecfe7f8a432d683b3f2926a91a51d08e282a9d",
+  "response_sha256": "a36711d2807d5f98c00290873b91c6aed9d5443d40c8dce4c199c284cff5f2c8",
+  "gold_sha256": "a0de2efb4f83fcade3b3136595a7868145c7dacabe72c2ac3fd83c6d74369ed8",
+  "gold_created_after_response_freeze": true,
+  "gold_available_during_generation": false,
+  "gold_leakage": 0,
+  "gold_policy": "Expected type, paper, edition, page and support were assigned from the frozen query intent and source fixtures after response commit, without reading response content.",
+  "created_utc": "2026-09-29T10:27:21.364796+00:00"
+}

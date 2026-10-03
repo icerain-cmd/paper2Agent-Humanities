@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "panel_id": "phase3-holdout30-v5",
+  "implementation_freeze_sha": "7e00096335e5fe2be894d55e667c70e7a7d27051",
+  "query_panel_freeze_sha": "78a7c93",
+  "response_freeze_sha": "80736a58e778698c35e9ea761c30cb537e60a786",
+  "query_sha256": "e01decb547284ccd4e8d2cdfad7f6e4a99188cfbf4ca01944e197a6b875e5601",
+  "response_sha256": "c9b213bcf35b90bf0c9daa275884a17d47ea95dbe19879f1b43e754296031009",
+  "gold_sha256": "94f791f7fc34b2dd280521e60668486a2160c28a753a5eb98d08ed9b75aa0c83",
+  "gold_created_after_response_freeze": true,
+  "gold_available_during_generation": false,
+  "gold_basis": "source fixtures and evidence only; frozen model responses excluded from gold adjudication"
+}

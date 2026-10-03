@@ -1,0 +1,49 @@
+{
+  "schema_version": 7,
+  "panel_id": "phase3-holdout30-v7",
+  "panel_type": "HOLDOUT30_QUERY_ONLY",
+  "implementation_freeze_sha_v7": "a8985c049ab44d457fd5e3ec61542cffb321e5cb",
+  "created_after_freeze": true,
+  "gold_available": false,
+  "queries": [
+    {"query_id":"H30V7-001","category":"AUTHOR_ATTRIBUTION","paper_id":"lee-aura-2019","query":"Lee 2019의 ‘제3기술의 두 번째 키워드는 신뢰화이다’라는 문장이 저자 자신의 발화인지 귀속을 판정하라."},
+    {"query_id":"H30V7-002","category":"AUTHOR_ATTRIBUTION","paper_id":"benjamin-artwork-v2","query":"Benjamin V2에서 자연 지배와 자연-인류의 상호작용을 대비하는 명제가 누구의 주장인지 판정하라."},
+    {"query_id":"H30V7-003","category":"AUTHOR_ATTRIBUTION","paper_id":"benjamin-artwork-v3","query":"Benjamin V3에서 제의가치와 전시가치를 예술 수용의 두 극으로 제시하는 명제의 저자 귀속을 판정하라."},
+
+    {"query_id":"H30V7-004","category":"EXTERNAL_ATTRIBUTION","paper_id":"lee-aura-2019","query":"Lee 2019의 제2기술 설명에서 본문 저자의 목소리가 아니라 인용된 이론가의 직접 발언으로 처리해야 할 명제를 식별하고 그 귀속 주체를 판정하라."},
+    {"query_id":"H30V7-005","category":"EXTERNAL_ATTRIBUTION","paper_id":"lee-aura-2019","query":"Lee 2019이 벤야민의 기술론을 끌어오는 대목에서 외부 인용으로 표시된 발화가 누구의 것인지 판정하라."},
+
+    {"query_id":"H30V7-006","category":"SOURCE_RETRIEVAL","paper_id":"benjamin-artwork-v2","query":"Benjamin V2에서 둘째 기술의 기원을 자연과 거리를 두는 행위와 놀이에 연결하는 근거를 찾아라."},
+    {"query_id":"H30V7-007","category":"SOURCE_RETRIEVAL","paper_id":"benjamin-artwork-v3","query":"Benjamin V3에서 아우라를 가까이 있어도 멀리 있는 것의 일회적 현상으로 정의하는 근거를 찾아라."},
+    {"query_id":"H30V7-008","category":"SOURCE_RETRIEVAL","paper_id":"lee-aura-2019","query":"Lee 2019에서 투명화가 사용자와 도구, 현실과 가상, 수단과 목적의 구분을 지운다고 설명하는 직접 근거를 찾아라."},
+    {"query_id":"H30V7-009","category":"SOURCE_RETRIEVAL","paper_id":"benjamin-artwork-v3","query":"Benjamin V3에서 기술적 재생산의 시대에 작품의 아우라가 쇠퇴한다고 서술하는 직접 근거를 찾아라."},
+
+    {"query_id":"H30V7-010","category":"UNSUPPORTED_PREMISE","paper_id":"lee-aura-2019","query":"Lee 2019이 공진주체 WE를 기술편집시대의 새로운 수용 주체로 직접 정의한다고 전제하고 그 근거를 찾아라."},
+    {"query_id":"H30V7-011","category":"UNSUPPORTED_PREMISE","paper_id":"benjamin-artwork-v3","query":"Benjamin V3가 둘째 기술을 실험의 반복과 시험배치의 끊임없는 변형으로 직접 규정한다고 전제하고 근거를 찾아라."},
+    {"query_id":"H30V7-012","category":"UNSUPPORTED_PREMISE","paper_id":"lee-aura-2019","query":"Lee 2019이 알고리즘적 진정성을 제3기술의 세 번째 핵심가치로 명명한다고 전제하고 직접 근거를 찾아라."},
+    {"query_id":"H30V7-013","category":"UNSUPPORTED_PREMISE","paper_id":"benjamin-artwork-v3","query":"Benjamin V3가 생성형 AI의 프롬프트 설계를 예술작품의 기술적 재생산 방식으로 논의한다고 전제하고 근거를 찾아라."},
+
+    {"query_id":"H30V7-014","category":"INTERPRETATION","paper_id":"lee-aura-2019","query":"Lee 2019의 연구 목적과 결론부의 디지털예술 연구 프로그램이 어떤 문제의식을 공유하는지 근거에 한정해 해석하라."},
+    {"query_id":"H30V7-015","category":"INTERPRETATION","paper_id":"benjamin-artwork-v2","query":"V2의 놀이와 자연-인류 상호작용은 둘째 기술 설명에서 어떤 방식으로 맞물리는가? 제공된 근거 범위 안에서 해석하라."},
+    {"query_id":"H30V7-016","category":"INTERPRETATION","paper_id":"benjamin-artwork-v3","query":"Benjamin V3의 아우라 거리 개념과 제의가치·전시가치의 양극성이 수용 변화와 어떻게 연결되는지 근거에 한정해 해석하라."},
+
+    {"query_id":"H30V7-017","category":"CRITIQUE","paper_id":"benjamin-artwork-v2","query":"Benjamin V2의 놀이와 자연으로부터 거리두기 관점에서 Lee 2019이 기술편집시대의 출발을 컴퓨터와 인터넷에서 찾는 논리를 근거에 한정해 비판하라."},
+    {"query_id":"H30V7-018","category":"CRITIQUE","paper_id":"lee-aura-2019","query":"Lee 2019의 디지털예술 연구 프로그램 관점에서 Benjamin V3의 아우라 쇠퇴 명제가 남기는 한계를 근거에 한정해 비판하라."},
+    {"query_id":"H30V7-019","category":"CRITIQUE","paper_id":"benjamin-artwork-v3","query":"Lee 2019의 디지털아우라 전망을 검토할 때 Benjamin V3의 다다와 새로운 수요 논의가 드러내는 이론적 취약점을 두 문헌의 근거만으로 논하라."},
+
+    {"query_id":"H30V7-020","category":"RESPONSE","paper_id":"lee-aura-2019","query":"Benjamin V2가 현대 예술의 기능을 자연-인류 상호작용의 훈련으로 보는 논의에 대해 Lee 2019의 새로운 매체미학 연구 목적을 사용해 응답하라."},
+    {"query_id":"H30V7-021","category":"RESPONSE","paper_id":"benjamin-artwork-v2","query":"Benjamin V2의 놀이 및 자연-인류 상호작용 명제를 근거로 Lee 2019의 컴퓨터·인터넷 기점 설정에 대한 응답을 구성하라."},
+    {"query_id":"H30V7-022","category":"RESPONSE","paper_id":"benjamin-artwork-v3","query":"Lee 2019의 디지털아우라 연구 전망에 대해 Benjamin V3의 아우라 쇠퇴와 거리 개념을 사용해 응답하라."},
+
+    {"query_id":"H30V7-023","category":"CROSS_PAPER_COMPARE","paper_id":"lee-aura-2019","query":"Lee 2019이 새로운 매체미학의 연구 방향을 제시하는 목적과 Benjamin V2가 현대 예술의 기능을 상호작용 훈련으로 규정하는 논의를 근거에 한정해 비교하라."},
+    {"query_id":"H30V7-024","category":"CROSS_PAPER_COMPARE","paper_id":"benjamin-artwork-v2","query":"두 논문이 기술과 인간의 관계를 어떻게 배치하는지, Benjamin V2의 인간 투입 최소화 명제와 Lee 2019의 투명화 개념을 각각의 근거로 대조하라."},
+    {"query_id":"H30V7-025","category":"CROSS_PAPER_COMPARE","paper_id":"benjamin-artwork-v3","query":"Benjamin V3의 다다가 새로운 예술적 수요를 예고하는 논의와 Lee 2019의 기술편집시대 출발 명제를 근거에 한정해 비교하라."},
+
+    {"query_id":"H30V7-026","category":"RESEARCH_GAP","paper_id":"lee-aura-2019","query":"Lee 2019의 신뢰화가 텍스트의 거리 조정을 가능하게 한다는 설명과 Benjamin V3의 산만한 평가자 모델 사이에 어떤 미해결 연구 문제가 남는지 제시하라."},
+    {"query_id":"H30V7-027","category":"RESEARCH_GAP","paper_id":"benjamin-artwork-v2","query":"Benjamin V2가 둘째 기술에서 인간의 투입을 줄인다고 보는 명제와 Lee 2019의 정신몰입 비교표 사이에서 남는 연구 공백을 제시하라."},
+
+    {"query_id":"H30V7-028","category":"RESEARCH_QUESTION","paper_id":"lee-aura-2019","query":"Lee 2019의 새로운 매체미학 연구 목적과 Benjamin V3의 제의가치·전시가치 구분을 함께 검토할 수 있는 연구질문 하나를 제시하라."},
+    {"query_id":"H30V7-029","category":"RESEARCH_QUESTION","paper_id":"benjamin-artwork-v2","query":"Benjamin V2의 현대 예술 기능과 Lee 2019의 디지털예술 연구 프로그램을 연결해 검증 가능한 연구질문 하나를 제시하라."},
+    {"query_id":"H30V7-030","category":"RESEARCH_QUESTION","paper_id":"benjamin-artwork-v3","query":"Benjamin V3에서 진정성이 기술적 재생산을 벗어난다고 보는 명제와 Lee 2019의 디지털예술 연구 프로그램을 함께 검토하는 연구질문 하나를 제시하라."}
+  ]
+}

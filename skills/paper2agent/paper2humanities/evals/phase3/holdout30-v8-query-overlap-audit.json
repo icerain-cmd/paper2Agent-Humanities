@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task": "HOLDOUT30_V8_QUERY_FRESHNESS_AUDIT",
+  "panel_id": "phase3-holdout30-v8",
+  "implementation_freeze_sha_v8": "0e8ea25efd3f883ddf85ec1a4f95ef7f2ac61c3a",
+  "prior_query_count": 333,
+  "exact_overlap": 0,
+  "normalized_exact_overlap": 0,
+  "near_copy_review": "PASS",
+  "category_counts": {
+    "AUTHOR_ATTRIBUTION": 3,
+    "EXTERNAL_ATTRIBUTION": 2,
+    "SOURCE_RETRIEVAL": 4,
+    "UNSUPPORTED_PREMISE": 4,
+    "INTERPRETATION": 3,
+    "CRITIQUE": 3,
+    "RESPONSE": 3,
+    "CROSS_PAPER_COMPARE": 3,
+    "RESEARCH_GAP": 2,
+    "RESEARCH_QUESTION": 3
+  },
+  "actor_paper_counts": {
+    "lee-aura-2019": 11,
+    "benjamin-artwork-v2": 9,
+    "benjamin-artwork-v3": 10
+  }
+}

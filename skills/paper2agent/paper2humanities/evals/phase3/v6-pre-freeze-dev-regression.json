@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "task": "V6_PRE_FREEZE_DEV_REGRESSION",
+  "historical_artifacts_policy": "preserve exposed historical scores; do not rescore/overwrite V5",
+  "checks": {
+    "dev50-live-score.json": {
+      "sha256": "c5581e78a0e59daad6dcec0a015069dec71e537366050374700b29fcfe2381e3",
+      "preserved": true
+    },
+    "dev30-compat-v2-reclassification.json": {
+      "sha256": "4cd644fd6aefee046c8411da408971613a0a0b2bcaf42f877dd462214f6d9afa",
+      "preserved": true
+    },
+    "dev30-compat-v3-reclassification.json": {
+      "sha256": "1975c463463db577bb81aa438785d996bd9e20c6a4bb2c36087aa03e8a5f923d",
+      "preserved": true
+    },
+    "dev30-compat-v5-reclassification.json": {
+      "sha256": "8b6b6651a5bb5ba5f975637fddec0ce705ab0f55a257d5e5da8d58f8d62f16af",
+      "preserved": true
+    },
+    "holdout30-v5-score.json": {
+      "sha256": "02e2fd4abce71fe45cb2d062eebb5d5ba2ca55bb266246f0418b88421d9ddbf0",
+      "preserved": true
+    },
+    "dev10-v3-repair-composite-score.json": {
+      "sha256": "bb979a89ab9b18af2a3b51517487ac4543d289d31f0b3f58e58bfef764377f6e",
+      "preserved": true
+    },
+    "DEV9_003": {
+      "pass": true,
+      "selected": [
+        "b-v2-c-technique-human-use",
+        "b-v2-c-interplay",
+        "b-v2-c-play-origin",
+        "b-v2-c-once-experiment"
+      ],
+      "expected": "b-v2-c-technique-human-use"
+    },
+    "DEV9_005": {
+      "pass": true,
+      "selected": [
+        "b-v3-c-cult-exhibition",
+        "b-v3-c-film-examiner"
+      ],
+      "expected": "b-v3-c-cult-exhibition"
+    },
+    "DEV9_006": {
+      "pass": true,
+      "selected": [
+        "b-v2-c-art-function",
+        "b-v2-c-interplay"
+      ],
+      "expected": "b-v2-c-art-function"
+    },
+    "DEV9_016_actor": {
+      "pass": true,
+      "selected": [
+        "b-v2-c-art-function",
+        "b-v2-c-interplay"
+      ],
+      "expected": "b-v2-c-interplay"
+    },
+    "DEV9_016_target": {
+      "pass": true,
+      "selected": [
+        "lee-c-tension",
+        "lee-c-transparent",
+        "lee-c-trust-definition",
+        "lee-q-benjamin-second-tech",
+        "lee-q-trust-keyword",
+        "lee-c-immersion"
+      ],
+      "expected": "lee-c-transparent"
+    },
+    "DEV9_021": {
+      "pass": true,
+      "page": 17,
+      "span": "수용 태도|정신분산|정신몰입"
+    },
+    "DEV9_007_008": {
+      "pass": true
+    },
+    "DEV9_007": {
+      "pass": true,
+      "form": "INTERPRETIVE_STATEMENT",
+      "owner": "EXTERNAL"
+    },
+    "DEV9_008": {
+      "pass": true,
+      "form": "INTERPRETIVE_STATEMENT",
+      "owner": "EXTERNAL"
+    },
+    "DEV9_025": {
+      "pass": true,
+      "support_ids": [
+        "lee-c-research-program",
+        "lee-c-tension",
+        "b-v3-c-aura-distance",
+        "b-v3-c-aura-withers"
+      ]
+    },
+    "DEV9_029": {
+      "pass": true,
+      "selected": [
+        "b-v3-c-distraction",
+        "b-v3-c-film-examiner",
+        "b-v3-c-aura-distance",
+        "b-v3-c-authenticity",
+        "b-v3-c-cult-exhibition",
+        "b-v3-c-dada-demand",
+        "lee-c-immersion"
+      ],
+      "hints": [
+        "lee-i-distance"
+      ]
+    },
+    "ZERO_OVERLAP": {
+      "pass": true
+    },
+    "NO_QUERY_ID_HARDCODING": {
+      "pass": true,
+      "production_files_scanned": [
+        "src/paper2humanities/runtime/model_adapter.py",
+        "src/paper2humanities/runtime/pass_contract.py",
+        "src/paper2humanities/runtime/__init__.py",
+        "src/paper2humanities/runtime/retrieval.py",
+        "src/paper2humanities/runtime/attribution.py",
+        "src/paper2humanities/runtime/generator.py",
+        "src/paper2humanities/runtime/orchestration.py",
+        "src/paper2humanities/runtime/classifier.py",
+        "src/paper2humanities/runtime/verifier.py",
+        "scripts/run_phase3_codex.py"
+      ]
+    }
+  },
+  "pass": true
+}

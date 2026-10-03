@@ -1,0 +1,1372 @@
+{
+  "schema_version": 1,
+  "source_panel": "HOLDOUT30_V5",
+  "reclassification": "DEV9_V5_FAILURES",
+  "records": [
+    {
+      "query_id": "H30V5-003",
+      "query": "V2에서 첫째 기술과 둘째 기술이 인간을 투입하는 방식이 다르다는 저자 주장의 근거를 판정하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-003",
+        "type": "AUTHOR_CLAIM",
+        "paper": "benjamin-artwork-v2",
+        "edition": "benjamin-artwork-v2",
+        "page": 10,
+        "support": [
+          "b-v2-c-technique-human-use"
+        ],
+        "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+      },
+      "actual_result": {
+        "outcome": "ABSTAINED",
+        "classified_action": "AUTHOR_ATTRIBUTION",
+        "turn": {
+          "text": "제공된 근거가 없어 V2에서 첫째 기술과 둘째 기술의 인간 투입 방식에 관한 저자 주장을 판정할 수 없습니다.",
+          "statement_type": "UNRESOLVED",
+          "evidence_voice": "UNKNOWN",
+          "support_ids": [],
+          "pages": [],
+          "relation_type": "UNRESOLVED",
+          "actor_paper": "benjamin-artwork-v2",
+          "actor_edition_id": "benjamin-artwork-v2",
+          "action": "AUTHOR_ATTRIBUTION",
+          "semantic_support": "UNSUPPORTED",
+          "evidence_sufficiency": "INSUFFICIENT",
+          "qualification": null,
+          "evidence_span": null,
+          "claims": []
+        }
+      },
+      "retrieval_trace": {
+        "action": "AUTHOR_ATTRIBUTION",
+        "selected_statement_ids": [],
+        "selected_evidence": [],
+        "source_traces": [
+          {
+            "query": "V2에서 첫째 기술과 둘째 기술이 인간을 투입하는 방식이 다르다는 저자 주장의 근거를 판정하라.",
+            "action": "AUTHOR_ATTRIBUTION",
+            "candidate_statement_ids": [],
+            "candidate_scores": {},
+            "selected_statement_ids": [],
+            "selected_evidence": [],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2"
+          }
+        ]
+      },
+      "gate_errors": [],
+      "root_cause": "multilingual lexical retrieval miss: Korean first/second-technology and human-deployment wording had zero overlap with German/English evidence",
+      "repair_category": "MULTILINGUAL_RETRIEVAL"
+    },
+    {
+      "query_id": "H30V5-005",
+      "query": "V3에서 제의가치와 전시가치를 작품 수용의 두 극으로 설명하는 근거 페이지를 제시하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-005",
+        "type": "AUTHOR_CLAIM",
+        "paper": "benjamin-artwork-v3",
+        "edition": "benjamin-artwork-v3",
+        "page": 12,
+        "support": [
+          "b-v3-c-cult-exhibition"
+        ],
+        "source_id": "s001-benjamin-kunstwerk-v3"
+      },
+      "actual_result": {
+        "outcome": "ABSTAINED",
+        "classified_action": "SOURCE_RETRIEVAL",
+        "turn": {
+          "text": "제공된 근거 자료가 없어 해당 페이지를 제시할 수 없습니다.",
+          "statement_type": "UNRESOLVED",
+          "evidence_voice": "UNKNOWN",
+          "support_ids": [],
+          "pages": [],
+          "relation_type": "UNRESOLVED",
+          "actor_paper": "benjamin-artwork-v3",
+          "actor_edition_id": "benjamin-artwork-v3",
+          "action": "SOURCE_RETRIEVAL",
+          "semantic_support": "UNSUPPORTED",
+          "evidence_sufficiency": "INSUFFICIENT",
+          "qualification": null,
+          "evidence_span": null,
+          "claims": []
+        }
+      },
+      "retrieval_trace": {
+        "action": "SOURCE_RETRIEVAL",
+        "selected_statement_ids": [],
+        "selected_evidence": [],
+        "source_traces": [
+          {
+            "query": "V3에서 제의가치와 전시가치를 작품 수용의 두 극으로 설명하는 근거 페이지를 제시하라.",
+            "action": "SOURCE_RETRIEVAL",
+            "candidate_statement_ids": [],
+            "candidate_scores": {},
+            "selected_statement_ids": [],
+            "selected_evidence": [],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          }
+        ]
+      },
+      "gate_errors": [],
+      "root_cause": "multilingual lexical retrieval miss: Korean cult/exhibition-value wording had zero overlap with German evidence",
+      "repair_category": "MULTILINGUAL_RETRIEVAL"
+    },
+    {
+      "query_id": "H30V5-006",
+      "query": "V2에서 현대 예술의 사회적 기능을 자연과 인류의 상호작용 연습과 연결하는 근거 페이지를 제시하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-006",
+        "type": "AUTHOR_CLAIM",
+        "paper": "benjamin-artwork-v2",
+        "edition": "benjamin-artwork-v2",
+        "page": 10,
+        "support": [
+          "b-v2-c-art-function"
+        ],
+        "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+      },
+      "actual_result": {
+        "outcome": "ABSTAINED",
+        "classified_action": "SOURCE_RETRIEVAL",
+        "turn": {
+          "text": "제공된 근거가 없어 V2의 해당 근거 페이지를 제시할 수 없습니다.",
+          "statement_type": "UNRESOLVED",
+          "evidence_voice": "UNKNOWN",
+          "support_ids": [],
+          "pages": [],
+          "relation_type": "UNRESOLVED",
+          "actor_paper": "benjamin-artwork-v2",
+          "actor_edition_id": "benjamin-artwork-v2",
+          "action": "SOURCE_RETRIEVAL",
+          "semantic_support": "UNSUPPORTED",
+          "evidence_sufficiency": "INSUFFICIENT",
+          "qualification": null,
+          "evidence_span": null,
+          "claims": []
+        }
+      },
+      "retrieval_trace": {
+        "action": "SOURCE_RETRIEVAL",
+        "selected_statement_ids": [],
+        "selected_evidence": [],
+        "source_traces": [
+          {
+            "query": "V2에서 현대 예술의 사회적 기능을 자연과 인류의 상호작용 연습과 연결하는 근거 페이지를 제시하라.",
+            "action": "SOURCE_RETRIEVAL",
+            "candidate_statement_ids": [],
+            "candidate_scores": {},
+            "selected_statement_ids": [],
+            "selected_evidence": [],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2"
+          }
+        ]
+      },
+      "gate_errors": [],
+      "root_cause": "multilingual lexical retrieval miss: Korean social-function/interplay wording had zero overlap with German/English evidence",
+      "repair_category": "MULTILINGUAL_RETRIEVAL"
+    },
+    {
+      "query_id": "H30V5-007",
+      "query": "Lee 2019의 “제2의 기술의 기원은 유희에 있다”는 인용을 이용욱 자신의 저자 주장인지 외부 인용인지 귀속 판정하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-007",
+        "type": "SOURCE_QUOTE",
+        "paper": "lee-aura-2019",
+        "edition": null,
+        "page": 18,
+        "support": [
+          "lee-q-benjamin-second-tech"
+        ],
+        "source_id": "s001-lee-aura-2019"
+      },
+      "actual_result": {
+        "outcome": "ACCEPTED",
+        "classified_action": "EXTERNAL_ATTRIBUTION",
+        "turn": {
+          "text": "“제2의 기술의 기원은 유희에 있다”는 이용욱 자신의 저자 주장이 아니라, 논문에서 인용한 벤야민의 문장이다.",
+          "statement_type": "INTERPRETATION",
+          "evidence_voice": "EXTERNAL",
+          "support_ids": [
+            "lee-q-benjamin-second-tech"
+          ],
+          "pages": [
+            18
+          ],
+          "relation_type": "REFRAMES",
+          "actor_paper": "lee-aura-2019",
+          "actor_edition_id": null,
+          "action": "EXTERNAL_ATTRIBUTION",
+          "semantic_support": "SEMANTICALLY_SUPPORTED",
+          "evidence_sufficiency": "SUFFICIENT",
+          "qualification": null,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "claims": [
+            {
+              "text": "해당 문장은 논문에 제시된 외부 인용이다.",
+              "statement_type": "INTERPRETATION",
+              "support_ids": [
+                "lee-q-benjamin-second-tech"
+              ]
+            }
+          ]
+        }
+      },
+      "retrieval_trace": {
+        "action": "EXTERNAL_ATTRIBUTION",
+        "selected_statement_ids": [
+          "lee-q-benjamin-second-tech",
+          "lee-i-distance"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-q-benjamin-second-tech",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 18,
+            "evidence_span": "제2의 기술의 기원은 유희에 있다."
+          },
+          {
+            "statement_id": "lee-i-distance",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": null,
+            "evidence_span": null
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "Lee 2019의 “제2의 기술의 기원은 유희에 있다”는 인용을 이용욱 자신의 저자 주장인지 외부 인용인지 귀속 판정하라.",
+            "action": "EXTERNAL_ATTRIBUTION",
+            "candidate_statement_ids": [
+              "lee-q-benjamin-second-tech",
+              "lee-i-distance"
+            ],
+            "candidate_scores": {
+              "lee-q-benjamin-second-tech": 23.190937,
+              "lee-i-distance": 2.232144
+            },
+            "selected_statement_ids": [
+              "lee-q-benjamin-second-tech",
+              "lee-i-distance"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-q-benjamin-second-tech",
+                "paper_id": "lee-aura-2019",
+                "page": 18,
+                "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-i-distance",
+                "paper_id": "lee-aura-2019",
+                "page": null,
+                "evidence_span": null,
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "gate_errors": [],
+      "root_cause": "evaluation ontology mismatch: answer is an attribution judgment about an external quotation, not itself a direct quotation",
+      "repair_category": "ATTRIBUTION_FORM_OWNER_ONTOLOGY"
+    },
+    {
+      "query_id": "H30V5-008",
+      "query": "Lee 2019이 벤야민의 제2기술 논의를 인용하는 대목에서 해당 문장의 저자 귀속이 외부인지 판정하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-008",
+        "type": "SOURCE_QUOTE",
+        "paper": "lee-aura-2019",
+        "edition": null,
+        "page": 18,
+        "support": [
+          "lee-q-benjamin-second-tech"
+        ],
+        "source_id": "s001-lee-aura-2019"
+      },
+      "actual_result": {
+        "outcome": "ACCEPTED",
+        "classified_action": "EXTERNAL_ATTRIBUTION",
+        "turn": {
+          "text": "이 문장은 Lee 자신의 주장이 아니라, Lee가 인용한 벤야민의 제2기술 논의에 귀속된다.",
+          "statement_type": "INTERPRETATION",
+          "evidence_voice": "EXTERNAL",
+          "support_ids": [
+            "lee-q-benjamin-second-tech"
+          ],
+          "pages": [
+            18
+          ],
+          "relation_type": "QUALIFIES",
+          "actor_paper": "lee-aura-2019",
+          "actor_edition_id": null,
+          "action": "EXTERNAL_ATTRIBUTION",
+          "semantic_support": "SEMANTICALLY_SUPPORTED",
+          "evidence_sufficiency": "SUFFICIENT",
+          "qualification": null,
+          "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+          "claims": [
+            {
+              "text": "해당 문장의 저자 귀속은 외부 인용자인 벤야민이다.",
+              "statement_type": "INTERPRETATION",
+              "support_ids": [
+                "lee-q-benjamin-second-tech"
+              ]
+            }
+          ]
+        }
+      },
+      "retrieval_trace": {
+        "action": "EXTERNAL_ATTRIBUTION",
+        "selected_statement_ids": [
+          "lee-q-benjamin-second-tech"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-q-benjamin-second-tech",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 18,
+            "evidence_span": "제2의 기술의 기원은 유희에 있다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "Lee 2019이 벤야민의 제2기술 논의를 인용하는 대목에서 해당 문장의 저자 귀속이 외부인지 판정하라.",
+            "action": "EXTERNAL_ATTRIBUTION",
+            "candidate_statement_ids": [
+              "lee-q-benjamin-second-tech"
+            ],
+            "candidate_scores": {
+              "lee-q-benjamin-second-tech": 2.030159
+            },
+            "selected_statement_ids": [
+              "lee-q-benjamin-second-tech"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-q-benjamin-second-tech",
+                "paper_id": "lee-aura-2019",
+                "page": 18,
+                "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "gate_errors": [],
+      "root_cause": "evaluation ontology mismatch: answer is an interpretive attribution judgment with EXTERNAL ownership, not necessarily SOURCE_QUOTE form",
+      "repair_category": "ATTRIBUTION_FORM_OWNER_ONTOLOGY"
+    },
+    {
+      "query_id": "H30V5-016",
+      "query": "V2의 자연과 인류의 상호작용 개념을 Lee 2019의 제3기술과 관련해 비판하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-016",
+        "type": "CRITIQUE",
+        "paper": "benjamin-artwork-v2",
+        "edition": "benjamin-artwork-v2",
+        "page": 10,
+        "support": [
+          "b-v2-c-interplay",
+          "lee-c-transparent"
+        ],
+        "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified"
+      },
+      "actual_result": {
+        "outcome": "ABSTAINED",
+        "classified_action": "CRITIQUE",
+        "turn": {
+          "text": "V2의 자연과 인류의 상호작용에 관한 근거가 제공되지 않아 Lee 2019의 제3기술과 관련한 비판을 제시할 수 없다.",
+          "statement_type": "UNRESOLVED",
+          "evidence_voice": "UNKNOWN",
+          "support_ids": [],
+          "pages": [],
+          "relation_type": "UNRESOLVED",
+          "actor_paper": "benjamin-artwork-v2",
+          "actor_edition_id": "benjamin-artwork-v2",
+          "action": "CRITIQUE",
+          "semantic_support": "UNSUPPORTED",
+          "evidence_sufficiency": "INSUFFICIENT",
+          "qualification": null,
+          "evidence_span": null,
+          "claims": []
+        }
+      },
+      "retrieval_trace": {
+        "action": "CRITIQUE",
+        "selected_statement_ids": [
+          "lee-c-tension",
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-q-benjamin-second-tech",
+          "lee-q-trust-keyword",
+          "lee-c-purpose"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-c-transparent",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 22,
+            "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다."
+          },
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-q-benjamin-second-tech",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 18,
+            "evidence_span": "제2의 기술의 기원은 유희에 있다."
+          },
+          {
+            "statement_id": "lee-q-trust-keyword",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 23,
+            "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "V2의 자연과 인류의 상호작용 개념을 Lee 2019의 제3기술과 관련해 비판하라.",
+            "action": "CRITIQUE",
+            "candidate_statement_ids": [],
+            "candidate_scores": {},
+            "selected_statement_ids": [],
+            "selected_evidence": [],
+            "rejected_candidates": []
+          },
+          {
+            "query": "V2의 자연과 인류의 상호작용 개념을 Lee 2019의 제3기술과 관련해 비판하라.",
+            "action": "CRITIQUE",
+            "candidate_statement_ids": [
+              "lee-c-tension",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech",
+              "lee-q-trust-keyword",
+              "lee-c-purpose"
+            ],
+            "candidate_scores": {
+              "lee-c-tension": 3.810317,
+              "lee-c-transparent": 3.810317,
+              "lee-c-trust-definition": 3.810317,
+              "lee-q-benjamin-second-tech": 3.810317,
+              "lee-q-trust-keyword": 3.810317,
+              "lee-c-purpose": 3.329442
+            },
+            "selected_statement_ids": [
+              "lee-c-tension",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech",
+              "lee-q-trust-keyword",
+              "lee-c-purpose"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-transparent",
+                "paper_id": "lee-aura-2019",
+                "page": 22,
+                "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-benjamin-second-tech",
+                "paper_id": "lee-aura-2019",
+                "page": 18,
+                "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-trust-keyword",
+                "paper_id": "lee-aura-2019",
+                "page": 23,
+                "evidence_span": "제3기술의 두 번째 키워드는 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v2",
+            "edition_id": "benjamin-artwork-v2"
+          },
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "gate_errors": [],
+      "root_cause": "actor-side Benjamin V2 evidence retrieval was empty while Lee target evidence was present; substantive cross-paper critique therefore abstained",
+      "repair_category": "ACTOR_FIRST_CROSS_PAPER_RETRIEVAL"
+    },
+    {
+      "query_id": "H30V5-021",
+      "query": "Benjamin V3의 집중과 정신분산 논의에 대해 Lee 2019의 몰입 관련 근거를 사용해 응답하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-021",
+        "type": "INTERPRETATION",
+        "paper": "lee-aura-2019",
+        "edition": null,
+        "page": 17,
+        "support": [
+          "lee-c-immersion",
+          "b-v3-c-distraction"
+        ],
+        "source_id": "s001-lee-aura-2019"
+      },
+      "actual_result": {
+        "outcome": "ABSTAINED",
+        "classified_action": "RESPONSE",
+        "turn": {
+          "text": "제공된 Lee 2019 자료에는 몰입에 관한 해석 요약만 있고, 이를 뒷받침할 원문 구절이나 쪽수가 없어 Benjamin V3의 집중·정신분산 논의에 대한 Lee 2019의 입장으로 응답할 수 없다.",
+          "statement_type": "UNRESOLVED",
+          "evidence_voice": "UNKNOWN",
+          "support_ids": [],
+          "pages": [],
+          "relation_type": "UNRESOLVED",
+          "actor_paper": "lee-aura-2019",
+          "actor_edition_id": null,
+          "action": "RESPONSE",
+          "semantic_support": "UNSUPPORTED",
+          "evidence_sufficiency": "INSUFFICIENT",
+          "qualification": null,
+          "evidence_span": null,
+          "claims": []
+        }
+      },
+      "retrieval_trace": {
+        "action": "RESPONSE",
+        "selected_statement_ids": [
+          "lee-i-distance",
+          "b-v3-c-distraction",
+          "b-v3-c-film-examiner",
+          "b-v3-c-aura-distance",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-i-distance",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": null,
+            "evidence_span": null
+          },
+          {
+            "statement_id": "b-v3-c-distraction",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 34,
+            "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich."
+          },
+          {
+            "statement_id": "b-v3-c-film-examiner",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 35,
+            "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter."
+          },
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "Benjamin V3의 집중과 정신분산 논의에 대해 Lee 2019의 몰입 관련 근거를 사용해 응답하라.",
+            "action": "RESPONSE",
+            "candidate_statement_ids": [
+              "lee-i-distance"
+            ],
+            "candidate_scores": {
+              "lee-i-distance": 9.238325
+            },
+            "selected_statement_ids": [
+              "lee-i-distance"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-i-distance",
+                "paper_id": "lee-aura-2019",
+                "page": null,
+                "evidence_span": null,
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": []
+          },
+          {
+            "query": "Benjamin V3의 집중과 정신분산 논의에 대해 Lee 2019의 몰입 관련 근거를 사용해 응답하라.",
+            "action": "RESPONSE",
+            "candidate_statement_ids": [
+              "b-v3-c-distraction",
+              "b-v3-c-film-examiner",
+              "b-v3-c-aura-distance",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand"
+            ],
+            "candidate_scores": {
+              "b-v3-c-distraction": 8.114146,
+              "b-v3-c-film-examiner": 6.739452,
+              "b-v3-c-aura-distance": 1.624693,
+              "b-v3-c-authenticity": 1.624693,
+              "b-v3-c-cult-exhibition": 1.624693,
+              "b-v3-c-dada-demand": 1.624693
+            },
+            "selected_statement_ids": [
+              "b-v3-c-distraction",
+              "b-v3-c-film-examiner",
+              "b-v3-c-aura-distance",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-distraction",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 34,
+                "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-film-examiner",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 35,
+                "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          },
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          }
+        ]
+      },
+      "gate_errors": [],
+      "root_cause": "gold is valid: reviewed Paper2Skill page 17 contains the comparison-table row 수용 태도 / 정신분산 / 정신몰입; the canonical Lee evidence index omitted that reviewed table row, so Phase3 runtime could not expose lee-c-immersion as grounded evidence",
+      "repair_category": "STALE_RUNTIME_FIXTURE_GROUNDING"
+    },
+    {
+      "query_id": "H30V5-025",
+      "query": "Lee 2019의 디지털아우라와 Benjamin V3의 아우라 쇠퇴 사이에서 확인되는 연구 공백을 근거에 한정해 제시하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-025",
+        "type": "AI_SYNTHESIS",
+        "paper": "lee-aura-2019",
+        "edition": null,
+        "page": 17,
+        "support": [
+          "lee-q-digital-aura",
+          "b-v3-c-aura-withers"
+        ],
+        "source_id": "s001-lee-aura-2019"
+      },
+      "actual_result": {
+        "outcome": "ACCEPTED",
+        "classified_action": "RESEARCH_GAP",
+        "turn": {
+          "text": "제공된 발췌에서 확인되는 연구 공백은 디지털예술의 ‘아우라 없는 아우라’를 벤야민이 말한 아우라의 거리 및 쇠퇴와 어떤 기준으로 연결해 판단할 것인가이다. Lee는 그 변용을 연구 과제로 제시하지만, 이 발췌만으로는 그 판단 기준이나 논문 전체에서의 논의 여부를 확정할 수 없다.",
+          "statement_type": "AI_SYNTHESIS",
+          "evidence_voice": "AUTHOR",
+          "support_ids": [
+            "lee-c-research-program",
+            "lee-c-tension",
+            "b-v3-c-aura-distance",
+            "b-v3-c-aura-withers"
+          ],
+          "pages": [
+            7,
+            9,
+            27,
+            29
+          ],
+          "relation_type": "QUALIFIES",
+          "actor_paper": "lee-aura-2019",
+          "actor_edition_id": null,
+          "action": "RESEARCH_GAP",
+          "semantic_support": "PARTIALLY_SUPPORTED",
+          "evidence_sufficiency": "PARTIAL",
+          "qualification": "제공된 발췌만으로 Lee의 논문 전체에 해당 판단 기준이 없다고 단정할 수 없다.",
+          "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+          "claims": [
+            {
+              "text": "Lee는 아우라 상실이 디지털예술에서 어떻게 변용되는지 연구할 필요를 제시한다.",
+              "statement_type": "AUTHOR_CLAIM",
+              "support_ids": [
+                "lee-c-research-program"
+              ]
+            },
+            {
+              "text": "Lee는 ‘아우라 없는 아우라’라는 긴장을 제시한다.",
+              "statement_type": "AUTHOR_CLAIM",
+              "support_ids": [
+                "lee-c-tension"
+              ]
+            },
+            {
+              "text": "이 긴장을 벤야민의 아우라의 거리 및 쇠퇴와 연결해 판단할 기준은 제시된 발췌에서 확인되지 않으며, 이를 연구 질문으로 삼을 수 있다.",
+              "statement_type": "AI_SYNTHESIS",
+              "support_ids": [
+                "lee-c-research-program",
+                "lee-c-tension",
+                "b-v3-c-aura-distance",
+                "b-v3-c-aura-withers"
+              ]
+            }
+          ]
+        }
+      },
+      "retrieval_trace": {
+        "action": "RESEARCH_GAP",
+        "selected_statement_ids": [
+          "lee-c-purpose",
+          "lee-c-research-program",
+          "lee-c-tension",
+          "lee-c-transparent",
+          "lee-c-trust-definition",
+          "lee-q-benjamin-second-tech",
+          "b-v3-c-aura-distance",
+          "b-v3-c-aura-withers",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "b-v3-c-distraction"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "lee-c-purpose",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 2,
+            "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다."
+          },
+          {
+            "statement_id": "lee-c-research-program",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 29,
+            "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다."
+          },
+          {
+            "statement_id": "lee-c-tension",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 27,
+            "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다."
+          },
+          {
+            "statement_id": "lee-c-transparent",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 22,
+            "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다."
+          },
+          {
+            "statement_id": "lee-c-trust-definition",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 24,
+            "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다."
+          },
+          {
+            "statement_id": "lee-q-benjamin-second-tech",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": 18,
+            "evidence_span": "제2의 기술의 기원은 유희에 있다."
+          },
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-aura-withers",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 7,
+            "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "b-v3-c-distraction",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 34,
+            "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich."
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "Lee 2019의 디지털아우라와 Benjamin V3의 아우라 쇠퇴 사이에서 확인되는 연구 공백을 근거에 한정해 제시하라.",
+            "action": "RESEARCH_GAP",
+            "candidate_statement_ids": [
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-tension",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech",
+              "lee-q-digital-aura",
+              "lee-q-trust-keyword",
+              "lee-i-distance"
+            ],
+            "candidate_scores": {
+              "lee-c-purpose": 5.796671,
+              "lee-c-research-program": 2.71723,
+              "lee-c-tension": 2.71723,
+              "lee-c-transparent": 2.71723,
+              "lee-c-trust-definition": 2.71723,
+              "lee-q-benjamin-second-tech": 2.71723,
+              "lee-q-digital-aura": 2.71723,
+              "lee-q-trust-keyword": 2.71723,
+              "lee-i-distance": 2.46723
+            },
+            "selected_statement_ids": [
+              "lee-c-purpose",
+              "lee-c-research-program",
+              "lee-c-tension",
+              "lee-c-transparent",
+              "lee-c-trust-definition",
+              "lee-q-benjamin-second-tech"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-c-purpose",
+                "paper_id": "lee-aura-2019",
+                "page": 2,
+                "evidence_span": "이 논문은 예술텍스 트를 둘러싼 생태환경이 기술편집시대로 진입하고 있다는 전제하에 벤야민 의 아우라 개념을 다시 짚어보고 새로운 매체미학적 관점에서 연구의 방향 성을 제시해 보는 데 목적이 있다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-research-program",
+                "paper_id": "lee-aura-2019",
+                "page": 29,
+                "evidence_span": "20세기 대중예술의 아우라 상실이 21세기 디지 털예술에서는 어떻게 변용되고 변곡되는지에 대한 연구는 디지털예술 미학 을 논의하기 위한 필요조건이며, 새로운 시대, 새로운 예술을 해석하고 판단 할 수 있는 중요한 논거가 될 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-tension",
+                "paper_id": "lee-aura-2019",
+                "page": 27,
+                "evidence_span": "‘투명화’와 ‘신뢰화’는 모두 “그렇게 보이도록” 만드는 것이다. 실체가 없 는 가상이며, 아우라 없는 아우라이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-transparent",
+                "paper_id": "lee-aura-2019",
+                "page": 22,
+                "evidence_span": "제3기술의 핵심가치인 ‘투명화’은 사용자와 도구의 차이를 넘어 휴먼과 사이보그, 리얼리티와 버추얼리얼리티, 매개화 재매개, 수단과 목적의 차이가 사라지는 것이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-c-trust-definition",
+                "paper_id": "lee-aura-2019",
+                "page": 24,
+                "evidence_span": "진실성 여부가 중요한 것이 아니라 사용의 맥락과 주체의 욕망에 따라 가상텍스트가 배치되고 거리가 조정되는데, 이것을 가능케 한 편집기 술이 바로 ‘신뢰화’이다.",
+                "edition_id": null
+              },
+              {
+                "statement_id": "lee-q-benjamin-second-tech",
+                "paper_id": "lee-aura-2019",
+                "page": 18,
+                "evidence_span": "제2의 기술의 기원은 유희에 있다.",
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": [
+              "lee-q-digital-aura",
+              "lee-q-trust-keyword",
+              "lee-i-distance"
+            ]
+          },
+          {
+            "query": "Lee 2019의 디지털아우라와 Benjamin V3의 아우라 쇠퇴 사이에서 확인되는 연구 공백을 근거에 한정해 제시하라.",
+            "action": "RESEARCH_GAP",
+            "candidate_statement_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand",
+              "b-v3-c-distraction"
+            ],
+            "candidate_scores": {
+              "b-v3-c-aura-distance": 5.950995,
+              "b-v3-c-aura-withers": 4.576302,
+              "b-v3-c-authenticity": 1.624693,
+              "b-v3-c-cult-exhibition": 1.624693,
+              "b-v3-c-dada-demand": 1.624693,
+              "b-v3-c-distraction": 1.624693
+            },
+            "selected_statement_ids": [
+              "b-v3-c-aura-distance",
+              "b-v3-c-aura-withers",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand",
+              "b-v3-c-distraction"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-withers",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 7,
+                "evidence_span": "was im Zeitalter der technischen Reproduzierbarkeit des Kunstwerks verkümmert, das ist seine Aura.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-distraction",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 34,
+                "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich.",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          },
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          }
+        ]
+      },
+      "gate_errors": [],
+      "root_cause": "accepted scholarly synthesis used a valid alternative evidence path but exact-gold matching treated the single frozen support/page path as mandatory",
+      "repair_category": "CATEGORY_AWARE_SCHOLARLY_SCORING"
+    },
+    {
+      "query_id": "H30V5-029",
+      "query": "Benjamin V3의 정신분산과 Lee 2019의 몰입을 함께 검토하는 연구질문 하나를 제시하라.",
+      "gold_expectation": {
+        "query_id": "H30V5-029",
+        "type": "AI_SYNTHESIS",
+        "paper": "benjamin-artwork-v3",
+        "edition": "benjamin-artwork-v3",
+        "page": 34,
+        "support": [
+          "b-v3-c-distraction",
+          "lee-c-immersion"
+        ],
+        "source_id": "s001-benjamin-kunstwerk-v3"
+      },
+      "actual_result": {
+        "outcome": "REJECTED",
+        "classified_action": "RESEARCH_QUESTION",
+        "turn": {
+          "text": "Benjamin V3에서 영화 관객의 정신분산적 수용은 Lee 2019에 대한 해석에서 제기된 몰입·거리의 재구성과 어떤 관계를 맺는가?",
+          "statement_type": "AI_SYNTHESIS",
+          "evidence_voice": "AUTHOR",
+          "support_ids": [
+            "b-v3-c-film-examiner",
+            "lee-i-distance"
+          ],
+          "pages": [
+            35
+          ],
+          "relation_type": "QUALIFIES",
+          "actor_paper": "benjamin-artwork-v3",
+          "actor_edition_id": "benjamin-artwork-v3",
+          "action": "RESEARCH_QUESTION",
+          "semantic_support": "PARTIALLY_SUPPORTED",
+          "evidence_sufficiency": "PARTIAL",
+          "qualification": "Lee 2019의 몰입에 관해서는 논문 원문이나 쪽수 없이 해석 진술만 제공되었으므로, 두 개념의 관계는 열린 연구질문으로 한정한다.",
+          "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+          "claims": [
+            {
+              "text": "Benjamin V3의 영화 관객에 대한 정신분산 논의와 Lee 2019에 대한 몰입·거리의 재구성이라는 해석 사이의 관계를 묻는다.",
+              "statement_type": "AI_SYNTHESIS",
+              "support_ids": [
+                "b-v3-c-film-examiner",
+                "lee-i-distance"
+              ]
+            }
+          ]
+        }
+      },
+      "retrieval_trace": {
+        "action": "RESEARCH_QUESTION",
+        "selected_statement_ids": [
+          "b-v3-c-distraction",
+          "b-v3-c-film-examiner",
+          "b-v3-c-aura-distance",
+          "b-v3-c-authenticity",
+          "b-v3-c-cult-exhibition",
+          "b-v3-c-dada-demand",
+          "lee-i-distance"
+        ],
+        "selected_evidence": [
+          {
+            "statement_id": "b-v3-c-distraction",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 34,
+            "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich."
+          },
+          {
+            "statement_id": "b-v3-c-film-examiner",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 35,
+            "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter."
+          },
+          {
+            "statement_id": "b-v3-c-aura-distance",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 9,
+            "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag."
+          },
+          {
+            "statement_id": "b-v3-c-authenticity",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 6,
+            "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_"
+          },
+          {
+            "statement_id": "b-v3-c-cult-exhibition",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 12,
+            "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes"
+          },
+          {
+            "statement_id": "b-v3-c-dada-demand",
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3",
+            "page": 31,
+            "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor."
+          },
+          {
+            "statement_id": "lee-i-distance",
+            "paper_id": "lee-aura-2019",
+            "edition_id": null,
+            "page": null,
+            "evidence_span": null
+          }
+        ],
+        "source_traces": [
+          {
+            "query": "Benjamin V3의 정신분산과 Lee 2019의 몰입을 함께 검토하는 연구질문 하나를 제시하라.",
+            "action": "RESEARCH_QUESTION",
+            "candidate_statement_ids": [
+              "b-v3-c-distraction",
+              "b-v3-c-film-examiner",
+              "b-v3-c-aura-distance",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand"
+            ],
+            "candidate_scores": {
+              "b-v3-c-distraction": 8.114146,
+              "b-v3-c-film-examiner": 6.739452,
+              "b-v3-c-aura-distance": 1.624693,
+              "b-v3-c-authenticity": 1.624693,
+              "b-v3-c-cult-exhibition": 1.624693,
+              "b-v3-c-dada-demand": 1.624693
+            },
+            "selected_statement_ids": [
+              "b-v3-c-distraction",
+              "b-v3-c-film-examiner",
+              "b-v3-c-aura-distance",
+              "b-v3-c-authenticity",
+              "b-v3-c-cult-exhibition",
+              "b-v3-c-dada-demand"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "b-v3-c-distraction",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 34,
+                "evidence_span": "Der vor dem Kunstwerk sich Sammelnde versenkt sich darein; er geht in dieses Werk ein, wie die Legende es von einem chinesischen Maler beim Anblick seines vollendeten Bildes erzählt. Dagegen versenkt die zerstreute Masse ihrerseits das Kunstwerk in sich.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-film-examiner",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 35,
+                "evidence_span": "Der Film drängt den Kultwert nicht nur dadurch zurück, daß er das Publikum in eine begutachtende Haltung bringt, sondern auch dadurch, daß die begutachtende Haltung im Kino Aufmerksamkeit nicht einschließt. Das Publikum ist ein Examinator, doch ein zerstreuter.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-aura-distance",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 9,
+                "evidence_span": "Diese letztere definieren wir als einmalige Erscheinung einer Ferne, so nah sie sein mag.",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-authenticity",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 6,
+                "evidence_span": "_der Echtheit entzieht sich der technischen - und natürlich nicht nur der technischen_ - _Reproduzierbarkeit_",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-cult-exhibition",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 12,
+                "evidence_span": "Die Rezeption von Kunstwerken erfolgt mit verschiedenen Akzenten, unter denen sich zwei polare herausheben. Der eine dieser Akzente liegt auf dem Kultwert, der andere auf dem Ausstellungswert des Kunstwerkes",
+                "edition_id": "benjamin-artwork-v3"
+              },
+              {
+                "statement_id": "b-v3-c-dada-demand",
+                "paper_id": "benjamin-artwork-v3",
+                "page": 31,
+                "evidence_span": "Die derart, zumal in den sogenannten Verfallszeiten, sich ergebenden Extravaganzen und Kruditäten der Kunst gehen in Wirklichkeit aus ihrem reichsten historischen Kräftezentrum hervor.",
+                "edition_id": "benjamin-artwork-v3"
+              }
+            ],
+            "rejected_candidates": []
+          },
+          {
+            "query": "Benjamin V3의 정신분산과 Lee 2019의 몰입을 함께 검토하는 연구질문 하나를 제시하라.",
+            "action": "RESEARCH_QUESTION",
+            "candidate_statement_ids": [
+              "lee-i-distance"
+            ],
+            "candidate_scores": {
+              "lee-i-distance": 9.238325
+            },
+            "selected_statement_ids": [
+              "lee-i-distance"
+            ],
+            "selected_evidence": [
+              {
+                "statement_id": "lee-i-distance",
+                "paper_id": "lee-aura-2019",
+                "page": null,
+                "evidence_span": null,
+                "edition_id": null
+              }
+            ],
+            "rejected_candidates": []
+          }
+        ],
+        "allowed_agents": [
+          {
+            "paper_id": "benjamin-artwork-v3",
+            "edition_id": "benjamin-artwork-v3"
+          },
+          {
+            "paper_id": "lee-aura-2019",
+            "edition_id": null
+          }
+        ]
+      },
+      "gate_errors": [
+        "CROSS_EDITION_CONTAMINATION",
+        "FAKE_PAGE_CITATION"
+      ],
+      "root_cause": "page-less lee-i-distance interpretation was exposed as final support; turn then cited only the Benjamin page, causing provenance/page hard-gate failure",
+      "repair_category": "PAGELESS_FINAL_SUPPORT"
+    }
+  ],
+  "notes": [
+    "V5 remains DEV30_COMPAT_V5 and must never be reused as an official holdout.",
+    "H30V5-021 source audit: reviewed Paper2Skill page-0017 is reviewed=true and its comparison table contains |수용 태도|정신분산|정신몰입|; canonical evidence index page 17 omitted that reviewed table row. V6 restores the reviewed row; no page or span is invented.",
+    "Runtime/evaluator/gold defects are intentionally separated before remediation."
+  ]
+}

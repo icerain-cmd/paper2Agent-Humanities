@@ -1,0 +1,16 @@
+{
+  "contract_id": "HOLDOUT30_V5_PREREGISTERED_PASS_CONTRACT",
+  "status": "PREREGISTERED_BEFORE_GENERATION",
+  "hard_gate_maximum": 0,
+  "required_hard_gates": [
+    "FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR", "CROSS_EDITION_CONTAMINATION",
+    "UNSUPPORTED_DIALOGUE_TURN", "TEMPORAL_CORPUS_CONTAMINATION",
+    "FAKE_PAGE_CITATION", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE",
+    "WRONG_SOURCE_ID", "STALE_SEMANTIC_REVIEW"
+  ],
+  "minimum_exact_match_accuracy": 0.90,
+  "minimum_source_id_accuracy": 0.95,
+  "minimum_unsupported_premise_rejection": 0.90,
+  "maximum_false_author_claim": 0,
+  "maximum_fake_page_citation": 0
+}

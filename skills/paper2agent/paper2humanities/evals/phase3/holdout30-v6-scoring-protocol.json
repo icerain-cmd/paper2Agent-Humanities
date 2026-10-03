@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "protocol_id": "HOLDOUT30_V6_CATEGORY_AWARE_SCORING_PROTOCOL",
+  "scoring_contract_sha": "675fc760eeff89bb84e347ce0b70b2cf747550ce",
+  "factual_actions": [
+    "AUTHOR_ATTRIBUTION",
+    "EXTERNAL_ATTRIBUTION",
+    "SOURCE_RETRIEVAL"
+  ],
+  "scholarly_actions": [
+    "INTERPRETATION",
+    "CRITIQUE",
+    "RESPONSE",
+    "CROSS_PAPER_COMPARE",
+    "RESEARCH_GAP",
+    "RESEARCH_QUESTION"
+  ],
+  "factual_rule": {
+    "strict_fields": [
+      "paper",
+      "source_id",
+      "edition",
+      "page",
+      "support",
+      "statement_form",
+      "attribution_owner",
+      "action"
+    ],
+    "unsupported_premise": "ABSTAIN/UNRESOLVED required"
+  },
+  "scholarly_rule": {
+    "single_gold_support_set_required": false,
+    "required_checks": [
+      "allowed corpus only",
+      "valid grounded support IDs",
+      "required actor/target paper presence",
+      "no fake page",
+      "no edition leakage",
+      "semantic support",
+      "correct action family",
+      "claim typing",
+      "publication gate"
+    ]
+  },
+  "verification_order": [
+    "deterministic provenance gates",
+    "fresh independent semantic verifier"
+  ],
+  "generator_model": "gpt-6-sol",
+  "verifier_model": "gpt-5.6-sol",
+  "independent_model_verifier_required": true,
+  "fresh_context_verifier_required": true,
+  "legacy_compatibility": "Phase1-V5 statement_type/evidence_voice remain readable; statement_form/attribution_owner use deterministic fallback when absent.",
+  "mutation_policy": "No V6 scorer, protocol, runtime, retrieval, classifier, schema, verifier, or pass-contract change after implementation freeze."
+}

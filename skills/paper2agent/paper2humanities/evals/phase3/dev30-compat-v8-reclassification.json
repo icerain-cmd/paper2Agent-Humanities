@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "task": "HOLDOUT30_V8_RECLASSIFICATION",
+  "panel_id": "phase3-holdout30-v8",
+  "holdout_status": "FAIL",
+  "reclassification": "DEV30_COMPAT_V8",
+  "reason": "PREREGISTERED_PASS_CONTRACT_FAILURE",
+  "hard_gates_all_zero": true,
+  "failed_query_ids": [
+    "H30V8-002",
+    "H30V8-004",
+    "H30V8-005",
+    "H30V8-007",
+    "H30V8-015",
+    "H30V8-017",
+    "H30V8-024",
+    "H30V8-028"
+  ],
+  "query_sha256": "9bf3febf8afde7e79b185e7e69447fc29df76bf4fc57e468efca869429fa65ff",
+  "response_sha256": "10b7b09c60cadefb9fb65574f74ac57202a03a87c773ed4ef42299236fe221ee",
+  "gold_sha256": "d652053c001dc207e0bae1caa0702eb80f05e0e2f0c20607e096c48f68f7f3de",
+  "pass_contract_sha256": "358d6ba246f011376af6b07e99de737a5a16f62609f57c370383f77ecdce8ee4",
+  "response_modified": false,
+  "gold_modified": false,
+  "threshold_modified": false,
+  "rescored": false,
+  "v9_created": false,
+  "merge_performed": false
+}

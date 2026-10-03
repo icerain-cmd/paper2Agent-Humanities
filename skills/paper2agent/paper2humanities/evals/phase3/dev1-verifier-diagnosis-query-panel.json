@@ -1,0 +1,13 @@
+{
+  "schema_version": 3,
+  "panel_id": "phase3-dev1-verifier-diagnosis",
+  "panel_type": "QUERY_ONLY",
+  "queries": [
+    {
+      "query_id": "H30V3-020",
+      "category": "CROSS_PAPER_COMPARISON",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 아우라 ‘거리’ 정의를 확인한 뒤, 그 근거만으로 Lee 2019의 ‘신뢰화’와 개념적 동일성을 선언할 수 있는지 판정하라."
+    }
+  ]
+}

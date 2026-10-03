@@ -1,0 +1,190 @@
+{
+  "panel_id": "phase3-holdout30-v5",
+  "response_sha256": "c9b213bcf35b90bf0c9daa275884a17d47ea95dbe19879f1b43e754296031009",
+  "accuracy": 0.7,
+  "attribution_type_accuracy": 0.7666666666666667,
+  "evidence_voice_accuracy": 1.0,
+  "source_id_accuracy": 1.0,
+  "page_accuracy": 0.7307692307692307,
+  "evidence_span_accuracy": 1.0,
+  "unsupported_premise_rejection": 1.0,
+  "abstention_precision": 0.4444444444444444,
+  "semantic_support_rate": 1.0,
+  "rows": [
+    {
+      "query_id": "H30V5-001",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-002",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-003",
+      "match": false,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-004",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-005",
+      "match": false,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-006",
+      "match": false,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-007",
+      "match": false,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-008",
+      "match": false,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-009",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-010",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-011",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-012",
+      "match": true,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-013",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-014",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-015",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-016",
+      "match": false,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-017",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-018",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-019",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-020",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-021",
+      "match": false,
+      "outcome": "ABSTAINED"
+    },
+    {
+      "query_id": "H30V5-022",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-023",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-024",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-025",
+      "match": false,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-026",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-027",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-028",
+      "match": true,
+      "outcome": "ACCEPTED"
+    },
+    {
+      "query_id": "H30V5-029",
+      "match": false,
+      "outcome": "REJECTED"
+    },
+    {
+      "query_id": "H30V5-030",
+      "match": true,
+      "outcome": "ACCEPTED"
+    }
+  ],
+  "hard_gate_counts": {
+    "FALSE_AUTHOR_CLAIM": 0,
+    "EXTERNAL_AS_AUTHOR_ERROR": 0,
+    "CROSS_EDITION_CONTAMINATION": 1,
+    "UNSUPPORTED_DIALOGUE_TURN": 0,
+    "TEMPORAL_CORPUS_CONTAMINATION": 0,
+    "FAKE_PAGE_CITATION": 2,
+    "HARDCODED_DIALOGUE_TEXT": 0,
+    "GOLD_LEAKAGE": 0,
+    "WRONG_SOURCE_ID": 0,
+    "STALE_SEMANTIC_REVIEW": 0
+  },
+  "status": "FAIL",
+  "pass_contract": {
+    "contract_id": "HOLDOUT30_V5_PREREGISTERED_PASS_CONTRACT",
+    "checks": {
+      "all_hard_gates_zero": false,
+      "exact_match_accuracy": false,
+      "source_id_accuracy": true,
+      "unsupported_premise_rejection": true,
+      "false_author_claim": true,
+      "fake_page_citation": false
+    },
+    "status": "FAIL"
+  }
+}

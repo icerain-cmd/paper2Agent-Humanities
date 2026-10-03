@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "panel_id": "phase3-holdout30-v1",
+  "panel_type": "HOLDOUT30_QUERY_ONLY",
+  "created_at": "2026-09-28T08:34:05+00:00",
+  "implementation_freeze_sha": "2f10c6ebe8a821c7e6635128b99acc84c7941c08",
+  "created_after_freeze": true,
+  "known_dev50_reuse": false,
+  "query_count": 30,
+  "queries": [
+    {
+      "query_id": "H30-001",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "벤야민 V2에서 ‘제2기술의 기원은 유희’라는 명제는 어느 판본의 저자 주장으로 귀속되어야 하는가?"
+    },
+    {
+      "query_id": "H30-002",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "‘기술편집시대의 시작을 컴퓨터와 인터넷의 발명에서 찾는다’는 명제는 Lee 2019의 주장인가 Benjamin의 주장인가?"
+    },
+    {
+      "query_id": "H30-003",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "‘영화 관객은 주의를 포함하지 않는 평가적 태도를 가진 분산된 검사자다’는 주장은 Benjamin V3에 귀속되는가?"
+    },
+    {
+      "query_id": "H30-004",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "‘제3기술의 핵심가치는 투명화’라는 진술을 Benjamin에게 귀속해도 되는가?"
+    },
+    {
+      "query_id": "H30-005",
+      "category": "AUTHOR_EXTERNAL_ATTRIBUTION",
+      "query": "‘진품성은 원본의 여기와 지금에 근거한다’는 명제는 Lee 2019가 아니라 Benjamin V3의 주장인가?"
+    },
+    {
+      "query_id": "H30-006",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Benjamin V2는 생성형 AI가 아우라를 복원한다고 주장하는가?"
+    },
+    {
+      "query_id": "H30-007",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Lee 2019는 Mechanocene을 제3기술의 최종 단계로 정의하는가?"
+    },
+    {
+      "query_id": "H30-008",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Benjamin V3는 블록체인을 전시가치의 완성으로 제시하는가?"
+    },
+    {
+      "query_id": "H30-009",
+      "category": "UNSUPPORTED_PREMISE",
+      "query": "Lee 2019는 공진주체 WE가 디지털아우라를 만든다고 주장하는가?"
+    },
+    {
+      "query_id": "H30-010",
+      "category": "PAGE_TRAP",
+      "query": "Benjamin V2의 first/second technology 구절을 V2 working PDF p.20이라고 인용해도 되는가?"
+    },
+    {
+      "query_id": "H30-011",
+      "category": "PAGE_TRAP",
+      "query": "Benjamin V3의 진품성(Echtheit) 논의를 V3 PDF p.34로 인용해도 되는가?"
+    },
+    {
+      "query_id": "H30-012",
+      "category": "PAGE_TRAP",
+      "query": "Lee 2019의 기술편집시대 시작 논의를 PDF p.3으로 인용해도 되는가?"
+    },
+    {
+      "query_id": "H30-013",
+      "category": "PAGE_TRAP",
+      "query": "Benjamin V3의 집중/분산 대비를 V3 PDF p.12라고 제시해도 되는가?"
+    },
+    {
+      "query_id": "H30-014",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "인간의 투입을 가능한 한 줄이는 기술이라는 설명은 Benjamin V2의 어떤 명제와 연결되는가?"
+    },
+    {
+      "query_id": "H30-015",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "원본의 ‘여기와 지금’이 진품성의 핵심이라는 설명을 뒷받침하는 V3 명제를 찾아라."
+    },
+    {
+      "query_id": "H30-016",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "디지털 편집의 시대적 문턱을 컴퓨터와 인터넷에서 찾는 Lee 명제를 찾아라."
+    },
+    {
+      "query_id": "H30-017",
+      "category": "PARAPHRASE_RETRIEVAL",
+      "query": "대중이 작품 속으로 들어가는 대신 작품을 자기 안으로 받아들이는 수용 방식과 관련된 V3 명제를 찾아라."
+    },
+    {
+      "query_id": "H30-018",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "Benjamin V2의 ‘play’와 Lee의 ‘컴퓨터게임’은 같은 개념이라고 저자 주장으로 합쳐도 되는가?"
+    },
+    {
+      "query_id": "H30-019",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "V3의 Echtheit와 Lee의 신뢰화는 같은 개념이라고 처리해도 되는가?"
+    },
+    {
+      "query_id": "H30-020",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "V3의 Zerstreuung과 Lee의 정신몰입은 동일한 수용 개념인가?"
+    },
+    {
+      "query_id": "H30-021",
+      "category": "CONCEPT_NEIGHBOR",
+      "query": "Benjamin의 Aura와 Lee의 디지털아우라는 동일 개념의 단순 지속이라고 단정해도 되는가?"
+    },
+    {
+      "query_id": "H30-022",
+      "category": "MIXED_VOICE",
+      "query": "‘제2기술의 기원은 유희이고, 기술편집시대는 컴퓨터와 인터넷에서 시작된다’는 결합문에서 각각의 저자와 판본을 분리하라."
+    },
+    {
+      "query_id": "H30-023",
+      "category": "MIXED_VOICE",
+      "query": "‘V3에서는 아우라가 시들고 Lee는 디지털아우라의 가능성을 말한다’는 문장에서 두 명제를 각각 귀속하라."
+    },
+    {
+      "query_id": "H30-024",
+      "category": "MIXED_VOICE",
+      "query": "‘V3는 분산 수용을 설명하고 Lee는 기술편집시대의 몰입을 제시한다’는 진술의 두 목소리를 구분하라."
+    },
+    {
+      "query_id": "H30-025",
+      "category": "CROSS_PAPER_RETRIEVAL",
+      "query": "Benjamin V2의 자연-인간 상호작용과 Lee의 투명화 논의를 비교하려면 어떤 두 source proposition이 필요한가?"
+    },
+    {
+      "query_id": "H30-026",
+      "category": "CROSS_PAPER_RETRIEVAL",
+      "query": "Benjamin V3의 진품성과 Lee의 신뢰화를 비교하려면 어떤 proposition들을 함께 회수해야 하는가?"
+    },
+    {
+      "query_id": "H30-027",
+      "category": "CROSS_PAPER_RETRIEVAL",
+      "query": "Benjamin V3의 분산적 수용과 Lee의 기술편집시대 몰입 사이 긴장을 검토하기 위한 근거 proposition들을 찾아라."
+    },
+    {
+      "query_id": "H30-028",
+      "category": "EDITION_TRAP",
+      "query": "Benjamin V2의 ‘Ein für allemal / Einmal ist keinmal’ 구절을 V3 source evidence로 제시할 수 있는가?"
+    },
+    {
+      "query_id": "H30-029",
+      "category": "EDITION_TRAP",
+      "query": "V3에서 찾을 수 없는 first/second technology 대목을 V3 Agent가 자기 근거로 답해도 되는가?"
+    },
+    {
+      "query_id": "H30-030",
+      "category": "EDITION_TRAP",
+      "query": "V2와 V3에 모두 Aura 관련 논의가 있다는 이유로 두 판본의 page citation을 상호 교환해도 되는가?"
+    }
+  ]
+}

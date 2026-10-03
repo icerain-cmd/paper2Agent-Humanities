@@ -1,0 +1,296 @@
+{
+  "schema_version": 3,
+  "panel_id": "phase3-holdout30-v3",
+  "panel_type": "HOLDOUT30_V3_GOLD",
+  "implementation_freeze_sha_v3": "f511ef15c0c48f55627c3af0178f2192c04d3d53",
+  "gold_created_after_response_freeze": true,
+  "records": [
+    {
+      "query_id": "H30V3-001",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent"
+      ]
+    },
+    {
+      "query_id": "H30V3-002",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance"
+      ]
+    },
+    {
+      "query_id": "H30V3-003",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-interplay"
+      ]
+    },
+    {
+      "query_id": "H30V3-004",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-005",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-006",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-007",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 35,
+      "support": [
+        "b-v3-c-film-examiner"
+      ]
+    },
+    {
+      "query_id": "H30V3-008",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-play-origin"
+      ]
+    },
+    {
+      "query_id": "H30V3-009",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 11,
+      "support": [
+        "lee-c-tech-start"
+      ]
+    },
+    {
+      "query_id": "H30V3-010",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 6,
+      "support": [
+        "b-v3-c-authenticity"
+      ]
+    },
+    {
+      "query_id": "H30V3-011",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition"
+      ]
+    },
+    {
+      "query_id": "H30V3-012",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-once-experiment"
+      ]
+    },
+    {
+      "query_id": "H30V3-013",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 18,
+      "support": [
+        "lee-q-benjamin-second-tech",
+        "lee-c-tension"
+      ]
+    },
+    {
+      "query_id": "H30V3-014",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance",
+        "b-v3-c-dada-demand"
+      ]
+    },
+    {
+      "query_id": "H30V3-015",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 18,
+      "support": [
+        "lee-q-benjamin-second-tech",
+        "lee-c-transparent"
+      ]
+    },
+    {
+      "query_id": "H30V3-016",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-017",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-018",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-019",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent"
+      ]
+    },
+    {
+      "query_id": "H30V3-020",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance"
+      ]
+    },
+    {
+      "query_id": "H30V3-021",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-interplay"
+      ]
+    },
+    {
+      "query_id": "H30V3-022",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-023",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-024",
+      "type": "UNRESOLVED",
+      "paper": null,
+      "edition": null,
+      "page": null,
+      "support": []
+    },
+    {
+      "query_id": "H30V3-025",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-interplay"
+      ]
+    },
+    {
+      "query_id": "H30V3-026",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 9,
+      "support": [
+        "b-v3-c-aura-distance"
+      ]
+    },
+    {
+      "query_id": "H30V3-027",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 35,
+      "support": [
+        "b-v3-c-film-examiner"
+      ]
+    },
+    {
+      "query_id": "H30V3-028",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition"
+      ]
+    },
+    {
+      "query_id": "H30V3-029",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 2,
+      "support": [
+        "lee-c-purpose",
+        "lee-c-research-program"
+      ]
+    },
+    {
+      "query_id": "H30V3-030",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 22,
+      "support": [
+        "lee-c-transparent",
+        "lee-c-trust-definition"
+      ]
+    }
+  ]
+}

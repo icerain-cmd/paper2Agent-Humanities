@@ -1,0 +1,392 @@
+{
+  "evaluation_scope": "DEV50_LIVE",
+  "panel_size": 50,
+  "attribution_type_accuracy": 0.3,
+  "evidence_voice_accuracy": 0.52,
+  "page_accuracy": 0.24390243902439024,
+  "evidence_span_accuracy": 0.0975609756097561,
+  "edition_accuracy": 1.0,
+  "unsupported_claim_rejection_rate": 0.8888888888888888,
+  "false_author_claim": 0,
+  "external_as_author_error": 0,
+  "interpretation_promotion_error": 0,
+  "cross_edition_contamination": 0,
+  "adversarial_robustness_rate": 0.18,
+  "failures": [
+    {
+      "query_id": "LEE-BLIND-001",
+      "category": "author_claim",
+      "type_match": true,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-002",
+      "category": "author_claim",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-003",
+      "category": "author_claim",
+      "type_match": true,
+      "voice_match": true,
+      "page_match": true,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-004",
+      "category": "author_claim",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-005",
+      "category": "author_claim",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-006",
+      "category": "author_claim",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-008",
+      "category": "author_claim",
+      "type_match": true,
+      "voice_match": true,
+      "page_match": true,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-009",
+      "category": "author_claim",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-010",
+      "category": "author_claim",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-011",
+      "category": "author_claim",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": true,
+      "span_match": true,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-012",
+      "category": "author_claim",
+      "type_match": true,
+      "voice_match": true,
+      "page_match": true,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-013",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-014",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-015",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-016",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-017",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": true,
+      "span_match": true,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-018",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-019",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-020",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-021",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-022",
+      "category": "embedded_quotation",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-023",
+      "category": "concept_neighbor",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-024",
+      "category": "interpretation_promotion",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-025",
+      "category": "interpretation_promotion",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-026",
+      "category": "interpretation_promotion",
+      "type_match": true,
+      "voice_match": false,
+      "page_match": true,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-027",
+      "category": "false_attribution",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-028",
+      "category": "concept_neighbor",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-029",
+      "category": "interpretation_promotion",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-030",
+      "category": "concept_neighbor",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-031",
+      "category": "interpretation_promotion",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-040",
+      "category": "unsupported_premise",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": true,
+      "span_match": true,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-041",
+      "category": "page_trap",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": true,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-042",
+      "category": "page_trap",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-043",
+      "category": "page_trap",
+      "type_match": true,
+      "voice_match": true,
+      "page_match": true,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-044",
+      "category": "page_trap",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-045",
+      "category": "ambiguous_attribution",
+      "type_match": false,
+      "voice_match": true,
+      "page_match": true,
+      "span_match": true,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-046",
+      "category": "ambiguous_attribution",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-047",
+      "category": "ambiguous_attribution",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-048",
+      "category": "ambiguous_attribution",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-049",
+      "category": "mixed_voice",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    },
+    {
+      "query_id": "LEE-BLIND-050",
+      "category": "mixed_voice",
+      "type_match": false,
+      "voice_match": false,
+      "page_match": false,
+      "span_match": false,
+      "edition_match": true
+    }
+  ],
+  "hard_gates": {
+    "FALSE_AUTHOR_CLAIM": true,
+    "EXTERNAL_AS_AUTHOR_ERROR": true,
+    "CROSS_EDITION_CONTAMINATION": true
+  },
+  "response_sha256": "35c2d8645dbc0d06a52bc1e5fdacd8a46019b06b27aa012676bc9ffb9a10ea53"
+}

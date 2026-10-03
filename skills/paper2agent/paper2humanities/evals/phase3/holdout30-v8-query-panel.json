@@ -1,0 +1,49 @@
+{
+  "schema_version": 8,
+  "panel_id": "phase3-holdout30-v8",
+  "panel_type": "HOLDOUT30_QUERY_ONLY",
+  "implementation_freeze_sha_v8": "0e8ea25efd3f883ddf85ec1a4f95ef7f2ac61c3a",
+  "created_after_freeze": true,
+  "gold_available": false,
+  "queries": [
+    {"query_id":"H30V8-001","category":"AUTHOR_ATTRIBUTION","paper_id":"lee-aura-2019","query":"Lee 2019에서 디지털예술 미학의 필요조건으로 20세기 아우라 상실의 21세기적 변용 연구를 제시하는 명제의 저자를 판정하라."},
+    {"query_id":"H30V8-002","category":"AUTHOR_ATTRIBUTION","paper_id":"benjamin-artwork-v2","query":"V2에서 ‘멀리 있음의 일회적 현상’이라는 개념 정의는 외부 인용이 아니라 Benjamin 자신의 진술인가? 발화 귀속을 판정하라."},
+    {"query_id":"H30V8-003","category":"AUTHOR_ATTRIBUTION","paper_id":"benjamin-artwork-v3","query":"Benjamin V3에서 다다의 거칠고 과장된 형식이 풍부한 역사적 힘에서 나온다고 설명하는 명제의 저자를 판정하라."},
+
+    {"query_id":"H30V8-004","category":"EXTERNAL_ATTRIBUTION","paper_id":"lee-aura-2019","query":"Lee 2019 p.18에 삽입된 ‘제2의 기술의 기원은 유희에 있다’라는 문장을 본문 저자의 고유 명제와 구분해 발화 주체를 판정하라."},
+    {"query_id":"H30V8-005","category":"EXTERNAL_ATTRIBUTION","paper_id":"lee-aura-2019","query":"Lee 2019의 제2기술 단락에서 따옴표로 제시된 유희 기원 진술은 누구의 목소리로 처리해야 하는지 판정하라."},
+
+    {"query_id":"H30V8-006","category":"SOURCE_RETRIEVAL","paper_id":"lee-aura-2019","query":"Lee 2019에서 앞으로 ‘디지털아우라’라 부를 수 있는 새로운 아우라가 등장할 것이라고 전망하는 문장의 근거를 찾아라."},
+    {"query_id":"H30V8-007","category":"SOURCE_RETRIEVAL","paper_id":"benjamin-artwork-v2","query":"Benjamin V2에서 한 번뿐인 행위와 반복되는 시험·변형을 서로 다른 기술 원리로 대비하는 근거를 찾아라."},
+    {"query_id":"H30V8-008","category":"SOURCE_RETRIEVAL","paper_id":"benjamin-artwork-v3","query":"Benjamin V3에서 영화 관객의 평가 태도가 주의집중을 포함하지 않는다고 설명하는 근거를 찾아라."},
+    {"query_id":"H30V8-009","category":"SOURCE_RETRIEVAL","paper_id":"benjamin-artwork-v3","query":"Benjamin V3에서 집중된 관람자는 작품 속으로 들어가지만 산만한 대중은 작품을 자신 안으로 받아들인다고 대비하는 근거를 찾아라."},
+
+    {"query_id":"H30V8-010","category":"UNSUPPORTED_PREMISE","paper_id":"lee-aura-2019","query":"Lee 2019이 ‘생성 아우라’를 디지털예술의 최종 미학 개념으로 직접 제안했다고 가정하고 그 근거를 찾아라."},
+    {"query_id":"H30V8-011","category":"UNSUPPORTED_PREMISE","paper_id":"benjamin-artwork-v3","query":"Benjamin V3가 자연 지배와 자연-인류의 상호작용을 두 기술의 차이로 직접 제시한다고 전제하고 그 근거를 찾아라."},
+    {"query_id":"H30V8-012","category":"UNSUPPORTED_PREMISE","paper_id":"benjamin-artwork-v2","query":"Benjamin V2가 디지털아우라의 등장을 21세기 예술의 핵심 과제로 전망한다고 전제하고 그 직접 근거를 찾아라."},
+    {"query_id":"H30V8-013","category":"UNSUPPORTED_PREMISE","paper_id":"benjamin-artwork-v3","query":"Benjamin V3가 머신러닝 추천 알고리즘을 전시가치 확대의 장치로 논의한다고 전제하고 직접 근거를 찾아라."},
+
+    {"query_id":"H30V8-014","category":"INTERPRETATION","paper_id":"lee-aura-2019","query":"Lee 2019의 기술편집시대 선언과 디지털예술 연구 프로그램은 연구의 시간적 방향을 어떻게 공유하는가? 두 근거를 검토해 해석하라."},
+    {"query_id":"H30V8-015","category":"INTERPRETATION","paper_id":"benjamin-artwork-v2","query":"Benjamin V2의 일회성·반복실험 구분과 현대 예술의 상호작용 훈련 기능이 둘째 기술의 성격을 어떻게 함께 설명하는지 논하라."},
+    {"query_id":"H30V8-016","category":"INTERPRETATION","paper_id":"benjamin-artwork-v3","query":"Benjamin V3에서 진정성의 ‘여기와 지금’과 아우라의 거리 개념이 어떤 긴장을 이루는지 제공된 근거를 검토해 해석하라."},
+
+    {"query_id":"H30V8-017","category":"CRITIQUE","paper_id":"benjamin-artwork-v2","query":"Benjamin V2의 아우라 거리와 쇠퇴 논의를 근거로 Lee 2019의 정신몰입 비교표가 충분히 설명하지 못하는 점을 비판하라."},
+    {"query_id":"H30V8-018","category":"CRITIQUE","paper_id":"lee-aura-2019","query":"Lee 2019의 신뢰화 정의를 기준으로 Benjamin V3의 원본 진정성 논리가 갖는 한계를 두 문헌의 근거를 검토해 논하라."},
+    {"query_id":"H30V8-019","category":"CRITIQUE","paper_id":"benjamin-artwork-v3","query":"Benjamin V3의 제의가치·전시가치 구분에서 볼 때 Lee 2019의 ‘아우라 없는 아우라’ 명제가 남기는 이론적 문제를 비판하라."},
+
+    {"query_id":"H30V8-020","category":"RESPONSE","paper_id":"lee-aura-2019","query":"Benjamin V2가 둘째 기술을 반복 가능한 실험으로 설명하는 논의에 대해 Lee 2019의 기술편집시대 선언을 근거로 응답하라."},
+    {"query_id":"H30V8-021","category":"RESPONSE","paper_id":"benjamin-artwork-v2","query":"Lee 2019이 제시한 디지털예술 연구 과제에 대해 Benjamin V2의 놀이 기원과 자연으로부터의 거리두기 논의를 활용해 응답을 구성하라."},
+    {"query_id":"H30V8-022","category":"RESPONSE","paper_id":"benjamin-artwork-v3","query":"Lee 2019이 신뢰화를 가상텍스트의 거리 조정 기술로 설명하는 주장에 대해 Benjamin V3의 진정성 근거를 사용해 응답하라."},
+
+    {"query_id":"H30V8-023","category":"CROSS_PAPER_COMPARE","paper_id":"lee-aura-2019","query":"Lee 2019의 정신몰입 비교표와 Benjamin V3의 집중·정신분산 대비를 수용 태도라는 관점에서 비교하라."},
+    {"query_id":"H30V8-024","category":"CROSS_PAPER_COMPARE","paper_id":"benjamin-artwork-v2","query":"Benjamin V2의 일회성 대 반복실험 구분과 Lee 2019의 기술편집시대 선언이 기술 변화를 설명하는 방식을 대조하라."},
+    {"query_id":"H30V8-025","category":"CROSS_PAPER_COMPARE","paper_id":"benjamin-artwork-v3","query":"Benjamin V3의 원본 진정성 논리와 Lee 2019의 신뢰화 정의를 텍스트와 거리의 조정이라는 관점에서 비교하라."},
+
+    {"query_id":"H30V8-026","category":"RESEARCH_GAP","paper_id":"lee-aura-2019","query":"Lee 2019의 정신몰입 비교표와 Benjamin V2의 현대 예술 상호작용 훈련 논의를 함께 검토할 때 남는 연구 공백을 제시하라."},
+    {"query_id":"H30V8-027","category":"RESEARCH_GAP","paper_id":"benjamin-artwork-v2","query":"Benjamin V2의 대상을 가까이 가져오려는 욕망과 아우라 쇠퇴 논의, Lee 2019의 신뢰화에 따른 거리 조정을 함께 볼 때 남는 연구 공백을 제시하라."},
+
+    {"query_id":"H30V8-028","category":"RESEARCH_QUESTION","paper_id":"benjamin-artwork-v3","query":"Benjamin V3의 원본 진정성 논리와 Lee 2019의 정신몰입 비교표 사이의 관계를 경험적으로 검토할 수 있는 질문으로 정식화하라."},
+    {"query_id":"H30V8-029","category":"RESEARCH_QUESTION","paper_id":"lee-aura-2019","query":"Lee 2019의 신뢰화에 따른 거리 조정과 Benjamin V2의 일회성·반복실험 구분이 서로 다른 기술 경험을 설명하는지 판별할 연구질문을 정식화하라."},
+    {"query_id":"H30V8-030","category":"RESEARCH_QUESTION","paper_id":"benjamin-artwork-v2","query":"Benjamin V2의 놀이 기원 설명과 Lee 2019의 ‘아우라 없는 아우라’ 명제를 함께 분석할 연구질문 하나를 제시하라."}
+  ]
+}

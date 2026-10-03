@@ -1,5 +1,7 @@
 # Evaluation Protocol
 
+**HISTORICAL PHASE STATE.** This document records Phase 1 and Phase 1.5 evaluation. The current experimental runtime and historical valid V4 outcome are described in `PHASE3_RESULTS.md`.
+
 ## Two evaluation scopes
 
 Paper2Agent-Humanities reports two deliberately separate scopes.
@@ -10,7 +12,7 @@ The Phase-1 Lee PoC contains 11 selected statements: 6 `AUTHOR_CLAIM`, 4 `SOURCE
 
 ### COMMITTED_BLIND_RESPONSE_SET
 
-Phase 1.5 currently contains a separate query panel that does not reuse the 11 fixture statements as answer keys. Queries probe new attribution decisions, misleading premises, embedded quotations, interpretation promotion, neighboring concepts, wrong pages, and mixed voices.
+Phase 1.5 used a separate query panel that did not reuse the 11 fixture statements as answer keys. Queries probed attribution decisions, misleading premises, embedded quotations, interpretation promotion, neighboring concepts, wrong pages, and mixed voices.
 
 
 ### LIVE_BLIND_RUN

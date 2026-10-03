@@ -1,0 +1,160 @@
+{
+  "schema_version": 5,
+  "panel_id": "phase3-holdout30-v5",
+  "panel_type": "QUERY_ONLY",
+  "implementation_freeze_sha_v5": "7e00096335e5fe2be894d55e667c70e7a7d27051",
+  "created_after_freeze": true,
+  "gold_available": false,
+  "queries": [
+    {
+      "query_id": "H30V5-001",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019이 기술편집시대의 출발을 컴퓨터와 인터넷의 발명에서 찾는 저자 주장의 근거를 판정하라."
+    },
+    {
+      "query_id": "H30V5-002",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3에서 기술적 복제의 시대에 예술작품의 아우라가 시든다는 저자 주장의 근거를 판정하라."
+    },
+    {
+      "query_id": "H30V5-003",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2에서 첫째 기술과 둘째 기술이 인간을 투입하는 방식이 다르다는 저자 주장의 근거를 판정하라."
+    },
+    {
+      "query_id": "H30V5-004",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019에서 신뢰화를 가상텍스트의 배치와 거리 조정 기술로 설명하는 근거 페이지를 제시하라."
+    },
+    {
+      "query_id": "H30V5-005",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3에서 제의가치와 전시가치를 작품 수용의 두 극으로 설명하는 근거 페이지를 제시하라."
+    },
+    {
+      "query_id": "H30V5-006",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2에서 현대 예술의 사회적 기능을 자연과 인류의 상호작용 연습과 연결하는 근거 페이지를 제시하라."
+    },
+    {
+      "query_id": "H30V5-007",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 “제2의 기술의 기원은 유희에 있다”는 인용을 이용욱 자신의 저자 주장인지 외부 인용인지 귀속 판정하라."
+    },
+    {
+      "query_id": "H30V5-008",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019이 벤야민의 제2기술 논의를 인용하는 대목에서 해당 문장의 저자 귀속이 외부인지 판정하라."
+    },
+    {
+      "query_id": "H30V5-009",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019이 양자컴퓨팅을 디지털아우라의 필수조건으로 규정한다는 주장의 근거를 찾아라."
+    },
+    {
+      "query_id": "H30V5-010",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2가 인공지능 생성예술을 제2기술의 완성형으로 규정한다는 근거를 찾아라."
+    },
+    {
+      "query_id": "H30V5-011",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3가 소셜미디어 알고리즘을 아우라 회복의 핵심 기술로 설명한다는 근거를 찾아라."
+    },
+    {
+      "query_id": "H30V5-012",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019이 NFT를 신뢰화의 대표 사례로 직접 명명한다는 근거를 찾아라."
+    },
+    {
+      "query_id": "H30V5-013",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 투명화와 신뢰화가 아우라 문제를 어떻게 재구성하는지 근거에 한정해 해석하라."
+    },
+    {
+      "query_id": "H30V5-014",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 집중과 정신분산의 대비를 영화 수용의 관점에서 근거에 한정해 해석하라."
+    },
+    {
+      "query_id": "H30V5-015",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2의 둘째 기술과 유희의 관계를 자연과의 거리라는 관점에서 근거에 한정해 해석하라."
+    },
+    {
+      "query_id": "H30V5-016",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "V2의 자연과 인류의 상호작용 개념을 Lee 2019의 제3기술과 관련해 비판하라."
+    },
+    {
+      "query_id": "H30V5-017",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "V3의 아우라 쇠퇴 논지를 Lee 2019의 디지털아우라 논의에 비추어 비판하라."
+    },
+    {
+      "query_id": "H30V5-018",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 신뢰화 개념을 Benjamin V3의 진정성 개념과 관련해 비판하라."
+    },
+    {
+      "query_id": "H30V5-019",
+      "paper_id": "lee-aura-2019",
+      "query": "Benjamin V2의 둘째 기술 비판에 대해 Lee 2019의 투명화 근거를 사용해 응답하라."
+    },
+    {
+      "query_id": "H30V5-020",
+      "paper_id": "lee-aura-2019",
+      "query": "Benjamin V3의 아우라 쇠퇴 관점에 대해 Lee 2019의 디지털아우라 근거를 사용해 응답하라."
+    },
+    {
+      "query_id": "H30V5-021",
+      "paper_id": "lee-aura-2019",
+      "query": "Benjamin V3의 집중과 정신분산 논의에 대해 Lee 2019의 몰입 관련 근거를 사용해 응답하라."
+    },
+    {
+      "query_id": "H30V5-022",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 투명화와 Benjamin V2의 자연-인류 상호작용을 근거에 한정해 비교하라."
+    },
+    {
+      "query_id": "H30V5-023",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "Benjamin V3의 아우라 거리 개념과 Lee 2019의 신뢰화 개념을 근거에 한정해 비교하라."
+    },
+    {
+      "query_id": "H30V5-024",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "Benjamin V2의 유희 기반 둘째 기술과 Lee 2019의 기술편집을 근거에 한정해 비교하라."
+    },
+    {
+      "query_id": "H30V5-025",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 디지털아우라와 Benjamin V3의 아우라 쇠퇴 사이에서 확인되는 연구 공백을 근거에 한정해 제시하라."
+    },
+    {
+      "query_id": "H30V5-026",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "Benjamin V2의 둘째 기술과 Lee 2019의 제3기술 사이에서 남는 연구 공백을 근거에 한정해 제시하라."
+    },
+    {
+      "query_id": "H30V5-027",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 신뢰화와 Benjamin V3의 진정성 사이에서 남는 연구 공백을 근거에 한정해 제시하라."
+    },
+    {
+      "query_id": "H30V5-028",
+      "paper_id": "lee-aura-2019",
+      "query": "Lee 2019의 투명화와 Benjamin V2의 상호작용 개념을 연결해 검증 가능한 연구질문 하나를 제시하라."
+    },
+    {
+      "query_id": "H30V5-029",
+      "paper_id": "benjamin-artwork-v3",
+      "query": "Benjamin V3의 정신분산과 Lee 2019의 몰입을 함께 검토하는 연구질문 하나를 제시하라."
+    },
+    {
+      "query_id": "H30V5-030",
+      "paper_id": "benjamin-artwork-v2",
+      "query": "Benjamin V2의 유희와 Lee 2019의 기술편집을 비교하는 연구질문 하나를 제시하라."
+    }
+  ]
+}
