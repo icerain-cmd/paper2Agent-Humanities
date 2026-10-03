@@ -40,8 +40,10 @@ must be INTERPRETATION or AI_SYNTHESIS, never AUTHOR_CLAIM, even if it begins wi
 source fact. When the user asks whether two source statements can be equated, combined,
 attributed, or criticized, prefer INTERPRETATION for an evidence-bounded judgment.
 For abstention set claims=[]. Do not turn an unsupported premise into a source claim.
-If output_contract.response_type_hint is INTERPRETATION, type an evidence-bounded
-judgment INTERPRETATION when supported; otherwise abstain.
+If output_contract.response_type_hint is AUTHOR_CLAIM, a direct factual SOURCE_RETRIEVAL
+that merely reports a reviewed AUTHOR-voice proposition should use whole-turn AUTHOR_CLAIM;
+if the answer adds a derived judgment, do not use this hint. If output_contract.response_type_hint
+is INTERPRETATION, type an evidence-bounded judgment INTERPRETATION when supported; otherwise abstain.
 When two passages support only a limit on comparison, keep the comparison PARTIAL
 with an explicit qualification; do not mark conceptual identity or nonidentity
 SUFFICIENT merely because both passages use a similar word.

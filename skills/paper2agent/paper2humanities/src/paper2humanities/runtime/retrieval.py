@@ -30,6 +30,8 @@ ALIASES = {
     "examiner": {"시험관", "평가자", "examinator", "examiner", "begutachtende"},
     "attention": {"주의집중", "aufmerksamkeit", "attention"},
     "distance": {"거리", "ferne", "distance"},
+    "benjamin technology theory": {"벤야민 기술론", "벤야민의 기술론", "벤야민의 기술", "외부 인용", "기술론 인용", "제2기술", "제2의 기술", "둘째 기술", "second technology", "zweite technik"},
+    "computer internet origin": {"컴퓨터·인터넷 기점", "컴퓨터 인터넷 기점", "컴퓨터·인터넷 기점 설정", "컴퓨터 인터넷 기점 설정", "컴퓨터와 인터넷의 발명", "컴퓨터와 인터넷의 등장", "컴퓨터와 인터넷", "computer and internet"},
 }
 @dataclass(frozen=True)
 class RetrievalHit:

@@ -2,19 +2,49 @@ from __future__ import annotations
 from .retrieval import retrieve
 from .generator import generate
 from .model_adapter import ModelAdapter
+from .attribution import enrich_attribution_axes
 import re
 
 INTERPRETIVE_REQUEST = re.compile(
     r"같은 저자 목소리|단일 주장|원래 명제|개념적 (?:동일성|간극)|"
-    r"구분|분리|비판|한정|충분히|비교|반박|"
+    r"비판|한정|충분히|비교|대조|반박|취약점|"
     r"compare|distinguish|critique|rebut|evaluate|same claim|same author voice",
     re.IGNORECASE,
 )
+DIRECT_FACTUAL_RETRIEVAL = re.compile(
+    r"직접 근거|근거(?:를| 페이지를?)? 찾아|해당 근거|근거 페이지|source passage|source page",
+    re.IGNORECASE,
+)
+QUOTE_OR_DECLARATION_REQUEST = re.compile(
+    r"직접 인용|인용문|문장|선언|quote|quotation|verbatim", re.IGNORECASE,
+)
 
 def response_type_hint(question: str, action: str) -> str | None:
-    if action == "SOURCE_RETRIEVAL" and INTERPRETIVE_REQUEST.search(question):
+    if action != "SOURCE_RETRIEVAL":
+        return None
+    if DIRECT_FACTUAL_RETRIEVAL.search(question) and not QUOTE_OR_DECLARATION_REQUEST.search(question):
+        return "AUTHOR_CLAIM"
+    if INTERPRETIVE_REQUEST.search(question):
         return "INTERPRETATION"
     return None
+
+
+def normalize_direct_factual_turn(turn: dict, hint: str | None) -> dict:
+    """Normalize only source-retrieval turns that contain no derived claim."""
+    claims = turn.get("claims") or []
+    if (hint == "AUTHOR_CLAIM"
+            and turn.get("action") == "SOURCE_RETRIEVAL"
+            and turn.get("statement_type") in {"AUTHOR_CLAIM", "INTERPRETATION"}
+            and turn.get("evidence_voice") == "AUTHOR"
+            and claims
+            and all(claim.get("statement_type") == "AUTHOR_CLAIM" for claim in claims)):
+        normalized = dict(turn)
+        normalized["statement_type"] = "AUTHOR_CLAIM"
+        normalized.pop("statement_form", None)
+        normalized.pop("attribution_owner", None)
+        return enrich_attribution_axes(normalized)
+    return turn
+
 
 def live_turn(adapter:ModelAdapter, agent, research_question:str, action:str, target:dict,
               history:list[dict]|None=None, supporting_agents=()):
@@ -77,4 +107,5 @@ def live_turn(adapter:ModelAdapter, agent, research_question:str, action:str, ta
               "semantic_support":"UNSUPPORTED","relation_type":"UNRESOLVED"}}
     }
     turn,model_result=generate(adapter,packet)
+    turn=normalize_direct_factual_turn(turn, packet["output_contract"]["response_type_hint"])
     return turn,trace,model_result
