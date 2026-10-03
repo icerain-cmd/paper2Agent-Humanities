@@ -121,9 +121,11 @@ class CodexExecAdapter(ModelAdapter):
         canonical = json.dumps({"system_contract": system_contract, "input": payload}, ensure_ascii=False, sort_keys=True)
         digest = hashlib.sha256(canonical.encode()).hexdigest()
         error = ""
-        for attempt in range(2):
+        subprocess_attempts = 0
+        timeout_retries = 0
+        for format_attempt in range(2):
             instruction = "\nReturn exactly one object matching every schema field. No tools, skills, or session state."
-            if attempt:
+            if format_attempt:
                 instruction += "\nSTRICT RETRY: all required typed-turn fields must be present with correct JSON types; use empty arrays and null only where allowed."
             prompt = canonical + instruction
             with tempfile.TemporaryDirectory(prefix="p2h-codex-exec-") as temp:
@@ -131,21 +133,35 @@ class CodexExecAdapter(ModelAdapter):
                 argv = [self.executable, "exec", "--ephemeral", "--skip-git-repo-check",
                         "--ignore-user-config", "--ignore-rules", "-s", "read-only", "-m", self.model,
                         "--output-schema", str(CODEX_SCHEMA_PATH), "-o", str(output), prompt]
-                try:
-                    completed = subprocess.run(argv, cwd=temp, stdin=subprocess.DEVNULL,
-                                               capture_output=True, text=True, timeout=self.timeout, check=False)
-                except (OSError, subprocess.TimeoutExpired) as exc:
-                    raise ModelRuntimeUnavailable(f"codex exec invocation failed: {type(exc).__name__}", attempt + 1) from exc
+                for transport_attempt in range(2):
+                    subprocess_attempts += 1
+                    try:
+                        completed = subprocess.run(argv, cwd=temp, stdin=subprocess.DEVNULL,
+                                                   capture_output=True, text=True, timeout=self.timeout, check=False)
+                    except subprocess.TimeoutExpired as exc:
+                        if transport_attempt == 0:
+                            timeout_retries += 1
+                            continue
+                        raise ModelRuntimeUnavailable("codex exec invocation failed: TimeoutExpired",
+                                                      subprocess_attempts) from exc
+                    except OSError as exc:
+                        raise ModelRuntimeUnavailable(f"codex exec invocation failed: {type(exc).__name__}",
+                                                      subprocess_attempts) from exc
+                    break
                 if completed.returncode != 0:
-                    raise ModelRuntimeUnavailable(f"codex exec exited {completed.returncode}", attempt + 1)
+                    raise ModelRuntimeUnavailable(f"codex exec exited {completed.returncode}", subprocess_attempts)
                 try:
                     value = enrich_attribution_axes(validate_typed_turn(json.loads(output.read_text(encoding="utf-8"))))
                 except (OSError, ValueError, TypeError) as exc:
                     error = str(exc)
                     continue
                 return ModelResult(json.dumps(value, ensure_ascii=False), self.provider, self.model,
-                                   {"ephemeral": True, "sandbox": "read-only", "attempts": attempt + 1}, digest)
-        raise GenerationFormatFailure(f"GENERATION_FORMAT_FAILURE after two attempts: {error}", 2)
+                                   {"ephemeral": True, "sandbox": "read-only",
+                                    "attempts": subprocess_attempts,
+                                    "transport_attempts": subprocess_attempts,
+                                    "format_attempts": format_attempt + 1,
+                                    "timeout_retries": timeout_retries}, digest)
+        raise GenerationFormatFailure(f"GENERATION_FORMAT_FAILURE after two attempts: {error}", subprocess_attempts)
 
 class OpenAICompatibleAdapter(ModelAdapter):
     """Use an already-authorized OpenAI-compatible HTTP endpoint.

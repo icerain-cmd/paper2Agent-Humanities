@@ -19,7 +19,7 @@ from paper2humanities.runtime.model_adapter import (
 from paper2humanities.runtime.orchestration import live_turn
 from paper2humanities.runtime.classifier import classify_query
 from paper2humanities.runtime.pass_contract import (
-    evaluate_pass_contract, evaluate_v6_pass_contract, load_v5_contract, load_v6_contract,
+    evaluate_pass_contract, evaluate_v6_pass_contract, load_v5_contract, load_v6_contract, load_v7_contract,
 )
 from paper2humanities.runtime.attribution import infer_attribution_owner, infer_statement_form
 from paper2humanities.runtime.verifier import publication_gate
@@ -32,6 +32,10 @@ V6_HARD_GATES = ("FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR", "WRONG_SOURCE
     "CROSS_EDITION_CONTAMINATION", "UNSUPPORTED_DIALOGUE_TURN", "STALE_SEMANTIC_REVIEW",
     "TEMPORAL_CORPUS_CONTAMINATION", "FAKE_PAGE_CITATION", "PAGELESS_FINAL_SUPPORT",
     "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE")
+V7_HARD_GATES = ("FALSE_AUTHOR_CLAIM", "EXTERNAL_AS_AUTHOR_ERROR", "WRONG_SOURCE_ID",
+    "CROSS_EDITION_CONTAMINATION", "UNSUPPORTED_DIALOGUE_TURN", "STALE_SEMANTIC_REVIEW",
+    "MODEL_RUNTIME_FAILURE", "TEMPORAL_CORPUS_CONTAMINATION", "FAKE_PAGE_CITATION",
+    "PAGELESS_FINAL_SUPPORT", "HARDCODED_DIALOGUE_TEXT", "GOLD_LEAKAGE")
 FIXTURES = ROOT / "fixtures"
 AGENTS = {name: PaperAgent.from_json(FIXTURES / f"{name}-agent.json") for name in
           ("benjamin-artwork-v2", "benjamin-artwork-v3", "lee-aura-2019")}
@@ -142,10 +146,11 @@ def turn_errors(turn: dict, agent: PaperAgent, selected: set[str], action: str,
             publication_gate(turn, selected, agent.paper_id, agent.edition_id)
         except Exception as exc:
             errors.append(f"PUBLICATION_GATE: {exc}")
-    try:
-        agent.validate_output_text(turn["text"])
-    except ValueError as exc:
-        errors.append(f"TEMPORAL_CORPUS_CONTAMINATION: {exc}")
+    if not abstained:
+        try:
+            agent.validate_output_text(turn["text"])
+        except ValueError as exc:
+            errors.append(f"TEMPORAL_CORPUS_CONTAMINATION: {exc}")
     return errors
 
 
@@ -155,9 +160,14 @@ def run_one(adapter: CodexExecAdapter, agent: PaperAgent, query: str, action: st
     try:
         turn, trace, result = live_turn(adapter, agent, query, action, target or {}, history,
                                         supporting_agents=supporting_agents)
-    except (GenerationFormatFailure, ModelRuntimeUnavailable) as exc:
-        return {"outcome": getattr(exc, "outcome", "MODEL_RUNTIME_UNAVAILABLE"),
-                "error": str(exc), "generator_subprocess_attempts": exc.attempts,
+    except ModelRuntimeUnavailable as exc:
+        return {"outcome": "MODEL_RUNTIME_UNAVAILABLE", "error": str(exc),
+                "gate_errors": ["MODEL_RUNTIME_FAILURE"],
+                "generator_subprocess_attempts": exc.attempts,
+                "verifier_subprocess_attempts": 0}
+    except GenerationFormatFailure as exc:
+        return {"outcome": exc.outcome, "error": str(exc), "gate_errors": [],
+                "generator_subprocess_attempts": exc.attempts,
                 "verifier_subprocess_attempts": 0}
     selected = set(trace["selected_statement_ids"])
     errors = turn_errors(turn, agent, selected, action, supporting_agents)
@@ -175,7 +185,10 @@ def run_one(adapter: CodexExecAdapter, agent: PaperAgent, query: str, action: st
         if verified != turn:
             errors.append("VERIFIER_DISAGREEMENT")
             verifier_alternative = verified
-    except (GenerationFormatFailure, ModelRuntimeUnavailable, ValueError) as exc:
+    except ModelRuntimeUnavailable as exc:
+        verifier_attempts = getattr(exc, "attempts", 0)
+        errors.append(f"MODEL_RUNTIME_FAILURE: verifier {exc}")
+    except (GenerationFormatFailure, ValueError) as exc:
         verifier_attempts = getattr(exc, "attempts", 0)
         errors.append(f"VERIFIER_FAILURE: {exc}")
     abstained = turn["statement_type"] == "UNRESOLVED"
@@ -346,7 +359,9 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
         raise ValueError("gold and response IDs differ")
     if any(not row.get("source_id") or not row.get("action") or not row.get("task_family") for row in records):
         raise ValueError("V6 gold requires source_id, action, and task_family")
-    gates = {name: 0 for name in V6_HARD_GATES}
+    v7 = gold.get("panel_type") == "HOLDOUT30_V7_GOLD"
+    hard_gates = V7_HARD_GATES if v7 else V6_HARD_GATES
+    gates = {name: 0 for name in hard_gates}
     if manifest.get("gold_available_during_generation") is not False:
         gates["GOLD_LEAKAGE"] += 1
     rows = []
@@ -371,7 +386,12 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
         actor_match = turn.get("actor_paper") == rec.get("paper") and turn.get("actor_edition_id") == rec.get("edition")
         if (accepted or abstained) and not actor_match:
             row_gates.add("CROSS_EDITION_CONTAMINATION")
-        if response.get("fresh_context_verifier") is not True or response.get("independent_model_verifier") is not True:
+        if v7:
+            if response.get("outcome") == "MODEL_RUNTIME_UNAVAILABLE":
+                row_gates.add("MODEL_RUNTIME_FAILURE")
+            elif turn and (response.get("fresh_context_verifier") is not True or response.get("independent_model_verifier") is not True):
+                row_gates.add("STALE_SEMANTIC_REVIEW")
+        elif response.get("fresh_context_verifier") is not True or response.get("independent_model_verifier") is not True:
             row_gates.add("STALE_SEMANTIC_REVIEW")
 
         evidence = {}
@@ -395,7 +415,7 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
                     if source is not None:
                         support_sources.add((source.paper_id, source.edition_id))
 
-        for name in V6_HARD_GATES:
+        for name in hard_gates:
             if any(name in error for error in errors):
                 row_gates.add(name)
         if any(token in error for error in errors for token in
@@ -470,7 +490,7 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
               "unsupported_premise_rejection": unsupported_rejected / unsupported_total if unsupported_total else 1.0,
               "abstention_precision": abstained_correct / abstained_total if abstained_total else 1.0,
               "rows": rows, "hard_gate_counts": gates}
-    verdict = evaluate_v6_pass_contract(report, load_v6_contract())
+    verdict = evaluate_v6_pass_contract(report, load_v7_contract() if v7 else load_v6_contract())
     report["pass_contract"] = verdict
     report["status"] = verdict["status"]
     return report
@@ -478,7 +498,7 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
 def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
     manifest, raw = frozen_response(response_path)
     gold = json.loads(gold_path.read_text())
-    if gold.get("panel_type") == "HOLDOUT30_V6_GOLD":
+    if gold.get("panel_type") in {"HOLDOUT30_V6_GOLD", "HOLDOUT30_V7_GOLD"}:
         write_json(output, score_v6_holdout(gold, raw, manifest))
         return
     records = gold["records"]
