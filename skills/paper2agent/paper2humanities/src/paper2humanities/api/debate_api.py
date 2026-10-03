@@ -2,7 +2,8 @@ from __future__ import annotations
 import json, shutil, threading
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from ..debate import AgentRegistry, DebateEngine
@@ -37,6 +38,12 @@ def create_app(root:Path|None=None, model:str="gpt-6-sol"):
     state=AppState(root,model)
     app=FastAPI(title="Paper2Agent-Humanities Debate API",version="0.1.0")
     app.state.debate=state
+    web_dir=root/"web"
+    app.mount("/debate-static",StaticFiles(directory=web_dir),name="debate-static")
+
+    @app.get("/debate",include_in_schema=False)
+    def debate_ui():
+        return FileResponse(web_dir/"index.html")
 
     def append_event(session_id,event_type,data):
         lock=state.event_locks.setdefault(session_id,LockProxy()).lock

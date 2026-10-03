@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Paper2Agent Humanities — Live Debate</title>
+  <link rel="stylesheet" href="/debate-static/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="control-panel">
+      <div class="brand">
+        <div class="eyebrow">Paper2Agent · Humanities</div>
+        <h1>Live Scholarly Debate</h1>
+        <p>검증된 논문 에이전트 2–3개를 선택해 근거 기반 실시간 토론을 시작합니다.</p>
+      </div>
+
+      <section>
+        <div class="section-head">
+          <h2>Agents</h2>
+          <span id="agent-count">0 selected</span>
+        </div>
+        <div id="agent-list" class="agent-list"></div>
+      </section>
+
+      <section>
+        <label class="field-label" for="topic">토론 주제</label>
+        <textarea id="topic" rows="5" placeholder="예: 기술적 재생산 이후 아우라는 소멸하는가, 새로운 기술환경에서 변형되는가?"></textarea>
+      </section>
+
+      <section class="compact-grid">
+        <div>
+          <label class="field-label" for="turns">턴 수</label>
+          <select id="turns">
+            <option>6</option>
+            <option selected>8</option>
+            <option>10</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">상태</label>
+          <div id="session-status" class="status-pill">READY</div>
+        </div>
+      </section>
+
+      <button id="start-btn" class="primary-btn">토론 시작</button>
+      <div id="error-box" class="error-box" hidden></div>
+    </aside>
+
+    <section class="debate-panel">
+      <header class="debate-header">
+        <div>
+          <div class="eyebrow">Live Session</div>
+          <h2 id="debate-title">에이전트를 선택하고 토론을 시작하세요</h2>
+        </div>
+        <div id="turn-progress" class="turn-progress">0 / 0</div>
+      </header>
+
+      <div id="timeline" class="timeline empty">
+        <div class="empty-state">
+          <div class="empty-icon">↔</div>
+          <strong>아직 토론이 시작되지 않았습니다.</strong>
+          <span>왼쪽에서 에이전트와 주제를 지정하세요.</span>
+        </div>
+      </div>
+
+      <footer class="intervention-bar">
+        <input id="intervention" type="text" placeholder="토론에 개입해 논점을 좁히거나 새 질문을 던지세요." disabled>
+        <button id="intervene-btn" disabled>개입</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="/debate-static/app.js"></script>
+</body>
+</html>

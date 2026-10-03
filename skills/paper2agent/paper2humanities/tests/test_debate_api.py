@@ -32,6 +32,15 @@ def client():
     app.state.debate.engine.adapter=FakeAdapter()
     return TestClient(app)
 
+def test_debate_ui_route():
+    c=client()
+    r=c.get("/debate")
+    assert r.status_code==200
+    assert "Live Scholarly Debate" in r.text
+    js=c.get("/debate-static/app.js")
+    assert js.status_code==200 and "EventSource" in js.text
+
+
 def test_agents_and_session_creation():
     c=client()
     a=c.get("/api/debate/agents")
