@@ -45,6 +45,10 @@ def test_agents_and_session_creation():
     c=client()
     a=c.get("/api/debate/agents")
     assert a.status_code==200 and len(a.json()["agents"])>=3
+    assert a.json()["registry"]["loaded"]>=3
+    reload_result=c.post("/api/debate/agents/reload")
+    assert reload_result.status_code==200
+    assert reload_result.json()["registry"]["loaded"]>=3
     r=c.post("/api/debate/sessions",json={
         "agent_ids":["benjamin-artwork-v2","lee-aura-2019"],"topic":"아우라","max_turns":2})
     assert r.status_code==200

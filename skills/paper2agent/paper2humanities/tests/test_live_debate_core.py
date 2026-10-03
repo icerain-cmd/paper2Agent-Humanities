@@ -60,3 +60,40 @@ def test_user_intervention_updates_active_issue():
     s=engine.create_session(["benjamin-artwork-v2","lee-aura-2019"],"아우라",2)
     engine.intervene(s,"거리 개념으로 좁혀라")
     assert s.active_issue=="거리 개념으로 좁혀라"
+
+
+def test_registry_discovers_new_canonical_agent_without_code_change():
+    import json, tempfile
+    from pathlib import Path
+    src=ROOT/"fixtures"/"lee-aura-2019-agent.json"
+    with tempfile.TemporaryDirectory() as td:
+        d=Path(td)
+        data=json.loads(src.read_text())
+        data["paper_id"]="generic-test-paper"
+        data["title"]="Generic Test Paper"
+        data["author"]="Generic Scholar"
+        data["source"]["source_id"]="s-generic-test"
+        data["source"]["sha256"]="0"*64
+        for s in data["statements"]:
+            if s.get("paper_id"):
+                s["paper_id"]="generic-test-paper"
+            if s.get("source_id"):
+                s["source_id"]="s-generic-test"
+        (d/"generic-test-paper-agent.json").write_text(json.dumps(data,ensure_ascii=False))
+        reg=AgentRegistry(d)
+        assert reg.ids()==("generic-test-paper",)
+        desc=reg.describe()[0]
+        assert desc["author"]=="Generic Scholar"
+        assert desc["reviewed_grounded_count"]>0
+
+
+def test_registry_reports_rejected_agent_files():
+    import tempfile
+    from pathlib import Path
+    with tempfile.TemporaryDirectory() as td:
+        d=Path(td)
+        (d/"broken-agent.json").write_text("{not json")
+        reg=AgentRegistry(d)
+        diag=reg.diagnostics()
+        assert diag["loaded"]==0
+        assert diag["rejected"] and diag["rejected"][0]["file"]=="broken-agent.json"

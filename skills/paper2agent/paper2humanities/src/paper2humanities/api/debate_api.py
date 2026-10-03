@@ -56,7 +56,13 @@ def create_app(root:Path|None=None, model:str="gpt-6-sol"):
 
     @app.get("/api/debate/agents")
     def agents():
-        return {"agents":state.registry.describe()}
+        state.registry.reload()
+        return {"agents":state.registry.describe(),"registry":state.registry.diagnostics()}
+
+    @app.post("/api/debate/agents/reload")
+    def reload_agents():
+        state.registry.reload()
+        return {"agents":state.registry.describe(),"registry":state.registry.diagnostics()}
 
     @app.post("/api/debate/sessions")
     def create_session(req:CreateSessionRequest):
