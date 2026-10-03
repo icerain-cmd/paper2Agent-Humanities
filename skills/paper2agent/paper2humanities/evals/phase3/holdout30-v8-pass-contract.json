@@ -1,0 +1,48 @@
+{
+  "contract_id": "HOLDOUT30_V8_PREREGISTERED_PASS_CONTRACT",
+  "required_hard_gates": [
+    "FALSE_AUTHOR_CLAIM",
+    "EXTERNAL_AS_AUTHOR_ERROR",
+    "WRONG_SOURCE_ID",
+    "CROSS_EDITION_CONTAMINATION",
+    "UNSUPPORTED_DIALOGUE_TURN",
+    "STALE_SEMANTIC_REVIEW",
+    "MODEL_RUNTIME_FAILURE",
+    "TEMPORAL_CORPUS_CONTAMINATION",
+    "FAKE_PAGE_CITATION",
+    "PAGELESS_FINAL_SUPPORT",
+    "HARDCODED_DIALOGUE_TEXT",
+    "GOLD_LEAKAGE"
+  ],
+  "hard_gate_maximum": 0,
+  "minimum_factual_task_accuracy": 0.9,
+  "minimum_scholarly_task_validity": 0.9,
+  "minimum_overall_validity": 0.9,
+  "minimum_source_id_accuracy": 0.95,
+  "minimum_unsupported_premise_rejection": 0.9,
+  "minimum_abstention_precision": 0.8,
+  "generator_model": "gpt-6-sol",
+  "verifier_model": "gpt-5.6-sol",
+  "independent_model_verifier_required": true,
+  "fresh_context_verifier_required": true,
+  "pinned_codex_runtime": {
+    "package": "@openai/codex@0.155.1",
+    "codex_version": "0.155.1",
+    "isolated_runtime_required": true,
+    "global_runtime_mutation_allowed": false,
+    "v7_verified_vendor_binary_sha256": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761"
+  },
+  "timeout_retry_policy": {
+    "retryable_error": "TimeoutExpired",
+    "maximum_retries": 1,
+    "same_prompt": true,
+    "same_model": true,
+    "same_schema": true,
+    "same_runtime_config": true,
+    "same_evidence_packet": true,
+    "semantic_feedback_allowed": false,
+    "prompt_rewrite_allowed": false,
+    "model_switching_allowed": false
+  },
+  "basis": "V7 thresholds and hard gates unchanged. V8 only remediates classifier precedence, targeted retrieval aliases, and direct factual SOURCE_RETRIEVAL typing."
+}

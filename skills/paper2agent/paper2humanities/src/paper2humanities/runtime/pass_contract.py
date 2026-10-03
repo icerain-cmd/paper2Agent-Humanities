@@ -7,6 +7,7 @@ from pathlib import Path
 CONTRACT_PATH = Path(__file__).resolve().parents[3] / "evals" / "phase3" / "holdout30-v5-pass-contract.json"
 V6_CONTRACT_PATH = Path(__file__).resolve().parents[3] / "evals" / "phase3" / "holdout30-v6-pass-contract.json"
 V7_CONTRACT_PATH = Path(__file__).resolve().parents[3] / "evals" / "phase3" / "holdout30-v7-pass-contract.json"
+V8_CONTRACT_PATH = Path(__file__).resolve().parents[3] / "evals" / "phase3" / "holdout30-v8-pass-contract.json"
 
 
 def load_v5_contract() -> dict:
@@ -17,6 +18,9 @@ def load_v6_contract() -> dict:
 
 def load_v7_contract() -> dict:
     return json.loads(V7_CONTRACT_PATH.read_text())
+
+def load_v8_contract() -> dict:
+    return json.loads(V8_CONTRACT_PATH.read_text())
 
 def evaluate_pass_contract(report: dict, contract: dict) -> dict:
     gates = report["hard_gate_counts"]

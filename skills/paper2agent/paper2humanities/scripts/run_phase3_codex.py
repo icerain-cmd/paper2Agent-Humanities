@@ -19,7 +19,7 @@ from paper2humanities.runtime.model_adapter import (
 from paper2humanities.runtime.orchestration import live_turn
 from paper2humanities.runtime.classifier import classify_query
 from paper2humanities.runtime.pass_contract import (
-    evaluate_pass_contract, evaluate_v6_pass_contract, load_v5_contract, load_v6_contract, load_v7_contract,
+    evaluate_pass_contract, evaluate_v6_pass_contract, load_v5_contract, load_v6_contract, load_v7_contract, load_v8_contract,
 )
 from paper2humanities.runtime.attribution import infer_attribution_owner, infer_statement_form
 from paper2humanities.runtime.verifier import publication_gate
@@ -359,8 +359,9 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
         raise ValueError("gold and response IDs differ")
     if any(not row.get("source_id") or not row.get("action") or not row.get("task_family") for row in records):
         raise ValueError("V6 gold requires source_id, action, and task_family")
-    v7 = gold.get("panel_type") == "HOLDOUT30_V7_GOLD"
-    hard_gates = V7_HARD_GATES if v7 else V6_HARD_GATES
+    panel_type = gold.get("panel_type")
+    modern_holdout = panel_type in {"HOLDOUT30_V7_GOLD", "HOLDOUT30_V8_GOLD"}
+    hard_gates = V7_HARD_GATES if modern_holdout else V6_HARD_GATES
     gates = {name: 0 for name in hard_gates}
     if manifest.get("gold_available_during_generation") is not False:
         gates["GOLD_LEAKAGE"] += 1
@@ -386,7 +387,7 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
         actor_match = turn.get("actor_paper") == rec.get("paper") and turn.get("actor_edition_id") == rec.get("edition")
         if (accepted or abstained) and not actor_match:
             row_gates.add("CROSS_EDITION_CONTAMINATION")
-        if v7:
+        if modern_holdout:
             if response.get("outcome") == "MODEL_RUNTIME_UNAVAILABLE":
                 row_gates.add("MODEL_RUNTIME_FAILURE")
             elif turn and (response.get("fresh_context_verifier") is not True or response.get("independent_model_verifier") is not True):
@@ -490,7 +491,8 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
               "unsupported_premise_rejection": unsupported_rejected / unsupported_total if unsupported_total else 1.0,
               "abstention_precision": abstained_correct / abstained_total if abstained_total else 1.0,
               "rows": rows, "hard_gate_counts": gates}
-    verdict = evaluate_v6_pass_contract(report, load_v7_contract() if v7 else load_v6_contract())
+    contract = load_v8_contract() if panel_type == "HOLDOUT30_V8_GOLD" else load_v7_contract() if panel_type == "HOLDOUT30_V7_GOLD" else load_v6_contract()
+    verdict = evaluate_v6_pass_contract(report, contract)
     report["pass_contract"] = verdict
     report["status"] = verdict["status"]
     return report
@@ -498,7 +500,7 @@ def score_v6_holdout(gold: dict, raw: dict, manifest: dict) -> dict:
 def score_holdout(gold_path: Path, response_path: Path, output: Path) -> None:
     manifest, raw = frozen_response(response_path)
     gold = json.loads(gold_path.read_text())
-    if gold.get("panel_type") in {"HOLDOUT30_V6_GOLD", "HOLDOUT30_V7_GOLD"}:
+    if gold.get("panel_type") in {"HOLDOUT30_V6_GOLD", "HOLDOUT30_V7_GOLD", "HOLDOUT30_V8_GOLD"}:
         write_json(output, score_v6_holdout(gold, raw, manifest))
         return
     records = gold["records"]
