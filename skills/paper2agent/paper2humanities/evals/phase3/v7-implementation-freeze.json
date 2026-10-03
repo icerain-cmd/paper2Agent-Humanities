@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "freeze_type": "IMPLEMENTATION_FREEZE_V7",
+  "parent_head": "0be58b11a6264ac54b8f0d711d4ca87d15a8a97a",
+  "v7_pass_contract_sha": "d59eec90d86b50adb15b5981b1cad5a38f491e0483618dd83cce312e7dedb50a",
+  "focused_tests": "29/29 PASS",
+  "humanities_tests": "128/128 PASS",
+  "paper2skill_tests": "27/27 PASS",
+  "dev2_v6_failures": "PASS",
+  "runtime_changes_after_freeze_allowed": false,
+  "retrieval_changes_after_freeze_allowed": false,
+  "classifier_changes_after_freeze_allowed": false,
+  "scorer_changes_after_freeze_allowed": false,
+  "contract_changes_after_freeze_allowed": false,
+  "fixture_changes_after_freeze_allowed": false,
+  "source_statement_changes_after_freeze_allowed": false,
+  "v6_artifacts_immutable": true,
+  "gold_available": false,
+  "responses_available": false,
+  "merge_performed": false,
+  "github_remote_purge_required": true
+}
