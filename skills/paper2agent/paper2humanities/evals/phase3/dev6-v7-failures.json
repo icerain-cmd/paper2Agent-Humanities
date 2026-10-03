@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "panel_id": "DEV6_V7_FAILURES",
+  "source_panel": "phase3-holdout30-v7",
+  "source_status": "DEV30_COMPAT_V7",
+  "development_only": true,
+  "rows": [
+    {
+      "query_id": "H30V7-005",
+      "historical_outcome": "ABSTAINED",
+      "historical_action": "EXTERNAL_ATTRIBUTION",
+      "historical_selected_support_ids": [],
+      "root_cause": "External-attribution retrieval lacked an alias bridge from Benjamin technology-theory wording to the reviewed second-technology quotation.",
+      "expected_dev_result": "EXTERNAL_ATTRIBUTION with lee-q-benjamin-second-tech available as reviewed external support"
+    },
+    {
+      "query_id": "H30V7-008",
+      "historical_outcome": "ACCEPTED",
+      "historical_action": "SOURCE_RETRIEVAL",
+      "historical_support_ids": ["lee-c-transparent"],
+      "historical_statement_type": "INTERPRETATION",
+      "historical_statement_form": "INTERPRETIVE_STATEMENT",
+      "historical_attribution_owner": "AUTHOR",
+      "root_cause": "Direct factual retrieval was given an interpretive response-type hint because the factual proposition contained the word 구분.",
+      "expected_dev_result": "AUTHOR_CLAIM / PARAPHRASE / AUTHOR for direct factual retrieval without derived judgment"
+    },
+    {
+      "query_id": "H30V7-019",
+      "historical_outcome": "ACCEPTED",
+      "historical_action": "SOURCE_RETRIEVAL",
+      "root_cause": "Classifier did not recognize theoretical-weakness wording as CRITIQUE.",
+      "expected_dev_result": "CRITIQUE"
+    },
+    {
+      "query_id": "H30V7-021",
+      "historical_outcome": "ABSTAINED",
+      "historical_action": "RESPONSE",
+      "historical_missing_support_id": "lee-c-tech-start",
+      "root_cause": "Retrieval lacked a normalization/alias bridge from 컴퓨터·인터넷 기점 설정 to 컴퓨터와 인터넷의 발명.",
+      "expected_dev_result": "RESPONSE with both Benjamin V2 actor grounding and lee-c-tech-start target grounding"
+    },
+    {
+      "query_id": "H30V7-024",
+      "historical_outcome": "ACCEPTED",
+      "historical_action": "SOURCE_RETRIEVAL",
+      "root_cause": "Classifier did not recognize 대조 wording as CROSS_PAPER_COMPARE.",
+      "expected_dev_result": "CROSS_PAPER_COMPARE"
+    },
+    {
+      "query_id": "H30V7-026",
+      "historical_outcome": "ACCEPTED",
+      "historical_action": "SOURCE_RETRIEVAL",
+      "root_cause": "Classifier did not recognize 미해결 연구 문제 wording as RESEARCH_GAP.",
+      "expected_dev_result": "RESEARCH_GAP"
+    }
+  ]
+}

@@ -398,3 +398,211 @@ def test_v7_verifier_timeout_is_explicit_runtime_failure():
         result = runner.run_one(object(), agent, "synthetic", "SOURCE_RETRIEVAL")
     assert any("MODEL_RUNTIME_FAILURE" in error for error in result["gate_errors"])
     assert not any("STALE_SEMANTIC_REVIEW" in error for error in result["gate_errors"])
+
+
+def test_v8_classifier_scholarly_intent_precedence_paraphrase_matrix():
+    cases = {
+        "이 두 자료를 바탕으로 검증 가능한 연구질문 하나를 만들어라": "RESEARCH_QUESTION",
+        "두 주장 사이에 남는 미해결 연구 문제를 제시하라": "RESEARCH_GAP",
+        "두 논문의 기술-인간 관계를 대조하라": "CROSS_PAPER_COMPARE",
+        "이 이론이 드러내는 이론적 취약점을 논하라": "CRITIQUE",
+        "이 주장에 대한 응답을 구성하라": "RESPONSE",
+        "두 개념이 어떻게 맞물리는지 해석하라": "INTERPRETATION",
+        "외부 인용의 발화 주체가 누구인지 판정하라": "EXTERNAL_ATTRIBUTION",
+        "이 명제의 저자 귀속을 판정하라": "AUTHOR_ATTRIBUTION",
+        "직접 근거를 찾아라": "SOURCE_RETRIEVAL",
+    }
+    for query, expected in cases.items():
+        assert classify_query(query).value == expected
+
+
+def test_v8_failed_scholarly_routes_are_recovered_without_query_id_hardcoding():
+    cases = {
+        "두 문헌의 근거만으로 이론적 취약점을 논하라": "CRITIQUE",
+        "인간 투입 최소화 명제와 투명화 개념을 각각의 근거로 대조하라": "CROSS_PAPER_COMPARE",
+        "두 설명 사이에 어떤 미해결 연구 문제가 남는지 제시하라": "RESEARCH_GAP",
+    }
+    for query, expected in cases.items():
+        assert classify_query(query).value == expected
+
+
+def test_v8_external_attribution_alias_recovers_reviewed_benjamin_quote():
+    from test_phase3_codex_runner import runner
+    lee = runner.AGENTS["lee-aura-2019"]
+    query = "Lee 2019이 벤야민의 기술론을 끌어오는 대목에서 외부 인용으로 표시된 발화가 누구의 것인지 판정하라."
+    hits, trace = retrieve(lee, query, action="EXTERNAL_ATTRIBUTION")
+    assert "lee-q-benjamin-second-tech" in trace["selected_statement_ids"]
+    assert hits
+
+
+def test_v8_computer_internet_origin_alias_recovers_lee_tech_start():
+    from test_phase3_codex_runner import runner
+    lee = runner.AGENTS["lee-aura-2019"]
+    for query in (
+        "Lee 2019의 컴퓨터·인터넷 기점 설정",
+        "컴퓨터 인터넷 기점에 대한 Lee의 설명",
+    ):
+        hits, trace = retrieve(lee, query, action="RESPONSE")
+        assert "lee-c-tech-start" in trace["selected_statement_ids"]
+        assert hits
+
+
+def test_v8_cross_paper_response_retrieval_preserves_both_actor_and_target_grounding():
+    from test_phase3_codex_runner import runner
+    actor = runner.AGENTS["benjamin-artwork-v2"]
+    lee = runner.AGENTS["lee-aura-2019"]
+    query = "Benjamin V2의 놀이 및 자연-인류 상호작용 명제를 근거로 Lee 2019의 컴퓨터·인터넷 기점 설정에 대한 응답을 구성하라."
+    actor_hits, actor_trace = retrieve(actor, query, action="RESPONSE")
+    lee_hits, lee_trace = retrieve(lee, query, action="RESPONSE")
+    assert {"b-v2-c-play-origin", "b-v2-c-interplay"} & set(actor_trace["selected_statement_ids"])
+    assert "lee-c-tech-start" in lee_trace["selected_statement_ids"]
+    assert actor_hits and lee_hits
+
+
+def test_v8_direct_source_retrieval_prefers_author_claim_hint_not_interpretation():
+    from paper2humanities.runtime.orchestration import response_type_hint
+    query = "Lee 2019에서 투명화가 사용자와 도구, 현실과 가상, 수단과 목적의 구분을 지운다고 설명하는 직접 근거를 찾아라."
+    assert response_type_hint(query, "SOURCE_RETRIEVAL") == "AUTHOR_CLAIM"
+    assert response_type_hint("두 개념의 구분이 충분한지 비판하라", "CRITIQUE") is None
+
+
+def test_v8_preregistered_contract_preserves_v7_thresholds_and_runtime_gate():
+    from paper2humanities.runtime.pass_contract import load_v7_contract, load_v8_contract
+    v7 = load_v7_contract()
+    v8 = load_v8_contract()
+    assert v8["contract_id"] == "HOLDOUT30_V8_PREREGISTERED_PASS_CONTRACT"
+    for key in (
+        "minimum_factual_task_accuracy",
+        "minimum_scholarly_task_validity",
+        "minimum_overall_validity",
+        "minimum_source_id_accuracy",
+        "minimum_unsupported_premise_rejection",
+        "minimum_abstention_precision",
+        "hard_gate_maximum",
+    ):
+        assert v8[key] == v7[key]
+    assert "MODEL_RUNTIME_FAILURE" in v8["required_hard_gates"]
+    assert set(v8["required_hard_gates"]) == set(v7["required_hard_gates"])
+    assert v8["pinned_codex_runtime"]["codex_version"] == "0.155.1"
+    assert v8["timeout_retry_policy"]["maximum_retries"] == 1
+
+
+def test_v8_score_path_uses_v8_contract_without_weakening_actions():
+    from test_phase3_codex_runner import runner
+    actor = runner.AGENTS["benjamin-artwork-v2"]
+    source = actor.store.get("b-v2-c-interplay")
+    turn = {
+        "text": source.text,
+        "statement_type": "AUTHOR_CLAIM",
+        "evidence_voice": "AUTHOR",
+        "support_ids": [source.statement_id],
+        "pages": [source.page],
+        "relation_type": "QUALIFIES",
+        "actor_paper": actor.paper_id,
+        "actor_edition_id": actor.edition_id,
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "SEMANTICALLY_SUPPORTED",
+        "evidence_sufficiency": "SUFFICIENT",
+        "qualification": None,
+        "evidence_span": source.evidence_span,
+        "claims": [{
+            "text": source.text,
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": [source.statement_id],
+        }],
+    }
+    response = {
+        "query_id": "v8-synthetic",
+        "source_id": actor.source_id,
+        "outcome": "ACCEPTED",
+        "classified_action": "SOURCE_RETRIEVAL",
+        "turn": turn,
+        "gate_errors": [],
+        "fresh_context_verifier": True,
+        "independent_model_verifier": True,
+        "retrieval_trace": {
+            "selected_statement_ids": [source.statement_id],
+            "allowed_agents": [{
+                "paper_id": actor.paper_id,
+                "edition_id": actor.edition_id,
+            }],
+        },
+    }
+    gold = {
+        "panel_id": "v8-synthetic",
+        "panel_type": "HOLDOUT30_V8_GOLD",
+        "records": [{
+            "query_id": "v8-synthetic",
+            "task_family": "FACTUAL",
+            "action": "SOURCE_RETRIEVAL",
+            "type": "AUTHOR_CLAIM",
+            "paper": actor.paper_id,
+            "edition": actor.edition_id,
+            "page": source.page,
+            "support": [source.statement_id],
+            "source_id": actor.source_id,
+            "statement_form": "PARAPHRASE",
+            "attribution_owner": "AUTHOR",
+        }],
+    }
+    report = runner.score_v6_holdout(
+        gold,
+        {"responses": [response]},
+        {"response_sha256": "x", "gold_available_during_generation": False},
+    )
+    assert report["pass_contract"]["contract_id"] == "HOLDOUT30_V8_PREREGISTERED_PASS_CONTRACT"
+    assert report["status"] == "PASS"
+
+
+def test_v8_direct_factual_turn_normalizes_interpretation_when_all_claims_are_author_claims():
+    from paper2humanities.runtime.orchestration import normalize_direct_factual_turn
+    turn = {
+        "text": "Lee는 투명화를 제3기술의 핵심가치로 직접 설명한다.",
+        "statement_type": "INTERPRETATION",
+        "statement_form": "INTERPRETIVE_STATEMENT",
+        "attribution_owner": "AUTHOR",
+        "evidence_voice": "AUTHOR",
+        "support_ids": ["lee-c-transparent"],
+        "pages": [22],
+        "relation_type": "EXTENDS",
+        "actor_paper": "lee-aura-2019",
+        "actor_edition_id": None,
+        "action": "SOURCE_RETRIEVAL",
+        "semantic_support": "SEMANTICALLY_SUPPORTED",
+        "evidence_sufficiency": "SUFFICIENT",
+        "qualification": None,
+        "evidence_span": "span",
+        "claims": [{
+            "text": "Lee는 투명화를 제3기술의 핵심가치로 제시한다.",
+            "statement_type": "AUTHOR_CLAIM",
+            "support_ids": ["lee-c-transparent"],
+        }],
+    }
+    normalized = normalize_direct_factual_turn(turn, "AUTHOR_CLAIM")
+    assert normalized["statement_type"] == "AUTHOR_CLAIM"
+    assert normalized["statement_form"] == "PARAPHRASE"
+    assert normalized["attribution_owner"] == "AUTHOR"
+
+
+def test_v8_direct_factual_turn_does_not_normalize_derived_judgment():
+    from paper2humanities.runtime.orchestration import normalize_direct_factual_turn
+    turn = {
+        "statement_type": "INTERPRETATION",
+        "statement_form": "INTERPRETIVE_STATEMENT",
+        "attribution_owner": "AUTHOR",
+        "evidence_voice": "AUTHOR",
+        "action": "SOURCE_RETRIEVAL",
+        "claims": [
+            {"text": "source fact", "statement_type": "AUTHOR_CLAIM", "support_ids": ["s1"]},
+            {"text": "derived", "statement_type": "INTERPRETATION", "support_ids": ["s1"]},
+        ],
+    }
+    assert normalize_direct_factual_turn(turn, "AUTHOR_CLAIM") == turn
+
+
+def test_v8_direct_quote_or_declaration_retrieval_is_not_forced_to_author_claim():
+    from paper2humanities.runtime.orchestration import response_type_hint
+    assert response_type_hint(
+        "Lee 2019이 기술편집시대라고 선언하는 직접 근거 페이지를 찾아라.",
+        "SOURCE_RETRIEVAL",
+    ) is None
