@@ -15,3 +15,6 @@ venv/
 .env.*
 !.env.example
 !.env.template
+
+# Local Paper2Agent-Humanities onboarding runtime data
+skills/paper2agent/paper2humanities/agent_store/

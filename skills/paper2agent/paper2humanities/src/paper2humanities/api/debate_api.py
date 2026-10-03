@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 
 from ..debate import AgentRegistry, DebateEngine
 from ..runtime.model_adapter import CodexExecAdapter
+from ..onboarding import OnboardingService
 from .store import SessionStore
 
 class CreateSessionRequest(BaseModel):
@@ -18,10 +19,15 @@ class CreateSessionRequest(BaseModel):
 class InterventionRequest(BaseModel):
     text:str=Field(min_length=1)
 
+class UploadAgentRequest(BaseModel):
+    agent:dict
+    original_name:str|None=None
+
 class AppState:
     def __init__(self, root:Path, model:str="gpt-6-sol"):
         self.root=root
-        self.registry=AgentRegistry(root/"fixtures")
+        self.onboarding=OnboardingService(root/"agent_store",root/"fixtures")
+        self.registry=AgentRegistry(root/"fixtures",self.onboarding.active_dir)
         codex=shutil.which("codex") or str(Path.home()/".local/bin/codex")
         self.engine=DebateEngine(self.registry,CodexExecAdapter(model=model,executable=codex))
         self.sessions=SessionStore()
@@ -63,6 +69,51 @@ def create_app(root:Path|None=None, model:str="gpt-6-sol"):
     def reload_agents():
         state.registry.reload()
         return {"agents":state.registry.describe(),"registry":state.registry.diagnostics()}
+
+    @app.post("/api/agents/onboarding/upload")
+    def onboarding_upload(req:UploadAgentRequest):
+        try:
+            return state.onboarding.upload_json(req.agent,req.original_name)
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.post("/api/agents/onboarding/{onboarding_id}/validate")
+    def onboarding_validate(onboarding_id:str):
+        try:
+            return state.onboarding.validate(onboarding_id)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="onboarding record not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.get("/api/agents/onboarding/{onboarding_id}")
+    def onboarding_state(onboarding_id:str):
+        try:
+            return state.onboarding.get(onboarding_id)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="onboarding record not found")
+
+    @app.post("/api/agents/onboarding/{onboarding_id}/register")
+    def onboarding_register(onboarding_id:str):
+        try:
+            result=state.onboarding.register(onboarding_id)
+            state.registry.reload()
+            return result
+        except KeyError:
+            raise HTTPException(status_code=404,detail="onboarding record not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.delete("/api/agents/{agent_id}")
+    def disable_registered_agent(agent_id:str):
+        try:
+            result=state.onboarding.disable(agent_id)
+            state.registry.reload()
+            return result
+        except KeyError:
+            raise HTTPException(status_code=404,detail="registered agent not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
 
     @app.post("/api/debate/sessions")
     def create_session(req:CreateSessionRequest):

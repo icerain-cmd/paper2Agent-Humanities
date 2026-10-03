@@ -23,6 +23,7 @@
         <div class="agent-tools">
           <input id="agent-search" type="search" placeholder="저자·논문·개념 검색">
           <button id="reload-agents" type="button">새로고침</button>
+          <button id="add-agent" type="button" class="dark-tool">+ Agent</button>
         </div>
         <div id="registry-note" class="registry-note"></div>
         <div id="agent-list" class="agent-list"></div>
@@ -75,6 +76,38 @@
       </footer>
     </section>
   </main>
+
+  <dialog id="onboarding-dialog" class="onboarding-dialog">
+    <div class="dialog-shell">
+      <header class="dialog-head">
+        <div>
+          <div class="eyebrow">Agent Onboarding</div>
+          <h2>새 Scholarly Agent 등록</h2>
+        </div>
+        <button id="close-onboarding" type="button" class="icon-btn">×</button>
+      </header>
+      <div class="dialog-body">
+        <div id="onboarding-upload-step">
+          <label class="upload-box" for="agent-file">
+            <strong>Paper Agent JSON 선택</strong>
+            <span>검증된 Paper2Agent/Paper2Skill 산출물 · 최대 10MB</span>
+            <input id="agent-file" type="file" accept=".json,application/json">
+          </label>
+          <div id="onboarding-file-name" class="registry-note"></div>
+          <button id="validate-agent-btn" class="primary-btn" type="button" disabled>업로드하고 검증</button>
+        </div>
+        <div id="onboarding-result" hidden>
+          <div class="validation-status" id="validation-status"></div>
+          <div id="validation-preview" class="validation-preview"></div>
+          <div id="validation-errors" class="validation-errors"></div>
+          <div class="dialog-actions">
+            <button id="register-agent-btn" class="primary-btn" type="button" disabled>Register Agent</button>
+            <button id="reset-onboarding" type="button" class="secondary-btn">다른 파일 선택</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
 
   <script src="/debate-static/app.js"></script>
 </body>

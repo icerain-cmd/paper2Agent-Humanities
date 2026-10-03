@@ -82,3 +82,67 @@ def test_background_start_and_state():
     assert names.count("turn_completed")==3
     assert names[-1]=="debate_completed"
     assert "agent_thinking" in names and "evidence_retrieved" in names
+
+
+def test_onboarding_api_valid_register_and_disable():
+    import json, tempfile
+    from paper2humanities.onboarding import OnboardingService
+    from paper2humanities.debate import AgentRegistry
+    app=create_app(ROOT)
+    with tempfile.TemporaryDirectory() as td:
+        state=app.state.debate
+        state.onboarding=OnboardingService(Path(td)/"store",ROOT/"fixtures")
+        state.registry=AgentRegistry(ROOT/"fixtures",state.onboarding.active_dir)
+        state.engine.registry=state.registry
+        c=TestClient(app)
+        data=json.loads((ROOT/"fixtures"/"lee-aura-2019-agent.json").read_text())
+        data["paper_id"]="api-registered-test"
+        data["title"]="API Registered Test"
+        data["author"]="API Scholar"
+        data["source"]["source_id"]="s-api-registered-test"
+        data["source"]["sha256"]="3"*64
+        for s in data["statements"]:
+            if s.get("paper_id"): s["paper_id"]="api-registered-test"
+            if s.get("source_id"): s["source_id"]="s-api-registered-test"
+        up=c.post("/api/agents/onboarding/upload",json={"agent":data,"original_name":"test.json"})
+        assert up.status_code==200
+        oid=up.json()["onboarding_id"]
+        val=c.post(f"/api/agents/onboarding/{oid}/validate")
+        assert val.status_code==200 and val.json()["validation"]["status"]=="PASS"
+        reg=c.post(f"/api/agents/onboarding/{oid}/register")
+        assert reg.status_code==200
+        agents=c.get("/api/debate/agents").json()["agents"]
+        added=next(x for x in agents if x["agent_id"]=="api-registered-test")
+        assert added["origin"]=="registered" and added["can_disable"] is True
+        disable=c.delete("/api/agents/api-registered-test")
+        assert disable.status_code==200 and disable.json()["status"]=="DISABLED"
+        assert all(x["agent_id"]!="api-registered-test" for x in c.get("/api/debate/agents").json()["agents"])
+
+
+def test_onboarding_api_blocks_invalid_and_builtin_disable():
+    import json, tempfile
+    from paper2humanities.onboarding import OnboardingService
+    from paper2humanities.debate import AgentRegistry
+    app=create_app(ROOT)
+    with tempfile.TemporaryDirectory() as td:
+        state=app.state.debate
+        state.onboarding=OnboardingService(Path(td)/"store",ROOT/"fixtures")
+        state.registry=AgentRegistry(ROOT/"fixtures",state.onboarding.active_dir)
+        state.engine.registry=state.registry
+        c=TestClient(app)
+        data=json.loads((ROOT/"fixtures"/"lee-aura-2019-agent.json").read_text())
+        data["paper_id"]="api-invalid-test"
+        data["source"]["source_id"]="s-api-invalid-test"
+        data["source"]["sha256"]="4"*64
+        for s in data["statements"]:
+            if s.get("paper_id"): s["paper_id"]="api-invalid-test"
+            if s.get("source_id"): s["source_id"]="s-api-invalid-test"
+        claim=next(x for x in data["statements"] if x["statement_type"]=="AUTHOR_CLAIM")
+        claim["review_status"]="NEEDS_REVIEW"
+        up=c.post("/api/agents/onboarding/upload",json={"agent":data}).json()
+        val=c.post(f"/api/agents/onboarding/{up['onboarding_id']}/validate")
+        assert val.json()["validation"]["status"]=="FAIL"
+        blocked=c.post(f"/api/agents/onboarding/{up['onboarding_id']}/register")
+        assert blocked.status_code==400
+        built=c.delete("/api/agents/benjamin-artwork-v2")
+        assert built.status_code==400

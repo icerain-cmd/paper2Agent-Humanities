@@ -4,33 +4,46 @@ from ..paper_agent import PaperAgent
 from ..schema import ReviewStatus, StatementType
 
 class AgentRegistry:
-    def __init__(self, fixture_dir: str | Path):
+    def __init__(self, fixture_dir: str | Path, registered_dir: str | Path | None=None):
         self.fixture_dir=Path(fixture_dir)
+        self.registered_dir=Path(registered_dir) if registered_dir else None
         self._agents: dict[str,PaperAgent]={}
         self._paths: dict[str,Path]={}
+        self._origins: dict[str,str]={}
         self._rejected: list[dict[str,str]]=[]
         self.reload()
+
+    def _candidate_paths(self):
+        for path in sorted(self.fixture_dir.glob("*-agent.json")):
+            if path.name.endswith("-phase2-agent.json"):
+                continue
+            yield path,"built_in"
+        if self.registered_dir and self.registered_dir.exists():
+            for path in sorted(self.registered_dir.glob("*/agent.json")):
+                yield path,"registered"
 
     def reload(self):
         agents={}
         paths={}
+        origins={}
         rejected=[]
-        for path in sorted(self.fixture_dir.glob("*-agent.json")):
-            if path.name.endswith("-phase2-agent.json"):
-                continue
+        for path,origin in self._candidate_paths():
             try:
                 agent=PaperAgent.from_json(path)
                 if agent.paper_id in agents:
                     raise ValueError(f"duplicate paper_id in registry: {agent.paper_id}")
                 agents[agent.paper_id]=agent
                 paths[agent.paper_id]=path
+                origins[agent.paper_id]=origin
             except Exception as exc:
                 rejected.append({
-                    "file":path.name,
+                    "file":str(path.name if origin=="built_in" else path.parent.name),
+                    "origin":origin,
                     "error":f"{type(exc).__name__}: {exc}",
                 })
         self._agents=agents
         self._paths=paths
+        self._origins=origins
         self._rejected=rejected
         return self
 
@@ -44,6 +57,8 @@ class AgentRegistry:
     def diagnostics(self):
         return {
             "loaded":len(self._agents),
+            "registered":sum(x=="registered" for x in self._origins.values()),
+            "built_in":sum(x=="built_in" for x in self._origins.values()),
             "rejected":list(self._rejected),
         }
 
@@ -72,5 +87,7 @@ class AgentRegistry:
                 "grounded_statement_count":len(grounded),
                 "reviewed_grounded_count":len(reviewed),
                 "source_file":self._paths[a.paper_id].name,
+                "origin":self._origins[a.paper_id],
+                "can_disable":self._origins[a.paper_id]=="registered",
             })
         return rows
