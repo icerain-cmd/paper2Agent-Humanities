@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task": "HOLDOUT30_V8_GOLD_CREATION_AUDIT",
+  "query_panel_sha": "9bf3febf8afde7e79b185e7e69447fc29df76bf4fc57e468efca869429fa65ff",
+  "response_freeze_sha": "10b7b09c60cadefb9fb65574f74ac57202a03a87c773ed4ef42299236fe221ee",
+  "response_freeze_commit": "185db1f8d7543dd6d2440102a3e2309ada423cd7",
+  "implementation_freeze_sha_v8": "0e8ea25efd3f883ddf85ec1a4f95ef7f2ac61c3a",
+  "gold_created_after_response_freeze": true,
+  "frozen_response_used_for_gold_adjudication": false,
+  "gold_input_scope": "QUERY_PLUS_REVIEWED_SOURCES_ONLY",
+  "gold_record_count": 30,
+  "query_ids_match": true,
+  "support_validation": "PASS",
+  "page_validation": "PASS",
+  "edition_validation": "PASS",
+  "source_id_validation": "PASS",
+  "required_papers_validation": "PASS",
+  "pageless_support_blocked": true,
+  "edition_firewall": "PASS",
+  "lee_2019_temporal_firewall": "PASS"
+}

@@ -1,0 +1,711 @@
+{
+  "schema_version": 8,
+  "panel_id": "phase3-holdout30-v8",
+  "panel_type": "HOLDOUT30_V8_GOLD",
+  "query_panel_sha256": "9bf3febf8afde7e79b185e7e69447fc29df76bf4fc57e468efca869429fa65ff",
+  "response_freeze_sha256": "10b7b09c60cadefb9fb65574f74ac57202a03a87c773ed4ef42299236fe221ee",
+  "response_freeze_commit": "185db1f8d7543dd6d2440102a3e2309ada423cd7",
+  "implementation_freeze_sha_v8": "0e8ea25efd3f883ddf85ec1a4f95ef7f2ac61c3a",
+  "gold_created_after_response_freeze": true,
+  "frozen_response_used_for_gold_adjudication": false,
+  "gold_input_scope": "QUERY_PLUS_REVIEWED_SOURCES_ONLY",
+  "records": [
+    {
+      "query_id": "H30V8-001",
+      "task_family": "FACTUAL",
+      "action": "AUTHOR_ATTRIBUTION",
+      "type": "AUTHOR_CLAIM",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 29,
+      "support": [
+        "lee-c-research-program"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "statement_form": "INTERPRETIVE_STATEMENT",
+      "attribution_owner": "AUTHOR"
+    },
+    {
+      "query_id": "H30V8-002",
+      "task_family": "FACTUAL",
+      "action": "AUTHOR_ATTRIBUTION",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 6,
+      "support": [
+        "b-v2-c-aura-decay"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "statement_form": "INTERPRETIVE_STATEMENT",
+      "attribution_owner": "AUTHOR"
+    },
+    {
+      "query_id": "H30V8-003",
+      "task_family": "FACTUAL",
+      "action": "AUTHOR_ATTRIBUTION",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 31,
+      "support": [
+        "b-v3-c-dada-demand"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "statement_form": "INTERPRETIVE_STATEMENT",
+      "attribution_owner": "AUTHOR"
+    },
+    {
+      "query_id": "H30V8-004",
+      "task_family": "FACTUAL",
+      "action": "EXTERNAL_ATTRIBUTION",
+      "type": "SOURCE_QUOTE",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 18,
+      "support": [
+        "lee-q-benjamin-second-tech"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "statement_form": "INTERPRETIVE_STATEMENT",
+      "attribution_owner": "EXTERNAL"
+    },
+    {
+      "query_id": "H30V8-005",
+      "task_family": "FACTUAL",
+      "action": "EXTERNAL_ATTRIBUTION",
+      "type": "SOURCE_QUOTE",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 18,
+      "support": [
+        "lee-q-benjamin-second-tech"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "statement_form": "INTERPRETIVE_STATEMENT",
+      "attribution_owner": "EXTERNAL"
+    },
+    {
+      "query_id": "H30V8-006",
+      "task_family": "FACTUAL",
+      "action": "SOURCE_RETRIEVAL",
+      "type": "SOURCE_QUOTE",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 17,
+      "support": [
+        "lee-q-digital-aura"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "attribution_owner": "AUTHOR"
+    },
+    {
+      "query_id": "H30V8-007",
+      "task_family": "FACTUAL",
+      "action": "SOURCE_RETRIEVAL",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-once-experiment"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "statement_form": "PARAPHRASE",
+      "attribution_owner": "AUTHOR"
+    },
+    {
+      "query_id": "H30V8-008",
+      "task_family": "FACTUAL",
+      "action": "SOURCE_RETRIEVAL",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 35,
+      "support": [
+        "b-v3-c-film-examiner"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "statement_form": "PARAPHRASE",
+      "attribution_owner": "AUTHOR"
+    },
+    {
+      "query_id": "H30V8-009",
+      "task_family": "FACTUAL",
+      "action": "SOURCE_RETRIEVAL",
+      "type": "AUTHOR_CLAIM",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 34,
+      "support": [
+        "b-v3-c-distraction"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "statement_form": "PARAPHRASE",
+      "attribution_owner": "AUTHOR"
+    },
+    {
+      "query_id": "H30V8-010",
+      "task_family": "FACTUAL",
+      "action": "SOURCE_RETRIEVAL",
+      "type": "UNRESOLVED",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": null,
+      "support": [],
+      "source_id": "s001-lee-aura-2019",
+      "expected_outcome": "ABSTAIN"
+    },
+    {
+      "query_id": "H30V8-011",
+      "task_family": "FACTUAL",
+      "action": "SOURCE_RETRIEVAL",
+      "type": "UNRESOLVED",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": null,
+      "support": [],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "expected_outcome": "ABSTAIN"
+    },
+    {
+      "query_id": "H30V8-012",
+      "task_family": "FACTUAL",
+      "action": "SOURCE_RETRIEVAL",
+      "type": "UNRESOLVED",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": null,
+      "support": [],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "expected_outcome": "ABSTAIN"
+    },
+    {
+      "query_id": "H30V8-013",
+      "task_family": "FACTUAL",
+      "action": "SOURCE_RETRIEVAL",
+      "type": "UNRESOLVED",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": null,
+      "support": [],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "expected_outcome": "ABSTAIN"
+    },
+    {
+      "query_id": "H30V8-014",
+      "task_family": "SCHOLARLY",
+      "action": "INTERPRETATION",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 1,
+      "support": [
+        "lee-q-tech-editing",
+        "lee-c-research-program"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "required_papers": [
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-015",
+      "task_family": "SCHOLARLY",
+      "action": "INTERPRETATION",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-once-experiment",
+        "b-v2-c-art-function"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-016",
+      "task_family": "SCHOLARLY",
+      "action": "INTERPRETATION",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 6,
+      "support": [
+        "b-v3-c-authenticity",
+        "b-v3-c-aura-distance"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v3",
+          "edition_id": "benjamin-artwork-v3"
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-017",
+      "task_family": "SCHOLARLY",
+      "action": "CRITIQUE",
+      "type": "CRITIQUE",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 6,
+      "support": [
+        "b-v2-c-aura-decay",
+        "lee-c-immersion"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-018",
+      "task_family": "SCHOLARLY",
+      "action": "CRITIQUE",
+      "type": "CRITIQUE",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition",
+        "b-v3-c-authenticity"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "required_papers": [
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        },
+        {
+          "paper_id": "benjamin-artwork-v3",
+          "edition_id": "benjamin-artwork-v3"
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-019",
+      "task_family": "SCHOLARLY",
+      "action": "CRITIQUE",
+      "type": "CRITIQUE",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 12,
+      "support": [
+        "b-v3-c-cult-exhibition",
+        "lee-c-tension"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v3",
+          "edition_id": "benjamin-artwork-v3"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-020",
+      "task_family": "SCHOLARLY",
+      "action": "RESPONSE",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 1,
+      "support": [
+        "lee-q-tech-editing",
+        "b-v2-c-once-experiment"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "required_papers": [
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        },
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-021",
+      "task_family": "SCHOLARLY",
+      "action": "RESPONSE",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-play-origin",
+        "lee-c-research-program"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-022",
+      "task_family": "SCHOLARLY",
+      "action": "RESPONSE",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 6,
+      "support": [
+        "b-v3-c-authenticity",
+        "lee-c-trust-definition"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v3",
+          "edition_id": "benjamin-artwork-v3"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-023",
+      "task_family": "SCHOLARLY",
+      "action": "CROSS_PAPER_COMPARE",
+      "type": "INTERPRETATION",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 17,
+      "support": [
+        "lee-c-immersion",
+        "b-v3-c-distraction"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "required_papers": [
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        },
+        {
+          "paper_id": "benjamin-artwork-v3",
+          "edition_id": "benjamin-artwork-v3"
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-024",
+      "task_family": "SCHOLARLY",
+      "action": "CROSS_PAPER_COMPARE",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-once-experiment",
+        "lee-q-tech-editing"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-025",
+      "task_family": "SCHOLARLY",
+      "action": "CROSS_PAPER_COMPARE",
+      "type": "INTERPRETATION",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 6,
+      "support": [
+        "b-v3-c-authenticity",
+        "lee-c-trust-definition"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v3",
+          "edition_id": "benjamin-artwork-v3"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-026",
+      "task_family": "SCHOLARLY",
+      "action": "RESEARCH_GAP",
+      "type": "AI_SYNTHESIS",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 17,
+      "support": [
+        "lee-c-immersion",
+        "b-v2-c-art-function"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "required_papers": [
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        },
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-027",
+      "task_family": "SCHOLARLY",
+      "action": "RESEARCH_GAP",
+      "type": "AI_SYNTHESIS",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 6,
+      "support": [
+        "b-v2-c-aura-decay",
+        "lee-c-trust-definition"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-028",
+      "task_family": "SCHOLARLY",
+      "action": "RESEARCH_QUESTION",
+      "type": "AI_SYNTHESIS",
+      "paper": "benjamin-artwork-v3",
+      "edition": "benjamin-artwork-v3",
+      "page": 6,
+      "support": [
+        "b-v3-c-authenticity",
+        "lee-c-immersion"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v3",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v3",
+          "edition_id": "benjamin-artwork-v3"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-029",
+      "task_family": "SCHOLARLY",
+      "action": "RESEARCH_QUESTION",
+      "type": "AI_SYNTHESIS",
+      "paper": "lee-aura-2019",
+      "edition": null,
+      "page": 24,
+      "support": [
+        "lee-c-trust-definition",
+        "b-v2-c-once-experiment"
+      ],
+      "source_id": "s001-lee-aura-2019",
+      "required_papers": [
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        },
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    },
+    {
+      "query_id": "H30V8-030",
+      "task_family": "SCHOLARLY",
+      "action": "RESEARCH_QUESTION",
+      "type": "AI_SYNTHESIS",
+      "paper": "benjamin-artwork-v2",
+      "edition": "benjamin-artwork-v2",
+      "page": 10,
+      "support": [
+        "b-v2-c-play-origin",
+        "lee-c-tension"
+      ],
+      "source_id": "s001-benjamin-kunstwerk-v2-gs350-384-verified",
+      "required_papers": [
+        {
+          "paper_id": "benjamin-artwork-v2",
+          "edition_id": "benjamin-artwork-v2"
+        },
+        {
+          "paper_id": "lee-aura-2019",
+          "edition_id": null
+        }
+      ],
+      "grounding_boundary": {
+        "reviewed_grounded_support_only": true,
+        "pageless_support_forbidden": true,
+        "edition_firewall": true,
+        "temporal_firewall": true,
+        "alternative_valid_support_paths_allowed": true
+      }
+    }
+  ]
+}
