@@ -307,3 +307,94 @@ def test_v6_factual_scoring_remains_strict_about_support_identity():
     report = runner.score_v6_holdout(gold, {"responses": [response]}, {"response_sha256": "x", "gold_available_during_generation": False})
     assert report["factual_task_accuracy"] == 0.0
     assert report["source_id_accuracy"] == 1.0
+
+
+def test_v7_unresolved_metalinguistic_forbidden_term_is_not_temporal_contamination():
+    from test_phase3_codex_runner import runner
+    lee = runner.AGENTS["lee-aura-2019"]
+    turn = {"text": "제공된 근거로 ‘아투라’라는 명제를 확인할 수 없다.",
+            "statement_type": "UNRESOLVED", "evidence_voice": "UNKNOWN",
+            "support_ids": [], "pages": [], "relation_type": "UNRESOLVED",
+            "actor_paper": lee.paper_id, "actor_edition_id": lee.edition_id,
+            "action": "SOURCE_RETRIEVAL", "semantic_support": "UNSUPPORTED",
+            "evidence_sufficiency": "INSUFFICIENT", "qualification": None,
+            "evidence_span": None, "claims": []}
+    errors = runner.turn_errors(turn, lee, set(), "SOURCE_RETRIEVAL")
+    assert not any("TEMPORAL_CORPUS_CONTAMINATION" in error for error in errors)
+    assert errors == []
+
+
+def test_v7_grounded_forbidden_term_remains_temporal_contamination():
+    from test_phase3_codex_runner import runner
+    lee = runner.AGENTS["lee-aura-2019"]
+    source = lee.store.get("lee-c-transparent")
+    author_turn = {"text": "Lee 2019의 아투라 주장은 다음과 같다.",
+                   "statement_type": "AUTHOR_CLAIM", "evidence_voice": "AUTHOR",
+                   "support_ids": [source.statement_id], "pages": [source.page],
+                   "relation_type": "QUALIFIES", "actor_paper": lee.paper_id,
+                   "actor_edition_id": lee.edition_id, "action": "AUTHOR_ATTRIBUTION",
+                   "semantic_support": "SEMANTICALLY_SUPPORTED",
+                   "evidence_sufficiency": "SUFFICIENT", "qualification": None,
+                   "evidence_span": source.evidence_span,
+                   "claims": [{"text": "아투라", "statement_type": "AUTHOR_CLAIM",
+                               "support_ids": [source.statement_id]}]}
+    errors = runner.turn_errors(author_turn, lee, {source.statement_id}, "AUTHOR_ATTRIBUTION")
+    assert any("TEMPORAL_CORPUS_CONTAMINATION" in error for error in errors)
+    interpretive = {**author_turn, "statement_type": "INTERPRETATION",
+                    "action": "INTERPRETATION",
+                    "claims": [{"text": "아투라", "statement_type": "INTERPRETATION",
+                                "support_ids": [source.statement_id]}]}
+    errors = runner.turn_errors(interpretive, lee, {source.statement_id}, "INTERPRETATION")
+    assert any("TEMPORAL_CORPUS_CONTAMINATION" in error for error in errors)
+
+
+def test_v7_unresolved_with_support_still_fails_abstention_shape():
+    from test_phase3_codex_runner import runner
+    lee = runner.AGENTS["lee-aura-2019"]
+    source = lee.store.get("lee-c-transparent")
+    turn = {"text": "근거가 부족하다.", "statement_type": "UNRESOLVED",
+            "evidence_voice": "UNKNOWN", "support_ids": [source.statement_id],
+            "pages": [], "relation_type": "UNRESOLVED", "actor_paper": lee.paper_id,
+            "actor_edition_id": lee.edition_id, "action": "SOURCE_RETRIEVAL",
+            "semantic_support": "UNSUPPORTED", "evidence_sufficiency": "INSUFFICIENT",
+            "qualification": None, "evidence_span": None, "claims": []}
+    errors = runner.turn_errors(turn, lee, {source.statement_id}, "SOURCE_RETRIEVAL")
+    assert any("FORMAT:" in error for error in errors)
+
+
+def test_v7_runtime_failure_is_not_stale_semantic_review():
+    from test_phase3_codex_runner import runner
+    lee = runner.AGENTS["lee-aura-2019"]
+    response = {"query_id": "q", "source_id": lee.source_id,
+                "outcome": "MODEL_RUNTIME_UNAVAILABLE",
+                "error": "codex exec invocation failed: TimeoutExpired",
+                "gate_errors": ["MODEL_RUNTIME_FAILURE"],
+                "generator_subprocess_attempts": 2,
+                "verifier_subprocess_attempts": 0}
+    gold = {"panel_id": "v7", "panel_type": "HOLDOUT30_V7_GOLD",
+            "records": [{"query_id": "q", "task_family": "FACTUAL",
+                         "action": "SOURCE_RETRIEVAL", "type": "UNRESOLVED",
+                         "expected_outcome": "ABSTAIN", "paper": lee.paper_id,
+                         "edition": lee.edition_id, "page": None, "support": [],
+                         "source_id": lee.source_id}]}
+    report = runner.score_v6_holdout(
+        gold, {"responses": [response]},
+        {"response_sha256": "x", "gold_available_during_generation": False})
+    assert report["hard_gate_counts"]["MODEL_RUNTIME_FAILURE"] == 1
+    assert report["hard_gate_counts"]["STALE_SEMANTIC_REVIEW"] == 0
+
+
+def test_v7_verifier_timeout_is_explicit_runtime_failure():
+    from test_phase3_codex_runner import runner, source_turn
+    agent = runner.AGENTS["benjamin-artwork-v2"]
+    source = next(s for s in agent.store.values()
+                  if s.evidence_voice and s.evidence_voice.value == "AUTHOR")
+    turn = source_turn(agent, source, "SOURCE_RETRIEVAL")
+    trace = {"selected_statement_ids": [source.statement_id]}
+    model_result = ModelResult(json.dumps(turn), "test", "gpt-6-sol",
+                               {"attempts": 1}, "digest")
+    with patch.object(runner, "live_turn", return_value=(turn, trace, model_result)),          patch.object(runner.CodexExecAdapter, "generate_typed_turn",
+                      side_effect=runner.ModelRuntimeUnavailable("timeout", 2)):
+        result = runner.run_one(object(), agent, "synthetic", "SOURCE_RETRIEVAL")
+    assert any("MODEL_RUNTIME_FAILURE" in error for error in result["gate_errors"])
+    assert not any("STALE_SEMANTIC_REVIEW" in error for error in result["gate_errors"])
