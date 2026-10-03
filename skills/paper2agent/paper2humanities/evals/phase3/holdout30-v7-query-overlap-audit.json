@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "task": "HOLDOUT30_V7_QUERY_FRESHNESS_AUDIT",
+  "panel_id": "phase3-holdout30-v7",
+  "implementation_freeze_sha_v7": "a8985c049ab44d457fd5e3ec61542cffb321e5cb",
+  "query_count": 30,
+  "unique_query_ids": 30,
+  "prior_query_files_checked": 12,
+  "prior_queries_checked": 303,
+  "exact_overlap": 0,
+  "normalized_exact_overlap": 0,
+  "normalization": [
+    "unicode NFKC",
+    "lowercase",
+    "strip punctuation",
+    "collapse whitespace"
+  ],
+  "maximum_sequence_similarity": 0.6993,
+  "near_copy_review": "PASS",
+  "near_copy_review_basis": "Highest-similarity candidates were manually reviewed after two rewrite passes; concept combinations, actor direction, task action, and research purpose differ from prior panels.",
+  "query_only_fields": [
+    "query_id",
+    "category",
+    "paper_id",
+    "query"
+  ],
+  "response_generation_started": false,
+  "gold_created": false,
+  "score_created": false
+}
