@@ -1,6 +1,7 @@
 from __future__ import annotations
 from pathlib import Path
-import json, shutil, subprocess, tempfile\nfrom concurrent.futures import ThreadPoolExecutor, as_completed
+import json, shutil, subprocess, tempfile
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 SCHEMA_PATH=Path(__file__).with_name("candidate_batch.schema.json")
 
@@ -21,7 +22,8 @@ class CodexCandidateGenerator:
         self.model=model
         self.executable=executable or shutil.which("codex") or str(Path.home()/".local/bin/codex")
         self.timeout=timeout
-        self.batch_pages=batch_pages\n        self.max_workers=max_workers
+        self.batch_pages=batch_pages
+        self.max_workers=max_workers
 
     def available(self):
         return Path(self.executable).exists() and SCHEMA_PATH.is_file()
