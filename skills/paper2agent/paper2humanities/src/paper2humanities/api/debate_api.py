@@ -2,7 +2,7 @@ from __future__ import annotations
 import base64, hmac, json, os, shutil, threading
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, UploadFile, File, Request
-from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse
+from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -82,6 +82,10 @@ def create_app(root:Path|None=None, model:str="gpt-6-sol"):
 
     web_dir=root/"web"
     app.mount("/debate-static",StaticFiles(directory=web_dir),name="debate-static")
+
+    @app.get("/",include_in_schema=False)
+    def root_ui():
+        return RedirectResponse(url="/debate",status_code=307)
 
     @app.get("/debate",include_in_schema=False)
     def debate_ui():
@@ -196,8 +200,10 @@ def create_app(root:Path|None=None, model:str="gpt-6-sol"):
             raise HTTPException(status_code=400,detail=str(exc))
 
     @app.post("/api/agents/from-pdf/{job_id}/generate-candidates")
-    def pdf_generate_candidates(job_id:str):
+    def pdf_generate_candidates(job_id:str,background:bool=False):
         try:
+            if background:
+                return JSONResponse(state.ingestion.start_generation(job_id),status_code=202)
             return state.ingestion.generate_candidates(job_id)
         except KeyError:
             raise HTTPException(status_code=404,detail="pdf job not found")
@@ -220,6 +226,8 @@ def create_app(root:Path|None=None, model:str="gpt-6-sol"):
             return state.ingestion.approve_high_confidence_author_claims(job_id)
         except KeyError:
             raise HTTPException(status_code=404,detail="pdf job not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
 
     @app.post("/api/agents/from-pdf/{job_id}/build-agent")
     def pdf_build_agent(job_id:str):

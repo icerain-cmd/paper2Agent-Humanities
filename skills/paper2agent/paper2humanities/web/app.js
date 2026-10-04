@@ -268,6 +268,10 @@ function switchOnboardingMode(mode){
 function slugifyId(s){
   return String(s||"").toLowerCase().normalize("NFKD").replace(/[^a-z0-9가-힣]+/g,"-").replace(/^-|-$/g,"").slice(0,120);
 }
+function pdfAgentId(metadata,sourceSha){
+  const proposed=metadata.paper_id||slugifyId((metadata.author||"paper")+"-"+(metadata.title||"agent"));
+  return /^[A-Za-z0-9._-]{3,160}$/.test(proposed)?proposed:"paper-"+sourceSha.slice(0,16);
+}
 function updatePdfStep(n){
   document.querySelectorAll(".wizard-steps span").forEach((x,i)=>x.classList.toggle("active",i<n));
 }
@@ -284,7 +288,7 @@ async function uploadAndExtractPdf(){
     if(q.quality!=="PASS")throw new Error("PDF extraction quality is "+q.quality+". 텍스트 기반 PDF를 사용하세요.");
     $("#pdf-title").value=m.title||"";$("#pdf-author").value=m.author||"";
     $("#pdf-year").value=m.year||"";$("#pdf-journal").value=m.journal||"";$("#pdf-doi").value=m.doi||"";
-    $("#pdf-paper-id").value=m.paper_id||slugifyId((m.author||"paper")+"-"+(m.title||"agent"));
+    $("#pdf-paper-id").value=pdfAgentId(m,up.source_pdf_sha256);
     $("#pdf-upload-step").hidden=true;$("#pdf-extraction-step").hidden=false;updatePdfStep(3);
   }catch(e){$("#pdf-quality").innerHTML='<div class="validation-errors">'+escapeHtml(e.message)+'</div>';$("#pdf-extraction-step").hidden=false}
   finally{$("#pdf-upload-btn").textContent="업로드하고 분석"}
@@ -314,9 +318,19 @@ async function generatePdfCandidates(){
   const meta=metadataPayload();
   if(!meta.title||!meta.author||!meta.paper_id){alert("Title, Author, Paper ID를 확인하세요.");return}
   $("#generate-candidates-btn").disabled=true;$("#generate-candidates-btn").textContent="후보 생성 중…";
+  const jobId=state.pdf.jobId;
   try{
-    await api('/api/agents/from-pdf/'+state.pdf.jobId+'/metadata',{method:"PATCH",body:JSON.stringify({metadata:meta})});
-    const job=await api('/api/agents/from-pdf/'+state.pdf.jobId+'/generate-candidates',{method:"POST"});
+    await api('/api/agents/from-pdf/'+jobId+'/metadata',{method:"PATCH",body:JSON.stringify({metadata:meta})});
+    let job=await api('/api/agents/from-pdf/'+jobId+'/generate-candidates?background=true',{method:"POST"});
+    while(job.generation?.status==="RUNNING"){
+      const g=job.generation,total=g.total_batches||0,done=g.completed_batches||0;
+      const elapsed=g.started_at?Math.max(0,(Date.now()-new Date(g.started_at).getTime())/1000):(g.elapsed_seconds||0);
+      $("#generate-candidates-btn").textContent="후보 생성 중 "+done+" / "+total+" ("+(total?Math.floor(done/total*100):0)+"%) · "+(g.active_batches||0)+"개 처리 중 · "+Math.floor(elapsed)+"초";
+      await new Promise(resolve=>setTimeout(resolve,1000));
+      job=await api('/api/agents/from-pdf/'+jobId);
+    }
+    if(job.generation?.status==="FAILED")throw new Error(job.generation.error||"Statement 후보 생성 실패");
+    if(state.pdf.jobId!==jobId)return;
     $("#pdf-extraction-step").hidden=true;$("#pdf-candidates-step").hidden=false;updatePdfStep(4);renderCandidates(job);
   }catch(e){alert(e.message)}
   finally{$("#generate-candidates-btn").disabled=false;$("#generate-candidates-btn").textContent="Statement 후보 생성"}

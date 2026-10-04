@@ -2,7 +2,7 @@ from __future__ import annotations
 from enum import Enum
 from pathlib import Path
 from datetime import datetime, timezone
-import hashlib, json, re, shutil, uuid
+import hashlib, json, re, shutil, uuid, threading, time
 from typing import Any
 
 from pypdf import PdfReader
@@ -11,6 +11,37 @@ MAX_PDF_BYTES=25*1024*1024
 JOB_ID_RE=re.compile(r"^pdfjob-[0-9a-f]{32}$")
 CANDIDATE_TYPES={"AUTHOR_CLAIM","SOURCE_QUOTE","EXTERNAL_QUOTE"}
 CANDIDATE_DECISIONS={"PENDING","APPROVED","REJECTED"}
+
+def infer_pdf_metadata(pdf_title, pdf_author, first_text):
+    # DOI transport metadata may be glued to the visible heading, including
+    # invisible HWP characters. Remove only the identifier, retaining its suffix.
+    clean=lambda text: re.sub(r"[\u200b-\u200d\ufeff]", "", text or "").strip()
+    doi_re=re.compile(r"10\.\d{4,9}/[A-Za-z0-9._;()/:+-]+",re.I)
+    title=clean(pdf_title)
+    lines=[clean(line) for line in first_text.splitlines() if clean(line)][:20]
+    doi_match=doi_re.search(clean(pdf_title)+"\n"+clean(first_text[:2000]))
+    doi=doi_match.group(0).rstrip(".,;") if doi_match else None
+    identifier=re.compile(r"^(?:https?://|doi\s*:|10\.\d{4,9}/)",re.I)
+    if not title or identifier.match(title):
+        for line in [title]+lines:
+            if identifier.match(line):
+                match=doi_re.search(line)
+                line=line[match.end():].strip() if match else ""
+            if line:
+                title=re.sub(r"\*+\s*\d*\)?\s*$", "", line).strip()
+                break
+        else:
+            title=""
+    author=clean(pdf_author)
+    # A Korean scholarly byline with affiliation is stronger evidence than the
+    # PDF software's creator/author field; do not infer from body citations.
+    byline=re.search(r"(?:^|\n|[-–—]\s*)([가-힣]{2,5})\s*\(([^)\n]{1,60})\)",clean(first_text[:1200]))
+    if byline and any(word in byline.group(2) for word in ("대학","대학교","전주대","연구소")):
+        author=byline.group(1)
+    if not author and len(lines)>1:
+        candidates=[line for line in lines[1:8] if line!=title and len(line)<=200]
+        if candidates: author=candidates[0]
+    return title[:300],author,doi
 
 class PdfJobStatus(str, Enum):
     PDF_UPLOADED="PDF_UPLOADED"
@@ -25,10 +56,22 @@ class PdfIngestionService:
         self.root=Path(root)
         self.onboarding=onboarding_service
         self.candidate_generator=candidate_generator
+        self._generation_lock=threading.Lock()
+        self._generating=set()
         self.jobs_dir=self.root/"pdf_jobs"
         self.sources_dir=self.root/"sources"
         self.jobs_dir.mkdir(parents=True,exist_ok=True)
         self.sources_dir.mkdir(parents=True,exist_ok=True)
+        # Background threads cannot survive a backend restart. Surface a retryable
+        # failure instead of leaving an on-disk job permanently RUNNING.
+        for path in self.jobs_dir.glob("pdfjob-*/manifest.json"):
+            if not JOB_ID_RE.fullmatch(path.parent.name): continue
+            try: manifest=self._read(path)
+            except (OSError,json.JSONDecodeError): continue
+            if (manifest.get("generation") or {}).get("status")=="RUNNING":
+                manifest["generation"].update(status="FAILED",active_batches=0,
+                                             error="candidate generation interrupted by backend restart; retry generation")
+                self._save_manifest(path.parent.name,manifest)
 
     def _now(self): return datetime.now(timezone.utc).isoformat()
     def _sha(self,b:bytes): return hashlib.sha256(b).hexdigest()
@@ -41,7 +84,12 @@ class PdfIngestionService:
     def _read(self,p:Path): return json.loads(p.read_text(encoding="utf-8"))
     def _write(self,p:Path,data:Any):
         p.parent.mkdir(parents=True,exist_ok=True)
-        p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+        temporary=p.with_name(p.name+"."+uuid.uuid4().hex+".tmp")
+        try:
+            temporary.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+            temporary.replace(p)
+        finally:
+            temporary.unlink(missing_ok=True)
     def _manifest(self,job_id:str):
         p=self._manifest_path(job_id)
         if not p.is_file(): raise KeyError(job_id)
@@ -107,22 +155,13 @@ class PdfIngestionService:
             "corruption_rate":round(corr_rate,6),
         }
         self._write(self._pages_path(job_id),pages)
-        title=(getattr(meta,"title",None) or meta.get("/Title") or "").strip()
-        author=(getattr(meta,"author",None) or meta.get("/Author") or "").strip()
-        first_lines=[]
-        if pages:
-            first_lines=[x.strip() for x in pages[0]["text"].splitlines() if x.strip()][:20]
-        # Publisher PDFs sometimes put a DOI/URL into the PDF Title field. Treat that
-        # as transport metadata, not a scholarly title, and fall back to page text.
-        title_looks_like_identifier=bool(re.match(r"^(?:https?://|doi\s*:|10\.\d{4,9}/)",title,re.I))
-        if (not title or title_looks_like_identifier) and first_lines:
-            candidates=[x for x in first_lines if not re.match(r"^(?:https?://|doi\s*:|10\.\d{4,9}/)",x,re.I)]
-            if candidates: title=candidates[0][:300]
-        if not author and len(first_lines)>1:
-            author_candidates=[x for x in first_lines[1:8] if x!=title and len(x)<=200]
-            if author_candidates: author=author_candidates[0]
+        title,author,doi=infer_pdf_metadata(
+            getattr(meta,"title",None) or meta.get("/Title") or "",
+            getattr(meta,"author",None) or meta.get("/Author") or "",
+            pages[0]["text"] if pages else "",
+        )
         metadata={
-            "title":title,"author":author,"year":None,"journal":None,"doi":None,
+            "title":title,"author":author,"year":None,"journal":None,"doi":doi,
             "language":"ko" if any("가"<=c<="힣" for p in pages[:2] for c in p["text"]) else "unknown",
             "paper_id":None,
         }
@@ -137,6 +176,7 @@ class PdfIngestionService:
         return m
 
     def update_metadata(self,job_id:str,patch:dict)->dict:
+        self._require_idle(job_id)
         m=self._manifest(job_id)
         allowed={"title","author","year","journal","doi","language","paper_id"}
         meta=dict(m.get("metadata") or {})
@@ -145,12 +185,74 @@ class PdfIngestionService:
         m["metadata"]=meta; self._save_manifest(job_id,m); return m
 
     def generate_candidates(self,job_id:str)->dict:
+        self._reserve_generation(job_id)
+        return self._run_generation(job_id,raise_errors=True)
+
+    def _require_idle(self,job_id):
+        with self._generation_lock:
+            if job_id in self._generating: raise ValueError("candidate generation is running")
+
+    def _reserve_generation(self,job_id,join_existing=False):
+        with self._generation_lock:
+            if job_id in self._generating:
+                if join_existing: return False
+                raise ValueError("candidate generation is running")
+            m=self._manifest(job_id)
+            if m.get("status") not in {PdfJobStatus.EXTRACTED.value,PdfJobStatus.GENERATED.value,PdfJobStatus.READY_FOR_BUILD.value}:
+                raise ValueError("PDF extraction quality has not passed")
+            if self.candidate_generator is None: raise ValueError("candidate generator unavailable")
+            count=len(self._read(self._pages_path(job_id)))
+            size=getattr(self.candidate_generator,"batch_pages",8)
+            m["generation"]={"status":"RUNNING","started_at":self._now(),"total_batches":(count+size-1)//size,
+                             "completed_batches":0,"active_batches":0,"elapsed_seconds":0,
+                             "peak_parallel":0,"failed_batches":[],"timed_out_batches":[]}
+            self._save_manifest(job_id,m)
+            self._generating.add(job_id)
+            return True
+
+    def start_generation(self,job_id):
+        if not self._reserve_generation(job_id,join_existing=True): return self.get(job_id)
+        threading.Thread(target=self._run_generation,args=(job_id,),daemon=True,
+                         name="p2h-pdf-"+job_id).start()
+        return self.get(job_id)
+
+    def _run_generation(self,job_id,raise_errors=False):
+        started=time.monotonic()
+        try:
+            self._generate_candidates(job_id)
+            with self._generation_lock:
+                m=self._manifest(job_id)
+                m["generation"].update(status="SUCCEEDED",active_batches=0,
+                                       elapsed_seconds=round(time.monotonic()-started,2))
+                self._save_manifest(job_id,m)
+            return self.get(job_id)
+        except Exception as exc:
+            with self._generation_lock:
+                m=self._manifest(job_id)
+                m["generation"].update(status="FAILED",active_batches=0,error=str(exc),
+                                       elapsed_seconds=round(time.monotonic()-started,2))
+                self._save_manifest(job_id,m)
+            if raise_errors: raise
+        finally:
+            with self._generation_lock: self._generating.discard(job_id)
+
+    def _generate_candidates(self,job_id:str)->dict:
         m=self._manifest(job_id)
         if m.get("status") not in {PdfJobStatus.EXTRACTED.value,PdfJobStatus.GENERATED.value,PdfJobStatus.READY_FOR_BUILD.value}:
             raise ValueError("PDF extraction quality has not passed")
         if self.candidate_generator is None: raise ValueError("candidate generator unavailable")
         pages=self._read(self._pages_path(job_id))
-        raw=self.candidate_generator.generate(pages,m.get("metadata") or {})
+        def progress(update):
+            with self._generation_lock:
+                current=self._manifest(job_id)
+                current["generation"].update(update)
+                self._save_manifest(job_id,current)
+        if getattr(self.candidate_generator,"supports_progress",False):
+            raw=self.candidate_generator.generate(pages,m.get("metadata") or {},on_progress=progress)
+        else:
+            raw=self.candidate_generator.generate(pages,m.get("metadata") or {})
+        # Keep the live per-batch progress when saving the final candidates.
+        m=self._manifest(job_id)
         validated=[]
         page_map={p["pdf_page"]:p["text"] for p in pages}
         for idx,item in enumerate(raw,1):
@@ -175,6 +277,7 @@ class PdfIngestionService:
         self._save_manifest(job_id,m); return self.get(job_id)
 
     def update_candidate(self,job_id:str,candidate_id:str,patch:dict)->dict:
+        self._require_idle(job_id)
         candidates=self._read(self._candidates_path(job_id))
         found=None
         for c in candidates:
@@ -194,6 +297,7 @@ class PdfIngestionService:
         self._save_manifest(job_id,m); return self.get(job_id)
 
     def approve_high_confidence_author_claims(self,job_id:str,threshold:float=0.9)->dict:
+        self._require_idle(job_id)
         candidates=self._read(self._candidates_path(job_id))
         for c in candidates:
             if c["statement_type"]=="AUTHOR_CLAIM" and c.get("confidence",0)>=threshold and c["decision"]=="PENDING":
@@ -206,6 +310,7 @@ class PdfIngestionService:
         self._save_manifest(job_id,m); return self.get(job_id)
 
     def build_agent(self,job_id:str)->dict:
+        self._require_idle(job_id)
         m=self._manifest(job_id)
         meta=m.get("metadata") or {}
         if not meta.get("title") or not meta.get("author") or not meta.get("paper_id"):
