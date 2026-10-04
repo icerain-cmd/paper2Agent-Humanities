@@ -85,3 +85,5 @@ textarea:focus,input:focus,select:focus{border-color:#777}
 .recent-actions .resume-btn{margin-top:0}
 
 .export-links[hidden]{display:none!important}
+
+.target-claim{margin-top:7px;padding-top:7px;border-top:1px dashed #d6d6d0;color:#3f3f3b}

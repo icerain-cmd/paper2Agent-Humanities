@@ -94,8 +94,9 @@ function addTurn(t){
   removeThinking();
   const wrap=document.createElement("article");wrap.className="turn-card";
   const ev=(t.evidence||[]).map(e=>'<div class="evidence-item"><div class="evidence-title">'+escapeHtml(e.statement_id)+' · p.'+e.page+'</div><div class="evidence-span">'+escapeHtml(e.evidence_span||e.text||"")+'</div></div>').join("");
-  const meta=(t.thesis||t.stance_update)?'<div class="argument-meta">'+
+  const meta=(t.thesis||t.target_claim||t.stance_update||t.unresolved_point)?'<div class="argument-meta">'+
     (t.thesis?'<div><strong>Thesis</strong> '+escapeHtml(t.thesis)+'</div>':'')+
+    (t.target_claim?'<div class="target-claim"><strong>Target claim</strong> '+escapeHtml(t.target_claim)+'</div>':'')+
     (t.stance_update?'<span class="stance-chip">'+escapeHtml(t.stance_update)+'</span>':'')+
     (t.unresolved_point?'<div class="unresolved"><strong>Open issue</strong> '+escapeHtml(t.unresolved_point)+'</div>':'')+
     '</div>':'';
@@ -106,6 +107,7 @@ function addTurn(t){
 function finish(statusText){
   removeThinking();state.running=false;status(statusText);
   $("#intervention").disabled=true;$("#intervene-btn").disabled=true;updateControls();
+  updateCurrentExport(state.sessionId,statusText==="COMPLETED");
   loadRecentSessions();
 }
 function connectStream(){
@@ -134,13 +136,17 @@ async function loadAgents(reload=false){
 function exportUrl(sessionId,format){
   return '/api/debate/sessions/'+encodeURIComponent(sessionId)+'/export/'+format;
 }
-function updateCurrentExport(sessionId){
+function updateCurrentExport(sessionId,isFinal=false){
   const box=$("#export-current");
   if(!sessionId){box.hidden=true;return}
   box.hidden=false;
+  const prefix=isFinal?"Export":"Snapshot";
   $("#export-md").href=exportUrl(sessionId,"markdown");
   $("#export-pdf").href=exportUrl(sessionId,"pdf");
   $("#export-json").href=exportUrl(sessionId,"json");
+  $("#export-md").textContent=prefix+" MD";
+  $("#export-pdf").textContent=prefix+" PDF";
+  $("#export-json").textContent=prefix+" JSON";
 }
 async function loadRecentSessions(){
   try{
@@ -148,7 +154,8 @@ async function loadRecentSessions(){
     const box=$("#recent-sessions");box.innerHTML="";
     (d.sessions||[]).forEach(s=>{
       const el=document.createElement("div");el.className="recent-item";
-      el.innerHTML='<div class="recent-topic">'+escapeHtml(s.topic)+'</div><div class="recent-meta">V'+escapeHtml(s.protocol_version||"1.0")+' · '+escapeHtml(s.status)+' · '+s.current_turn+'/'+s.max_turns+'</div><div class="recent-actions">'+(s.status==="INTERRUPTED"?'<button type="button" class="resume-btn">Resume</button>':'')+'<a href="'+exportUrl(s.session_id,"markdown")+'">MD</a><a href="'+exportUrl(s.session_id,"pdf")+'">PDF</a><a href="'+exportUrl(s.session_id,"json")+'">JSON</a></div>';
+      const exportPrefix=s.status==="COMPLETED"?"Export":"Snapshot";
+      el.innerHTML='<div class="recent-topic">'+escapeHtml(s.topic)+'</div><div class="recent-meta">V'+escapeHtml(s.protocol_version||"1.0")+' · '+escapeHtml(s.status)+' · '+s.current_turn+'/'+s.max_turns+'</div><div class="recent-actions">'+(s.status==="INTERRUPTED"?'<button type="button" class="resume-btn">Resume</button>':'')+'<a href="'+exportUrl(s.session_id,"markdown")+'">'+exportPrefix+' MD</a><a href="'+exportUrl(s.session_id,"pdf")+'">'+exportPrefix+' PDF</a><a href="'+exportUrl(s.session_id,"json")+'">'+exportPrefix+' JSON</a></div>';
       const btn=el.querySelector(".resume-btn");
       if(btn)btn.addEventListener("click",()=>resumeSession(s));
       box.appendChild(el);
