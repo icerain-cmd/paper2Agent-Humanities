@@ -111,9 +111,16 @@ class PdfIngestionService:
         author=(getattr(meta,"author",None) or meta.get("/Author") or "").strip()
         first_lines=[]
         if pages:
-            first_lines=[x.strip() for x in pages[0]["text"].splitlines() if x.strip()][:10]
-        if not title and first_lines: title=first_lines[0][:300]
-        if not author and len(first_lines)>1: author=first_lines[1][:200]
+            first_lines=[x.strip() for x in pages[0]["text"].splitlines() if x.strip()][:20]
+        # Publisher PDFs sometimes put a DOI/URL into the PDF Title field. Treat that
+        # as transport metadata, not a scholarly title, and fall back to page text.
+        title_looks_like_identifier=bool(re.match(r"^(?:https?://|doi\s*:|10\.\d{4,9}/)",title,re.I))
+        if (not title or title_looks_like_identifier) and first_lines:
+            candidates=[x for x in first_lines if not re.match(r"^(?:https?://|doi\s*:|10\.\d{4,9}/)",x,re.I)]
+            if candidates: title=candidates[0][:300]
+        if not author and len(first_lines)>1:
+            author_candidates=[x for x in first_lines[1:8] if x!=title and len(x)<=200]
+            if author_candidates: author=author_candidates[0]
         metadata={
             "title":title,"author":author,"year":None,"journal":None,"doi":None,
             "language":"ko" if any("가"<=c<="힣" for p in pages[:2] for c in p["text"]) else "unknown",
