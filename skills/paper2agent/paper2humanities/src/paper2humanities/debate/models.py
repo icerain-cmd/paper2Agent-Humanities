@@ -27,7 +27,28 @@ class DebateTurn:
     qualification: str | None = None
     context_turn_ids: list[str] = field(default_factory=list)
     verification_status: str = "PASS"
-    def to_dict(self): return asdict(self)
+
+    def to_dict(self):
+        d=asdict(self)
+        d["action"]=self.action.value
+        return d
+
+    @classmethod
+    def from_dict(cls,data:dict)->"DebateTurn":
+        return cls(
+            turn_id=data["turn_id"],
+            speaker_agent_id=data["speaker_agent_id"],
+            target_agent_ids=list(data.get("target_agent_ids") or []),
+            action=DebateAction(data["action"]),
+            text=data.get("text",""),
+            support_ids=list(data.get("support_ids") or []),
+            pages=[int(x) for x in (data.get("pages") or [])],
+            evidence=list(data.get("evidence") or []),
+            semantic_support=data.get("semantic_support","UNSUPPORTED"),
+            qualification=data.get("qualification"),
+            context_turn_ids=list(data.get("context_turn_ids") or []),
+            verification_status=data.get("verification_status","PASS"),
+        )
 
 @dataclass
 class DebateSession:
@@ -40,7 +61,22 @@ class DebateSession:
     active_issue: str | None = None
     turns: list[DebateTurn] = field(default_factory=list)
     interventions: list[dict[str, Any]] = field(default_factory=list)
+
     def to_dict(self):
         d=asdict(self)
         d["turns"]=[t.to_dict() for t in self.turns]
         return d
+
+    @classmethod
+    def from_dict(cls,data:dict)->"DebateSession":
+        return cls(
+            topic=data["topic"],
+            participant_ids=list(data.get("participant_ids") or []),
+            max_turns=int(data.get("max_turns",8)),
+            session_id=data["session_id"],
+            current_turn=int(data.get("current_turn",0)),
+            status=data.get("status","READY"),
+            active_issue=data.get("active_issue"),
+            turns=[DebateTurn.from_dict(x) for x in data.get("turns") or []],
+            interventions=list(data.get("interventions") or []),
+        )

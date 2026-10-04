@@ -1,0 +1,20 @@
+[Unit]
+Description=Paper2Agent Humanities Live Debate
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=leeyongwook
+WorkingDirectory=/home/leeyongwook/p2a-live-agent-debate/skills/paper2agent/paper2humanities
+EnvironmentFile=/home/leeyongwook/.config/paper2agent/debate.env
+Environment=PYTHONPATH=/home/leeyongwook/p2a-live-agent-debate/skills/paper2agent/paper2humanities/src
+Environment=PATH=/home/leeyongwook/.local/bin:/home/leeyongwook/.nvm/versions/node/v26.6.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=/usr/bin/python3 scripts/serve_debate_api.py --host 127.0.0.1 --port 8765 --model gpt-6-sol
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/home/leeyongwook/.local/state/paper2agent-humanities/logs/backend.log
+StandardError=append:/home/leeyongwook/.local/state/paper2agent-humanities/logs/backend.log
+
+[Install]
+WantedBy=multi-user.target

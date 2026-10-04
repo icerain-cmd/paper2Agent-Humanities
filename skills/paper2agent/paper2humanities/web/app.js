@@ -88,6 +88,7 @@ function addTurn(t){
 function finish(statusText){
   removeThinking();state.running=false;status(statusText);
   $("#intervention").disabled=true;$("#intervene-btn").disabled=true;updateControls();
+  loadRecentSessions();
 }
 function connectStream(){
   if(state.eventSource)state.eventSource.close();
@@ -112,6 +113,34 @@ async function loadAgents(reload=false){
     renderAgents();updateRegistryNote();updateControls();
   }catch(e){setError(e.message)}
 }
+async function loadRecentSessions(){
+  try{
+    const d=await api("/api/debate/sessions?limit=8");
+    const box=$("#recent-sessions");box.innerHTML="";
+    (d.sessions||[]).forEach(s=>{
+      const el=document.createElement("div");el.className="recent-item";
+      el.innerHTML='<div class="recent-topic">'+escapeHtml(s.topic)+'</div><div class="recent-meta">'+escapeHtml(s.status)+' · '+s.current_turn+'/'+s.max_turns+'</div>'+(s.status==="INTERRUPTED"?'<button type="button" class="resume-btn">Resume</button>':'');
+      const btn=el.querySelector(".resume-btn");
+      if(btn)btn.addEventListener("click",()=>resumeSession(s));
+      box.appendChild(el);
+    });
+    if(!(d.sessions||[]).length)box.innerHTML='<div class="registry-note">저장된 세션이 없습니다.</div>';
+  }catch(e){setError(e.message)}
+}
+async function resumeSession(s){
+  setError("");
+  try{
+    state.sessionId=s.session_id;state.maxTurns=s.max_turns;state.running=true;
+    state.selected=new Set(s.participant_ids||[]);
+    $("#debate-title").textContent=s.topic;$("#turn-progress").textContent=s.current_turn+" / "+s.max_turns;
+    $("#timeline").className="timeline";$("#timeline").innerHTML="";
+    $("#intervention").disabled=false;$("#intervene-btn").disabled=false;status("RUNNING");
+    renderAgents();updateControls();connectStream();
+    await api('/api/debate/sessions/'+s.session_id+'/resume',{method:"POST"});
+    await loadRecentSessions();
+  }catch(e){state.running=false;setError(e.message);status("ERROR");updateControls()}
+}
+
 async function startDebate(){
   setError("");
   try{
@@ -283,9 +312,11 @@ async function registerPdfAgent(){
 
 async function init(){
   await loadAgents(false);
+  await loadRecentSessions();
   $("#topic").addEventListener("input",updateControls);
   $("#agent-search").addEventListener("input",renderAgents);
   $("#reload-agents").addEventListener("click",()=>loadAgents(true));
+  $("#refresh-sessions").addEventListener("click",loadRecentSessions);
   $("#add-agent").addEventListener("click",openOnboarding);
   $("#close-onboarding").addEventListener("click",()=>$("#onboarding-dialog").close());
   $("#mode-json").addEventListener("click",()=>switchOnboardingMode("json"));

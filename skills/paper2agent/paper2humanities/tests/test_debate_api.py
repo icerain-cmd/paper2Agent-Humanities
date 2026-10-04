@@ -77,7 +77,7 @@ def test_background_start_and_state():
         if state["status"]=="COMPLETED": break
         time.sleep(.02)
     assert state["status"]=="COMPLETED" and len(state["turns"])==3
-    events=c.app.state.debate.events[sid]
+    events=c.app.state.debate.sessions.events_after(sid)
     names=[x["event"] for x in events]
     assert names.count("turn_completed")==3
     assert names[-1]=="debate_completed"
@@ -190,3 +190,97 @@ def test_pdf_ingestion_api_pipeline():
         reg=c.post(f"/api/agents/onboarding/{oid}/register")
         assert reg.status_code==200
         assert any(a["agent_id"]=="api-pdf-agent" for a in c.get("/api/debate/agents").json()["agents"])
+
+
+def test_interrupted_session_can_resume():
+    import tempfile, time
+    from paper2humanities.api.store import SQLiteSessionStore
+    app=create_app(ROOT)
+    with tempfile.TemporaryDirectory() as td:
+        state=app.state.debate
+        state.sessions=SQLiteSessionStore(Path(td)/"resume.db")
+        state.engine.adapter=FakeAdapter()
+        c=TestClient(app)
+        s=c.post("/api/debate/sessions",json={
+            "agent_ids":["benjamin-artwork-v2","lee-aura-2019"],
+            "topic":"resume test","max_turns":2}).json()
+        sid=s["session_id"]
+        live=state.sessions.get(sid); live.status="RUNNING"; state.sessions.put(live)
+        state.sessions=SQLiteSessionStore(Path(td)/"resume.db")
+        assert state.sessions.get(sid).status=="INTERRUPTED"
+        r=c.post(f"/api/debate/sessions/{sid}/resume")
+        assert r.status_code==200
+        for _ in range(100):
+            current=c.get(f"/api/debate/sessions/{sid}").json()
+            if current["status"]=="COMPLETED": break
+            time.sleep(.02)
+        assert current["status"]=="COMPLETED" and len(current["turns"])==2
+        events=state.sessions.events_after(sid)
+        names=[e["event"] for e in events]
+        assert "session_interrupted" in names and "session_resumed" in names
+
+
+def test_basic_auth_when_configured():
+    import os
+    old_user=os.environ.get("P2H_AUTH_USER"); old_pass=os.environ.get("P2H_AUTH_PASSWORD")
+    try:
+        os.environ["P2H_AUTH_USER"]="owner"; os.environ["P2H_AUTH_PASSWORD"]="secret-test"
+        app=create_app(ROOT)
+        c=TestClient(app)
+        assert c.get("/healthz").status_code==200
+        assert c.get("/debate").status_code==401
+        assert c.get("/debate",auth=("owner","wrong")).status_code==401
+        assert c.get("/debate",auth=("owner","secret-test")).status_code==200
+    finally:
+        if old_user is None: os.environ.pop("P2H_AUTH_USER",None)
+        else: os.environ["P2H_AUTH_USER"]=old_user
+        if old_pass is None: os.environ.pop("P2H_AUTH_PASSWORD",None)
+        else: os.environ["P2H_AUTH_PASSWORD"]=old_pass
+
+
+def test_concurrent_sessions_are_isolated():
+    import tempfile, time
+    from paper2humanities.api.store import SQLiteSessionStore
+    app=create_app(ROOT)
+    with tempfile.TemporaryDirectory() as td:
+        state=app.state.debate
+        state.sessions=SQLiteSessionStore(Path(td)/"concurrent.db")
+        state.engine.adapter=FakeAdapter()
+        c=TestClient(app)
+        s1=c.post("/api/debate/sessions",json={"agent_ids":["benjamin-artwork-v2","lee-aura-2019"],"topic":"session one","max_turns":3}).json()
+        s2=c.post("/api/debate/sessions",json={"agent_ids":["lee-aura-2019","benjamin-artwork-v3"],"topic":"session two","max_turns":3}).json()
+        assert c.post(f"/api/debate/sessions/{s1['session_id']}/start").status_code==200
+        assert c.post(f"/api/debate/sessions/{s2['session_id']}/start").status_code==200
+        for _ in range(100):
+            a=c.get(f"/api/debate/sessions/{s1['session_id']}").json()
+            b=c.get(f"/api/debate/sessions/{s2['session_id']}").json()
+            if a["status"]=="COMPLETED" and b["status"]=="COMPLETED": break
+            time.sleep(.02)
+        assert a["status"]=="COMPLETED" and b["status"]=="COMPLETED"
+        assert len(a["turns"])==3 and len(b["turns"])==3
+        assert a["topic"]=="session one" and b["topic"]=="session two"
+        assert a["participant_ids"]!=b["participant_ids"]
+        ea=state.sessions.events_after(s1["session_id"])
+        eb=state.sessions.events_after(s2["session_id"])
+        assert all(e["data"].get("session_id",s1["session_id"])!=s2["session_id"] for e in ea)
+        assert all(e["data"].get("session_id",s2["session_id"])!=s1["session_id"] for e in eb)
+
+
+def test_sse_last_event_id_resumes_without_replay():
+    import tempfile
+    from paper2humanities.api.store import SQLiteSessionStore
+    app=create_app(ROOT)
+    with tempfile.TemporaryDirectory() as td:
+        state=app.state.debate
+        state.sessions=SQLiteSessionStore(Path(td)/"sse.db")
+        state.engine.adapter=FakeAdapter()
+        c=TestClient(app)
+        s=c.post("/api/debate/sessions",json={"agent_ids":["benjamin-artwork-v2","lee-aura-2019"],"topic":"sse","max_turns":1}).json()
+        sid=s["session_id"]
+        c.post(f"/api/debate/sessions/{sid}/next")
+        events=state.sessions.events_after(sid)
+        first_id=events[0]["id"]
+        with c.stream("GET",f"/api/debate/sessions/{sid}/stream",headers={"Last-Event-ID":str(first_id)}) as resp:
+            text="".join(resp.iter_text())
+        assert f"id: {first_id}\n" not in text
+        assert "event: turn_completed" in text
