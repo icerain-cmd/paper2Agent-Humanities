@@ -10,6 +10,7 @@ from ..debate import AgentRegistry, DebateEngine, DebateSession
 from ..runtime.model_adapter import CodexExecAdapter
 from ..onboarding import OnboardingService
 from ..ingestion import PdfIngestionService, CodexCandidateGenerator
+from ..exporting import DebateExporter
 from .store import SessionStore
 
 class CreateSessionRequest(BaseModel):
@@ -43,6 +44,9 @@ class AppState:
         self.registry=AgentRegistry(root/"fixtures",self.onboarding.active_dir)
         self.engine=DebateEngine(self.registry,CodexExecAdapter(model=model,executable=codex))
         self.sessions=SessionStore(data_dir/"paper2humanities.db")
+        self.exporter=DebateExporter(self.registry,self.sessions)
+        self.export_dir=data_dir/"exports"
+        self.export_dir.mkdir(parents=True,exist_ok=True)
         self.runners:set[str]=set()
         self.runner_lock=threading.Lock()
         self.session_locks:dict[str,LockProxy]={}
@@ -243,6 +247,46 @@ def create_app(root:Path|None=None, model:str="gpt-6-sol"):
     @app.get("/api/debate/sessions/{session_id}")
     def session_state(session_id:str):
         return get_session(session_id).to_dict()
+
+    def _export_target(session,ext:str):
+        folder=state.export_dir/session.session_id
+        folder.mkdir(parents=True,exist_ok=True)
+        return folder/state.exporter.filename(session,ext)
+
+    @app.get("/api/debate/sessions/{session_id}/export/markdown")
+    def export_markdown(session_id:str):
+        session=get_session(session_id)
+        target=_export_target(session,"md")
+        target.write_text(state.exporter.build_markdown(session),encoding="utf-8")
+        return FileResponse(target,media_type="text/markdown; charset=utf-8",filename=target.name)
+
+    @app.get("/api/debate/sessions/{session_id}/export/json")
+    def export_json(session_id:str):
+        session=get_session(session_id)
+        target=_export_target(session,"json")
+        target.write_text(json.dumps(state.exporter.build_json(session),ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+        return FileResponse(target,media_type="application/json",filename=target.name)
+
+    @app.get("/api/debate/sessions/{session_id}/export/pdf")
+    def export_pdf(session_id:str):
+        session=get_session(session_id)
+        target=_export_target(session,"pdf")
+        try:
+            state.exporter.write_pdf(session,target)
+        except RuntimeError as exc:
+            raise HTTPException(status_code=503,detail=str(exc))
+        return FileResponse(target,media_type="application/pdf",filename=target.name)
+
+    @app.get("/api/debate/sessions/{session_id}/exports")
+    def export_status(session_id:str):
+        session=get_session(session_id)
+        folder=state.export_dir/session.session_id
+        files=[]
+        if folder.exists():
+            for path in sorted(folder.iterdir()):
+                if path.is_file():
+                    files.append({"name":path.name,"size":path.stat().st_size})
+        return {"session_id":session_id,"files":files}
 
     @app.post("/api/debate/sessions/{session_id}/intervene")
     def intervene(session_id:str,req:InterventionRequest):

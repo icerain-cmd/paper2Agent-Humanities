@@ -288,3 +288,48 @@ def test_sse_last_event_id_resumes_without_replay():
             text="".join(resp.iter_text())
         assert f"id: {first_id}\n" not in text
         assert "event: turn_completed" in text
+
+
+def test_debate_export_endpoints_archive_all_formats():
+    import os, tempfile
+    old=os.environ.get("P2H_DATA_DIR")
+    try:
+        with tempfile.TemporaryDirectory() as td:
+            os.environ["P2H_DATA_DIR"]=td
+            app=create_app(ROOT)
+            app.state.debate.engine.adapter=FakeAdapter()
+            c=TestClient(app)
+            s=c.post("/api/debate/sessions",json={
+                "agent_ids":["benjamin-artwork-v2","lee-aura-2019"],
+                "topic":"아우라 export 테스트",
+                "max_turns":1}).json()
+            sid=s["session_id"]
+            n=c.post(f"/api/debate/sessions/{sid}/next")
+            assert n.status_code==200
+
+            md=c.get(f"/api/debate/sessions/{sid}/export/markdown")
+            assert md.status_code==200
+            assert "text/markdown" in md.headers["content-type"]
+            assert "Debate Transcript" in md.text
+            assert "Thesis" in md.text
+
+            js=c.get(f"/api/debate/sessions/{sid}/export/json")
+            assert js.status_code==200
+            data=js.json()
+            assert data["export_schema"]=="paper2agent-humanities-debate-export-v1"
+            assert data["session"]["session_id"]==sid
+
+            pdf=c.get(f"/api/debate/sessions/{sid}/export/pdf")
+            assert pdf.status_code==200
+            assert pdf.headers["content-type"]=="application/pdf"
+            assert pdf.content.startswith(b"%PDF")
+
+            st=c.get(f"/api/debate/sessions/{sid}/exports")
+            assert st.status_code==200
+            names=[x["name"] for x in st.json()["files"]]
+            assert any(x.endswith(".md") for x in names)
+            assert any(x.endswith(".json") for x in names)
+            assert any(x.endswith(".pdf") for x in names)
+    finally:
+        if old is None: os.environ.pop("P2H_DATA_DIR",None)
+        else: os.environ["P2H_DATA_DIR"]=old

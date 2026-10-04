@@ -131,13 +131,24 @@ async function loadAgents(reload=false){
     renderAgents();updateRegistryNote();updateControls();
   }catch(e){setError(e.message)}
 }
+function exportUrl(sessionId,format){
+  return '/api/debate/sessions/'+encodeURIComponent(sessionId)+'/export/'+format;
+}
+function updateCurrentExport(sessionId){
+  const box=$("#export-current");
+  if(!sessionId){box.hidden=true;return}
+  box.hidden=false;
+  $("#export-md").href=exportUrl(sessionId,"markdown");
+  $("#export-pdf").href=exportUrl(sessionId,"pdf");
+  $("#export-json").href=exportUrl(sessionId,"json");
+}
 async function loadRecentSessions(){
   try{
     const d=await api("/api/debate/sessions?limit=8");
     const box=$("#recent-sessions");box.innerHTML="";
     (d.sessions||[]).forEach(s=>{
       const el=document.createElement("div");el.className="recent-item";
-      el.innerHTML='<div class="recent-topic">'+escapeHtml(s.topic)+'</div><div class="recent-meta">V'+escapeHtml(s.protocol_version||"1.0")+' · '+escapeHtml(s.status)+' · '+s.current_turn+'/'+s.max_turns+'</div>'+(s.status==="INTERRUPTED"?'<button type="button" class="resume-btn">Resume</button>':'');
+      el.innerHTML='<div class="recent-topic">'+escapeHtml(s.topic)+'</div><div class="recent-meta">V'+escapeHtml(s.protocol_version||"1.0")+' · '+escapeHtml(s.status)+' · '+s.current_turn+'/'+s.max_turns+'</div><div class="recent-actions">'+(s.status==="INTERRUPTED"?'<button type="button" class="resume-btn">Resume</button>':'')+'<a href="'+exportUrl(s.session_id,"markdown")+'">MD</a><a href="'+exportUrl(s.session_id,"pdf")+'">PDF</a><a href="'+exportUrl(s.session_id,"json")+'">JSON</a></div>';
       const btn=el.querySelector(".resume-btn");
       if(btn)btn.addEventListener("click",()=>resumeSession(s));
       box.appendChild(el);
@@ -149,6 +160,7 @@ async function resumeSession(s){
   setError("");
   try{
     state.sessionId=s.session_id;state.maxTurns=s.max_turns;state.running=true;
+    updateCurrentExport(s.session_id);
     state.selected=new Set(s.participant_ids||[]);
     $("#debate-title").textContent=s.topic;$("#turn-progress").textContent=s.current_turn+" / "+s.max_turns;
     $("#timeline").className="timeline";$("#timeline").innerHTML="";
@@ -165,6 +177,7 @@ async function startDebate(){
     const topic=$("#topic").value.trim();const max_turns=turnCountForPreset();
     const s=await api("/api/debate/sessions",{method:"POST",body:JSON.stringify({agent_ids:[...state.selected],topic,max_turns})});
     state.sessionId=s.session_id;state.maxTurns=max_turns;state.running=true;
+    updateCurrentExport(s.session_id);
     $("#debate-title").textContent=topic;$("#turn-progress").textContent="0 / "+max_turns;
     $("#timeline").className="timeline";$("#timeline").innerHTML="";
     $("#intervention").disabled=false;$("#intervene-btn").disabled=false;status("RUNNING");updateControls();
