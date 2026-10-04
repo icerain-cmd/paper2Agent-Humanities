@@ -22,6 +22,10 @@ class FakeAdapter(ModelAdapter):
             "actor_edition_id":payload["agent_identity"]["edition_id"],"action":action,
             "semantic_support":"SEMANTICALLY_SUPPORTED","evidence_sufficiency":"SUFFICIENT",
             "qualification":None,"evidence_span":ev["evidence_span"],
+            "thesis":"A grounded V2 thesis",
+            "target_claim":None if payload.get("opponent_context") is None else "Opponent target claim",
+            "stance_update":"MAINTAIN",
+            "unresolved_point":"Remaining scholarly issue",
             "claims":[{"text":"grounded","statement_type":"INTERPRETATION","support_ids":[ev["statement_id"]]}]
         }
         return ModelResult(json.dumps(obj,ensure_ascii=False),self.provider,self.model,{}, "x")
@@ -97,3 +101,42 @@ def test_registry_reports_rejected_agent_files():
         diag=reg.diagnostics()
         assert diag["loaded"]==0
         assert diag["rejected"] and diag["rejected"][0]["file"]=="broken-agent.json"
+
+
+def test_v2_two_agent_standard_is_balanced():
+    reg=registry(); engine=DebateEngine(reg,FakeAdapter())
+    ids=["benjamin-artwork-v2","lee-aura-2019"]
+    s=engine.create_session(ids,"아우라의 거리와 기술적 복제, 디지털아우라",10)
+    assignments=[]
+    for _ in range(10):
+        speaker,targets,action=engine.orchestrator.next_assignment(s)
+        assignments.append((speaker,action))
+        engine.step(s)
+    assert [a.value for _,a in assignments]==[
+        "POSITION","POSITION","CRITIQUE","CRITIQUE","REBUTTAL","REBUTTAL",
+        "REVISION","REVISION","CLOSING","CLOSING"]
+    assert sum(sp==ids[0] for sp,_ in assignments)==5
+    assert sum(sp==ids[1] for sp,_ in assignments)==5
+    passed=[t for t in s.turns if t.verification_status=="PASS"]
+    assert passed and all(t.thesis for t in passed)
+    assert all(t.stance_update in {"MAINTAIN","REVISE","NARROW"} for t in passed)
+
+
+def test_v2_three_agent_standard_is_balanced():
+    reg=registry(); engine=DebateEngine(reg,FakeAdapter())
+    ids=["benjamin-artwork-v2","lee-aura-2019","benjamin-artwork-v3"]
+    s=engine.create_session(ids,"아우라의 거리, 진정성, 기술적 복제와 디지털 변형",15)
+    engine.run(s)
+    assert len(s.turns)==15
+    assert [sum(t.speaker_agent_id==aid for t in s.turns) for aid in ids]==[5,5,5]
+    assert [t.action.value for t in s.turns[-3:]]==["CLOSING","CLOSING","CLOSING"]
+
+
+def test_v2_deep_adds_cross_examination():
+    reg=registry(); engine=DebateEngine(reg,FakeAdapter())
+    s=engine.create_session(["benjamin-artwork-v2","lee-aura-2019"],"아우라와 기술적 복제, 거리와 디지털 변형",14)
+    engine.run(s)
+    actions=[t.action.value for t in s.turns]
+    assert actions.count("QUESTION")==2
+    assert actions.count("RESPONSE")==2
+    assert actions[-2:]==["CLOSING","CLOSING"]

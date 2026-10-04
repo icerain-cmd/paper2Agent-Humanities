@@ -15,7 +15,7 @@ from .store import SessionStore
 class CreateSessionRequest(BaseModel):
     agent_ids:list[str]=Field(min_length=2,max_length=3)
     topic:str=Field(min_length=1)
-    max_turns:int=Field(default=8,ge=1,le=20)
+    max_turns:int=Field(default=10,ge=1,le=30)
 
 class InterventionRequest(BaseModel):
     text:str=Field(min_length=1)

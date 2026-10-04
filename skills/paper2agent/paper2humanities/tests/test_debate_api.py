@@ -23,6 +23,10 @@ class FakeAdapter(ModelAdapter):
             "actor_edition_id":payload["agent_identity"]["edition_id"],"action":action,
             "semantic_support":"SEMANTICALLY_SUPPORTED","evidence_sufficiency":"SUFFICIENT",
             "qualification":None,"evidence_span":ev["evidence_span"],
+            "thesis":"A grounded V2 thesis",
+            "target_claim":None if payload.get("opponent_context") is None else "Opponent target claim",
+            "stance_update":"MAINTAIN",
+            "unresolved_point":"Remaining scholarly issue",
             "claims":[{"text":"grounded","statement_type":"INTERPRETATION","support_ids":[ev["statement_id"]]}]
         }
         return ModelResult(json.dumps(obj,ensure_ascii=False),self.provider,self.model,{},"x")

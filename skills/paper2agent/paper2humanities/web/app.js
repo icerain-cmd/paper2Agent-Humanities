@@ -52,8 +52,21 @@ function updateRegistryNote(){
   const rejected=(r.rejected||[]).length;
   $("#registry-note").textContent=(r.loaded??state.agents.length)+" agents loaded"+(rejected?(" · "+rejected+" rejected"):"");
 }
+function turnCountForPreset(){
+  const n=state.selected.size===3?3:2;
+  const preset=$("#turns").value;
+  if(n===3)return preset==="short"?9:preset==="deep"?21:15;
+  return preset==="short"?6:preset==="deep"?14:10;
+}
+function refreshTurnPresetLabels(){
+  const n=state.selected.size===3?3:2;
+  const map=n===3?{short:9,standard:15,deep:21}:{short:6,standard:10,deep:14};
+  [...$("#turns").options].forEach(o=>o.textContent=o.value.charAt(0).toUpperCase()+o.value.slice(1)+" · "+map[o.value]+"턴");
+  $("#turn-note").textContent="전체 Agent 발언 합계 · "+n+"인 "+map[$("#turns").value]+"턴";
+}
 function updateControls(){
   $("#agent-count").textContent=state.selected.size+" selected";
+  refreshTurnPresetLabels();
   $("#start-btn").disabled=state.running||state.selected.size<2||!$("#topic").value.trim();
   $("#topic").disabled=state.running;
   $("#turns").disabled=state.running;
@@ -81,7 +94,12 @@ function addTurn(t){
   removeThinking();
   const wrap=document.createElement("article");wrap.className="turn-card";
   const ev=(t.evidence||[]).map(e=>'<div class="evidence-item"><div class="evidence-title">'+escapeHtml(e.statement_id)+' · p.'+e.page+'</div><div class="evidence-span">'+escapeHtml(e.evidence_span||e.text||"")+'</div></div>').join("");
-  wrap.innerHTML='<div class="turn-top"><div class="speaker">'+escapeHtml(speakerName(t.speaker_agent_id))+'</div><div class="action">'+escapeHtml(t.action)+'</div></div><div class="turn-text">'+escapeHtml(t.text)+'</div><div class="turn-foot"><span class="verify '+escapeHtml(t.verification_status)+'">'+escapeHtml(t.verification_status)+'</span>'+(t.evidence?.length?'<button class="evidence-toggle">근거 '+t.evidence.length+'개 보기</button>':'')+'</div><div class="evidence-box">'+ev+'</div>';
+  const meta=(t.thesis||t.stance_update)?'<div class="argument-meta">'+
+    (t.thesis?'<div><strong>Thesis</strong> '+escapeHtml(t.thesis)+'</div>':'')+
+    (t.stance_update?'<span class="stance-chip">'+escapeHtml(t.stance_update)+'</span>':'')+
+    (t.unresolved_point?'<div class="unresolved"><strong>Open issue</strong> '+escapeHtml(t.unresolved_point)+'</div>':'')+
+    '</div>':'';
+  wrap.innerHTML='<div class="turn-top"><div class="speaker">'+escapeHtml(speakerName(t.speaker_agent_id))+'</div><div class="action">'+escapeHtml(t.action)+'</div></div>'+meta+'<div class="turn-text">'+escapeHtml(t.text)+'</div><div class="turn-foot"><span class="verify '+escapeHtml(t.verification_status)+'">'+escapeHtml(t.verification_status)+'</span>'+(t.evidence?.length?'<button class="evidence-toggle">근거 '+t.evidence.length+'개 보기</button>':'')+'</div><div class="evidence-box">'+ev+'</div>';
   const btn=wrap.querySelector(".evidence-toggle");if(btn)btn.onclick=()=>wrap.querySelector(".evidence-box").classList.toggle("open");
   $("#timeline").appendChild(wrap);$("#timeline").scrollTop=$("#timeline").scrollHeight;
 }
@@ -119,7 +137,7 @@ async function loadRecentSessions(){
     const box=$("#recent-sessions");box.innerHTML="";
     (d.sessions||[]).forEach(s=>{
       const el=document.createElement("div");el.className="recent-item";
-      el.innerHTML='<div class="recent-topic">'+escapeHtml(s.topic)+'</div><div class="recent-meta">'+escapeHtml(s.status)+' · '+s.current_turn+'/'+s.max_turns+'</div>'+(s.status==="INTERRUPTED"?'<button type="button" class="resume-btn">Resume</button>':'');
+      el.innerHTML='<div class="recent-topic">'+escapeHtml(s.topic)+'</div><div class="recent-meta">V'+escapeHtml(s.protocol_version||"1.0")+' · '+escapeHtml(s.status)+' · '+s.current_turn+'/'+s.max_turns+'</div>'+(s.status==="INTERRUPTED"?'<button type="button" class="resume-btn">Resume</button>':'');
       const btn=el.querySelector(".resume-btn");
       if(btn)btn.addEventListener("click",()=>resumeSession(s));
       box.appendChild(el);
@@ -144,7 +162,7 @@ async function resumeSession(s){
 async function startDebate(){
   setError("");
   try{
-    const topic=$("#topic").value.trim();const max_turns=Number($("#turns").value);
+    const topic=$("#topic").value.trim();const max_turns=turnCountForPreset();
     const s=await api("/api/debate/sessions",{method:"POST",body:JSON.stringify({agent_ids:[...state.selected],topic,max_turns})});
     state.sessionId=s.session_id;state.maxTurns=max_turns;state.running=true;
     $("#debate-title").textContent=topic;$("#turn-progress").textContent="0 / "+max_turns;
@@ -314,6 +332,7 @@ async function init(){
   await loadAgents(false);
   await loadRecentSessions();
   $("#topic").addEventListener("input",updateControls);
+  $("#turns").addEventListener("change",updateControls);
   $("#agent-search").addEventListener("input",renderAgents);
   $("#reload-agents").addEventListener("click",()=>loadAgents(true));
   $("#refresh-sessions").addEventListener("click",loadRecentSessions);

@@ -36,12 +36,13 @@
 
       <section class="compact-grid">
         <div>
-          <label class="field-label" for="turns">턴 수</label>
+          <label class="field-label" for="turns">토론 깊이</label>
           <select id="turns">
-            <option>6</option>
-            <option selected>8</option>
-            <option>10</option>
+            <option value="short">Short</option>
+            <option value="standard" selected>Standard</option>
+            <option value="deep">Deep</option>
           </select>
+          <div id="turn-note" class="field-note">전체 Agent 발언의 합계입니다.</div>
         </div>
         <div>
           <label class="field-label">상태</label>
@@ -60,7 +61,7 @@
     <section class="debate-panel">
       <header class="debate-header">
         <div>
-          <div class="eyebrow">Live Session</div>
+          <div class="eyebrow">Live Session · Debate Protocol V2</div>
           <h2 id="debate-title">에이전트를 선택하고 토론을 시작하세요</h2>
         </div>
         <div id="turn-progress" class="turn-progress">0 / 0</div>

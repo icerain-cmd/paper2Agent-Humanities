@@ -11,6 +11,7 @@ class DebateAction(str, Enum):
     QUESTION="QUESTION"
     REBUTTAL="REBUTTAL"
     CLARIFICATION="CLARIFICATION"
+    REVISION="REVISION"
     CLOSING="CLOSING"
 
 @dataclass
@@ -27,6 +28,10 @@ class DebateTurn:
     qualification: str | None = None
     context_turn_ids: list[str] = field(default_factory=list)
     verification_status: str = "PASS"
+    thesis: str | None = None
+    target_claim: str | None = None
+    stance_update: str | None = None
+    unresolved_point: str | None = None
 
     def to_dict(self):
         d=asdict(self)
@@ -48,13 +53,18 @@ class DebateTurn:
             qualification=data.get("qualification"),
             context_turn_ids=list(data.get("context_turn_ids") or []),
             verification_status=data.get("verification_status","PASS"),
+            thesis=data.get("thesis"),
+            target_claim=data.get("target_claim"),
+            stance_update=data.get("stance_update"),
+            unresolved_point=data.get("unresolved_point"),
         )
 
 @dataclass
 class DebateSession:
     topic: str
     participant_ids: list[str]
-    max_turns: int = 8
+    max_turns: int = 10
+    protocol_version: str = "2.0"
     session_id: str = field(default_factory=lambda: f"debate-{uuid.uuid4()}")
     current_turn: int = 0
     status: str = "READY"
@@ -72,7 +82,8 @@ class DebateSession:
         return cls(
             topic=data["topic"],
             participant_ids=list(data.get("participant_ids") or []),
-            max_turns=int(data.get("max_turns",8)),
+            max_turns=int(data.get("max_turns",10)),
+            protocol_version=data.get("protocol_version","1.0"),
             session_id=data["session_id"],
             current_turn=int(data.get("current_turn",0)),
             status=data.get("status","READY"),

@@ -9,7 +9,7 @@ class DebateEngine:
         self.adapter=adapter
         self.orchestrator=orchestrator or DebateOrchestrator()
 
-    def create_session(self, participant_ids, topic, max_turns=8):
+    def create_session(self, participant_ids, topic, max_turns=10):
         if len(participant_ids) not in (2,3): raise ValueError("select exactly 2 or 3 agents")
         if len(set(participant_ids))!=len(participant_ids): raise ValueError("duplicate agent")
         for aid in participant_ids: self.registry.get(aid)

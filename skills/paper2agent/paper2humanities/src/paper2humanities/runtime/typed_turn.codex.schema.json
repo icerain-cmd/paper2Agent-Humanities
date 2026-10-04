@@ -103,6 +103,19 @@
         "null"
       ]
     },
+    "thesis": {
+      "type": ["string","null"]
+    },
+    "target_claim": {
+      "type": ["string","null"]
+    },
+    "stance_update": {
+      "type": ["string","null"],
+      "enum": ["MAINTAIN","REVISE","NARROW",null]
+    },
+    "unresolved_point": {
+      "type": ["string","null"]
+    },
     "claims": {
       "type": "array",
       "items": {
@@ -151,6 +164,10 @@
     "evidence_sufficiency",
     "qualification",
     "evidence_span",
+    "thesis",
+    "target_claim",
+    "stance_update",
+    "unresolved_point",
     "claims"
   ]
 }

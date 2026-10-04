@@ -62,6 +62,10 @@ def _grounded_turn():
         "evidence_sufficiency": "SUFFICIENT",
         "qualification": None,
         "evidence_span": "source span",
+        "thesis": None,
+        "target_claim": None,
+        "stance_update": None,
+        "unresolved_point": None,
         "claims": [{
             "text": "The source states the claim.",
             "statement_type": "AUTHOR_CLAIM",
@@ -85,6 +89,10 @@ def _unresolved_turn():
         "evidence_sufficiency": "INSUFFICIENT",
         "qualification": None,
         "evidence_span": None,
+        "thesis": None,
+        "target_claim": None,
+        "stance_update": None,
+        "unresolved_point": None,
         "claims": [],
     }
 

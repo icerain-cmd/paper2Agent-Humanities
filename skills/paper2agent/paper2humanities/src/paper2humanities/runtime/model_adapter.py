@@ -75,6 +75,11 @@ def validate_typed_turn(value: Any) -> dict[str, Any]:
     qualification = value.get("qualification")
     if qualification is not None and not isinstance(qualification, str):
         raise GenerationFormatFailure("qualification must be string or null")
+    for key in ("thesis","target_claim","unresolved_point"):
+        if value.get(key) is not None and not isinstance(value.get(key),str):
+            raise GenerationFormatFailure(f"{key} must be string or null")
+    if value.get("stance_update") is not None and value.get("stance_update") not in {"MAINTAIN","REVISE","NARROW"}:
+        raise GenerationFormatFailure("invalid stance_update")
     if value["semantic_support"] == "PARTIALLY_SUPPORTED" and "qualification" in value and not (qualification or "").strip():
         raise GenerationFormatFailure("partial support requires qualification")
     if value["statement_type"] == "UNRESOLVED":
