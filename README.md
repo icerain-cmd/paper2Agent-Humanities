@@ -9,6 +9,15 @@
 
 Paper2Agent coordinates parallel specialist agents to turn scientific papers into reliable MCP servers and skills.
 
+## 📘 Humanities Guides
+
+This fork is developing an evidence-bounded humanities research layer for source-grounded Paper Agents and scholarly dialogue.
+
+- **한국어:** [사용자 매뉴얼 · 인문학자를 위한 슬기로운 활용법](docs/USER_GUIDE_KO.md)
+- **English:** [User Manual · A Practical Guide for Humanities Scholars](docs/USER_GUIDE_EN.md)
+
+> Paper2Humanities dialogue features are experimental and currently developed in Draft PRs. The guides distinguish stable upstream functionality from the humanities extension and emphasize primary-source verification.
+
 ## 🚀 Quick Start
 
 ### Basic Usage
