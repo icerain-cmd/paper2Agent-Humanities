@@ -12,28 +12,45 @@ mkdir -p "$STATE/logs" "$STATE/nginx"
 [ -f "$ENV_FILE" ] && set -a && . "$ENV_FILE" && set +a
 export PYTHONPATH="$APP_ROOT/src"
 
-alive_pidfile() {
-  [ -f "$1" ] || return 1
-  pid="$(cat "$1" 2>/dev/null || true)"
-  [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null
+pid_matches() {
+  file="$1"
+  needle="$2"
+  [ -f "$file" ] || return 1
+  pid="$(cat "$file" 2>/dev/null || true)"
+  [ -n "$pid" ] || return 1
+  kill -0 "$pid" 2>/dev/null || return 1
+  cmd="$(tr '\000' ' ' </proc/"$pid"/cmdline 2>/dev/null || true)"
+  echo "$cmd" | grep -F "$needle" >/dev/null 2>&1
+}
+
+backend_alive() {
+  pid_matches "$BACKEND_PID" "serve_debate_api.py" || return 1
+  /usr/bin/curl -fsS --max-time 2 http://127.0.0.1:8765/healthz >/dev/null 2>&1
+}
+
+nginx_alive() {
+  pid_matches "$NGINX_PID" "paper2agent-nginx.conf" || return 1
+  /usr/bin/curl -fsS --max-time 2 http://127.0.0.1:8766/healthz >/dev/null 2>&1
 }
 
 start_backend() {
-  if alive_pidfile "$BACKEND_PID"; then return 0; fi
+  if backend_alive; then return 0; fi
+  rm -f "$BACKEND_PID"
   cd "$APP_ROOT"
   nohup /usr/bin/python3 scripts/serve_debate_api.py --host 127.0.0.1 --port 8765 --model "${P2H_MODEL:-gpt-6-sol}" >>"$LOG" 2>&1 </dev/null &
   echo $! >"$BACKEND_PID"
 }
 
 start_nginx() {
-  if alive_pidfile "$NGINX_PID"; then return 0; fi
+  if nginx_alive; then return 0; fi
+  rm -f "$NGINX_PID"
   /usr/sbin/nginx -c /home/leeyongwook/p2a-live-agent-debate/deploy/paper2agent-nginx.conf -p "$STATE/nginx/"
 }
 
 stop_all() {
-  if alive_pidfile "$NGINX_PID"; then kill "$(cat "$NGINX_PID")" || true; fi
+  if pid_matches "$NGINX_PID" "paper2agent-nginx.conf"; then kill "$(cat "$NGINX_PID")" || true; fi
   rm -f "$NGINX_PID"
-  if alive_pidfile "$BACKEND_PID"; then kill "$(cat "$BACKEND_PID")" || true; fi
+  if pid_matches "$BACKEND_PID" "serve_debate_api.py"; then kill "$(cat "$BACKEND_PID")" || true; fi
   rm -f "$BACKEND_PID"
 }
 
@@ -50,8 +67,8 @@ case "${1:-status}" in
   stop) stop_all ;;
   restart) stop_all; sleep 1; start_backend; sleep 1; start_nginx ;;
   status)
-    if alive_pidfile "$BACKEND_PID"; then echo "backend=RUNNING pid=$(cat "$BACKEND_PID")"; else echo "backend=STOPPED"; fi
-    if alive_pidfile "$NGINX_PID"; then echo "nginx=RUNNING pid=$(cat "$NGINX_PID")"; else echo "nginx=STOPPED"; fi
+    if backend_alive; then echo "backend=RUNNING pid=$(cat "$BACKEND_PID")"; else echo "backend=STOPPED"; fi
+    if nginx_alive; then echo "nginx=RUNNING pid=$(cat "$NGINX_PID")"; else echo "nginx=STOPPED"; fi
     ;;
   *) echo "usage: $0 {start|stop|restart|status}" >&2; exit 2 ;;
 esac
