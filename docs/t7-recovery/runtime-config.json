@@ -1,0 +1,9 @@
+{
+  "configured_data_dir": "/home/leeyongwook/p2a-live-agent-debate/skills/paper2agent/paper2humanities/agent_store",
+  "previous_configured_data_dir": "/home/leeyongwook/.local/share/paper2agent-humanities",
+  "reason": "Preserve the actual running DB, existing 33 sessions and newly registered agent through standard service restart; no data moved or deleted",
+  "model": "gpt-6-sol",
+  "auth_credentials_changed": false,
+  "nginx_config_changed": false,
+  "backup": "/home/leeyongwook/.local/state/paper2agent-humanities/backups/t7-20261004T120519Z/debate.env"
+}

@@ -1,0 +1,44 @@
+{
+  "existing_agent_ids": [
+    "benjamin-artwork-v2",
+    "benjamin-artwork-v3",
+    "lee-aura-2019"
+  ],
+  "session_id": "debate-6f1fafa8-9771-4496-8ac5-b77c84620b92",
+  "start": {
+    "session_id": "debate-6f1fafa8-9771-4496-8ac5-b77c84620b92",
+    "status": "RUNNING",
+    "current_turn": 0
+  },
+  "final_status": "COMPLETED",
+  "turn_count": 2,
+  "participants": [
+    "benjamin-artwork-v2",
+    "lee-aura-2019"
+  ],
+  "exports": {
+    "markdown": {
+      "http_status": 200,
+      "bytes": 8793,
+      "content_type": "text/markdown; charset=utf-8",
+      "sha256": "47c7fd3719813cb2b19b4277cf5c6c14abd4819e2fb0532cbe462420679b7f84"
+    },
+    "json": {
+      "http_status": 200,
+      "bytes": 39042,
+      "content_type": "application/json",
+      "sha256": "4790e24bc64099d8a5b7564150a442e7245bf9db47f8f68f3d59745e9693e754"
+    },
+    "pdf": {
+      "http_status": 200,
+      "bytes": 267195,
+      "content_type": "application/pdf",
+      "sha256": "8d1c8268e4619c4bb97679ddb958e77a1c4bfa49c9717ee6b29c7a038dd6e220"
+    }
+  },
+  "sse": {
+    "http_status": 200,
+    "turn_completed_events": 2,
+    "has_debate_completed": true
+  }
+}

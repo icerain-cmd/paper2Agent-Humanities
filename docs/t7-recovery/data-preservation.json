@@ -1,0 +1,10 @@
+{
+  "existing_session_count": 33,
+  "after_session_count": 35,
+  "missing_existing_sessions": 0,
+  "registered_agent_id": "paper-e538b7cd3af7190f",
+  "built_in_agents_changed": 0,
+  "v2_v3_corpus_merge": false,
+  "existing_other_data_directory_deleted": false,
+  "added_real_regression_sessions": 2
+}

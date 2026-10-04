@@ -1,0 +1,26 @@
+{
+  "unauthenticated_root": 401,
+  "authenticated_root": 200,
+  "final_url": "https://lab-pc2.taile8e20d.ts.net:8443/debate",
+  "health": {
+    "status": "ok",
+    "registry_agents": 4,
+    "registry_rejected": 0,
+    "database": "ok",
+    "session_counts": {
+      "COMPLETED": 13,
+      "INTERRUPTED": 11,
+      "READY": 11
+    },
+    "model_runtime": "available",
+    "active_sessions": 0
+  },
+  "agent_ids": [
+    "benjamin-artwork-v2",
+    "benjamin-artwork-v3",
+    "lee-aura-2019",
+    "paper-e538b7cd3af7190f"
+  ],
+  "service_restart_preserved_registered_agent": true,
+  "startup_method": "standard controller in detached session"
+}

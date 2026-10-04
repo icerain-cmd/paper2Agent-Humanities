@@ -1,0 +1,253 @@
+{
+  "started_at": "2026-10-04T12:15:34.956335+00:00",
+  "steps": {
+    "EXTRACT_AND_METADATA_UI": {
+      "quality_text": "Extraction PASS\n64 pages · 64 text pages · 81320 chars · corruption 0",
+      "metadata": {
+        "title": "기술생성시대의 매체미학",
+        "author": "이용욱",
+        "doi": "10.21793/koreall.2026.133.11",
+        "paper-id": "paper-e538b7cd3af7190f"
+      }
+    },
+    "GENERATE_START": {
+      "http_status": 202,
+      "ack_seconds": 0.06,
+      "generation": {
+        "status": "RUNNING",
+        "started_at": "2026-10-04T12:15:40.808559+00:00",
+        "total_batches": 8,
+        "completed_batches": 0,
+        "active_batches": 0,
+        "elapsed_seconds": 0,
+        "peak_parallel": 0,
+        "failed_batches": [],
+        "timed_out_batches": []
+      }
+    },
+    "PROGRESS": {
+      "elapsed": 121.19,
+      "label": "후보 생성 중 7 / 8 (87%) · 1개 처리 중 · 120초"
+    },
+    "GENERATE_COMPLETE": {
+      "runtime_seconds": 122.16,
+      "generation": {
+        "status": "SUCCEEDED",
+        "started_at": "2026-10-04T12:15:40.808559+00:00",
+        "total_batches": 8,
+        "completed_batches": 8,
+        "active_batches": 0,
+        "elapsed_seconds": 122.16,
+        "peak_parallel": 4,
+        "failed_batches": [],
+        "timed_out_batches": []
+      },
+      "summary": {
+        "total": 150,
+        "pending": 150,
+        "approved": 0,
+        "rejected": 0
+      },
+      "ui_summary": "150 candidates · 0 approved · 150 pending · 0 rejected"
+    },
+    "REVIEW": {
+      "approved_candidate_ids": [
+        "cand-0011",
+        "cand-0012",
+        "cand-0013",
+        "cand-0019",
+        "cand-0020",
+        "cand-0034",
+        "cand-0035",
+        "cand-0050",
+        "cand-0051",
+        "cand-0052",
+        "cand-0091",
+        "cand-0109",
+        "cand-0110"
+      ],
+      "summary": "150 candidates · 13 approved · 137 pending · 0 rejected"
+    },
+    "BUILD_AND_FINAL_VALIDATION": {
+      "status": 200,
+      "validation": {
+        "status": "PASS",
+        "errors": [],
+        "warnings": [],
+        "counts": {
+          "statements": 13,
+          "grounded": 13,
+          "reviewed_grounded": 13,
+          "quotes": 0,
+          "author_claims": 13,
+          "external_voice": 0
+        },
+        "preview": {
+          "agent_id": "paper-e538b7cd3af7190f",
+          "author": "이용욱",
+          "title": "기술생성시대의 매체미학",
+          "edition_id": null,
+          "source_id": "pdf-e538b7cd3af7190f",
+          "concepts": [
+            "논문은",
+            "생성",
+            "과정에서",
+            "질문",
+            "선택",
+            "수정",
+            "평가를",
+            "반복하는",
+            "창작자의",
+            "경험을",
+            "참여적",
+            "아투라",
+            "라고",
+            "구분한다",
+            "기술생성시대의",
+            "미적",
+            "기억",
+            "충동",
+            "가치의",
+            "전환으로"
+          ]
+        }
+      },
+      "onboarding_id": "onb-894fcf76e3484da7b59d19f071036cac"
+    },
+    "REGISTER": {
+      "onboarding": {
+        "onboarding_id": "onb-894fcf76e3484da7b59d19f071036cac",
+        "status": "ACTIVE",
+        "created_at": "2026-10-04T12:18:27.068148+00:00",
+        "updated_at": "2026-10-04T12:18:27.118794+00:00",
+        "original_name": "original-agent.json",
+        "agent_sha256": "0949d32d4d422ad5029e70cddc96f9491d2bd1679e48259b224a75920b5dcc46",
+        "validation": {
+          "status": "PASS",
+          "errors": [],
+          "warnings": [],
+          "counts": {
+            "statements": 13,
+            "grounded": 13,
+            "reviewed_grounded": 13,
+            "quotes": 0,
+            "author_claims": 13,
+            "external_voice": 0
+          },
+          "preview": {
+            "agent_id": "paper-e538b7cd3af7190f",
+            "author": "이용욱",
+            "title": "기술생성시대의 매체미학",
+            "edition_id": null,
+            "source_id": "pdf-e538b7cd3af7190f",
+            "concepts": [
+              "논문은",
+              "생성",
+              "과정에서",
+              "질문",
+              "선택",
+              "수정",
+              "평가를",
+              "반복하는",
+              "창작자의",
+              "경험을",
+              "참여적",
+              "아투라",
+              "라고",
+              "구분한다",
+              "기술생성시대의",
+              "미적",
+              "기억",
+              "충동",
+              "가치의",
+              "전환으로"
+            ]
+          }
+        },
+        "registered_agent_id": "paper-e538b7cd3af7190f"
+      },
+      "active_manifest": {
+        "agent_id": "paper-e538b7cd3af7190f",
+        "registered_at": "2026-10-04T12:18:27.118620+00:00",
+        "agent_sha256": "0949d32d4d422ad5029e70cddc96f9491d2bd1679e48259b224a75920b5dcc46",
+        "source_sha256": "e538b7cd3af7190f7f7afdf2b75ca87e7b89629cc42532cc9cfc61afd83c96d8",
+        "source_id": "pdf-e538b7cd3af7190f",
+        "edition_id": null,
+        "validation_status": "PASS",
+        "reviewed_grounded_count": 13,
+        "source_file": "original-agent.json",
+        "status": "ACTIVE"
+      }
+    },
+    "FINAL_HEALTH": {
+      "status": "ok",
+      "registry_agents": 4,
+      "registry_rejected": 0,
+      "database": "ok",
+      "session_counts": {
+        "COMPLETED": 12,
+        "INTERRUPTED": 11,
+        "READY": 11
+      },
+      "model_runtime": "available",
+      "active_sessions": 0
+    },
+    "BROWSER_ERRORS": {
+      "javascript_errors": [],
+      "alerts": []
+    }
+  },
+  "progress_samples": [
+    {
+      "elapsed": 10.18,
+      "label": "후보 생성 중 0 / 8 (0%) · 4개 처리 중 · 10초"
+    },
+    {
+      "elapsed": 20.35,
+      "label": "후보 생성 중 0 / 8 (0%) · 4개 처리 중 · 20초"
+    },
+    {
+      "elapsed": 30.43,
+      "label": "후보 생성 중 0 / 8 (0%) · 4개 처리 중 · 30초"
+    },
+    {
+      "elapsed": 40.53,
+      "label": "후보 생성 중 0 / 8 (0%) · 4개 처리 중 · 40초"
+    },
+    {
+      "elapsed": 50.62,
+      "label": "후보 생성 중 0 / 8 (0%) · 4개 처리 중 · 50초"
+    },
+    {
+      "elapsed": 60.7,
+      "label": "후보 생성 중 2 / 8 (25%) · 4개 처리 중 · 60초"
+    },
+    {
+      "elapsed": 70.79,
+      "label": "후보 생성 중 4 / 8 (50%) · 4개 처리 중 · 70초"
+    },
+    {
+      "elapsed": 80.87,
+      "label": "후보 생성 중 4 / 8 (50%) · 4개 처리 중 · 80초"
+    },
+    {
+      "elapsed": 90.95,
+      "label": "후보 생성 중 4 / 8 (50%) · 4개 처리 중 · 90초"
+    },
+    {
+      "elapsed": 101.02,
+      "label": "후보 생성 중 4 / 8 (50%) · 4개 처리 중 · 100초"
+    },
+    {
+      "elapsed": 111.1,
+      "label": "후보 생성 중 5 / 8 (62%) · 3개 처리 중 · 110초"
+    },
+    {
+      "elapsed": 121.19,
+      "label": "후보 생성 중 7 / 8 (87%) · 1개 처리 중 · 120초"
+    }
+  ],
+  "source_pdf_sha256": "e538b7cd3af7190f7f7afdf2b75ca87e7b89629cc42532cc9cfc61afd83c96d8",
+  "job_id": "pdfjob-39902c93781e4ba387e90774315f0861",
+  "sample_statement_text_omitted_from_git_evidence": true
+}

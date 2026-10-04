@@ -1,0 +1,65 @@
+{
+  "started_at": "2026-10-04T12:10:14.507135+00:00",
+  "steps": {
+    "WEB": {
+      "status": 200,
+      "final_url": "https://lab-pc2.taile8e20d.ts.net:8443/debate",
+      "debate_html": true
+    },
+    "HEALTH": {
+      "status": "ok",
+      "registry_agents": 3,
+      "registry_rejected": 0,
+      "database": "ok",
+      "session_counts": {
+        "COMPLETED": 11,
+        "INTERRUPTED": 11,
+        "READY": 11
+      },
+      "model_runtime": "available",
+      "active_sessions": 0
+    },
+    "UPLOAD": {
+      "job_id": "pdfjob-7e158bb94c5d486b8d0e8dc81b19bf50"
+    },
+    "EXTRACT": {
+      "quality": "PASS",
+      "pages": 64,
+      "text_pages": 64,
+      "empty_pages": 0,
+      "characters": 81320,
+      "average_chars_per_page": 1270.62,
+      "corruption_rate": 0.0
+    },
+    "METADATA_EXTRACTED": {
+      "title": "기술생성시대의 매체미학",
+      "author": "이용욱",
+      "year": null,
+      "journal": null,
+      "doi": "10.21793/koreall.2026.133.11",
+      "language": "ko",
+      "paper_id": null
+    },
+    "GENERATE": {
+      "runtime_seconds": 125.61,
+      "peak_parallel": 4,
+      "summary": {
+        "total": 147,
+        "pending": 147,
+        "approved": 0,
+        "rejected": 0
+      },
+      "failed_batches": [],
+      "timed_out_batches": []
+    },
+    "REVIEW_READY": {
+      "high_confidence_author_claims": 130,
+      "note": "Awaiting agent semantic review before build/register; exact spans verified"
+    }
+  },
+  "source_pdf_sha256": "e538b7cd3af7190f7f7afdf2b75ca87e7b89629cc42532cc9cfc61afd83c96d8",
+  "job_id": "pdfjob-7e158bb94c5d486b8d0e8dc81b19bf50",
+  "candidate_runtime_seconds": 125.61,
+  "actual_peak_parallel": 4,
+  "batch_count": 8
+}

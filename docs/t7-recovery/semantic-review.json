@@ -1,0 +1,127 @@
+{
+  "job_id": "pdfjob-39902c93781e4ba387e90774315f0861",
+  "total_exact_page_spans": 150,
+  "approved": [
+    {
+      "candidate_id": "cand-0011",
+      "pdf_page": 5,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "54e94cfb8063de684e30e60304669f8e91fd5db79c6f44143a5c736faa230c0c",
+      "evidence_span_sha256": "43ec6e8e9e79b72c5a1f652e91fd986637fc0fc6ee0bfca12dd3985f440d4f6c",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0012",
+      "pdf_page": 5,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "648f4baa1b45fcc325755eac239cfe7b7211ea830109bac2c741c2e5e017fbbd",
+      "evidence_span_sha256": "b4254fc3d0e2c75f720334ae53fd422141b38c34d6247a22dc64d16b14c8dcac",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0013",
+      "pdf_page": 5,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "30f52f8852a1d344d9e006bfbe8fd90d6820b1216b61cc71bfdb18a99270dc1e",
+      "evidence_span_sha256": "3df22fd15af2f3f500277c9a95b235789dfa9f0db882dcba236e1e330eff2459",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0019",
+      "pdf_page": 8,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "6df0ee1f6b3c662831f6e8c91af2a8905c2df66c1feb77abd5624d3e6da09665",
+      "evidence_span_sha256": "d13f1fa4b41d799b8b7c034d49f4392543087623fd52d97eecd83fe099efa9f4",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0020",
+      "pdf_page": 8,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "f662de7f38c337132dfbe0ac11554982e9fa1ce919f92fbd65872c2d14abaa6b",
+      "evidence_span_sha256": "88013dad34fcb1ab777332d69186e81bdf37854170be9535d3f5f586aa65b3ea",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0034",
+      "pdf_page": 14,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "772f12ffae78f6613452ca02d8061b67755e400d9a3b2be5949c8abca6e15674",
+      "evidence_span_sha256": "11f1f43f6b3d9e6d391c6cf19d0aba74a0bc2d8d1e1e8f47ad1912551d49b293",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0035",
+      "pdf_page": 14,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "b678bcac66b37c65ae170e93e9384bce94217ddd0ad3788b370bea9fca386c5e",
+      "evidence_span_sha256": "d9c6642a90f54458b2a613c5059f7c88758e2d0c3ffda4e4b289e9e073c63b65",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0050",
+      "pdf_page": 21,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "007832dbb07182416abcd3a45ca9c26d0aecb077b625fcb970ed9d09f7eb5954",
+      "evidence_span_sha256": "f6a4e7a5377a46f81ac33c2957697f6b79069cd52f262fc8bb689a2f4970c5f8",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0051",
+      "pdf_page": 21,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "d1d7acc5e52bab1829aa37c79caf4cc51aed8fd1ed2ac04d7728b0ea0abab1b4",
+      "evidence_span_sha256": "c4bb64cfde93e48ebabcc03a30d376e5fb74772c3196d2b265a785dc587e4ba6",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0052",
+      "pdf_page": 21,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "9e0246ee33485ff3d0b573dc3c421e907569c0f4586961c0bd6671092296dee0",
+      "evidence_span_sha256": "56714db2be985d2af9e80cceb0f25286b3586c162a4da0b84e77e8dfad60accd",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0091",
+      "pdf_page": 37,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "23dde8a03bfba1a1e9159b3de84fff161806bdb8f5f87b71262268a32c531404",
+      "evidence_span_sha256": "3e34c54261210df21ae4f3e0c31b9827f931df1c0bcbc3e33854b5563e5772d0",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0109",
+      "pdf_page": 45,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "283b733cbde5f70863f17b61c7ad298d4319ad0c2e316c423d251e1f84acd2ac",
+      "evidence_span_sha256": "3cd94f4cca07225126de39bf84e3e9dc15bbe2d77459d439daad8e8bb28fcfbc",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    },
+    {
+      "candidate_id": "cand-0110",
+      "pdf_page": 45,
+      "statement_type": "AUTHOR_CLAIM",
+      "evidence_voice": "AUTHOR",
+      "text_sha256": "c994818c7aed42b7986df1f029fbfb3b54f50e57534763b014dc22e8db471207",
+      "evidence_span_sha256": "126c1363baf57419f120d4eda597de08355e41525f52868aaf116a1f69eaafbe",
+      "review": "PASS: conservative paraphrase directly supported by the author-voice span; not an external quotation"
+    }
+  ],
+  "pending": 137,
+  "rejected": 0,
+  "reviewer": "Codex; task-authorized source review, not an assertion of user approval",
+  "not_auto_approved_by_confidence": true
+}

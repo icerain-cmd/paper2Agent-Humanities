@@ -1,0 +1,28 @@
+{
+  "WEB_UI": "PASS",
+  "ROOT_ROUTE_OR_NGINX_CONTRACT": "PASS",
+  "HEALTHZ": "PASS",
+  "MODEL_RUNTIME": "AVAILABLE",
+  "REGISTRY_EXISTING_AGENTS": "PASS",
+  "PDF_EXTRACTION_64P": "PASS",
+  "PDF_METADATA_TITLE": "PASS",
+  "PDF_CANDIDATE_GENERATION": "PASS",
+  "PDF_CANDIDATE_GENERATION_NO_HANG": "PASS",
+  "PDF_AGENT_BUILD": "PASS",
+  "PDF_FINAL_VALIDATION": "PASS",
+  "PDF_AGENT_REGISTER": "PASS",
+  "EXISTING_DEBATE_REGRESSION": "PASS",
+  "EXPORT_REGRESSION": "PASS",
+  "tests": {
+    "passed": 180
+  },
+  "candidate_runtime_seconds": 122.16,
+  "candidates_total": 150,
+  "approved": 13,
+  "pending": 137,
+  "rejected": 0,
+  "agent_registered_id": "paper-e538b7cd3af7190f",
+  "code_commit": "46adde6457af1cb51d260f916503d154d0ee6cc4",
+  "upstream_merge": "dbdac823a023af9208934d18d4d5fd7e823364d1",
+  "final_status": "COMPLETE"
+}
