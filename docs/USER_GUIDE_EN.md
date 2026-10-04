@@ -88,7 +88,7 @@ Turn your paper into an agent and expose it to critique from a classical or comp
 ### 2) Ask “Where do they diverge?” before “Who is right?”
 The precise point at which concepts diverge may be more valuable than an artificial winner.
 
-### 3) Capture moments of Atura
+### 3) Capture moments of Artura
 When an unexpected connection or momentary insight emerges, do not immediately promote it to a conclusion. Save it as a research memo.
 
 Record:
@@ -184,13 +184,13 @@ Debate session file:
 Core conflict:
 Strongest critique:
 Possible revision to my argument:
-Atura candidate:
+Artura candidate:
 Primary-source checks:
 Additional literature:
 Final researcher judgment:
 ```
 
-Keep **Atura candidates** separate from conclusions. A momentary insight is the beginning of a hypothesis, not validated knowledge.
+Keep **Artura candidates** separate from conclusions. A momentary insight is the beginning of a hypothesis, not validated knowledge.
 
 ### 7.5 Local API and web assets
 
@@ -272,7 +272,7 @@ Live Debate is not itself a research result. Use three stages:
 **Discovery → Verification → Researcher judgment**
 
 ### Discovery
-Find unexpected connections, objections, and Atura candidates in the friction between agents.
+Find unexpected connections, objections, and Artura candidates in the friction between agents.
 
 ### Verification
 Return to the evidence IDs and primary-source pages. Add relevant secondary literature when needed.
