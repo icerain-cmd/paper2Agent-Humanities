@@ -146,3 +146,47 @@ def test_onboarding_api_blocks_invalid_and_builtin_disable():
         assert blocked.status_code==400
         built=c.delete("/api/agents/benjamin-artwork-v2")
         assert built.status_code==400
+
+
+def test_pdf_ingestion_api_pipeline():
+    import tempfile, fitz
+    from paper2humanities.ingestion import PdfIngestionService
+    from paper2humanities.onboarding import OnboardingService
+    from paper2humanities.debate import AgentRegistry
+    class FakePdfGenerator:
+        def generate(self,pages,metadata):
+            p=pages[0]
+            span=next(x.strip() for x in p["text"].splitlines() if x.strip().startswith("This paper argues"))
+            return [{"statement_type":"AUTHOR_CLAIM","text":"The paper argues that mediated distance is transformed.","pdf_page":1,
+                     "evidence_span":span,"evidence_voice":"AUTHOR","attributed_author":metadata.get("author"),"confidence":0.97}]
+    app=create_app(ROOT)
+    with tempfile.TemporaryDirectory() as td:
+        state=app.state.debate
+        state.onboarding=OnboardingService(Path(td)/"store",ROOT/"fixtures")
+        state.ingestion=PdfIngestionService(Path(td)/"store",state.onboarding,FakePdfGenerator())
+        state.registry=AgentRegistry(ROOT/"fixtures",state.onboarding.active_dir)
+        state.engine.registry=state.registry
+        pdf=Path(td)/"api.pdf"
+        doc=fitz.open(); pg=doc.new_page()
+        text="API PDF Test\nAPI Scholar\nThis paper argues that mediated distance is transformed by digital systems while preserving source boundaries. Additional discussion provides enough content for page extraction quality and validation in this test document. The argument remains limited and does not claim empirical proof."
+        pg.insert_textbox(fitz.Rect(60,60,535,780),text,fontsize=12,fontname="helv",lineheight=1.5)
+        doc.set_metadata({"title":"API PDF Test","author":"API Scholar"}); doc.save(pdf); doc.close()
+        c=TestClient(app)
+        with pdf.open("rb") as fh:
+            up=c.post("/api/agents/from-pdf/upload",files={"file":("api.pdf",fh,"application/pdf")})
+        assert up.status_code==200
+        jid=up.json()["job_id"]
+        ext=c.post(f"/api/agents/from-pdf/{jid}/extract")
+        assert ext.status_code==200 and ext.json()["extraction"]["quality"]=="PASS"
+        meta=c.patch(f"/api/agents/from-pdf/{jid}/metadata",json={"metadata":{"paper_id":"api-pdf-agent","year":2026}})
+        assert meta.status_code==200
+        gen=c.post(f"/api/agents/from-pdf/{jid}/generate-candidates")
+        assert gen.status_code==200 and len(gen.json()["candidates"])==1
+        cid=gen.json()["candidates"][0]["candidate_id"]
+        assert c.patch(f"/api/agents/from-pdf/{jid}/candidates/{cid}",json={"decision":"APPROVED"}).status_code==200
+        built=c.post(f"/api/agents/from-pdf/{jid}/build-agent")
+        assert built.status_code==200
+        oid=built.json()["onboarding"]["onboarding_id"]
+        reg=c.post(f"/api/agents/onboarding/{oid}/register")
+        assert reg.status_code==200
+        assert any(a["agent_id"]=="api-pdf-agent" for a in c.get("/api/debate/agents").json()["agents"])

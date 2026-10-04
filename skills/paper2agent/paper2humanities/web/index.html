@@ -87,6 +87,11 @@
         <button id="close-onboarding" type="button" class="icon-btn">×</button>
       </header>
       <div class="dialog-body">
+        <div class="onboarding-modes">
+          <button id="mode-json" type="button" class="mode-btn active">Agent JSON</button>
+          <button id="mode-pdf" type="button" class="mode-btn">논문 PDF</button>
+        </div>
+        <div id="json-onboarding-flow">
         <div id="onboarding-upload-step">
           <label class="upload-box" for="agent-file">
             <strong>Paper Agent JSON 선택</strong>
@@ -103,6 +108,54 @@
           <div class="dialog-actions">
             <button id="register-agent-btn" class="primary-btn" type="button" disabled>Register Agent</button>
             <button id="reset-onboarding" type="button" class="secondary-btn">다른 파일 선택</button>
+          </div>
+        </div>
+        </div>
+
+        <div id="pdf-onboarding-flow" hidden>
+          <div class="wizard-steps">
+            <span class="active">1 PDF</span><span>2 Extract</span><span>3 Metadata</span><span>4 Statements</span><span>5 Build</span>
+          </div>
+
+          <div id="pdf-upload-step" class="pdf-step">
+            <label class="upload-box" for="pdf-file">
+              <strong>논문 PDF 선택</strong>
+              <span>텍스트 기반 PDF 우선 · 최대 25MB · 스캔 PDF는 quality gate에서 차단</span>
+              <input id="pdf-file" type="file" accept=".pdf,application/pdf">
+            </label>
+            <div id="pdf-file-name" class="registry-note"></div>
+            <button id="pdf-upload-btn" class="primary-btn" type="button" disabled>업로드하고 분석</button>
+          </div>
+
+          <div id="pdf-extraction-step" class="pdf-step" hidden>
+            <div id="pdf-quality" class="quality-card"></div>
+            <div class="metadata-grid">
+              <label>Title<input id="pdf-title" type="text"></label>
+              <label>Author<input id="pdf-author" type="text"></label>
+              <label>Paper ID<input id="pdf-paper-id" type="text" placeholder="author-year-short-title"></label>
+              <label>Year<input id="pdf-year" type="number"></label>
+              <label>Journal<input id="pdf-journal" type="text"></label>
+              <label>DOI<input id="pdf-doi" type="text"></label>
+            </div>
+            <button id="generate-candidates-btn" class="primary-btn" type="button">Statement 후보 생성</button>
+          </div>
+
+          <div id="pdf-candidates-step" class="pdf-step" hidden>
+            <div class="candidate-toolbar">
+              <div id="candidate-summary"></div>
+              <button id="approve-high-btn" type="button" class="secondary-btn">고신뢰 Author Claim 승인</button>
+            </div>
+            <div id="candidate-list" class="candidate-list"></div>
+            <button id="build-pdf-agent-btn" class="primary-btn" type="button" disabled>검토한 후보로 Agent Build</button>
+          </div>
+
+          <div id="pdf-build-step" class="pdf-step" hidden>
+            <div id="pdf-build-result" class="validation-preview"></div>
+            <div id="pdf-build-errors" class="validation-errors"></div>
+            <div class="dialog-actions">
+              <button id="register-pdf-agent-btn" class="primary-btn" type="button" disabled>Register PDF Agent</button>
+              <button id="reset-pdf-flow" type="button" class="secondary-btn">다른 PDF 선택</button>
+            </div>
           </div>
         </div>
       </div>

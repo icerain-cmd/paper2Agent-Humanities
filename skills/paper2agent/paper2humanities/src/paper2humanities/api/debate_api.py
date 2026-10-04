@@ -1,7 +1,7 @@
 from __future__ import annotations
 import json, shutil, threading
 from pathlib import Path
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 from ..debate import AgentRegistry, DebateEngine
 from ..runtime.model_adapter import CodexExecAdapter
 from ..onboarding import OnboardingService
+from ..ingestion import PdfIngestionService, CodexCandidateGenerator
 from .store import SessionStore
 
 class CreateSessionRequest(BaseModel):
@@ -23,12 +24,21 @@ class UploadAgentRequest(BaseModel):
     agent:dict
     original_name:str|None=None
 
+class MetadataPatchRequest(BaseModel):
+    metadata:dict
+
+class CandidatePatchRequest(BaseModel):
+    decision:str|None=None
+    text:str|None=None
+    attributed_author:str|None=None
+
 class AppState:
     def __init__(self, root:Path, model:str="gpt-6-sol"):
         self.root=root
         self.onboarding=OnboardingService(root/"agent_store",root/"fixtures")
-        self.registry=AgentRegistry(root/"fixtures",self.onboarding.active_dir)
         codex=shutil.which("codex") or str(Path.home()/".local/bin/codex")
+        self.ingestion=PdfIngestionService(root/"agent_store",self.onboarding,CodexCandidateGenerator(model=model,executable=codex))
+        self.registry=AgentRegistry(root/"fixtures",self.onboarding.active_dir)
         self.engine=DebateEngine(self.registry,CodexExecAdapter(model=model,executable=codex))
         self.sessions=SessionStore()
         self.events:dict[str,list[dict]]={}
@@ -112,6 +122,74 @@ def create_app(root:Path|None=None, model:str="gpt-6-sol"):
             return result
         except KeyError:
             raise HTTPException(status_code=404,detail="registered agent not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.post("/api/agents/from-pdf/upload")
+    async def pdf_upload(file:UploadFile=File(...)):
+        try:
+            data=await file.read()
+            return state.ingestion.upload_pdf(data,file.filename or "paper.pdf")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.post("/api/agents/from-pdf/{job_id}/extract")
+    def pdf_extract(job_id:str):
+        try:
+            return state.ingestion.extract(job_id)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="pdf job not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.get("/api/agents/from-pdf/{job_id}")
+    def pdf_job(job_id:str):
+        try:
+            return state.ingestion.get(job_id)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="pdf job not found")
+
+    @app.patch("/api/agents/from-pdf/{job_id}/metadata")
+    def pdf_metadata(job_id:str,req:MetadataPatchRequest):
+        try:
+            return state.ingestion.update_metadata(job_id,req.metadata)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="pdf job not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.post("/api/agents/from-pdf/{job_id}/generate-candidates")
+    def pdf_generate_candidates(job_id:str):
+        try:
+            return state.ingestion.generate_candidates(job_id)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="pdf job not found")
+        except (ValueError,RuntimeError) as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.patch("/api/agents/from-pdf/{job_id}/candidates/{candidate_id}")
+    def pdf_update_candidate(job_id:str,candidate_id:str,req:CandidatePatchRequest):
+        try:
+            patch={k:v for k,v in req.model_dump().items() if v is not None}
+            return state.ingestion.update_candidate(job_id,candidate_id,patch)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="pdf job or candidate not found")
+        except ValueError as exc:
+            raise HTTPException(status_code=400,detail=str(exc))
+
+    @app.post("/api/agents/from-pdf/{job_id}/approve-high-confidence")
+    def pdf_approve_high(job_id:str):
+        try:
+            return state.ingestion.approve_high_confidence_author_claims(job_id)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="pdf job not found")
+
+    @app.post("/api/agents/from-pdf/{job_id}/build-agent")
+    def pdf_build_agent(job_id:str):
+        try:
+            return state.ingestion.build_agent(job_id)
+        except KeyError:
+            raise HTTPException(status_code=404,detail="pdf job not found")
         except ValueError as exc:
             raise HTTPException(status_code=400,detail=str(exc))
 
